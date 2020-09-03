@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+const commander = require('commander');
+
+const commands = require('../commands');
+
+commander
+  .command('start')
+  .action((...argv) => {
+    commands.start(...argv);
+  })
+
+commander
+  .command('init')
+  .action((...argv) => {
+    commands.init(...argv)
+  })
+
+commander.parse(process.argv);

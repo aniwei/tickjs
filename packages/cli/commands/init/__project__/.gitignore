@@ -1,0 +1,16 @@
+dist
+node_modules
+.tickjs/pages
+.tickjs/static
+.tickjs/**/*.js.map
+.cache
+.DS_Store
+lerna-debug.log
+yarn-error.log
+_book
+.idea
+.vscode
+temp
+website/build
+website/package.json
+packages/**/package-lock.json
