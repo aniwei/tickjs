@@ -6,6 +6,9 @@ module.exports = async function start () {
 
   if (exist) {
     const rc = require(env.rc);
+    
+
+  } else {
+
   }
-  
 }
