@@ -13,7 +13,7 @@ module.exports = {
 
   routes: [
     {
-      path: '/',
+      path: '/admin',
       component: './Index',
       routes: [
         

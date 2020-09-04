@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "admin"
+  ],
+  "subpackages": [{
+    "root": "admin",
+    "pages": [
+      "signin"
+    ]
+  }],
+  "sitemapLocation": "sitemap.json"
+}
