@@ -1,12 +1,1 @@
-{
-  "pages": [
-    "admin"
-  ],
-  "subpackages": [{
-    "root": "admin",
-    "pages": [
-      "signin"
-    ]
-  }],
-  "sitemapLocation": "sitemap.json"
-}
+{"window":{"title":"","navigationBarTitleText":""},"pages":["/admin","/admin/signin"],"tabBar":{"list":[{"pagePath":"/admin","selectedIcon":{"path":"/admin","selectedIcon":"","icon":"","text":""}},{"pagePath":"/admin","selectedIcon":{"path":"/admin","selectedIcon":"","icon":"","text":""}}]}}

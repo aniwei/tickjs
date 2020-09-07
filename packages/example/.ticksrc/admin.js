@@ -1,3 +1,5 @@
+import Admin from './src_Admin_SignIn_index.js';
+
 // admin.js
 Page({
 
