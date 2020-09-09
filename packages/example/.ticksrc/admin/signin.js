@@ -1,4 +1,4 @@
-// .ticksrc/admin/signin.js
+// admin/signin.js
 Page({
 
   /**

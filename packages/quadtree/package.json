@@ -1,15 +1,14 @@
 {
-  "name": "example",
+  "name": "quadtree",
   "version": "1.0.0",
   "description": "",
-  "main": ".tickrc.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vant/weapp": "^1.5.0",
-    "user-home": "^2.0.0"
+    "js-quadtree": "^3.3.0"
   }
 }

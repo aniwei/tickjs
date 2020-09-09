@@ -1,12 +1,32 @@
 {
+  "window": {
+    "title": "",
+    "navigationBarTitleText": ""
+  },
   "pages": [
-    "admin"
+    "/admin",
+    "/admin/signin"
   ],
-  "subpackages": [{
-    "root": "admin",
-    "pages": [
-      "signin"
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "/admin",
+        "selectedIcon": {
+          "path": "/admin",
+          "selectedIcon": "",
+          "icon": "",
+          "text": ""
+        }
+      },
+      {
+        "pagePath": "/admin",
+        "selectedIcon": {
+          "path": "/admin",
+          "selectedIcon": "",
+          "icon": "",
+          "text": ""
+        }
+      }
     ]
-  }],
-  "sitemapLocation": "sitemap.json"
+  }
 }
