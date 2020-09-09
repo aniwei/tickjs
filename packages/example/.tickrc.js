@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 
+
 module.exports = {
   appid: 'wx3ce645f632f26623',
 
@@ -18,19 +19,26 @@ module.exports = {
 
   routes: [
     {
-      path: '/admin',
-      component: './Index',
-      config: {
-        enablePullDownRefresh: true,
-        disableShareMenu: true
-      },
+      path: '/',
+      component: './layouts/BasicLayout',
       routes: [
         {
-          path: '/signin',
-          component: './Admin/SignIn'
+          path: '/admin',
+          component: './Admin/Index',
+          prerender: './Admin/SignIn/Sketon',
+          config: {
+            enablePullDownRefresh: true,
+            disableShareMenu: true
+          },
+          routes: [
+            {
+              path: '/signin',
+              component: './Admin/SignIn'
+            }
+          ]
         }
       ]
-    }
+    },
   ],
 
   tabBar: {
@@ -50,6 +58,6 @@ module.exports = {
   },
 
   alias: {
-
+    '@tickjs/weapp': resolve('../weapp')
   }
 }

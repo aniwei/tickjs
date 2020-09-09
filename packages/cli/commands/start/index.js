@@ -1,6 +1,10 @@
 const { join, parse } = require('path');
 const fs = require('fs-extra');
 const globby = require('globby');
+const webpack = require('webpack');
+const clone = require('clone');
+
+const defaultWebpackConfig = require('../../shared/defaultWebpackConfig');
 const env = require('../../shared/env');
 
 const exists = async (filename) => {
@@ -8,6 +12,30 @@ const exists = async (filename) => {
 }
 
 const handleWebpackConfig = async (tickrc) => {
+  const flattenRoutes = tickrc.flattenRoutes;
+  const config = clone(defaultWebpackConfig);
+  
+  flattenRoutes.filter(route => route.path !== '/').forEach(route => {
+    const { component } = route;
+    const filename = component.replace(/\.\//, '').split('/').join('');
+
+    defaultWebpackConfig.entry[join('pages', filename)] = join(env.src, 'pages', component);
+  });
+
+  config.mode = 'development';
+  config.resolve.alias = tickrc.alias;
+
+  const compiler = webpack(config);
+  compiler.watch({}, (error, stat) => {
+    if (stat.hasErrors()) {
+      console.log(stat.toJson().errors)
+    }
+  });
+}
+
+const handleThirdParty = (tickrc) => {
+  const { thirdParty } = tickrc;
+
 
 }
 
@@ -16,73 +44,83 @@ const handleMiniProgramPages = async (tickrc) => {
   const files = await globby([
     `**/**`, 
     `!static/**`,
-    `!tick/**`,
+    `!miniprogram_engine/**`,
+    `!miniprogram_npm/**`,
     `!app.js`, 
     `!app.json`, 
     `!app.wxss`, 
-    `!sitemap.json`
+    `!sitemap.json`,
   ], {
     cwd: env.dist
   });
 
   const newFiles = files.slice();
 
-  flattenRoutes.forEach(async route => {
-    const { files: routeFiles, component, config } = route;
+  flattenRoutes
+    // miniprogram not supoort / route
+    .filter(route => route.path !== '/')
+    .forEach(async route => {
+      const { files: routeFiles, component, config } = route;
 
-    if (routeFiles.some(file => {
-      return newFiles.indexOf(file) === -1;
-    })) {
-      route.isMounted = false;
-      
-      const [
-        js, json, wxml
-      ] = routeFiles.map(file => {
-        return join(env.dist, file);
-      });
+      if (routeFiles.some(file => {
+        return newFiles.indexOf(file) === -1;
+      })) {
+        route.isMounted = false;
+        
+        const [
+          js, json, wxml
+        ] = routeFiles.map(file => {
+          return join(env.dist, file);
+        });
 
-      const filename = component.split('/').join('');
+        // /Admin/SignIn/ => AdminSignIn
+        const filename = component
+          .replace(/\.\//, '')
+          .split('/')
+          .join('');
 
-      const jsString = [
-        `// ${component}`,
-        `import { ViewController } from '@tickjs/weapp';`,
-        `import ${filename} from '${filename}';`,
-        `const controller = new ViewController('${route}', ${filename});`,
-        `controller.register();`
-      ].join('');
+        const jsString = [
+          `// ${component}`,
+          `import { ViewController } from '@tickjs/weapp';`,
+          `import ${filename} from '${filename}'\n;`,
+          `const controller = new ViewController('${route}', ${filename});`,
+          `controller.register();`
+        ].join('\n');
 
-      const wxmlString = [
-        `<block wx:if={{}}></block>`,
-        `<block wx:else></block>`
-      ].join('');
+        const wxmlString = [
+          `<block wx:if={{DOMContentLoaded}}><html elements="{{elmements}}" /></block>`,
+          `<block wx:else>{{elements}}</block>`
+        ].join('\n');
 
-      await Promise.all([
-        fs.writeFile(js, jsString),
-        fs.writeJson(json, config),
-        fs.writeFile(wxml, wxmlString)
-      ]);
-    } else {
-      route.isMounted = true;
+        await Promise.all([
+          fs.writeFile(js, jsString),
+          fs.writeJson(json, config),
+          fs.writeFile(wxml, wxmlString)
+        ]);
 
-      await fs.writeJson(
-        join(env.dist, routeFiles[1]),
-        {
-          ...tickrc.defaultNavigationConfig,
-          ...route.config
-        }
-      );
 
-      // 剔除文件
-      routeFiles.forEach(file => {
-        const index = newFiles.indexOf(file);
+      } else {
+        route.isMounted = true;
 
-        if (index > -1) {
-          newFiles.splice(index, 1);
-        }
-      });
-    }
+        await fs.writeJson(
+          join(env.dist, routeFiles[1]),
+          {
+            ...tickrc.defaultNavigationConfig,
+            ...route.config
+          }
+        );
 
-    return route;
+        // 剔除文件
+        routeFiles.forEach(file => {
+          const index = newFiles.indexOf(file);
+
+          if (index > -1) {
+            newFiles.splice(index, 1);
+          }
+        });
+      }
+
+      return route;
   });
 
   if (newFiles.length > 0) {
@@ -102,13 +140,15 @@ const handleAppJsonFile = async (tickrc) => {
 
   const json = {
     window: tickrc.window,
-    pages: tickrc.flattenRoutes.map(route => {
-      return route.path
+    pages: tickrc.flattenRoutes.filter(route => route.path !== '/').map(route => {
+      const { path } = route;
+
+      return path[0] === '/' ? path.slice(1) : path;
     }),
     tabBar: tickrc.appTabBar
   }
 
-  return fs.writeJsonSync(file, json);
+  return await fs.writeJson(file, json, { spaces: 2 });
 }
 
 const handleAppTabBar = (tickrc) => {
@@ -190,6 +230,7 @@ module.exports = async function start () {
 
     await handleAppJsonFile(tickrc);
     await handleMiniProgramPages(tickrc);
+    await handleWebpackConfig(tickrc);
   } else {
 
   }

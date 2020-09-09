@@ -1,4 +1,6 @@
-import './src_Admin_SignIn_index.js'
+import ticksrc from '../.ticksrc.js';
+
+debugger;
 
 App({
   onLaunch () {

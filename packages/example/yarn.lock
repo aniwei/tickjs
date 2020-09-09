@@ -6,3 +6,15 @@
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@vant/weapp/-/weapp-1.5.0.tgz#18b0b77ee8133eb53ffd6c1ed9cf70c51d24e736"
   integrity sha512-4hBH8U3/GQID+N1fV0m4dTbVR0R0iN06Zr2Xd9XFI2MvYXqtAWCrPkJ5umLxFF1MpZjlS/20V50MsGICgwZBug==
+
+os-homedir@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
+  integrity sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
+
+user-home@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/user-home/-/user-home-2.0.0.tgz#9c70bfd8169bc1dcbf48604e0f04b8b49cde9e9f"
+  integrity sha1-nHC/2Babwdy/SGBODwS4tJzenp8=
+  dependencies:
+    os-homedir "^1.0.0"

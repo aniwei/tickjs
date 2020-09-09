@@ -1,5 +1,7 @@
 dist
 node_modules
+miniprogram_npm
+miniprogram_engine
 .tickjs/pages
 .tickjs/static
 .tickjs/**/*.js.map

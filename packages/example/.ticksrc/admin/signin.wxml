@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 <block wx:if={{}}></block>
 <block wx:else></block>
+=======
+<!--admin/signin.wxml-->
+<text>admin/signin.wxml</text>
+>>>>>>> ce5365a52e15078a89d38793fa000c8a557ef126
