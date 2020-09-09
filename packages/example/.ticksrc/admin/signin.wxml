@@ -1,0 +1,2 @@
+<block wx:if={{}}></block>
+<block wx:else></block>
