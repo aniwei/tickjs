@@ -82,7 +82,7 @@ const handleMiniProgramPages = async (tickrc) => {
         const jsString = [
           `// ${component}`,
           `import { ViewController } from '@tickjs/weapp';`,
-          `import ${filename} from '${filename}'\n;`,
+          `import ${filename} from '${filename}';\n`,
           `const controller = new ViewController('${route}', ${filename});`,
           `controller.register();`
         ].join('\n');
@@ -94,7 +94,7 @@ const handleMiniProgramPages = async (tickrc) => {
 
         await Promise.all([
           fs.writeFile(js, jsString),
-          fs.writeJson(json, config),
+          fs.writeJson(json, config, { spaces: 2 }),
           fs.writeFile(wxml, wxmlString)
         ]);
 
@@ -107,6 +107,8 @@ const handleMiniProgramPages = async (tickrc) => {
           {
             ...tickrc.defaultNavigationConfig,
             ...route.config
+          }, {
+            spaces: 2
           }
         );
 

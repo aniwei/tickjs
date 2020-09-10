@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "js-quadtree": "^3.3.0"
+    "js-quadtree": "^3.3.0",
+    "node-opencv": "^0.0.2-security"
   }
 }

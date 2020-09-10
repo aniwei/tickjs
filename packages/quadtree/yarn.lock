@@ -6,3 +6,8 @@ js-quadtree@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/js-quadtree/-/js-quadtree-3.3.0.tgz#1cea94e9409927bb3bb06b4f0eddf1e0423945bc"
   integrity sha512-ku7z1mYrI38d3LXag8p+7oZVqtmvzg4t6AUxSFGFYJJvT66WGyx/vCSyRtCceNHrt2WXKk0CK8hLMHucfuIjvw==
+
+node-opencv@^0.0.2-security:
+  version "0.0.2-security"
+  resolved "https://registry.yarnpkg.com/node-opencv/-/node-opencv-0.0.2-security.tgz#69caeba76365b81b50811ace888f9ea359cb18a8"
+  integrity sha512-fJP1Eosq85ONyhHawEdgvs3LzltCbA2YbGL7f2TyjsiTklrkQ6JH+moAKeW+pdLgCuJipf498qXFCrEMDlpi4A==

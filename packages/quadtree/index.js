@@ -1,9 +1,18 @@
+const { QuadTree, Point, Box } = require('js-quadtree');
+// const opencv = require('node-opencv');
 
+const [
+  IMAGE,
+  TEXT
+] = [
+  'Image',
+  'Text'
+];
 
 class Node {
   constructor (node) {
-    const { props } = node;
-    const { attrs, type } = props;
+    const { props, type } = node;
+    const { attrs } = props;
     const { height, width, ...style } = props.style;
 
     this.ref = node;
@@ -26,6 +35,11 @@ class Node {
     this.nextSibling = null;
     this.prevSibling = null;
     this.childNodes = [];
+
+    this[0] = new Point(this.x, this.y, { position: 'LEFT_TOP' });
+    this[1] = new Point(this.x, this.y, { position: 'RIGHT_TOP' });
+    this[2] = new Point(this.x, this.y, { position: 'LEFT_BOTTOM' });
+    this[3] = new Point(this.x, this.y, { position: 'RIGHT_BOTTOM' });
   }
 
   appendChild (child) {
@@ -67,7 +81,13 @@ class Node {
           child.nextSibling = null;
         } else {
           const prev = child.prevSibling;
-          prev.nextSibling = null;
+          const next = child.nextSibling;
+
+          next.prevSibling = prev;
+          prev.nextSibling = child.nextSibling;
+
+          child.nextSibling = null;
+          child.prevSibling = null;
         }
 
         this.childNodes.splice(index, 1);
@@ -156,133 +176,115 @@ function handleDOMTreeRelation (node) {
   let currentNode = node;
 
   while (currentNode) {
-    let nextNode = currentNode.nextSibling;
-    while (nextNode) {
-      let rect;
-      if (currentNode.contains(nextNode)) {
-        const next = nextNode.nextSibling;
-        currentNode.appendChild(nextNode);
-        nextNode = next;
-      } else if (rect = currentNode.intersect(nextNode)) {
-        const minSquare = Math.min(currentNode.square, nextNode.square);
-        if (rect.square / minSquare > 0.5) {
+    if (
+      currentNode.type === IMAGE ||
+      currentNode.type === TEXT
+    ) {
+      currentNode = currentNode.nextSibling;
+    } else {
+      let nextNode = currentNode.nextSibling;
+      while (nextNode) {
+        let rect;
+  
+        // 包含（包含内切）
+        if (currentNode.contains(nextNode)) {
           const next = nextNode.nextSibling;
           currentNode.appendChild(nextNode);
           nextNode = next;
+        // 相交
+        } else if (rect = currentNode.intersect(nextNode)) {
+          const maxSquare = Math.max(currentNode.square, nextNode.square);
+          const minSquare = Math.min(currentNode.square, nextNode.square);
+  
+          // 面积比例
+          if (maxSquare / minSquare > 5) {
+            const next = nextNode.nextSibling;
+            currentNode.appendChild(nextNode);
+            nextNode = next;
+          // 面积占比
+          } else {
+            if (rect.square / minSquare > 0.5) {
+              const next = nextNode.nextSibling;
+              currentNode.appendChild(nextNode);
+              nextNode = next;
+            } else {
+              nextNode = nextNode.nextSibling;
+            }
+          }
         } else {
           nextNode = nextNode.nextSibling;
         }
-      } else {
-        nextNode = nextNode.nextSibling;
       }
-    }
-
-    if (currentNode.childNodes.length > 0) {
-      handleDOMTreeRelation(currentNode.childNodes[0]);
-    }
-
-    currentNode = currentNode.nextSibling;
-  }
   
+      if (currentNode.childNodes.length > 1) {
+        handleDOMTreeRelation(currentNode.childNodes[0]);
+      }
+  
+      currentNode = currentNode.nextSibling;
+    }
+
+  }
 } 
+
+function handleDOMTreeSiblingRelation (node) {
+  const { childNodes } = node;
+
+  if (childNodes.length > 1) {
+    
+
+    // 进行检测
+  } else if (childNodes.length > 0) {
+    handleDOMTreeRelation(childNodes[0]);
+  }
+}
 
 function buildDOMTree (schema) {
   const node = schemaTransformer(schema);
 
   handleDOMTreeRelation(node);
+  handleDOMTreeSiblingRelation(node);
+  sortDOMTree(node);
+  // handleDOMTreeSiblingRelation(node);
 
   return node;
 }
 
+function sortDOMTree (node) {
+  let currentNode = node;
 
-const handleChildRelation = function (currentNode, nextNode, quadtree) {
-  if (next) {
-    const box = new Box(
-      currentNode.x,
-      currentNode.y,
-      currentNode.width,
-      currentNode.height
-    );
+  while (currentNode) {
+    let nextNode = currentNode.nextSibling;
 
-    quadtree.clear();
-  
-    quadtree.insert(nextNode[0]);
-    quadtree.insert(nextNode[1]);
-    quadtree.insert(nextNode[2]);
-    quadtree.insert(nextNode[3]);
+    while (nextNode) {
+      next = nextNode.nextSibling;
+      if (currentNode.y > nextNode.y) {
+        const currentNodePrev = currentNode.prevSibling;
+        const currentNodeNext = currentNode.nextSibling;
 
-    const result = quadtree.query(box);
+        currentNode.prevSibling = nextNode.nextSibling;
+        currentNode.prevSibling = nextNode.prevSibling;
 
-    
-    const isIntersect = result.length > 0;
-    const isContain = result.length === 4;
-
-    if (isIntersect) {
-      // 
-      if (isContain) {
-        currentNode.appendChild(currentNode);
+        nextNode.nextSibling = currentNodeNext;
+        nextNode.prevSibling = currentNodePrev; 
       }
 
-      return true;
+      nextNode = next;
     }
-  }
 
-  return false;
-}
-
-
-const handleChildNodesRelation = function (childNodes, quadtree) {  
-  const rest = [];
-  const lastIndex = childNodes.length;
-  const index = 0;  
-
-  while (index < lastIndex) {
-    let node = childNodes[index];
-    const box = new Box(
-      node.x,
-      node.y,
-      node.width,
-      node.height
-    );
-
-    let i = 0;
-
-    while (i < lastIndex) {
-      if (i === index) {
-        continue;
-      }
-
-      let currentNode = childNodes[i];
-      quadtree.clear();
-  
-      quadtree.insert(currentNode[0]);
-      quadtree.insert(currentNode[1]);
-      quadtree.insert(currentNode[2]);
-      quadtree.insert(currentNode[3]);
-  
-      const result = quadtree.query(box);
-  
-      // 相交
-      const isIntersect = result.length > 0;
-      const isContain = result.length === 4;
-
-      if (isIntersect) {
-        // 
-        if (isContain) {
-          node.appendChild(currentNode);
-        }
-
-        i++;
-      }
-
+    if (currentNode.childNodes.length > 0) {
+      sortDOMTree(currentNode.childNodes[0]);
     }
+
+    currentNode = currentNode.nextSibling;
   }
 }
 
-const data = {"taskId":"08D38A4E-0CC7-4DA3-8DDD-78170D644107","pluginVersion":"2.3.0","reference":"sketch","type":"Block","id":"Block_1","__VERSION__":"2.0","props":{"style":{"width":348,"height":558},"attrs":{"x":0,"y":0}},"children":[{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"#FFFFFF","width":348,"height":558,"overflow":"hidden"},"attrs":{"x":0,"y":0}},"type":"Shape","selfId":"194BDF83-DE8D-46BA-8B22-1D25BA55642A","children":[],"originType":"Other","nodeLayerName":"Mask","id":"Shape_0"},{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"#EEEEEE","width":348,"height":348,"overflow":"hidden"},"attrs":{"x":0,"y":0}},"type":"Shape","selfId":"4B0A7096-E625-4540-9DE0-5FDF671165E0","children":[],"originType":"Other","nodeLayerName":"Mask","id":"Shape_1"},{"__VERSION__":"2.0","props":{"style":{"width":348,"height":348},"attrs":{"x":0,"y":0,"source":"https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/a674f3b0f2bb11ea9553fd310a9145a5.png"}},"type":"Image","selfId":"E7AFDEEB-0C5A-40EF-B943-B195D7C877F3","children":[],"originType":"Other","nodeLayerName":"Bitmap","id":"Image_2"},{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"#FFFFFF","borderWidth":1,"borderStyle":"solid","borderColor":"#CCCCCC","borderTopLeftRadius":35,"borderTopRightRadius":35,"borderBottomRightRadius":35,"borderBottomLeftRadius":35,"width":140,"height":70,"overflow":"hidden"},"attrs":{"x":104,"y":313}},"type":"Shape","selfId":"DBF78ACD-557A-4313-B062-45BD5BC8704B","children":[],"originType":"Other","nodeLayerName":"Mask","id":"Shape_3"},{"__VERSION__":"2.0","props":{"style":{"width":126,"height":52},"attrs":{"x":111,"y":322,"source":"https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/a6af8bb0f2bb11eaaaa21b238a55c21c.png"}},"type":"Image","selfId":"DAB93120-39CB-48C0-B2A6-B3AE47C774CA","children":[],"originType":"Other","nodeLayerName":"Bitmap","id":"Image_4"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(51, 51, 51, 1)","fontFamily":"PingFang SC","fontSize":26,"fontWeight":400,"lineHeight":37,"width":263,"height":37},"attrs":{"x":43,"y":393,"text":"JL新潮女装国际旗舰店","lines":1}},"type":"Text","selfId":"74E89CEF-B735-4B22-96C6-C5A800DD25800","children":[],"originType":"Other","nodeLayerName":"JL新潮女装国际旗舰店","id":"Text_5"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(255, 0, 54, 1)","fontFamily":"PingFang SC","fontSize":24,"fontWeight":400,"lineHeight":33,"width":192,"height":33},"attrs":{"x":78,"y":430,"text":"全场同款新降五折","lines":1}},"type":"Text","selfId":"9110BC39-A618-4861-8D37-70A77E3E29940","children":[],"originType":"Other","nodeLayerName":"全场同款新降五折","id":"Text_6"},{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"#FF0036","borderTopLeftRadius":4,"borderTopRightRadius":4,"borderBottomRightRadius":4,"borderBottomLeftRadius":4,"width":153,"height":60},"attrs":{"x":179,"y":474}},"type":"Shape","selfId":"4303BD81-64EA-401D-9D7D-8A970D9C34E0","children":[],"originType":"Other","nodeLayerName":"Rectangle 2","id":"Shape_7"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(255, 255, 255, 1)","fontFamily":"PingFang SC","fontSize":24,"fontWeight":400,"lineHeight":33,"width":96,"height":33},"attrs":{"x":208,"y":489,"text":"立即购买","lines":1}},"type":"Text","selfId":"C977E935-9057-486A-8FA9-D7F77356D28E0","children":[],"originType":"Other","nodeLayerName":"立即购买","id":"Text_8"},{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"rgba(255,0,54,0.10)","borderWidth":1,"borderStyle":"solid","borderColor":"#FF0036","borderTopLeftRadius":4,"borderTopRightRadius":4,"borderBottomRightRadius":4,"borderBottomLeftRadius":4,"width":153,"height":60},"attrs":{"x":16,"y":474}},"type":"Shape","selfId":"7C472BC3-D0F2-4D5D-A4CB-E19040B68C04","children":[],"originType":"Other","nodeLayerName":"Rectangle 2","id":"Shape_9"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(255, 0, 54, 1)","fontFamily":"PingFang SC","fontSize":24,"fontWeight":400,"lineHeight":33,"width":24,"height":33},"attrs":{"x":31,"y":488,"text":"券","lines":1}},"type":"Text","selfId":"46DDF6B2-6CE9-4028-A497-302447A3B8450","children":[],"originType":"Other","nodeLayerName":"券","id":"Text_10"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(255, 0, 54, 1)","fontFamily":"PingFang SC","fontSize":24,"fontWeight":400,"lineHeight":33,"width":68,"height":33},"attrs":{"x":85,"y":488,"text":"¥1000","lines":1}},"type":"Text","selfId":"2E07B323-FF23-4379-A196-F42CE64ABA880","children":[],"originType":"Other","nodeLayerName":"¥1000","id":"Text_11"},{"__VERSION__":"2.0","props":{"style":{"width":1,"height":55},"attrs":{"x":69,"y":478,"source":"https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/a6d56330f2bb11eaacf9516ab7e9bdd1.png"}},"type":"Image","selfId":"EEE47C41-5271-4AC1-BB59-13BAD9797943","children":[],"originType":"Other","nodeLayerName":"Line","id":"Image_12"}],"name":"模版2","artboardImg":"https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/a7375950f2bb11eaafcbfd9c5fcc6e7a.png"}
+const data = {"taskId":"D33E686D-8507-4930-9C35-19BA26CB4821","pluginVersion":"2.3.0","reference":"sketch","type":"Block","id":"Block_1","__VERSION__":"2.0","props":{"style":{"width":750,"height":129},"attrs":{"x":0,"y":0}},"children":[{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"#FFFFFF","width":750,"height":128},"attrs":{"x":0,"y":1}},"type":"Shape","selfId":"A9EF5B97-11BE-4661-BF70-8A6E40CD43CA","children":[],"originType":"Other","nodeLayerName":"bg","id":"Shape_0"},{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"#EAEAEA","width":750,"height":1},"attrs":{"x":0,"y":0}},"type":"Shape","selfId":"8A16EB0C-74E2-4CA1-BF44-F2E83947F839","children":[],"originType":"Other","nodeLayerName":"Devider","id":"Shape_1"},{"__VERSION__":"2.0","props":{"style":{"backgroundColor":"#FF552E","borderTopLeftRadius":6,"borderTopRightRadius":6,"borderBottomRightRadius":6,"borderBottomLeftRadius":6,"width":380,"height":96},"attrs":{"x":340,"y":17}},"type":"Shape","selfId":"62FA90EC-3725-4E12-939C-1417744BEB8F","children":[],"originType":"Other","nodeLayerName":"Rectangle 4 Copy","id":"Shape_2"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(255, 255, 255, 1)","fontFamily":"PingFang SC","fontSize":32,"fontWeight":600,"lineHeight":40,"width":128,"height":40},"attrs":{"x":466,"y":45,"text":"立即支付","lines":1}},"type":"Text","selfId":"F9BE5C27-B4E0-45A6-B79A-559DFDB070EC0","children":[],"originType":"Other","nodeLayerName":"立即支付","id":"Text_3"},{"__VERSION__":"2.0","props":{"style":{"width":20,"height":20},"attrs":{"x":200,"y":36,"source":"https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/f9ef22c0f33011ea8297c9f0e47bcb46.png"}},"type":"Image","selfId":"155790AC-1A7A-4AA5-B8E8-10E3874AFC17","children":[],"originType":"Other","nodeLayerName":"形状","id":"Image_4"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(51, 51, 51, 1)","fontFamily":"PingFang SC","fontSize":28,"fontWeight":400,"lineHeight":40,"width":84,"height":40},"attrs":{"x":30,"y":45,"text":"预付金","lines":1}},"type":"Text","selfId":"1E132EF2-5AC1-44AA-9220-AE846DCC01720","children":[],"originType":"Other","nodeLayerName":"预付金","id":"Text_5"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(255, 85, 46, 1)","fontFamily":"PingFang SC","fontSize":28,"fontWeight":500,"lineHeight":56,"width":28,"height":56},"attrs":{"x":114,"y":38,"text":"￥","lines":1}},"type":"Text","selfId":"30077F9E-705E-4E02-B5FC-4BE97143604D0","children":[],"originType":"Other","nodeLayerName":"￥30","id":"Text_6"},{"__VERSION__":"2.0","props":{"style":{"color":"rgba(255, 85, 46, 1)","fontFamily":"PingFang SC","fontSize":40,"fontWeight":500,"lineHeight":56,"width":45,"height":56},"attrs":{"x":142,"y":36,"text":"30","lines":1}},"type":"Text","selfId":"30077F9E-705E-4E02-B5FC-4BE97143604D1","children":[],"originType":"Other","nodeLayerName":"￥30","id":"Text_7"}],"name":"编组","artboardImg":"https://ai-sample.oss-cn-hangzhou.aliyuncs.com/test/fa2240b0f33011eab1ebc9810b726468.png"}
 
 
 const tree = buildDOMTree(data);
+
+
 
 debugger;
 
