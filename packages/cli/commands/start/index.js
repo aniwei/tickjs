@@ -60,7 +60,7 @@ const handleMiniProgramPages = async (tickrc) => {
     // miniprogram not supoort / route
     .filter(route => route.path !== '/')
     .forEach(async route => {
-      const { files: routeFiles, component, config } = route;
+      const { files: routeFiles, component, config, parsed, path } = route;
 
       if (routeFiles.some(file => {
         return newFiles.indexOf(file) === -1;
@@ -83,7 +83,7 @@ const handleMiniProgramPages = async (tickrc) => {
           `// ${component}`,
           `import { ViewController } from '@tickjs/weapp';`,
           `import ${filename} from '${filename}';\n`,
-          `const controller = new ViewController('${route}', ${filename});`,
+          `const controller = new ViewController('${path}', ${filename});`,
           `controller.register();`
         ].join('\n');
 
@@ -92,13 +92,13 @@ const handleMiniProgramPages = async (tickrc) => {
           `<block wx:else>{{elements}}</block>`
         ].join('\n');
 
+        await fs.mkdirp(join(env.dist, parsed.dir));
+
         await Promise.all([
           fs.writeFile(js, jsString),
           fs.writeJson(json, config, { spaces: 2 }),
           fs.writeFile(wxml, wxmlString)
         ]);
-
-
       } else {
         route.isMounted = true;
 
@@ -178,27 +178,39 @@ const handleAppPages = (tickrc) => {
   const flattenRoutes = [];
   const forEach = (route, index, prefix) => {
     const { path, component, config, routes } = route;
-    const parsed = parse(path);
+    let removeRootPath = path;
 
-    const removeRootPath = path[0] === '/' ? 
-      path.slice(1) : path;
+    if (path === '/') {
+      removeRootPath = '';
+    } else if (path[0] !== '/') {
+      removeRootPath = '/' + removeRootPath;
+    } 
+
+    if (prefix) {
+      removeRootPath = prefix + removeRootPath;
+    }
+
+    const parsed = parse(removeRootPath);
 
     flattenRoutes.push({
+      prefix: prefix || '',
       files: [
         removeRootPath + '.js',
         removeRootPath + '.json',
         removeRootPath + '.wxml',
       ],
+      path: removeRootPath,
       parsed,
       component,
-      path: prefix ? prefix + path : path,
       config: config || {
         ...tickrc.defaultNavigationConfig
       }
     });
 
     if (routes && routes.length > 0) {
-      prefix = prefix ? prefix + path : path;
+      prefix = prefix ? prefix + removeRootPath : removeRootPath;
+
+      console.log(prefix);
 
       routes.forEach((route, index) => {
         forEach(route, index, prefix);
