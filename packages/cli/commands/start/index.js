@@ -56,6 +56,8 @@ const handleMiniProgramPages = async (tickrc) => {
 
   const newFiles = files.slice();
 
+  console.log(flattenRoutes)
+
   flattenRoutes
     // miniprogram not supoort / route
     .filter(route => route.path !== '/')
@@ -72,6 +74,8 @@ const handleMiniProgramPages = async (tickrc) => {
         ] = routeFiles.map(file => {
           return join(env.dist, file);
         });
+
+        console.log(js, json, wxml, routeFiles)
 
         // /Admin/SignIn/ => AdminSignIn
         const filename = component
@@ -187,9 +191,9 @@ const handleAppPages = (tickrc) => {
         removeRootPath + '.json',
         removeRootPath + '.wxml',
       ],
+      path,
       parsed,
       component,
-      path: prefix ? prefix + path : path,
       config: config || {
         ...tickrc.defaultNavigationConfig
       }

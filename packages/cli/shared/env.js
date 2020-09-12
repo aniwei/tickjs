@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 const home = require('user-home');
 const cwd = process.cwd();
 
