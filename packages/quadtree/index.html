@@ -1,0 +1,1786 @@
+<html>
+<head>
+   
+    <meta charset="UTF-8"/> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    
+        <link rel="shortcut icon" href="./img/favicon.png"/>
+    
+        <style>
+.anima-component-wrapper a,
+.anima-screen a {
+    text-decoration: none;
+    display: contents;
+}
+
+.anima-flexbox-container a {
+    line-height: 0;
+}
+.anima-full-width-a {
+    width: 100%;
+}
+
+.anima-full-height-a {
+    height: 100%;
+}
+
+.anima-screen textarea:focus,
+.anima-screen input:focus {
+    outline: none;
+}
+
+.anima-screen *,
+.anima-component-wrapper *{
+    box-sizing: border-box;
+}
+
+.anima-screen div {
+    -webkit-text-size-adjust: none;
+}
+
+.anima-container-center-vertical,
+.anima-container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.anima-container-center-vertical {
+    align-items: center;
+    height: 100%;
+}
+
+.anima-container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.anima-container-center-vertical > *,
+.anima-container-center-horizontal > * {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.anima-component-wrapper,
+.anima-screen {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.anima-auto-animated div {
+    opacity: 0;
+    position: absolute;
+    --anima-z-index: -1;
+}
+
+.anima-auto-animated .anima-container-center-vertical,
+.anima-auto-animated .anima-container-center-horizontal {
+    opacity: 1;
+}
+
+.anima-overlay {
+position: absolute;
+opacity: 0;
+display: none;
+top: 0;
+width: 100%;
+height: 100%;
+position: fixed;
+}
+
+.anima-animate-appear {
+    opacity: 0;
+    display: block;
+    animation: anima-reveal 0.3s ease-in-out 1 normal forwards;
+}
+
+.anima-animate-disappear {
+    opacity: 1;
+    display: block;
+    animation: anima-reveal 0.3s ease-in-out 1 reverse forwards;
+}
+
+.anima-animate-nodelay {
+    animation-delay: 0s;
+}
+
+@keyframes anima-reveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.align-self-flex-start {
+    align-self: flex-start;
+}
+.align-self-flex-end {
+    align-self: flex-end;
+}
+.align-self-flex-center {
+    align-self: center;
+}
+.anima-valign-text-middle {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+.anima-valign-text-bottom {
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+}
+.anima-component-wrapper,
+.anima-component-wrapper * {
+    pointer-events: none;
+}
+
+.anima-component-wrapper a *,
+.anima-component-wrapper a,
+.anima-component-wrapper input,
+.anima-component-wrapper video,
+.anima-component-wrapper iframe,
+.anima-listeners-active,
+.anima-listeners-active * {
+    pointer-events: auto;
+}
+
+.anima-hidden,
+.anima-hidden * {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.anima-smart-layers-pointers,
+.anima-smart-layers-pointers * {
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.anima-component-wrapper.anima-not-ready,
+.anima-component-wrapper.anima-not-ready * {
+    visibility: hidden !important;
+}
+
+.anima-listeners-active-click,
+.anima-listeners-active-click * {
+    cursor: pointer;
+}
+
+/* screen - copy3 */
+
+.copy3 {
+  align-items:flex-start;
+  background-color:var(--white);
+  box-sizing:border-box;
+  display:inline-flex;
+  flex-direction:row;
+  height:618px;
+  justify-content:flex-start;
+  min-width:342px;
+  overflow:hidden;
+  position:relative;
+  width:auto;
+}
+.copy3 .bitmap-7mrR5L {
+  background-color:rgba(255,255,255,0);
+  height:119px;
+  left:15px;
+  position:absolute;
+  top:14px;
+  width:118px;
+}
+.copy3 .bitmap-Hvyt31 {
+  background-color:rgba(255,255,255,0);
+  height:113px;
+  left:11px;
+  position:absolute;
+  top:20px;
+  width:128px;
+}
+.copy3 .bitmap-Upmi3Q {
+  background-color:rgba(255,255,255,0);
+  flex-shrink:0;
+  height:399px;
+  margin-left:-180px;
+  opacity:0.49;
+  position:relative;
+  transform:rotate(90deg);
+  width:708px;
+}
+.copy3 .bitmap-WSoA0b {
+  background-color:rgba(255,255,255,0);
+  height:100px;
+  left:10px;
+  position:absolute;
+  top:29px;
+  width:128px;
+}
+.copy3 .bitmap-Wrn4qO {
+  align-items:flex-end;
+  background-color:rgba(255,80,0,1.0);
+  border-radius:12px;
+  box-sizing:border-box;
+  display:inline-flex;
+  flex-direction:row;
+  height:618px;
+  justify-content:flex-start;
+  left:0px;
+  overflow:hidden;
+  padding:66px 0;
+  position:absolute;
+  top:0px;
+  width:342px;
+}
+.copy3 .bitmap-hvAGCq {
+  background-color:rgba(255,255,255,0);
+  height:134px;
+  left:206px;
+  position:absolute;
+  top:340px;
+  width:85px;
+}
+.copy3 .combined-shape-Wrn4qO {
+  background-color:rgba(255,255,255,0);
+  height:35px;
+  left:205px;
+  position:absolute;
+  top:30px;
+  width:35px;
+}
+.copy3 .group-2-hvAGCq {
+  background-color:rgba(255,255,255,0);
+  height:618px;
+  left:0px;
+  position:absolute;
+  top:0px;
+  width:342px;
+}
+.copy3 .group-3-C61RwL {
+  background-color:rgba(255,255,255,0);
+  flex-shrink:0;
+  height:618px;
+  position:relative;
+  width:342px;
+}
+.copy3 .group-IhawyZ {
+  background-color:rgba(255,255,255,0);
+  height:188px;
+  left:174px;
+  position:absolute;
+  top:331px;
+  width:148px;
+}
+.copy3 .group-PrPiW9 {
+  background-color:rgba(255,255,255,0);
+  height:188px;
+  left:20px;
+  position:absolute;
+  top:331px;
+  width:148px;
+}
+.copy3 .group-Wrn4qO {
+  background-color:rgba(255,255,255,0);
+  height:188px;
+  left:20px;
+  position:absolute;
+  top:137px;
+  width:148px;
+}
+.copy3 .group-zwHFBX {
+  background-color:rgba(255,255,255,0);
+  height:188px;
+  left:174px;
+  position:absolute;
+  top:137px;
+  width:148px;
+}
+.copy3 .rectangle--itmap-mask-26VM9J {
+  background-color:var(--desert-storm);
+  border-radius:6px;
+  height:188px;
+  left:0px;
+  overflow:hidden;
+  position:absolute;
+  top:0px;
+  width:148px;
+}
+.copy3 .rectangle--itmap-mask-T8N5Zr {
+  background-color:var(--desert-storm);
+  border-radius:6px;
+  height:188px;
+  left:0px;
+  overflow:hidden;
+  position:absolute;
+  top:0px;
+  width:148px;
+}
+.copy3 .rectangle--itmap-mask-Y0pymD {
+  align-items:flex-start;
+  background-color:var(--desert-storm);
+  border-radius:6px;
+  box-sizing:border-box;
+  display:inline-flex;
+  flex-direction:row;
+  height:188px;
+  justify-content:flex-start;
+  left:0px;
+  overflow:hidden;
+  position:absolute;
+  top:0px;
+  width:148px;
+}
+.copy3 .rectangle--itmap-mask-pIvHwt {
+  background-color:var(--desert-storm);
+  border-radius:6px;
+  height:188px;
+  left:0px;
+  overflow:hidden;
+  position:absolute;
+  top:0px;
+  width:148px;
+}
+.copy3 .rectangle-7mrR5L {
+  background-color:var(--white);
+  height:148px;
+  left:0px;
+  position:absolute;
+  top:0px;
+  width:148px;
+}
+.copy3 .rectangle-Hvyt31 {
+  background-color:var(--white);
+  height:148px;
+  left:0px;
+  position:absolute;
+  top:0px;
+  width:148px;
+}
+.copy3 .rectangle-WSoA0b {
+  background-color:var(--white);
+  height:148px;
+  left:0px;
+  position:absolute;
+  top:0px;
+  width:148px;
+}
+.copy3 .rectangle-sNgJwJ {
+  background-color:var(--white);
+  flex-shrink:0;
+  height:148px;
+  position:relative;
+  width:148px;
+}
+.copy3 .u53e3u5473u6781u4f73-T8N5Zr {
+  background-color:rgba(255,255,255,0);
+  color:var(--mine-shaft);
+  font-size:22.0px;
+  height:auto;
+  left:8px;
+  line-height:22.0px;
+  position:absolute;
+  text-align:left;
+  top:157px;
+  white-space:nowrap;
+  width:auto;
+}
+.copy3 .u5bccu542bu8425u517b-Y0pymD {
+  background-color:rgba(255,255,255,0);
+  color:var(--mine-shaft);
+  font-size:22.0px;
+  height:auto;
+  left:8px;
+  line-height:22.0px;
+  position:absolute;
+  text-align:left;
+  top:157px;
+  white-space:nowrap;
+  width:auto;
+}
+.copy3 .u60cau559c-u63edu6653-Wrn4qO {
+  background-color:rgba(255,255,255,0);
+  color:var(--white);
+  font-size:24.0px;
+  height:auto;
+  left:19px;
+  line-height:33.0px;
+  position:absolute;
+  text-align:left;
+  top:79px;
+  white-space:nowrap;
+  width:218px;
+}
+.copy3 .u66f4u591a-u5b9du8d1d-Wrn4qO {
+  background-color:rgba(255,255,255,0);
+  color:var(--white);
+  font-family:"PingFangSC-Semibold", Helvetica, Arial, serif;
+  font-size:36.0px;
+  height:auto;
+  left:19px;
+  letter-spacing:0.00px;
+  line-height:50.0px;
+  position:absolute;
+  text-align:left;
+  top:22px;
+  white-space:nowrap;
+  width:188px;
+}
+.copy3 .u7f8eu5473-u60f3u54ed-pIvHwt {
+  background-color:rgba(255,255,255,0);
+  color:var(--mine-shaft);
+  font-size:22.0px;
+  height:auto;
+  left:8px;
+  line-height:22.0px;
+  position:absolute;
+  text-align:left;
+  top:157px;
+  white-space:nowrap;
+  width:auto;
+}
+.copy3 .u8089u591au6c41u5c11-26VM9J {
+  background-color:rgba(255,255,255,0);
+  color:var(--mine-shaft);
+  font-size:22.0px;
+  height:auto;
+  left:8px;
+  line-height:22.0px;
+  position:absolute;
+  text-align:left;
+  top:157px;
+  white-space:nowrap;
+  width:auto;
+}
+.font-class-1 {
+  font-family:"PingFangSC-Regular", Helvetica, Arial, serif;
+}
+:root {
+  --desert-storm:rgba(248,248,248,1.0);
+  --mine-shaft:rgba(51,51,51,1.0);
+  --white:rgba(255,255,255,1.0);
+}</style>
+    
+    <meta name="author" content="AnimaApp.com - Design to code, Automated.">
+</head>
+<body style="margin: 0;background: rgba(255,255,255,1.0);">
+<input type="hidden" id="anPageName" name="page" value="copy3"/>
+
+    <div class="anima-container-center-horizontal">
+<div
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="copy3
+ anima-flexbox-container anima-screen "  anima-show-on-scroll 
+
+>
+    
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="group-3-C61RwL
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="group-2-hvAGCq
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="bitmap-Wrn4qO
+ anima-flexbox-container"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+><img 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="bitmap-Upmi3Q
+"  anima-show-on-scroll 
+
+ src="./-copy-3-bitmap-6FC119CD-E90B-4422-A1BA-0D9FD452BBC1.png"
+/>
+</div>
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="group-Wrn4qO
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle--itmap-mask-T8N5Zr
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle-Hvyt31
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+></div>
+<img 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="bitmap-Hvyt31
+"  anima-show-on-scroll 
+
+ src="./-copy-3-bitmap-DF6FBB74-9E54-4258-9572-3A3F32910AC1.jpg"
+/>
+</div>
+
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="u53e3u5473u6781u4f73-T8N5Zr
+ font-class-1"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        口味极佳
+</div>
+</div>
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="group-zwHFBX
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle--itmap-mask-26VM9J
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle-WSoA0b
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+></div>
+<img 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="bitmap-WSoA0b
+"  anima-show-on-scroll 
+
+ src="./-copy-3-bitmap-C7081CA3-DF1E-4524-B74D-DF14F202C0FC.jpg"
+/>
+</div>
+
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="u8089u591au6c41u5c11-26VM9J
+ font-class-1"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        肉多汁少
+</div>
+</div>
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="group-PrPiW9
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle--itmap-mask-pIvHwt
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle-7mrR5L
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+></div>
+<img 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="bitmap-7mrR5L
+"  anima-show-on-scroll 
+
+ src="./-copy-3-bitmap-15B21A54-0D2C-4EE6-BE6E-46BAC3669AC0.jpg"
+/>
+</div>
+
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="u7f8eu5473-u60f3u54ed-pIvHwt
+ font-class-1"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        美味到想哭
+</div>
+</div>
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="group-IhawyZ
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle--itmap-mask-Y0pymD
+ anima-flexbox-container"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="rectangle-sNgJwJ
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+></div>
+</div>
+
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="u5bccu542bu8425u517b-Y0pymD
+ font-class-1"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        富含营养
+</div>
+</div>
+
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="u66f4u591a-u5b9du8d1d-Wrn4qO
+"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        更多好宝贝
+</div>
+<img 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="combined-shape-Wrn4qO
+"  anima-show-on-scroll 
+
+ src="./-copy-3-combined-shape-B752933A-0AB7-4BAA-9015-1ECB2F4B743D@2x.png"
+/>
+
+
+
+<div 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="u60cau559c-u63edu6653-Wrn4qO
+ font-class-1"  anima-show-on-scroll 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        惊喜马上等你来揭晓
+</div>
+</div>
+<img 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        class="bitmap-hvAGCq
+"  anima-show-on-scroll 
+
+ src="./-copy-3-bitmap-A5FED0B2-0623-43A4-8850-F36D413FC38E@2x.png"
+/>
+</div>
+
+ </div>
+    </div>
+    
+    <!-- V d6382dd Wed Sep 16 15:21:48 UTC 2020 -->
+</body>
+</html>
