@@ -1,2 +1,0 @@
-<block wx:if={{DOMContentLoaded}}><html elements="{{elmements}}" /></block>
-<block wx:else>{{elements}}</block>
