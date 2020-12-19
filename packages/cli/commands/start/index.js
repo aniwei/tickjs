@@ -8,7 +8,13 @@ const defaultWebpackConfig = require('../../shared/defaultWebpackConfig');
 const env = require('../../shared/env');
 
 const exists = async (filename) => {
-  return fs.exists(filename);
+  const exists = await fs.exists(filename);
+
+  if (exists) {
+    return Promise.resolve()
+  }
+
+  return Promise.reject(new Error('No exists project.'));
 }
 
 const handleWebpackConfig = async (tickrc) => {
@@ -62,7 +68,7 @@ const handleMiniProgramPages = async (tickrc) => {
     // miniprogram not supoort / route
     .filter(route => route.path !== '/')
     .forEach(async route => {
-      const { files: routeFiles, component, config } = route;
+      const { files: routeFiles, component, config, parsed, path } = route;
 
       if (routeFiles.some(file => {
         return newFiles.indexOf(file) === -1;
@@ -86,8 +92,8 @@ const handleMiniProgramPages = async (tickrc) => {
         const jsString = [
           `// ${component}`,
           `import { ViewController } from '@tickjs/weapp';`,
-          `import ${filename} from '${filename}'\n;`,
-          `const controller = new ViewController('${route}', ${filename});`,
+          `import ${filename} from '${filename}';\n`,
+          `const controller = new ViewController('${path}', ${filename});`,
           `controller.register();`
         ].join('\n');
 
@@ -96,13 +102,13 @@ const handleMiniProgramPages = async (tickrc) => {
           `<block wx:else>{{elements}}</block>`
         ].join('\n');
 
+        await fs.mkdirp(join(env.dist, parsed.dir));
+
         await Promise.all([
           fs.writeFile(js, jsString),
-          fs.writeJson(json, config),
+          fs.writeJson(json, config, { spaces: 2 }),
           fs.writeFile(wxml, wxmlString)
         ]);
-
-
       } else {
         route.isMounted = true;
 
@@ -111,6 +117,8 @@ const handleMiniProgramPages = async (tickrc) => {
           {
             ...tickrc.defaultNavigationConfig,
             ...route.config
+          }, {
+            spaces: 2
           }
         );
 
@@ -175,67 +183,78 @@ const handleAppTabBar = (tickrc) => {
   return appTabBar;
 }
 
-const handleAppPages = (tickrc) => {
-  const { routes } = tickrc;
-  const flattenRoutes = [];
-  const forEach = (route, index, prefix) => {
-    const { path, component, config, routes } = route;
-    const parsed = parse(path);
+function getApplicationRoute (route, index, prefix) {
+  const { path, component, config, routes } = route;
 
-    const removeRootPath = path[0] === '/' ? 
-      path.slice(1) : path;
+  if (prefix) {
 
-    flattenRoutes.push({
-      files: [
-        removeRootPath + '.js',
-        removeRootPath + '.json',
-        removeRootPath + '.wxml',
-      ],
-      path,
-      parsed,
-      component,
-      config: config || {
-        ...tickrc.defaultNavigationConfig
-      }
-    });
+  } else {
+    if (path === '/') {
 
-    if (routes && routes.length > 0) {
-      prefix = prefix ? prefix + path : path;
-
-      routes.forEach((route, index) => {
-        forEach(route, index, prefix);
-      });
     }
   }
 
-  routes.forEach((route, index) => {
-    forEach(route, index)
-  });
+  return {
+    prefix,
+    files: [],
+    path,
+    component,
+    config: config || {
+      ...tickrc.defaultNavigationConfig
+    }
+  }
+}
 
-  return flattenRoutes;
+function getApplicationRoutes (route) {
+  let routes = [];
+
+  console.log(route)
+
+  for (const currentRoute of route.routes) {
+    const { path, component, config } = currentRoute;
+
+
+    routes.push(getApplicationRoute(currentRoute));
+
+    if (currentRoute.routes) {
+      routes.concat(getApplicationRoutes(currentRoute));
+    }
+  }
+
+  return routes;
 }
 
 module.exports = async function start () {
-  const exist = await exists(env.tickrc);
-
-  if (exist) {
+  exists(env.tickrc).then(() => {
     const tickrc = require(env.tickrc);
+
     const dist = env.dist;
+    const routes = getApplicationRoutes(tickrc);
 
-    const flattenRoutes = handleAppPages(tickrc);
-    const appTabBar = handleAppTabBar(tickrc);
 
-    tickrc.flattenRoutes = flattenRoutes;
-    tickrc.appTabBar = appTabBar;
 
-    if (!await exists(dist)) {
-      await fs.mkdirp(dist);
-    }
+  }).catch(() => {
 
-    await handleAppJsonFile(tickrc);
-    await handleMiniProgramPages(tickrc);
-    await handleWebpackConfig(tickrc);
-  } else {
+  })
 
-  }
+  // if (exist) {
+  //   const tickrc = require(env.tickrc);
+  //   const dist = env.dist;
+
+  //   const flattenRoutes = handleAppPages(tickrc);
+  //   const appTabBar = handleAppTabBar(tickrc);
+
+  //   tickrc.flattenRoutes = flattenRoutes;
+  //   tickrc.appTabBar = appTabBar;
+
+  //   if (!await exists(dist)) {
+  //     await fs.mkdirp(dist);
+  //   }
+
+  //   await handleAppJsonFile(tickrc);
+  //   await handleMiniProgramPages(tickrc);
+  //   await handleWebpackConfig(tickrc);
+  // } else {
+
+  // }
 }

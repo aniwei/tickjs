@@ -4,8 +4,9 @@
     "navigationBarTitleText": ""
   },
   "pages": [
+    "",
     "admin",
-    "signin"
+    "admin/signin"
   ],
   "tabBar": {
     "list": [
