@@ -183,17 +183,11 @@ const handleAppTabBar = (tickrc) => {
   return appTabBar;
 }
 
-function getApplicationRoute (route, index, prefix) {
-  const { path, component, config, routes } = route;
+function getApplicationRoute (route, prefix) {
+  const { path, component, config } = route;
 
-  if (prefix) {
-
-  } else {
-    if (path === '/') {
-
-    }
-  }
-
+  const fullPath = prefix ? prefix + path : path;
+  
   return {
     prefix,
     files: [],
@@ -210,14 +204,17 @@ function getApplicationRoutes (route) {
 
   console.log(route)
 
-  for (const currentRoute of route.routes) {
-    const { path, component, config } = currentRoute;
+  for (const current of route.routes) {
+    const { path } = current;
 
+    const prefix = path === '/' ? null : path;
 
-    routes.push(getApplicationRoute(currentRoute));
+    routes.push(
+      getApplicationRoute(current, prefix)
+    );
 
-    if (currentRoute.routes) {
-      routes.concat(getApplicationRoutes(currentRoute));
+    if (current.routes) {
+      routes.concat(getApplicationRoutes(current));
     }
   }
 

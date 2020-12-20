@@ -1,3 +1,7 @@
+import {
+  Template
+} from './TickTemplate';
+
 
 type Attribute = {
   keyName: string,
@@ -29,6 +33,14 @@ export class TickTemplateAttributes {
   }
 
   stringify () {
-    
+    const template: Template = new Template();
+    for (const [keyName, attribute] of this.attributes) {
+      template.next(keyName);
+      template.next('=');
+      template.next(attribute.valueName);
+      template.space();
+    }
+
+    return template.stringify();
   }
 }

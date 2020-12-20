@@ -1,3 +1,7 @@
+import {
+  Template
+} from './TickTemplate'
+
 
 type Event = {
   eventName: string,
@@ -6,14 +10,14 @@ type Event = {
 }
 
 export class TickTemplateEvents {
-  public attributes: Map<string, Event>
+  public events: Map<string, Event>
 
   constructor () {
-    this.attributes = new Map();
+    this.events = new Map();
   }
 
   addEventListener (eventName: any, listenerName: any, capture: boolean = true): void {
-    this.attributes.set(eventName, {
+    this.events.set(eventName, {
       eventName,
       listenerName,
       capture
@@ -21,14 +25,23 @@ export class TickTemplateEvents {
   }
 
   removeEventListener (eventName: string): Event | undefined {
-    return this.attributes.get(eventName);
+    return this.events.get(eventName);
   }
 
   size (): any {
-    return this.attributes.size;
+    return this.events.size;
   }
 
   stringify () {
-    
+    const template: Template = new Template();
+    for (const [keyName, event] of this.events) {
+      template.next(event.capture ? 'catch:' : 'bind:');
+      template.next(keyName);
+      template.next('=');
+      template.next(event.listenerName);
+      template.space();
+    }
+
+    return template.stringify();
   }
 }
