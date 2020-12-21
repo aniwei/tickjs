@@ -1,0 +1,3 @@
+<import src="../tickjs.wxml" />
+
+<template is="tickjs" data="{{i:i}}"></template>

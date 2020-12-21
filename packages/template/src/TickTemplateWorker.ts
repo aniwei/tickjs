@@ -95,8 +95,6 @@ function createComponents (cursor: number, imports, workTemplate: TickTemplateNo
     template.appendChild(node)
     workTemplate.appendChild(template);
   }
-
-  return 
 }
 
 export const defaultWorkerOptions = {

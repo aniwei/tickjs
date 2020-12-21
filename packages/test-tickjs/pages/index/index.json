@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "circulate": "./circulate/index"
+  }
+}

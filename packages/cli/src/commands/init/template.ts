@@ -4,9 +4,9 @@ import {
   button,
   camera,
   canvas,
-  circlate,
   view,
   text,
+  createCirculate,
   createWorker,
   createTemplate,
   TickTemplateNode,
@@ -15,7 +15,6 @@ import {
   VARIABLE_NAME
 } from '@tickjs/template';
 
-import * as env from '../../shared/env';
 
 enum MiniProgramComponent {
   AUDIO = 'audio',
@@ -43,35 +42,40 @@ enum HTMLComponent {
 
 const defaultOptions = {
   ...defaultWorkerOptions,
-  supportHTMLComponents: false
+  numberOfCycles: 1,
+  supportHTMLComponents: false,
+  circulateNodeName: 'circulate',
+  circulateNodeClassName: '--tickjs-circulate',
+  circulateParentNodeClassName: '--tickjs-circulate-parent'
 }
 
-
 export function createWorkerTemplate (options = defaultOptions) {
-  let imports: any[] = [
-    [MiniProgramComponent.AUDIO, audio],
-    [MiniProgramComponent.BUTTON, button],
-    [MiniProgramComponent.CANVAS, canvas],
-    [MiniProgramComponent.CAMERA, camera],
-    [MiniProgramComponent.CIRCLATE, circlate],
-    [MiniProgramComponent.TEXT, text],
-    [MiniProgramComponent.VIEW, view],
-  ];
-
-  if (options.supportHTMLComponents) {
-    imports = imports.concat([
-      [HTMLComponent.H1, new TickTemplateHTMLBlockNode('h1')],
-      [HTMLComponent.H2, new TickTemplateHTMLBlockNode('h2')],
-      [HTMLComponent.H3, new TickTemplateHTMLBlockNode('h3')],
-      [HTMLComponent.H4, new TickTemplateHTMLBlockNode('h4')],
-      [HTMLComponent.H5, new TickTemplateHTMLBlockNode('h5')],
-      [HTMLComponent.H6, new TickTemplateHTMLBlockNode('h6')],
-    ]);
-  }
+  
   
   const template = createTemplate(quotate('tickjs'));
 
   for (let i = 0; i < options.numberOfCycles; i++) {
+    let imports: any[] = [
+      [MiniProgramComponent.AUDIO, audio],
+      [MiniProgramComponent.BUTTON, button],
+      [MiniProgramComponent.CANVAS, canvas],
+      [MiniProgramComponent.CAMERA, camera],
+      [MiniProgramComponent.CIRCLATE, createCirculate(options)],
+      [MiniProgramComponent.TEXT, text],
+      [MiniProgramComponent.VIEW, view],
+    ];
+  
+    if (options.supportHTMLComponents) {
+      imports = imports.concat([
+        [HTMLComponent.H1, new TickTemplateHTMLBlockNode('h1')],
+        [HTMLComponent.H2, new TickTemplateHTMLBlockNode('h2')],
+        [HTMLComponent.H3, new TickTemplateHTMLBlockNode('h3')],
+        [HTMLComponent.H4, new TickTemplateHTMLBlockNode('h4')],
+        [HTMLComponent.H5, new TickTemplateHTMLBlockNode('h5')],
+        [HTMLComponent.H6, new TickTemplateHTMLBlockNode('h6')],
+      ]);
+    }
+
     const workerTemplate = createWorker(i, imports);
     template.appendChild(workerTemplate);
   }

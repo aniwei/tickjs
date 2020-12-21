@@ -7,6 +7,8 @@ export class TickTemplateNode extends TickTemplate {
   static is (templateName: string, data: string): TickTemplateNode {
     const templateNode = new TickTemplateNode();
 
+    templateNode.tag.type = TagType.CLOSING;
+
     templateNode.setAttribute(
       'is',
       templateName

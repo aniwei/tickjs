@@ -3,19 +3,34 @@ import {
 } from './TickTemplateNode';
 import {
   quotate,
+  variable,
   VARIABLE_NAME,
 } from './shared'
 import { 
-  TagType,
-  TickTemplate
- } from './TickTemplate';
+  TickTemplateClosingComponent 
+} from './TickTemplateComponent';
 
-export class TickTemplateCirculateNode extends TickTemplate {
-  constructor (cursor: number, options) {
-    super(options.circulateNodeName, TagType.CLOSING);
+enum DataStruct {
+  I = 5
+}
+
+export const CirculateDataStruct = DataStruct
+
+export function createCirculate (options) {
+  const circulateNode = new TickTemplateCirculateNode(options);
+
+  return circulateNode;
+} 
+
+export class TickTemplateCirculateNode extends TickTemplateClosingComponent {
+  constructor (options) {
+    super(options.circulateNodeName);
+
+    this.setAttribute('i', variable(DataStruct.I))
+    this.setAttribute('class', quotate(options.circulateNodeClassName));
 
     this.appendChild(TickTemplateNode.is(
-      `${options.prefix}.${cursor}`, 
+      `${options.prefix}.${0}`, 
       quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`))
     )
   }

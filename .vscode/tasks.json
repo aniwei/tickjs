@@ -8,7 +8,7 @@
         "$tsc"
       ],
       "group": "build",
-      "label": "build template"
+      "label": "build template",
     },
     {
       "type": "typescript",
