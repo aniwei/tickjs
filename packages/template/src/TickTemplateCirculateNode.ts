@@ -26,8 +26,10 @@ export class TickTemplateCirculateNode extends TickTemplateClosingComponent {
   constructor (options) {
     super(options.circulateNodeName);
 
-    this.setAttribute('i', variable(DataStruct.I))
+    this.setAttribute('i', quotate('{{i}}'))
     this.setAttribute('class', quotate(options.circulateNodeClassName));
+
+    this.removeAttribute('style');
 
     this.appendChild(TickTemplateNode.is(
       `${options.prefix}.${0}`, 

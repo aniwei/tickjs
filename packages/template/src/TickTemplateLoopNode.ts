@@ -21,7 +21,7 @@ export class TickTemplateLoopNode extends TickTemplate {
     super('block', TagType.OPENNING);
 
     this.setAttribute('wx:for', variable(DataStruct.CHILDREN));
-    this.setAttribute('wx:key', variable(DataStruct.ID));
+    this.setAttribute('wx:key', quotate('index'));
     this.setAttribute('wx:for-item', quotate(VARIABLE_NAME));
 
     this.appendChild(loopElement);

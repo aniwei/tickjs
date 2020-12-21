@@ -457,8 +457,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateattributes.d.ts": {
-        "version": "4439522621e7ea3f58399f5d09696cf119511dc97d81c0dad888915075cfe6cf",
-        "signature": "4439522621e7ea3f58399f5d09696cf119511dc97d81c0dad888915075cfe6cf",
+        "version": "bc746fdb7778b233dd106c675b5b13038d8c7621c438ea60d65ed9bbd53ecf0a",
+        "signature": "bc746fdb7778b233dd106c675b5b13038d8c7621c438ea60d65ed9bbd53ecf0a",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateevents.d.ts": {
@@ -467,8 +467,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplate.d.ts": {
-        "version": "431ebaef7f81d879a98dad9a3fce9f0a94fe8f3d16a38623f4264cccf1272299",
-        "signature": "431ebaef7f81d879a98dad9a3fce9f0a94fe8f3d16a38623f4264cccf1272299",
+        "version": "da31c1c3987f0cbae60672dba0e3b575048230dbac3218e65c51a078f3503a4f",
+        "signature": "da31c1c3987f0cbae60672dba0e3b575048230dbac3218e65c51a078f3503a4f",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatenode.d.ts": {
@@ -547,7 +547,7 @@
         "affectsGlobalScope": false
       },
       "./src/commands/init/template.ts": {
-        "version": "c950a7fbbeb5f5b26599158b511bb237488d834a31e3e7abdcd6ca5f1c218afe",
+        "version": "93e54cb7ed42f1fa23c5745dcda5379f45b364afbf6be0d60f4d9b2c5af1c473",
         "signature": "8398f0ef64760735e2848dba755d90bcf1b4e57a8416bfb181a3b9306a082b7f",
         "affectsGlobalScope": false
       },

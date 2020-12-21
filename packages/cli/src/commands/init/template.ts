@@ -36,14 +36,18 @@ enum HTMLComponent {
   H5 = 'h5',
   H6 = 'h6',
   DIV = 'div',
+  P = 'p',
+  UL = 'ul',
+  OL = 'ol',
+  LI = 'li',
   SPAN = 'span',
   I = 'i'
 }
 
 const defaultOptions = {
   ...defaultWorkerOptions,
-  numberOfCycles: 1,
-  supportHTMLComponents: false,
+  numberOfCycles: 4,
+  supportHTMLComponents: true,
   circulateNodeName: 'circulate',
   circulateNodeClassName: '--tickjs-circulate',
   circulateParentNodeClassName: '--tickjs-circulate-parent'
@@ -73,12 +77,24 @@ export function createWorkerTemplate (options = defaultOptions) {
         [HTMLComponent.H4, new TickTemplateHTMLBlockNode('h4')],
         [HTMLComponent.H5, new TickTemplateHTMLBlockNode('h5')],
         [HTMLComponent.H6, new TickTemplateHTMLBlockNode('h6')],
+        [HTMLComponent.DIV, new TickTemplateHTMLBlockNode('div')],
+        [HTMLComponent.P, new TickTemplateHTMLBlockNode('p')],
+        [HTMLComponent.UL, new TickTemplateHTMLBlockNode('ul')],
+        [HTMLComponent.OL, new TickTemplateHTMLBlockNode('ol')],
+        [HTMLComponent.LI, new TickTemplateHTMLBlockNode('li')],
       ]);
     }
 
     const workerTemplate = createWorker(i, imports);
     template.appendChild(workerTemplate);
   }
+
+  const eofTemplate = TickTemplateNode.define(
+    quotate(`${options.prefix}.${options.numberOfCycles}`)
+  );
+
+  eofTemplate.appendChild(createCirculate(options))
+  template.appendChild(eofTemplate);
 
   template.appendChild(
     TickTemplateNode.is(

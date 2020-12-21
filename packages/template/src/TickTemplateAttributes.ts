@@ -28,6 +28,10 @@ export class TickTemplateAttributes {
     return this.attributes.get(keyName);
   }
 
+  removeAttribute (keyName) {
+    return this.attributes.delete(keyName);
+  }
+
   size (): any {
     return this.attributes.size;
   }

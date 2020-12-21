@@ -212,8 +212,8 @@
         "affectsGlobalScope": true
       },
       "./src/ticktemplateattributes.ts": {
-        "version": "9103698d5af0126a45b00e395ba9cf246e221d7c9650748feae806ca61ca241d",
-        "signature": "4439522621e7ea3f58399f5d09696cf119511dc97d81c0dad888915075cfe6cf",
+        "version": "e8ae1bef4354d6cb88365a5642a50265e66eba531fad8c77deb33578bb0a65e9",
+        "signature": "bc746fdb7778b233dd106c675b5b13038d8c7621c438ea60d65ed9bbd53ecf0a",
         "affectsGlobalScope": false
       },
       "./src/ticktemplateevents.ts": {
@@ -222,8 +222,8 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplate.ts": {
-        "version": "bd6b996ee914f5d4a9c4e2adc9c18c89eb5f80859be3586411a016be471c3801",
-        "signature": "431ebaef7f81d879a98dad9a3fce9f0a94fe8f3d16a38623f4264cccf1272299",
+        "version": "ee194173141a5847895698a8c19d1e69d364caee7b9c792bd02f47874c5da9b5",
+        "signature": "da31c1c3987f0cbae60672dba0e3b575048230dbac3218e65c51a078f3503a4f",
         "affectsGlobalScope": false
       },
       "./src/shared.ts": {
@@ -262,12 +262,12 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplatenode.ts": {
-        "version": "3d4e57a198abd2f2dd72ab6b241e8c2e506cc1de83186e620d3db19b71ea2910",
+        "version": "425b9a98003cddf33a6d683dce9bb3f2ff573df2490edb095a0b541d6fcc5e95",
         "signature": "553b27ffd436d07d5d0822486c90bef246551e53a2831b4a0666ceae834b6fad",
         "affectsGlobalScope": false
       },
       "./src/ticktemplatecirculatenode.ts": {
-        "version": "e2f716b71d3f2f53d127a7c935884595c33329caed8df205f5488f472846d6bb",
+        "version": "3e9795a2e2772a0b2dfde246ff35700fe1d8b2366afded3248d080dcc46ffd03",
         "signature": "adeaff162ea7077f97f565fdf959a6f27e42e6481d93846a5c4f5e3e81f13d11",
         "affectsGlobalScope": false
       },
@@ -287,7 +287,7 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplateloopnode.ts": {
-        "version": "eadc8a886a24aef06e25f500624827b32837aec7d2212e23df99afcab1b1402a",
+        "version": "f64b2f2141ae8b410e1677965d52091d07a375961df5d3cc5071d9db204c8bbb",
         "signature": "95d84c67a0ae47dd45e463d5fe7188b89e198073ea37c6b5adbc6ba89e27bcac",
         "affectsGlobalScope": false
       },
@@ -307,7 +307,7 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplateworker.ts": {
-        "version": "da8566ab3a08e8a340ef01890b317059eb0eb8bf72e574377a3fd687a9000587",
+        "version": "18409a1fe9bd299484a94efe8a472e87fd7a9b238219f6ddb226ca1a014dfd21",
         "signature": "ee4dac603d2efdc36c70921f8c242de9a5c92dbab9f1464f3cf645cf3ab81672",
         "affectsGlobalScope": false
       },

@@ -173,6 +173,7 @@ export class TickTemplate {
       child.parentNode = null;
     }
   }
+  
 
   removeEventListener (eventName) {
     this.events.removeEventListener(eventName);
@@ -188,6 +189,10 @@ export class TickTemplate {
 
   setAttribute (keyName, valueName, defaultValue?) {
     this.attributes.setAttribute(keyName, valueName, defaultValue);
+  }
+
+  removeAttribute (keyName) {
+    this.attributes.removeAttribute(keyName);
   }
 
   json () {}

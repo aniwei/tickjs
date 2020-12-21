@@ -50,7 +50,7 @@ function createBeginWork (imports, options?) {
         isEqualTagName(tagName),
         TickTemplateNode.is(quotate(tagName), assign())
       );
-    } else if (i === imports.length - 1) {
+    } else {
       ifExpressionNode.ElseIf(
         isEqualTagName(tagName),
         TickTemplateNode.is(quotate(tagName), assign())
