@@ -18,6 +18,8 @@ export enum DataStruct {
   SCANCODE
 }
 
+export const CameraDataStruct = DataStruct;
+
 export function createCamera () {
   const audio = new TickTemplateCameraNode();
 
@@ -62,3 +64,5 @@ export class TickTemplateCameraNode extends TickTemplateClosingComponent {
     }
   }
 }
+
+export const camera = createCamera();

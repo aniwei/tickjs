@@ -1,22 +1,9 @@
-import {
-  TagType,
-  TickTemplate
-} from './TickTemplate';
-
-import {
-  TickTemplateOpenningComponent
-} from './TickTemplateComponent'
-
-import {
-  TickTemplateImportElement
-} from './TickTemplateImportElement'
 import { 
   TickTemplateNode 
 } from './TickTemplateNode';
 
 import {
   quotate,
-  variable,
   VARIABLE_NAME
 } from './shared'
 
@@ -32,73 +19,44 @@ import {
   TickTemplateLoopNode
 } from './TickTemplateLoopNode';
 
+import {
+  TickTemplateCirculateNode
+} from './TickTemplateCirculateNode';
+import { 
+  createTemplate 
+} from './createTemplate';
+import { 
+  TagType 
+} from './TickTemplate';
 
-export function createWorker (workerName: string, imports: string[]) {
-  const workerTemplate = TickTemplateNode.define(workerName);
-
-  for (const [src] of imports) {
-    const importNode = new TickTemplateImportElement();
-
-    importNode.src = src;
-
-    workerTemplate.appendChild(importNode);    
-  }
-
-  const beginWorkTemplate = createBeginWork();
-  const workLoopTemplate = createWorkLoop();
-
-  workerTemplate.appendChild(beginWorkTemplate);
-  workerTemplate.appendChild(workLoopTemplate);
-
-  workLoopTemplate.appendChild(
-    TickTemplateNode.is(
-      quotate('beginWork'), 
-      quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
-    )
-  )
-
-  workLoopTemplate.appendChild(
-    TickTemplateNode.is(
-      quotate('workLoop'), 
-      quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
-    )
-  );
-
-  return workerTemplate;
-}
 
 function assign () {
   return quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
 }
 
 function isEqualTagName (tagName) {
-  return quotate(`{{${VARIABLE_NAME}[${DataStruct.TAGNAME}] == '${tagName}'}}`);
+  return quotate(`{{${VARIABLE_NAME}[${DataStruct.TAGNAME}]=='${tagName}'}}`);
 }
 
-function createBeginWork () {
+function createBeginWork (imports, options?) {
   const beginWorkTemplate = TickTemplateNode.define(quotate('beginWork'));
-
   const ifExpressionNode = new TickTemplateIfExpression();
 
-  ifExpressionNode.If(
-    isEqualTagName('text'),
-    TickTemplateNode.is(quotate('text'), assign())
-  );
+  for (let i = 0; i < imports.length; i++) {
+    const [tagName] = imports[i];
 
-  ifExpressionNode.ElseIf(
-    isEqualTagName('html'),
-    TickTemplateNode.is(quotate('html'), assign())
-  );
-
-  ifExpressionNode.ElseIf(
-    isEqualTagName('view'),
-    TickTemplateNode.is(quotate('view'), assign())
-  );
-
-  ifExpressionNode.ElseIf(
-    isEqualTagName('html'),
-    TickTemplateNode.is(quotate('html'), assign())
-  );
+    if (i === 0) {
+      ifExpressionNode.If(
+        isEqualTagName(tagName),
+        TickTemplateNode.is(quotate(tagName), assign())
+      );
+    } else if (i === imports.length - 1) {
+      ifExpressionNode.ElseIf(
+        isEqualTagName(tagName),
+        TickTemplateNode.is(quotate(tagName), assign())
+      );
+    }
+  }
 
   beginWorkTemplate.appendChild(ifExpressionNode)
 
@@ -107,11 +65,10 @@ function createBeginWork () {
 
 function createWorkLoop () {
   const workLoopTemplate = TickTemplateNode.define(quotate('workLoop'));
-
   const ifExpressionNode = new TickTemplateIfExpression();
 
   ifExpressionNode.If(
-    quotate(`{{${VARIABLE_NAME}[${DataStruct.CHILDREN}].length > 0}}`), 
+    quotate(`{{${VARIABLE_NAME}[${DataStruct.CHILDREN}].length>0}}`), 
     new TickTemplateLoopNode(
       TickTemplateNode.is(quotate('beginWork'), assign())
     )
@@ -121,3 +78,51 @@ function createWorkLoop () {
 
   return workLoopTemplate;
 }
+
+function createComponents (cursor: number, imports, workTemplate: TickTemplateNode, options) {
+  for (const [tagName, node] of imports) {
+    const template = createTemplate(quotate(tagName));
+
+    if (node.tag.type === TagType.OPENNING) {
+      node.appendChild(  
+        TickTemplateNode.is(
+          quotate(`${options.prefix}.${cursor + 1}`), 
+          quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
+        )
+      );
+    }
+
+    template.appendChild(node)
+    workTemplate.appendChild(template);
+  }
+
+  return 
+}
+
+export const defaultWorkerOptions = {
+  numberOfCycles: 5,
+  prefix: ''
+}
+
+export function createWorker (cursor: number, imports: any[], options = defaultWorkerOptions) {
+  const workerTemplate = TickTemplateNode.define(quotate(`${defaultWorkerOptions.prefix}.${cursor}`));
+  
+  createComponents(cursor, imports, workerTemplate, options);
+  
+  const beginWorkTemplate = createBeginWork(imports);
+  const workLoopTemplate = createWorkLoop();
+
+  workerTemplate.appendChild(beginWorkTemplate);
+  workerTemplate.appendChild(workLoopTemplate);
+
+  workerTemplate.appendChild(
+    TickTemplateNode.is(
+      quotate('workLoop'), 
+      quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
+    )
+  );
+
+  return workerTemplate;
+}
+
+

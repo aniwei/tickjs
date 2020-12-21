@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+    {
+      "type": "typescript",
+      "tsconfig": "packages/template/tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build",
+      "label": "build template"
+    },
+    {
+      "type": "typescript",
+      "tsconfig": "packages/cli/tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build",
+      "label": "build cli"
+    },
+    {
+      "label": "build",
+      "dependsOn": [
+        "build template",
+        "build cli",
+      ]
+    }
+  ]
+}

@@ -23,15 +23,15 @@ enum DataStruct {
   ANIMATIONNEND
 }
 
-export const ButtonDataStruct = DataStruct;
+export const ViewDataStruct = DataStruct;
 
-export function createButton () {
-  const button = new TickTemplateButtonNode();
+export function createView () {
+  const view = new TickTemplateViewNode();
 
-  return button;
+  return view;
 }
 
-export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
+export class TickTemplateViewNode extends TickTemplateOpenningComponent {
   static defaultProps = [];
 
   static defaultEvents = [
@@ -52,8 +52,12 @@ export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
   ];
 
   constructor () {
-    super('button', TickTemplateButtonNode.defaultProps, TickTemplateButtonNode.defaultEvents);
+    super(
+      'view', 
+      TickTemplateViewNode.defaultProps, 
+      TickTemplateViewNode.defaultEvents
+    );
   }
 }
 
-export const button = createButton();
+export const view = createView();

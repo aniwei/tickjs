@@ -43,24 +43,30 @@ export class TickTemplateIfExpression extends TickTemplate  {
     super('empty', TagType.OPENNING);
   }
 
-  If (condition: string, ifTemplate: TickTemplate): void {
+  If (condition: string, ifTemplate: TickTemplate) {
     const ifElement = new TickTemplateIf(condition)
     ifElement.appendChild(ifTemplate);
 
     this.firstChild = ifElement;
+
+    return this;
   }
 
-  ElseIf (condition: string, elseIfTemplate: TickTemplate) : void {
+  ElseIf (condition: string, elseIfTemplate: TickTemplate) : TickTemplateIfExpression {
     const elseIfElement = new TickTemplateElseIf(condition);
 
     elseIfElement.appendChild(elseIfTemplate);
 
     this.appendChild(elseIfElement);
+
+    return this;
   }
 
-  Else (elseTemplatew: TickTemplate) {
+  Else (elseTemplatew: TickTemplate) : TickTemplateIfExpression {
     const elseIfElement = new TickTemplateElse(elseTemplatew);
     this.lastChild = elseIfElement;
+
+    return this;
   }
 
   stringify () {

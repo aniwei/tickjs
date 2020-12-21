@@ -1,4 +1,3 @@
-import { TickTemplate } from './TickTemplate';
 import { 
   TickTemplateNode
 } from './TickTemplateNode';

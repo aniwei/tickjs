@@ -1,42 +1,19 @@
 const {
-  createTemplate
-} = require('../dist/createTemplate')
-const {
-  createAudio
-} = require('../dist/TickTemplateAudioNode')
-
-const {
-  createCamera
-} = require('../dist/TickTemplateCameraNode')
-
-const {
-  createWorker
-} = require('../dist/TickTemplateWorker');
-
-const {
+  createTemplate,
+  createWorker,
+  button,
   quotate
-} = require('../dist/shared');
+} = require('../dist')
 
-function createAudioTemplate () {
-  const root = createTemplate(quotate('components'));
-  const worker = createWorker(quotate('worker'), [
-    [quotate('../../components')]
+function createTemplates () {
+  const worker = createWorker(0, [
+    ['button', button],
   ]);
-
-  [
-    ['audio', createAudio()],
-    ['camera', createCamera()],
-  ].forEach(([name, node]) => {
-    const template = createTemplate(`"${name}"`);
-    template.appendChild(node);
-
-    root.appendChild(template);
-  });
 
   return worker.stringify()
 }
 
 
-console.log(createAudioTemplate())
+console.log(createTemplates())
 
 

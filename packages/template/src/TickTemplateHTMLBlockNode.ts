@@ -1,5 +1,5 @@
 import {
-  TickTemplateOpenningComponent,
+  TickTemplateClosingComponent,
 } from './TickTemplateComponent';
 
 import {
@@ -23,16 +23,17 @@ enum DataStruct {
   ANIMATIONNEND
 }
 
-export const ButtonDataStruct = DataStruct;
+export const HTMLDataStruct = DataStruct
 
-export function createButton () {
-  const button = new TickTemplateButtonNode();
+export function createHTMLBlock (tagName: string) {
+  const blockNode = new TickTemplateHTMLBlockNode(tagName);
 
-  return button;
+  return blockNode;
 }
 
-export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
-  static defaultProps = [];
+export class TickTemplateHTMLBlockNode extends TickTemplateClosingComponent {
+  static defaultProps: any[] = [
+  ];
 
   static defaultEvents = [
     ['tap', variable(DataStruct.TAP), true], 
@@ -51,9 +52,31 @@ export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
     ['animationend', variable(DataStruct.ANIMATIONNEND), true],
   ];
 
-  constructor () {
-    super('button', TickTemplateButtonNode.defaultProps, TickTemplateButtonNode.defaultEvents);
+  constructor (tagName: string) {
+    super(tagName);
+
+    if (TickTemplateHTMLBlockNode.defaultProps.length > 0) {
+      for (
+        const [
+          keyName, 
+          valueName, 
+          defaultValue
+        ] of TickTemplateHTMLBlockNode.defaultProps
+      ) {
+        this.setAttribute(keyName, valueName, defaultValue);
+      }
+    }
+
+    if (TickTemplateHTMLBlockNode.defaultEvents.length > 0) {
+      for (
+        const [
+          eventName, 
+          listenerName, 
+          capture
+        ] of TickTemplateHTMLBlockNode.defaultEvents
+      ) {
+        this.addEventListener(eventName, listenerName, capture);
+      }
+    }
   }
 }
-
-export const button = createButton();

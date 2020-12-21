@@ -3,7 +3,7 @@ import {
   TickTemplate
 } from './TickTemplate';
 
-export class TickTemplateImportElement extends TickTemplate {
+export class TickTemplateImportNode extends TickTemplate {
   constructor () {
     super('import', TagType.CLOSING);
   }

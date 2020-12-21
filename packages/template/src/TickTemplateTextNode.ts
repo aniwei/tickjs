@@ -1,5 +1,5 @@
 import {
-  TickTemplateOpenningComponent,
+  TickTemplateClosingComponent,
 } from './TickTemplateComponent';
 
 import {
@@ -23,18 +23,10 @@ enum DataStruct {
   ANIMATIONNEND
 }
 
-export const ButtonDataStruct = DataStruct;
+export const TextDataStruct = DataStruct;
 
-export function createButton () {
-  const button = new TickTemplateButtonNode();
-
-  return button;
-}
-
-export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
-  static defaultProps = [];
-
-  static defaultEvents = [
+export class TickTemplateTextNode extends TickTemplateClosingComponent {
+  static defaultProps = [
     ['tap', variable(DataStruct.TAP), true], 
     ['longtap', variable(DataStruct.LONGTAP), true],
     ['longpress', variable(DataStruct.LONGPRESS), true],
@@ -51,9 +43,16 @@ export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
     ['animationend', variable(DataStruct.ANIMATIONNEND), true],
   ];
 
+  static defaultEvents = [
+  ];
+
   constructor () {
-    super('button', TickTemplateButtonNode.defaultProps, TickTemplateButtonNode.defaultEvents);
+    super(
+      'text', 
+      TickTemplateTextNode.defaultProps, 
+      TickTemplateTextNode.defaultEvents
+    );
   }
 }
 
-export const button = createButton();
+export const text: TickTemplateTextNode = new TickTemplateTextNode();
