@@ -492,8 +492,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatehtmlblocknode.d.ts": {
-        "version": "3c171d63c6fe53d0bcc677f21cdef62b3e6276181a187acab8b674ec078d3ff5",
-        "signature": "3c171d63c6fe53d0bcc677f21cdef62b3e6276181a187acab8b674ec078d3ff5",
+        "version": "ee8e5eeff8c8776117febf579056d58076a6137d44e3d6ce1ff331f48a0efcf4",
+        "signature": "ee8e5eeff8c8776117febf579056d58076a6137d44e3d6ce1ff331f48a0efcf4",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateaudionode.d.ts": {

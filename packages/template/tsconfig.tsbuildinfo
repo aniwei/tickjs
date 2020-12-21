@@ -272,8 +272,8 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplatehtmlblocknode.ts": {
-        "version": "491604512fd735e01b79fac98e88931a3e2a5cdfa2488bf37315b1e28ceb98d8",
-        "signature": "3c171d63c6fe53d0bcc677f21cdef62b3e6276181a187acab8b674ec078d3ff5",
+        "version": "c351a7aff31b3761556a4d56167802f25a1ba8a86c9264c00de2e822366939c7",
+        "signature": "ee8e5eeff8c8776117febf579056d58076a6137d44e3d6ce1ff331f48a0efcf4",
         "affectsGlobalScope": false
       },
       "./src/ticktemplateifexpression.ts": {

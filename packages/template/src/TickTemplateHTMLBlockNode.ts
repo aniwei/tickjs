@@ -1,5 +1,5 @@
 import {
-  TickTemplateClosingComponent,
+  TickTemplateOpenningComponent,
 } from './TickTemplateComponent';
 
 import {
@@ -31,7 +31,7 @@ export function createHTMLBlock (tagName: string) {
   return blockNode;
 }
 
-export class TickTemplateHTMLBlockNode extends TickTemplateClosingComponent {
+export class TickTemplateHTMLBlockNode extends TickTemplateOpenningComponent {
   static defaultProps: any[] = [
   ];
 
