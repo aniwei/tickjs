@@ -101,6 +101,7 @@ function createComponents (cursor: number, imports, workTemplate: TickTemplateNo
 
 export const defaultWorkerOptions = {
   numberOfCycles: 5,
+  circulateNodeName: 'circulate',
   prefix: ''
 }
 

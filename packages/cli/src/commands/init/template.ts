@@ -4,6 +4,7 @@ import {
   button,
   camera,
   canvas,
+  circlate,
   view,
   text,
   createWorker,
@@ -21,6 +22,7 @@ enum MiniProgramComponent {
   BUTTON = 'button',
   CANVAS = 'canvas',
   CAMERA = 'camera',
+  CIRCLATE = 'circlate',
   TEXT = 'text',
   VIEW = 'view',
 }
@@ -51,6 +53,7 @@ export function createWorkerTemplate (options = defaultOptions) {
     [MiniProgramComponent.BUTTON, button],
     [MiniProgramComponent.CANVAS, canvas],
     [MiniProgramComponent.CAMERA, camera],
+    [MiniProgramComponent.CIRCLATE, circlate],
     [MiniProgramComponent.TEXT, text],
     [MiniProgramComponent.VIEW, view],
   ];
