@@ -15,6 +15,12 @@ enum DataStruct {
 
 export const CanvasDataStruct = DataStruct;
 
+export function createCanvas () {
+  const canvas = new TickTemplateCanvasNode();
+
+  return canvas;
+}
+
 export class TickTemplateCanvasNode extends TickTemplateClosingComponent {
   static defaultProps = [
     ['type', variable(DataStruct.TYPE), null],
@@ -35,4 +41,4 @@ export class TickTemplateCanvasNode extends TickTemplateClosingComponent {
   }
 }
 
-export const canvas: TickTemplateCanvasNode = new TickTemplateCanvasNode();
+export const canvas: TickTemplateCanvasNode = createCanvas();

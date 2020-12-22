@@ -482,8 +482,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateworker.d.ts": {
-        "version": "ee4dac603d2efdc36c70921f8c242de9a5c92dbab9f1464f3cf645cf3ab81672",
-        "signature": "ee4dac603d2efdc36c70921f8c242de9a5c92dbab9f1464f3cf645cf3ab81672",
+        "version": "3cde7ec2994c8fa1be2300731fa2351c22e84cf8ad2000d355691274911dafb6",
+        "signature": "3cde7ec2994c8fa1be2300731fa2351c22e84cf8ad2000d355691274911dafb6",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecomponent.d.ts": {
@@ -512,8 +512,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecanvasnode.d.ts": {
-        "version": "c3e80baebfa67e44c952274cbaaeaccc00a6fbd3061b4f9db446f572ed69edbb",
-        "signature": "c3e80baebfa67e44c952274cbaaeaccc00a6fbd3061b4f9db446f572ed69edbb",
+        "version": "e8d0b0295c8bb53da8b0855e41f56ee96acc5665308034d0a16e4af006b1ec75",
+        "signature": "e8d0b0295c8bb53da8b0855e41f56ee96acc5665308034d0a16e4af006b1ec75",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecirculatenode.d.ts": {
@@ -522,8 +522,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatetextnode.d.ts": {
-        "version": "aef60cb07dcb0c0cdd0ca33df0b62bec6c3066501e4b5158396929b81f1de7bb",
-        "signature": "aef60cb07dcb0c0cdd0ca33df0b62bec6c3066501e4b5158396929b81f1de7bb",
+        "version": "48dddbc10e416ce18b16e54d6863ed28a1ed91857f497765627b824639a094e3",
+        "signature": "48dddbc10e416ce18b16e54d6863ed28a1ed91857f497765627b824639a094e3",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateviewnode.d.ts": {
@@ -532,8 +532,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/shared.d.ts": {
-        "version": "891b7ad9d1fde5724fba22383e86c2ea60e819cc29bb61ad8d741722fc23357a",
-        "signature": "891b7ad9d1fde5724fba22383e86c2ea60e819cc29bb61ad8d741722fc23357a",
+        "version": "c0fc43fe75460b734af96409a59e594fae67ed498fef608bbcea223c5818a6ae",
+        "signature": "c0fc43fe75460b734af96409a59e594fae67ed498fef608bbcea223c5818a6ae",
         "affectsGlobalScope": false
       },
       "../template/dist/createtemplate.d.ts": {
@@ -547,12 +547,12 @@
         "affectsGlobalScope": false
       },
       "./src/commands/init/template.ts": {
-        "version": "93e54cb7ed42f1fa23c5745dcda5379f45b364afbf6be0d60f4d9b2c5af1c473",
-        "signature": "8398f0ef64760735e2848dba755d90bcf1b4e57a8416bfb181a3b9306a082b7f",
+        "version": "bd1b333eaf33fc0471233332ea88e612a84938bbb22d9cd965aecf032f4e2046",
+        "signature": "7f4288118e1de96ec3e3d5db7d8b816549bedf96aea0179d142d2f1c0fd79b1b",
         "affectsGlobalScope": false
       },
       "./src/commands/init/index.ts": {
-        "version": "66c0d328460c6022697d85cca78eda69a6f4784adb720f0681ecdef933b867a4",
+        "version": "8bad90e5ad83c99a19ff1f9896855a594e742dca7c30829e60ead6d2b167c7c3",
         "signature": "5b377a10d7e7e0f5b817dca15bc2c3a43917793ff88e70146cf009d70da578e6",
         "affectsGlobalScope": false
       },
@@ -755,7 +755,7 @@
           "../template/*"
         ]
       },
-      "pathsBasePath": "/Users/aniwei/Desktop/tickjs/packages/cli",
+      "pathsBasePath": "/Users/weiyanhai/Downloads/tick/packages/cli",
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
@@ -1381,8 +1381,12 @@
         "../template/dist/ticktemplateblocknode.d.ts",
         "../template/dist/ticktemplatebuttonnode.d.ts",
         "../template/dist/ticktemplatecameranode.d.ts",
+        "../template/dist/ticktemplatecanvasnode.d.ts",
         "../template/dist/ticktemplatecirculatenode.d.ts",
+        "../template/dist/ticktemplatehtmlblocknode.d.ts",
         "../template/dist/ticktemplatenode.d.ts",
+        "../template/dist/ticktemplatetextnode.d.ts",
+        "../template/dist/ticktemplateviewnode.d.ts",
         "../template/dist/ticktemplateworker.d.ts"
       ],
       "../template/dist/ticktemplate.d.ts": [
@@ -1549,7 +1553,19 @@
       "./src/commands/init/__project__/src/app.js",
       "./src/commands/init/__project__/src/index/index.js",
       "./src/commands/init/index.ts",
-      "./src/commands/init/template.ts",
+      [
+        "./src/commands/init/template.ts",
+        [
+          {
+            "file": "./src/commands/init/template.ts",
+            "start": 22,
+            "length": 11,
+            "messageText": "Module '\"../../../node_modules/@tickjs/template/dist\"' has no exported member 'createAudio'.",
+            "category": 1,
+            "code": 2305
+          }
+        ]
+      ],
       "./src/commands/start/index.ts",
       "./src/shared/defaultwebpackconfig.js",
       "./src/shared/env.ts",
@@ -1572,6 +1588,448 @@
       "../template/dist/ticktemplatetextnode.d.ts",
       "../template/dist/ticktemplateviewnode.d.ts",
       "../template/dist/ticktemplateworker.d.ts"
+    ],
+    "affectedFilesPendingEmit": [
+      [
+        "../../node_modules/@types/anymatch/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/glob/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/html-minifier-terser/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/json-schema/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/minimatch/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/minimist/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/assert.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/async_hooks.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/base.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/buffer.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/child_process.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/cluster.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/console.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/constants.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/crypto.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/dgram.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/dns.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/domain.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/events.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/fs.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/fs/promises.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/globals.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/globals.global.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/http.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/http2.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/https.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/inspector.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/module.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/net.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/os.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/path.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/perf_hooks.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/process.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/punycode.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/querystring.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/readline.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/repl.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/stream.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/string_decoder.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/timers.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/tls.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/trace_events.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/ts3.4/base.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/ts3.6/base.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/tty.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/url.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/util.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/v8.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/vm.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/wasi.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/worker_threads.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/node/zlib.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/normalize-package-data/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/parse-json/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/source-list-map/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/tapable/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/uglify-js/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/cachedsource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/compatsource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/concatsource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/originalsource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/prefixsource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/rawsource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/replacesource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/sizeonlysource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/source.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/lib/sourcemapsource.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/@types/webpack/index.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/source-map/source-map.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/typescript/lib/lib.es2015.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/typescript/lib/lib.es2016.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/typescript/lib/lib.es2017.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/typescript/lib/lib.es2018.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/typescript/lib/lib.es2019.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/typescript/lib/lib.es2020.d.ts",
+        1
+      ],
+      [
+        "../../node_modules/typescript/lib/lib.esnext.d.ts",
+        1
+      ],
+      [
+        "./node_modules/@types/color-name/index.d.ts",
+        1
+      ],
+      [
+        "./node_modules/chalk/index.d.ts",
+        1
+      ],
+      [
+        "./src/commands/index.ts",
+        1
+      ],
+      [
+        "./src/commands/init/__project__/src/app.js",
+        1
+      ],
+      [
+        "./src/commands/init/__project__/src/index/index.js",
+        1
+      ],
+      [
+        "./src/commands/init/index.ts",
+        1
+      ],
+      [
+        "./src/commands/init/template.ts",
+        1
+      ],
+      [
+        "./src/commands/start/index.ts",
+        1
+      ],
+      [
+        "./src/shared/defaultwebpackconfig.js",
+        1
+      ],
+      [
+        "./src/shared/env.ts",
+        1
+      ],
+      [
+        "./src/shared/print.js",
+        1
+      ],
+      [
+        "../template/dist/createtemplate.d.ts",
+        1
+      ],
+      [
+        "../template/dist/index.d.ts",
+        1
+      ],
+      [
+        "../template/dist/shared.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplate.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplateattributes.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplateaudionode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplateblocknode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatebuttonnode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatecameranode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatecanvasnode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatecirculatenode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatecomponent.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplateevents.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatehtmlblocknode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatenode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplatetextnode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplateviewnode.d.ts",
+        1
+      ],
+      [
+        "../template/dist/ticktemplateworker.d.ts",
+        1
+      ]
     ]
   },
   "version": "4.1.3"

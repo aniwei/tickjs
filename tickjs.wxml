@@ -1,1 +1,338 @@
-<template name="tickjs" ><template name=".0" ><template name="audio" ><audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" /></template><template name="button" ><button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></button></template><template name="canvas" ><canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" /></template><template name="camera" ><camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" /></template><template name="circlate" ><circulate id="{{i[1]}}" class="--tickjs-circulate" i="{{i}}" /></template><template name="text" ><text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" /></template><template name="view" ><view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></view></template><template name="h1" ><h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></h1></template><template name="h2" ><h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></h2></template><template name="h3" ><h3 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></h3></template><template name="h4" ><h4 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></h4></template><template name="h5" ><h5 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></h5></template><template name="h6" ><h6 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></h6></template><template name="div" ><div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></div></template><template name="p" ><p id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></p></template><template name="ul" ><ul id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></ul></template><template name="ol" ><ol id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></ol></template><template name="li" ><li id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /></li></template><template name="beginWork" ><block wx:if="{{i[0]=='audio'}}" ><template is="audio" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='button'}}" ><template is="button" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='canvas'}}" ><template is="canvas" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='camera'}}" ><template is="camera" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='circlate'}}" ><template is="circlate" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='text'}}" ><template is="text" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='view'}}" ><template is="view" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h1'}}" ><template is="h1" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h2'}}" ><template is="h2" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h3'}}" ><template is="h3" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h4'}}" ><template is="h4" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h5'}}" ><template is="h5" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h6'}}" ><template is="h6" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='div'}}" ><template is="div" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='p'}}" ><template is="p" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ul'}}" ><template is="ul" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ol'}}" ><template is="ol" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='li'}}" ><template is="li" data="{{i:i}}" /></block></template><template name="workLoop" ><block wx:if="{{i[4].length>0}}" ><block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" ><template is="beginWork" data="{{i:i}}" /></block></block></template><template is="workLoop" data="{{i:i}}" /></template><template name=".1" ><template name="audio" ><audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" /></template><template name="button" ><button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></button></template><template name="canvas" ><canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" /></template><template name="camera" ><camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" /></template><template name="circlate" ><circulate id="{{i[1]}}" class="--tickjs-circulate" i="{{i}}" /></template><template name="text" ><text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" /></template><template name="view" ><view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></view></template><template name="h1" ><h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></h1></template><template name="h2" ><h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></h2></template><template name="h3" ><h3 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></h3></template><template name="h4" ><h4 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></h4></template><template name="h5" ><h5 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></h5></template><template name="h6" ><h6 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></h6></template><template name="div" ><div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></div></template><template name="p" ><p id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></p></template><template name="ul" ><ul id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></ul></template><template name="ol" ><ol id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></ol></template><template name="li" ><li id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".2" data="{{i:i}}" /></li></template><template name="beginWork" ><block wx:if="{{i[0]=='audio'}}" ><template is="audio" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='button'}}" ><template is="button" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='canvas'}}" ><template is="canvas" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='camera'}}" ><template is="camera" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='circlate'}}" ><template is="circlate" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='text'}}" ><template is="text" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='view'}}" ><template is="view" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h1'}}" ><template is="h1" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h2'}}" ><template is="h2" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h3'}}" ><template is="h3" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h4'}}" ><template is="h4" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h5'}}" ><template is="h5" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h6'}}" ><template is="h6" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='div'}}" ><template is="div" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='p'}}" ><template is="p" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ul'}}" ><template is="ul" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ol'}}" ><template is="ol" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='li'}}" ><template is="li" data="{{i:i}}" /></block></template><template name="workLoop" ><block wx:if="{{i[4].length>0}}" ><block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" ><template is="beginWork" data="{{i:i}}" /></block></block></template><template is="workLoop" data="{{i:i}}" /></template><template name=".2" ><template name="audio" ><audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" /></template><template name="button" ><button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></button></template><template name="canvas" ><canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" /></template><template name="camera" ><camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" /></template><template name="circlate" ><circulate id="{{i[1]}}" class="--tickjs-circulate" i="{{i}}" /></template><template name="text" ><text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" /></template><template name="view" ><view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></view></template><template name="h1" ><h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></h1></template><template name="h2" ><h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></h2></template><template name="h3" ><h3 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></h3></template><template name="h4" ><h4 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></h4></template><template name="h5" ><h5 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></h5></template><template name="h6" ><h6 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></h6></template><template name="div" ><div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></div></template><template name="p" ><p id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></p></template><template name="ul" ><ul id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></ul></template><template name="ol" ><ol id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></ol></template><template name="li" ><li id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".3" data="{{i:i}}" /></li></template><template name="beginWork" ><block wx:if="{{i[0]=='audio'}}" ><template is="audio" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='button'}}" ><template is="button" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='canvas'}}" ><template is="canvas" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='camera'}}" ><template is="camera" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='circlate'}}" ><template is="circlate" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='text'}}" ><template is="text" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='view'}}" ><template is="view" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h1'}}" ><template is="h1" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h2'}}" ><template is="h2" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h3'}}" ><template is="h3" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h4'}}" ><template is="h4" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h5'}}" ><template is="h5" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h6'}}" ><template is="h6" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='div'}}" ><template is="div" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='p'}}" ><template is="p" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ul'}}" ><template is="ul" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ol'}}" ><template is="ol" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='li'}}" ><template is="li" data="{{i:i}}" /></block></template><template name="workLoop" ><block wx:if="{{i[4].length>0}}" ><block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" ><template is="beginWork" data="{{i:i}}" /></block></block></template><template is="workLoop" data="{{i:i}}" /></template><template name=".3" ><template name="audio" ><audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" /></template><template name="button" ><button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></button></template><template name="canvas" ><canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" /></template><template name="camera" ><camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" /></template><template name="circlate" ><circulate id="{{i[1]}}" class="--tickjs-circulate" i="{{i}}" /></template><template name="text" ><text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" /></template><template name="view" ><view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".1" data="{{i:i}}" /><template is=".2" data="{{i:i}}" /><template is=".3" data="{{i:i}}" /><template is=".4" data="{{i:i}}" /></view></template><template name="h1" ><h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></h1></template><template name="h2" ><h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></h2></template><template name="h3" ><h3 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></h3></template><template name="h4" ><h4 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></h4></template><template name="h5" ><h5 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></h5></template><template name="h6" ><h6 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></h6></template><template name="div" ><div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></div></template><template name="p" ><p id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></p></template><template name="ul" ><ul id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></ul></template><template name="ol" ><ol id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></ol></template><template name="li" ><li id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" ><template is=".4" data="{{i:i}}" /></li></template><template name="beginWork" ><block wx:if="{{i[0]=='audio'}}" ><template is="audio" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='button'}}" ><template is="button" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='canvas'}}" ><template is="canvas" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='camera'}}" ><template is="camera" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='circlate'}}" ><template is="circlate" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='text'}}" ><template is="text" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='view'}}" ><template is="view" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h1'}}" ><template is="h1" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h2'}}" ><template is="h2" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h3'}}" ><template is="h3" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h4'}}" ><template is="h4" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h5'}}" ><template is="h5" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='h6'}}" ><template is="h6" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='div'}}" ><template is="div" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='p'}}" ><template is="p" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ul'}}" ><template is="ul" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='ol'}}" ><template is="ol" data="{{i:i}}" /></block><block wx:elif="{{i[0]=='li'}}" ><template is="li" data="{{i:i}}" /></block></template><template name="workLoop" ><block wx:if="{{i[4].length>0}}" ><block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" ><template is="beginWork" data="{{i:i}}" /></block></block></template><template is="workLoop" data="{{i:i}}" /></template><template name=".4" ><circulate id="{{i[1]}}" class="--tickjs-circulate" i="{{i}}" /></template><template is=".0" data="{{i:i}}" /></template>
+<template name="tickjs" >
+    <template name=".0" >
+        <template name="audio" >
+            <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" />
+        </template>
+        <template name="button" >
+            <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </button>
+        </template>
+        <template name="canvas" >
+            <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" />
+        </template>
+        <template name="camera" >
+            <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" />
+        </template>
+        <template name="text" >
+            <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </text>
+        </template>
+        <template name="view" >
+            <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </view>
+        </template>
+        <template name="beginWork" >
+            <block wx:if="{{i[0]=='audio'}}" >
+                <template is="audio" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='button'}}" >
+                <template is="button" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='canvas'}}" >
+                <template is="canvas" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='camera'}}" >
+                <template is="camera" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='text'}}" >
+                <template is="text" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='view'}}" >
+                <template is="view" data="{{i:i}}" />
+            </block>
+        </template>
+        <template name="workLoop" >
+            <block wx:if="{{i[4].length>
+                0}}" >
+                <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" >
+                    <template is="beginWork" data="{{i:i}}" />
+                </block>
+            </block>
+        </template>
+        <template is="workLoop" data="{{i:i}}" />
+    </template>
+    <template name=".1" >
+        <template name="audio" >
+            <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" />
+        </template>
+        <template name="button" >
+            <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </button>
+        </template>
+        <template name="canvas" >
+            <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" />
+        </template>
+        <template name="camera" >
+            <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" />
+        </template>
+        <template name="text" >
+            <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </text>
+        </template>
+        <template name="view" >
+            <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </view>
+        </template>
+        <template name="beginWork" >
+            <block wx:if="{{i[0]=='audio'}}" >
+                <template is="audio" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='button'}}" >
+                <template is="button" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='canvas'}}" >
+                <template is="canvas" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='camera'}}" >
+                <template is="camera" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='text'}}" >
+                <template is="text" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='view'}}" >
+                <template is="view" data="{{i:i}}" />
+            </block>
+        </template>
+        <template name="workLoop" >
+            <block wx:if="{{i[4].length>
+                0}}" >
+                <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" >
+                    <template is="beginWork" data="{{i:i}}" />
+                </block>
+            </block>
+        </template>
+        <template is="workLoop" data="{{i:i}}" />
+    </template>
+    <template name=".2" >
+        <template name="audio" >
+            <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" />
+        </template>
+        <template name="button" >
+            <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </button>
+        </template>
+        <template name="canvas" >
+            <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" />
+        </template>
+        <template name="camera" >
+            <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" />
+        </template>
+        <template name="text" >
+            <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </text>
+        </template>
+        <template name="view" >
+            <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </view>
+        </template>
+        <template name="beginWork" >
+            <block wx:if="{{i[0]=='audio'}}" >
+                <template is="audio" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='button'}}" >
+                <template is="button" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='canvas'}}" >
+                <template is="canvas" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='camera'}}" >
+                <template is="camera" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='text'}}" >
+                <template is="text" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='view'}}" >
+                <template is="view" data="{{i:i}}" />
+            </block>
+        </template>
+        <template name="workLoop" >
+            <block wx:if="{{i[4].length>
+                0}}" >
+                <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" >
+                    <template is="beginWork" data="{{i:i}}" />
+                </block>
+            </block>
+        </template>
+        <template is="workLoop" data="{{i:i}}" />
+    </template>
+    <template name=".3" >
+        <template name="audio" >
+            <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" />
+        </template>
+        <template name="button" >
+            <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </button>
+        </template>
+        <template name="canvas" >
+            <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" />
+        </template>
+        <template name="camera" >
+            <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" />
+        </template>
+        <template name="text" >
+            <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </text>
+        </template>
+        <template name="view" >
+            <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </view>
+        </template>
+        <template name="beginWork" >
+            <block wx:if="{{i[0]=='audio'}}" >
+                <template is="audio" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='button'}}" >
+                <template is="button" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='canvas'}}" >
+                <template is="canvas" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='camera'}}" >
+                <template is="camera" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='text'}}" >
+                <template is="text" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='view'}}" >
+                <template is="view" data="{{i:i}}" />
+            </block>
+        </template>
+        <template name="workLoop" >
+            <block wx:if="{{i[4].length>
+                0}}" >
+                <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" >
+                    <template is="beginWork" data="{{i:i}}" />
+                </block>
+            </block>
+        </template>
+        <template is="workLoop" data="{{i:i}}" />
+    </template>
+    <template name=".4" >
+        <template name="audio" >
+            <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}" />
+        </template>
+        <template name="button" >
+            <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </button>
+        </template>
+        <template name="canvas" >
+            <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}" />
+        </template>
+        <template name="camera" >
+            <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}" />
+        </template>
+        <template name="text" >
+            <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </text>
+        </template>
+        <template name="view" >
+            <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}" >
+                <template is=".1" data="{{i:i}}" />
+                <template is=".2" data="{{i:i}}" />
+                <template is=".3" data="{{i:i}}" />
+                <template is=".4" data="{{i:i}}" />
+                <template is=".5" data="{{i:i}}" />
+            </view>
+        </template>
+        <template name="beginWork" >
+            <block wx:if="{{i[0]=='audio'}}" >
+                <template is="audio" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='button'}}" >
+                <template is="button" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='canvas'}}" >
+                <template is="canvas" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='camera'}}" >
+                <template is="camera" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='text'}}" >
+                <template is="text" data="{{i:i}}" />
+            </block>
+            <block wx:elif="{{i[0]=='view'}}" >
+                <template is="view" data="{{i:i}}" />
+            </block>
+        </template>
+        <template name="workLoop" >
+            <block wx:if="{{i[4].length>
+                0}}" >
+                <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i" >
+                    <template is="beginWork" data="{{i:i}}" />
+                </block>
+            </block>
+        </template>
+        <template is="workLoop" data="{{i:i}}" />
+    </template>
+    <template is=".0" data="{{i:i}}" />
+</template>

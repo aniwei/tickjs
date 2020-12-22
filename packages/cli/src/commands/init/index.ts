@@ -1,5 +1,4 @@
-
-
+import beautifier from 'xml-beautifier';
 import * as fs from 'fs-extra';
 import * as env from '../../shared/env';
 
@@ -10,5 +9,5 @@ import {
 export async function init () {
   const template = createWorkerTemplate();
 
-  await fs.writeFile('tickjs.wxml', template.stringify())
+  await fs.writeFile('tickjs.wxml', beautifier(template.stringify()))
 }

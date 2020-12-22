@@ -1,10 +1,8 @@
+import { variable } from './shared'
 import {
-  TickTemplateClosingComponent,
+  TickTemplateOpenningComponent,
 } from './TickTemplateComponent';
 
-import {
-  variable
-} from './shared'
 
 enum DataStruct {
   TAP = 5,
@@ -25,7 +23,13 @@ enum DataStruct {
 
 export const TextDataStruct = DataStruct;
 
-export class TickTemplateTextNode extends TickTemplateClosingComponent {
+export function createText () {
+  const text = new TickTemplateTextNode();
+
+  return text;
+}
+
+export class TickTemplateTextNode extends TickTemplateOpenningComponent {
   static defaultProps = [
     ['tap', variable(DataStruct.TAP), true], 
     ['longtap', variable(DataStruct.LONGTAP), true],
@@ -55,4 +59,4 @@ export class TickTemplateTextNode extends TickTemplateClosingComponent {
   }
 }
 
-export const text: TickTemplateTextNode = new TickTemplateTextNode();
+export const text: TickTemplateTextNode = createText();

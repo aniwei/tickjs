@@ -1,4 +1,4 @@
-import { TickTemplate } from "./TickTemplate";
+import { TickTemplate } from './TickTemplate';
 
 export const VARIABLE_NAME = 'i';
 
@@ -8,4 +8,8 @@ export function quotate (string) {
 
 export function variable (index: number) {
   return quotate(`{{${VARIABLE_NAME}[${index}]}}`);
+}
+
+export function cloneNode (node) {
+  return node.clone();
 }

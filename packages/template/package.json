@@ -8,5 +8,8 @@
     "tsc": "tsc"
   },
   "author": "aniwei",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "xml-beautifier": "^0.4.3"
+  }
 }

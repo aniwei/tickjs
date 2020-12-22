@@ -1,7 +1,4 @@
 import {
-  TickTemplateBlockNode,
-} from './TickTemplateBlockNode'
-import {
   TagType,
   TickTemplate
 } from './TickTemplate';

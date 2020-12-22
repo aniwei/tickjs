@@ -1,33 +1,13 @@
-import { 
-  TickTemplateNode 
-} from './TickTemplateNode';
-
+import { TickTemplateNode } from './TickTemplateNode';
+import { TickTemplateIfExpression } from './TickTemplateIfExpression'
+import { DataStruct } from './TickTemplateComponent';
+import { TickTemplateLoopNode } from './TickTemplateLoopNode';
+import { createTemplate } from './createTemplate';
+import { TagType } from './TickTemplate';
 import {
   quotate,
   VARIABLE_NAME
 } from './shared'
-
-import {
-  TickTemplateIfExpression
-} from './TickTemplateIfExpression'
-
-import {
-  DataStruct
-} from './TickTemplateComponent';
-
-import {
-  TickTemplateLoopNode
-} from './TickTemplateLoopNode';
-
-import {
-  TickTemplateCirculateNode
-} from './TickTemplateCirculateNode';
-import { 
-  createTemplate 
-} from './createTemplate';
-import { 
-  TagType 
-} from './TickTemplate';
 
 
 function assign () {
@@ -87,7 +67,7 @@ function createComponents (cursor: number, imports, workTemplate: TickTemplateNo
       node.appendChild(  
         TickTemplateNode.is(
           quotate(`${options.prefix}.${cursor + 1}`), 
-          quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
+          assign()
         )
       );
     }
@@ -100,6 +80,7 @@ function createComponents (cursor: number, imports, workTemplate: TickTemplateNo
 export const defaultWorkerOptions = {
   numberOfCycles: 5,
   circulateNodeName: 'circulate',
+  beautify: true,
   prefix: ''
 }
 
@@ -117,7 +98,7 @@ export function createWorker (cursor: number, imports: any[], options = defaultW
   workerTemplate.appendChild(
     TickTemplateNode.is(
       quotate('workLoop'), 
-      quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
+      assign()
     )
   );
 

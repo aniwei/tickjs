@@ -1,11 +1,11 @@
 import {
   quotate,
-  audio,
-  button,
-  camera,
-  canvas,
-  view,
-  text,
+  createAudio,
+  createButton,
+  createCamera,
+  createCanvas,
+  createView,
+  createText,
   createCirculate,
   createWorker,
   createTemplate,
@@ -54,19 +54,17 @@ const defaultOptions = {
 }
 
 export function createWorkerTemplate (options = defaultOptions) {
-  
-  
   const template = createTemplate(quotate('tickjs'));
 
   for (let i = 0; i < options.numberOfCycles; i++) {
     let imports: any[] = [
-      [MiniProgramComponent.AUDIO, audio],
-      [MiniProgramComponent.BUTTON, button],
-      [MiniProgramComponent.CANVAS, canvas],
-      [MiniProgramComponent.CAMERA, camera],
+      [MiniProgramComponent.AUDIO, createAudio()],
+      [MiniProgramComponent.BUTTON, createButton()],
+      [MiniProgramComponent.CANVAS, createCanvas()],
+      [MiniProgramComponent.CAMERA, createCamera()],
       [MiniProgramComponent.CIRCLATE, createCirculate(options)],
-      [MiniProgramComponent.TEXT, text],
-      [MiniProgramComponent.VIEW, view],
+      [MiniProgramComponent.TEXT, createText()],
+      [MiniProgramComponent.VIEW, createView()],
     ];
   
     if (options.supportHTMLComponents) {
@@ -103,5 +101,5 @@ export function createWorkerTemplate (options = defaultOptions) {
     )
   )
 
-  return template;
+  return template;e
 }
