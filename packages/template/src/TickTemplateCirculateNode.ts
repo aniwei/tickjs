@@ -11,7 +11,7 @@ import {
 } from './TickTemplateComponent';
 
 enum DataStruct {
-  I = 5
+  I = 6
 }
 
 export const CirculateDataStruct = DataStruct

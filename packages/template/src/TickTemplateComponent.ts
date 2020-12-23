@@ -9,6 +9,7 @@ import {
 
 export enum DataStruct {
   TAGNAME,
+  TEMPLATE,
   ID,
   CLASS,
   STYLE,
@@ -19,6 +20,7 @@ export class TickTemplateComponent extends TickTemplate {
   constructor (tagName: string, type: TagType, defaultProps?: any[], defaultEvents?: any[]) {
     super(tagName, type);
 
+    this.setAttribute('template', variable(DataStruct.TEMPLATE));
     this.setAttribute('id', variable(DataStruct.ID));
     this.setAttribute('class', variable(DataStruct.CLASS));
     this.setAttribute('style',variable(DataStruct.STYLE))

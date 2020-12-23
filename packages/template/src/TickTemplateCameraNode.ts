@@ -21,9 +21,9 @@ export enum DataStruct {
 export const CameraDataStruct = DataStruct;
 
 export function createCamera () {
-  const audio = new TickTemplateCameraNode();
+  const camera = new TickTemplateCameraNode();
 
-  return audio;
+  return camera;
 }
 
 export class TickTemplateCameraNode extends TickTemplateClosingComponent {
@@ -64,5 +64,3 @@ export class TickTemplateCameraNode extends TickTemplateClosingComponent {
     }
   }
 }
-
-export const camera = createCamera();

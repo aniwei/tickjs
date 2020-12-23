@@ -7,7 +7,7 @@ import {
 } from './shared'
 
 enum DataStruct {
-  TAP = 5,
+  TAP = 6,
   LONGTAP,
   LONGPRESS,
   TOUCHSTART,
@@ -55,5 +55,3 @@ export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
     super('button', TickTemplateButtonNode.defaultProps, TickTemplateButtonNode.defaultEvents);
   }
 }
-
-export const button = createButton();

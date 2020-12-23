@@ -7,7 +7,7 @@ import {
 } from './shared'
 
 enum DataStruct {
-  SRC = 5,
+  SRC = 6,
   LOOP,
   CONTROLS,
   POSTER,
@@ -32,6 +32,12 @@ enum DataStruct {
 }
 
 export const AudioDataStruct = DataStruct;
+
+export function createAudio () {
+  const audio = new TickTemplateAudioNode();
+
+  return audio;
+}
 
 export class TickTemplateAudioNode extends TickTemplateClosingComponent {
   static defaultProps = [
@@ -66,5 +72,3 @@ export class TickTemplateAudioNode extends TickTemplateClosingComponent {
     );
   }
 }
-
-export const audio: TickTemplateAudioNode = new TickTemplateAudioNode();

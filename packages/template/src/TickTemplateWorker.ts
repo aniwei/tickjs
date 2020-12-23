@@ -15,7 +15,7 @@ function assign () {
 }
 
 function isEqualTagName (tagName) {
-  return quotate(`{{${VARIABLE_NAME}[${DataStruct.TAGNAME}]=='${tagName}'}}`);
+  return quotate(`{{${VARIABLE_NAME}[${DataStruct.TEMPLATE}]=='${tagName}'}}`);
 }
 
 function createBeginWork (imports, options?) {
@@ -23,17 +23,28 @@ function createBeginWork (imports, options?) {
   const ifExpressionNode = new TickTemplateIfExpression();
 
   for (let i = 0; i < imports.length; i++) {
-    const [tagName] = imports[i];
+    const [tagName, node, cursor] = imports[i];
+    const attributes =  new Map();
+
+    attributes.set('data', assign());
+
+    const templateName = typeof cursor === 'number' ? 
+      `${tagName}.${cursor}` : 
+      tagName;
+
+    attributes.set('is', quotate(templateName));
 
     if (i === 0) {
       ifExpressionNode.If(
-        isEqualTagName(tagName),
-        TickTemplateNode.is(quotate(tagName), assign())
+        isEqualTagName(templateName),
+        attributes,
+        'template'
       );
     } else {
       ifExpressionNode.ElseIf(
-        isEqualTagName(tagName),
-        TickTemplateNode.is(quotate(tagName), assign())
+        isEqualTagName(templateName),
+        attributes,
+        'template'
       );
     }
   }
@@ -59,14 +70,21 @@ function createWorkLoop () {
   return workLoopTemplate;
 }
 
-function createComponents (cursor: number, imports, workTemplate: TickTemplateNode, options) {
-  for (const [tagName, node] of imports) {
-    const template = createTemplate(quotate(tagName));
+function createComponents (imports, workTemplate: TickTemplateNode, options) {
+  for (const [tagName, node, cursor] of imports) {
+    const name = typeof cursor === 'number' ?
+      `${tagName}.${cursor}` : tagName;
+
+    const template = createTemplate(quotate(name));
 
     if (node.tag.type === TagType.OPENNING) {
       node.appendChild(  
         TickTemplateNode.is(
-          quotate(`${options.prefix}.${cursor + 1}`), 
+          quotate(
+            cursor === options.numberOfCycles - 1 ?
+              `${options.prefix}.${options.name}` :
+              `${tagName}.${cursor + 1}`
+          ), 
           assign()
         )
       );
@@ -81,13 +99,13 @@ export const defaultWorkerOptions = {
   numberOfCycles: 5,
   circulateNodeName: 'circulate',
   beautify: true,
-  prefix: ''
+  prefix: '',
+  name: 'tickjs'
 }
 
-export function createWorker (cursor: number, imports: any[], options = defaultWorkerOptions) {
-  const workerTemplate = TickTemplateNode.define(quotate(`${defaultWorkerOptions.prefix}.${cursor}`));
-  
-  createComponents(cursor, imports, workerTemplate, options);
+export function createWorker (imports: any[], options = defaultWorkerOptions) {  
+  const workerTemplate = TickTemplateNode.define(quotate(`${options.prefix}.${options.name}`));
+  createComponents(imports, workerTemplate, options);
   
   const beginWorkTemplate = createBeginWork(imports);
   const workLoopTemplate = createWorkLoop();

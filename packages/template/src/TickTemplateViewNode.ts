@@ -7,7 +7,7 @@ import {
 } from './shared'
 
 enum DataStruct {
-  TAP = 5,
+  TAP = 6,
   LONGTAP,
   LONGPRESS,
   TOUCHSTART,
@@ -60,4 +60,3 @@ export class TickTemplateViewNode extends TickTemplateOpenningComponent {
   }
 }
 
-export const view = createView();

@@ -46,6 +46,7 @@ enum HTMLComponent {
 
 const defaultOptions = {
   ...defaultWorkerOptions,
+  name: 'tickjs',
   numberOfCycles: 4,
   supportHTMLComponents: true,
   circulateNodeName: 'circulate',
@@ -54,52 +55,39 @@ const defaultOptions = {
 }
 
 export function createWorkerTemplate (options = defaultOptions) {
-  const template = createTemplate(quotate('tickjs'));
+  let imports: any[] = [
+    [MiniProgramComponent.CIRCLATE, createCirculate(options), null],
+    [MiniProgramComponent.AUDIO, createAudio(), null],
+    [MiniProgramComponent.CANVAS, createCanvas(), null],
+    [MiniProgramComponent.CAMERA, createCamera(), null],
+  ];
 
-  for (let i = 0; i < options.numberOfCycles; i++) {
-    let imports: any[] = [
-      [MiniProgramComponent.AUDIO, createAudio()],
-      [MiniProgramComponent.BUTTON, createButton()],
-      [MiniProgramComponent.CANVAS, createCanvas()],
-      [MiniProgramComponent.CAMERA, createCamera()],
-      [MiniProgramComponent.CIRCLATE, createCirculate(options)],
-      [MiniProgramComponent.TEXT, createText()],
-      [MiniProgramComponent.VIEW, createView()],
-    ];
+  for (let cursor = 0; cursor < options.numberOfCycles; cursor++) {
+    imports = imports.concat([
+      [MiniProgramComponent.AUDIO, createAudio(), cursor],
+      [MiniProgramComponent.BUTTON, createButton(), cursor],
+      [MiniProgramComponent.TEXT, createText(), cursor],
+      [MiniProgramComponent.VIEW, createView(), cursor],
+    ]);
   
     if (options.supportHTMLComponents) {
       imports = imports.concat([
-        [HTMLComponent.H1, new TickTemplateHTMLBlockNode('h1')],
-        [HTMLComponent.H2, new TickTemplateHTMLBlockNode('h2')],
-        [HTMLComponent.H3, new TickTemplateHTMLBlockNode('h3')],
-        [HTMLComponent.H4, new TickTemplateHTMLBlockNode('h4')],
-        [HTMLComponent.H5, new TickTemplateHTMLBlockNode('h5')],
-        [HTMLComponent.H6, new TickTemplateHTMLBlockNode('h6')],
-        [HTMLComponent.DIV, new TickTemplateHTMLBlockNode('div')],
-        [HTMLComponent.P, new TickTemplateHTMLBlockNode('p')],
-        [HTMLComponent.UL, new TickTemplateHTMLBlockNode('ul')],
-        [HTMLComponent.OL, new TickTemplateHTMLBlockNode('ol')],
-        [HTMLComponent.LI, new TickTemplateHTMLBlockNode('li')],
+        [HTMLComponent.H1, new TickTemplateHTMLBlockNode('h1'), cursor],
+        [HTMLComponent.H2, new TickTemplateHTMLBlockNode('h2'), cursor],
+        [HTMLComponent.H3, new TickTemplateHTMLBlockNode('h3'), cursor],
+        [HTMLComponent.H4, new TickTemplateHTMLBlockNode('h4'), cursor],
+        [HTMLComponent.H5, new TickTemplateHTMLBlockNode('h5'), cursor],
+        [HTMLComponent.H6, new TickTemplateHTMLBlockNode('h6'), cursor],
+        [HTMLComponent.DIV, new TickTemplateHTMLBlockNode('div'), cursor],
+        [HTMLComponent.P, new TickTemplateHTMLBlockNode('p'), cursor],
+        [HTMLComponent.UL, new TickTemplateHTMLBlockNode('ul'), cursor],
+        [HTMLComponent.OL, new TickTemplateHTMLBlockNode('ol'), cursor],
+        [HTMLComponent.LI, new TickTemplateHTMLBlockNode('li'), cursor],
       ]);
     }
-
-    const workerTemplate = createWorker(i, imports);
-    template.appendChild(workerTemplate);
   }
 
-  const eofTemplate = TickTemplateNode.define(
-    quotate(`${options.prefix}.${options.numberOfCycles}`)
-  );
+  const workerTemplate = createWorker(imports, defaultOptions);
 
-  eofTemplate.appendChild(createCirculate(options))
-  template.appendChild(eofTemplate);
-
-  template.appendChild(
-    TickTemplateNode.is(
-      quotate(`${options.prefix}.0`), 
-      quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`)
-    )
-  )
-
-  return template;e
+  return workerTemplate;
 }

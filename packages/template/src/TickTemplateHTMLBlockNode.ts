@@ -7,7 +7,7 @@ import {
 } from './shared'
 
 enum DataStruct {
-  TAP = 5,
+  TAP = 6,
   LONGTAP,
   LONGPRESS,
   TOUCHSTART,

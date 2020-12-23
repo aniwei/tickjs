@@ -21,6 +21,7 @@
     "globby": "^11.0.1",
     "user-home": "^2.0.0",
     "webpack": "^4.44.1",
-    "xml-beautifier": "^0.4.3"
+    "xml-beautifier": "^0.4.3",
+    "xml-formatter": "^2.4.0"
   }
 }

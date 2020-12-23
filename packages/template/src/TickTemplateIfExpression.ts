@@ -4,8 +4,8 @@ import {
 } from './TickTemplate';
 
 export class TickTemplateIf extends TickTemplate {
-  constructor (condition) {
-    super('block', TagType.OPENNING);
+  constructor (condition, tagName: string = 'block') {
+    super(tagName, TagType.OPENNING);
 
     this.setAttribute(
       'wx:if',
@@ -15,8 +15,8 @@ export class TickTemplateIf extends TickTemplate {
 }
 
 export class TickTemplateElseIf extends TickTemplate {
-  constructor (condition) {
-    super('block', TagType.OPENNING);
+  constructor (condition, tagName: string = 'block') {
+    super(tagName, TagType.OPENNING);
 
     this.setAttribute(
       'wx:elif',
@@ -26,15 +26,25 @@ export class TickTemplateElseIf extends TickTemplate {
 }
 
 export class TickTemplateElse extends TickTemplate {
-  constructor (elseTemplate: TickTemplate) {
-    super('block', TagType.OPENNING);
+  constructor (elseTemplate: TickTemplate | Map<string, string>, tagName: string = 'block') {
+    super(tagName, TagType.OPENNING);
 
     this.setAttribute(
       'wx:else',
       null
     );
 
-    this.appendChild(elseTemplate);
+    if (elseTemplate instanceof TickTemplate) {
+      this.appendChild(elseTemplate);
+    } else {
+      for (const [key, value] of elseTemplate) {
+        this.setAttribute(
+          key,
+          value
+        )
+      }
+    }
+
   }
 }
 
@@ -43,28 +53,47 @@ export class TickTemplateIfExpression extends TickTemplate  {
     super('empty', TagType.OPENNING);
   }
 
-  If (condition: string, ifTemplate: TickTemplate) {
-    const ifElement = new TickTemplateIf(condition)
-    ifElement.appendChild(ifTemplate);
+  If (condition: string, ifTemplate: TickTemplate | Map<string, string>, tagName?: string) {
+    const ifNode = new TickTemplateIf(condition, tagName)
 
-    this.firstChild = ifElement;
+    if (ifTemplate instanceof TickTemplate) {
+      ifNode.appendChild(ifTemplate);
+    } else {
+      for (const [key, value] of ifTemplate) {
+        ifNode.setAttribute(
+          key,
+          value
+        )
+      }
+    }
+
+    this.firstChild = ifNode;
 
     return this;
   }
 
-  ElseIf (condition: string, elseIfTemplate: TickTemplate) : TickTemplateIfExpression {
-    const elseIfElement = new TickTemplateElseIf(condition);
+  ElseIf (condition: string, elseIfTemplate: TickTemplate | Map<string, string>, tagName?: string) : TickTemplateIfExpression {
+    const elseIfNode = new TickTemplateElseIf(condition, tagName);
 
-    elseIfElement.appendChild(elseIfTemplate);
+    if (elseIfTemplate instanceof TickTemplate) {
+      elseIfNode.appendChild(elseIfTemplate);
+    } else {
+      for (const [key, value] of elseIfTemplate) {
+        elseIfNode.setAttribute(
+          key,
+          value
+        )
+      }
+    }
 
-    this.appendChild(elseIfElement);
+    this.appendChild(elseIfNode);
 
     return this;
   }
 
-  Else (elseTemplatew: TickTemplate) : TickTemplateIfExpression {
-    const elseIfElement = new TickTemplateElse(elseTemplatew);
-    this.lastChild = elseIfElement;
+  Else (elseTemplatew: TickTemplate | Map<string, string>, tagName?: string) : TickTemplateIfExpression {
+    const elseNode = new TickTemplateElse(elseTemplatew, tagName);
+    this.lastChild = elseNode;
 
     return this;
   }

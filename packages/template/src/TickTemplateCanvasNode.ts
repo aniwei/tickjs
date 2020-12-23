@@ -7,7 +7,7 @@ import {
 } from './shared'
 
 enum DataStruct {
-  TYPE = 5,
+  TYPE = 6,
   CANVAS_ID,
   WEBP,
   DISABLE_SCROLL

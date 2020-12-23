@@ -5,7 +5,7 @@ import {
 
 
 enum DataStruct {
-  TAP = 5,
+  TAP = 6,
   LONGTAP,
   LONGPRESS,
   TOUCHSTART,
@@ -58,5 +58,3 @@ export class TickTemplateTextNode extends TickTemplateOpenningComponent {
     );
   }
 }
-
-export const text: TickTemplateTextNode = createText();
