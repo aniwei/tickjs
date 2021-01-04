@@ -3,6 +3,15 @@
 	"tasks": [
     {
       "type": "typescript",
+      "tsconfig": "packages/struct/tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build",
+      "label": "build struct",
+    },
+    {
+      "type": "typescript",
       "tsconfig": "packages/template/tsconfig.json",
       "problemMatcher": [
         "$tsc"
@@ -22,6 +31,7 @@
     {
       "label": "build",
       "dependsOn": [
+        "build struct",
         "build template",
         "build cli",
       ]

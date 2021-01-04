@@ -482,8 +482,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecomponent.d.ts": {
-        "version": "5181977f1599f7e0048b50e8955f32fe17e3acca160cc59d84bf3096fa38ac4a",
-        "signature": "5181977f1599f7e0048b50e8955f32fe17e3acca160cc59d84bf3096fa38ac4a",
+        "version": "9fe9c2ec8eaf29ae5859b1450bfb2010eea5884f7421283db16a30362311b9f8",
+        "signature": "9fe9c2ec8eaf29ae5859b1450bfb2010eea5884f7421283db16a30362311b9f8",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateblocknode.d.ts": {
@@ -502,23 +502,23 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateaudionode.d.ts": {
-        "version": "0311d2548b44557bc251268255895253f6c3f16e01691f3d3cb7e48405a6c96b",
-        "signature": "0311d2548b44557bc251268255895253f6c3f16e01691f3d3cb7e48405a6c96b",
+        "version": "41ef137f703f32a20abfaca984462e581aaaec8b3abb60b0405edb2548a59b7b",
+        "signature": "41ef137f703f32a20abfaca984462e581aaaec8b3abb60b0405edb2548a59b7b",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatebuttonnode.d.ts": {
-        "version": "618b2ee13b0ed8b27b8e8d606d57bd532544ab8a67f6212e6abb2ffeb04414bb",
-        "signature": "618b2ee13b0ed8b27b8e8d606d57bd532544ab8a67f6212e6abb2ffeb04414bb",
+        "version": "0d6eda0465b5da8a5f59b491b0b504c516f365753b3505029548c468950309c3",
+        "signature": "0d6eda0465b5da8a5f59b491b0b504c516f365753b3505029548c468950309c3",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecameranode.d.ts": {
-        "version": "12c337ecefa5453d76e3314bc9caecc95bef66f960eef872fb68d3abf5cadaa3",
-        "signature": "12c337ecefa5453d76e3314bc9caecc95bef66f960eef872fb68d3abf5cadaa3",
+        "version": "88e17a4d9d096a56f8ee6b550ff22ea2c55b24c436b02f5b11230c4c7166f89a",
+        "signature": "88e17a4d9d096a56f8ee6b550ff22ea2c55b24c436b02f5b11230c4c7166f89a",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecanvasnode.d.ts": {
-        "version": "236e3279dd7fd969e9d700ea24aab481d9c2530489c1c5fe1e4ac811fd71e895",
-        "signature": "236e3279dd7fd969e9d700ea24aab481d9c2530489c1c5fe1e4ac811fd71e895",
+        "version": "3cc66fe75f3c2ed07132a578964054f60a23d0938ac997eff35509492c8656db",
+        "signature": "3cc66fe75f3c2ed07132a578964054f60a23d0938ac997eff35509492c8656db",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecirculatenode.d.ts": {
@@ -526,9 +526,19 @@
         "signature": "28cf5eb740e901ba6bc9e595e314193ff7849823791fa3e289c8f73a6d77f35d",
         "affectsGlobalScope": false
       },
+      "../template/dist/ticktemplateimagenode.d.ts": {
+        "version": "07915c3fae830e2dcb023b614d837d9abcd652e569bbb0682763cec82bf1e884",
+        "signature": "07915c3fae830e2dcb023b614d837d9abcd652e569bbb0682763cec82bf1e884",
+        "affectsGlobalScope": false
+      },
       "../template/dist/ticktemplatetextnode.d.ts": {
-        "version": "d44a1fd48ad7d29d3edf7abd5a49714e9f03389443a1b66a73edb879cda11019",
-        "signature": "d44a1fd48ad7d29d3edf7abd5a49714e9f03389443a1b66a73edb879cda11019",
+        "version": "117ef688eb75a0a04b2bee1b80721ac4f883bd9c7cff41f46c1fc1043359845b",
+        "signature": "117ef688eb75a0a04b2bee1b80721ac4f883bd9c7cff41f46c1fc1043359845b",
+        "affectsGlobalScope": false
+      },
+      "../template/dist/ticktemplatescrollviewnode.d.ts": {
+        "version": "e3f3fa112131d24d4524113189669bf9f750c3dfebe82e1b1b7d075af3d8de81",
+        "signature": "e3f3fa112131d24d4524113189669bf9f750c3dfebe82e1b1b7d075af3d8de81",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateviewnode.d.ts": {
@@ -537,8 +547,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/shared.d.ts": {
-        "version": "c0fc43fe75460b734af96409a59e594fae67ed498fef608bbcea223c5818a6ae",
-        "signature": "c0fc43fe75460b734af96409a59e594fae67ed498fef608bbcea223c5818a6ae",
+        "version": "fb2393920ff8f725960cb137a63bcde8a048ba90443e208ba7e1caff68261a69",
+        "signature": "fb2393920ff8f725960cb137a63bcde8a048ba90443e208ba7e1caff68261a69",
         "affectsGlobalScope": false
       },
       "../template/dist/createtemplate.d.ts": {
@@ -547,12 +557,12 @@
         "affectsGlobalScope": false
       },
       "../template/dist/index.d.ts": {
-        "version": "6d45677f38cd7a06feea8be24b5886fdfee86cd2bc0268b95fd90736e92270ff",
-        "signature": "6d45677f38cd7a06feea8be24b5886fdfee86cd2bc0268b95fd90736e92270ff",
+        "version": "4c8cb5df471285a50f2f120b75d52798c81fabb9999f1854a866e8e73d35a42d",
+        "signature": "4c8cb5df471285a50f2f120b75d52798c81fabb9999f1854a866e8e73d35a42d",
         "affectsGlobalScope": false
       },
       "./src/commands/init/template.ts": {
-        "version": "cd88dbcbb53437195d5beb43cc4dc7ebb622ef4521594e759567c6a54a2bcb65",
+        "version": "540814a5086fed9366f4207dbd0c3d91875faa9b57906c5c33555180af407e1e",
         "signature": "4ed6ea46f0386c19a873e45c98938f0b584d79f26261f0f1a910992b1b2118c0",
         "affectsGlobalScope": false
       },
@@ -578,7 +588,7 @@
       },
       "./src/commands/init/__project__/src/index/index.js": {
         "version": "f741fe7d6a88dce8831048deec7f24bd4121a6e492064d52c55c1c9a1161b73a",
-        "signature": "661dd41e490db0388f9f3e2f47ed80aa563767703739d7ce1e440fac49795cae",
+        "signature": "306352e210f35c3050ba7bd0b7fd4c21a10b972c347a07de9aa24449272f2228",
         "affectsGlobalScope": false
       },
       "./src/shared/defaultwebpackconfig.js": {
@@ -640,26 +650,6 @@
         "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/prop-types/index.d.ts": {
-        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/global.d.ts": {
-        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "affectsGlobalScope": true
-      },
-      "../../node_modules/csstype/index.d.ts": {
-        "version": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "signature": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/index.d.ts": {
-        "version": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "signature": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "affectsGlobalScope": true
       },
       "../../node_modules/@types/source-list-map/index.d.ts": {
         "version": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
@@ -780,7 +770,7 @@
           "../template/*"
         ]
       },
-      "pathsBasePath": "/Users/weiyanhai/Downloads/tick/packages/cli",
+      "pathsBasePath": "/Users/aniwei/Desktop/tickjs/packages/cli",
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
@@ -960,11 +950,6 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
-      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1088,7 +1073,9 @@
         "../template/dist/ticktemplatecirculatenode.d.ts",
         "../template/dist/ticktemplatecomponent.d.ts",
         "../template/dist/ticktemplatehtmlblocknode.d.ts",
+        "../template/dist/ticktemplateimagenode.d.ts",
         "../template/dist/ticktemplatenode.d.ts",
+        "../template/dist/ticktemplatescrollviewnode.d.ts",
         "../template/dist/ticktemplatetextnode.d.ts",
         "../template/dist/ticktemplateviewnode.d.ts",
         "../template/dist/ticktemplateworker.d.ts"
@@ -1121,8 +1108,14 @@
       "../template/dist/ticktemplatehtmlblocknode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
       ],
+      "../template/dist/ticktemplateimagenode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
       "../template/dist/ticktemplatenode.d.ts": [
         "../template/dist/ticktemplate.d.ts"
+      ],
+      "../template/dist/ticktemplatescrollviewnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
       ],
       "../template/dist/ticktemplatetextnode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
@@ -1311,11 +1304,6 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
-      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1422,7 +1410,9 @@
         "../template/dist/ticktemplatecirculatenode.d.ts",
         "../template/dist/ticktemplatecomponent.d.ts",
         "../template/dist/ticktemplatehtmlblocknode.d.ts",
+        "../template/dist/ticktemplateimagenode.d.ts",
         "../template/dist/ticktemplatenode.d.ts",
+        "../template/dist/ticktemplatescrollviewnode.d.ts",
         "../template/dist/ticktemplatetextnode.d.ts",
         "../template/dist/ticktemplateviewnode.d.ts",
         "../template/dist/ticktemplateworker.d.ts"
@@ -1455,8 +1445,14 @@
       "../template/dist/ticktemplatehtmlblocknode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
       ],
+      "../template/dist/ticktemplateimagenode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
       "../template/dist/ticktemplatenode.d.ts": [
         "../template/dist/ticktemplate.d.ts"
+      ],
+      "../template/dist/ticktemplatescrollviewnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
       ],
       "../template/dist/ticktemplatetextnode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
@@ -1525,9 +1521,6 @@
       "../../node_modules/@types/node/zlib.d.ts",
       "../../node_modules/@types/normalize-package-data/index.d.ts",
       "../../node_modules/@types/parse-json/index.d.ts",
-      "../../node_modules/@types/prop-types/index.d.ts",
-      "../../node_modules/@types/react/global.d.ts",
-      "../../node_modules/@types/react/index.d.ts",
       "../../node_modules/@types/source-list-map/index.d.ts",
       "../../node_modules/@types/tapable/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
@@ -1545,7 +1538,6 @@
       "../../node_modules/@types/webpack-sources/lib/sourcemapsource.d.ts",
       "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
       "../../node_modules/@types/webpack/index.d.ts",
-      "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -1615,7 +1607,9 @@
       "../template/dist/ticktemplatecomponent.d.ts",
       "../template/dist/ticktemplateevents.d.ts",
       "../template/dist/ticktemplatehtmlblocknode.d.ts",
+      "../template/dist/ticktemplateimagenode.d.ts",
       "../template/dist/ticktemplatenode.d.ts",
+      "../template/dist/ticktemplatescrollviewnode.d.ts",
       "../template/dist/ticktemplatetextnode.d.ts",
       "../template/dist/ticktemplateviewnode.d.ts",
       "../template/dist/ticktemplateworker.d.ts"

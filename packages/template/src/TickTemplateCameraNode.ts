@@ -1,25 +1,17 @@
+
+import {
+  cameraDefaultEvents,
+  cameraDefaultProps,
+} from '@tickjs/struct'
 import {
   TickTemplateClosingComponent,
   MiniProgramTemplateID,
-  DataStruct
 } from './TickTemplateComponent';
 
 import {
-  variable
+  transformDefaultEvent,
+  transformDefaultProps
 } from './shared'
-
-export enum CameraDataStruct {
-  MODE = 5,
-  RESOLUTION,
-  DEVICE_POSITION,
-  FLASH,
-  FRAME_SIZE,
-  STOP,
-  ERROR,
-  INITDONE,
-  SCANCODE
-}
-
 
 export function createCamera () {
   const camera = new TickTemplateCameraNode();
@@ -28,18 +20,8 @@ export function createCamera () {
 }
 
 export class TickTemplateCameraNode extends TickTemplateClosingComponent {
-  static defaultProps = [
-    ['mode', variable(CameraDataStruct.MODE), null],
-    ['resolution', variable(CameraDataStruct.RESOLUTION), false],
-    ['device-position', variable(CameraDataStruct.DEVICE_POSITION), false], 
-    ['frame-size', variable(CameraDataStruct.FRAME_SIZE), false]
-  ];
-
-  static defaultEvents = [
-    ['stop', variable(CameraDataStruct.STOP), false], 
-    ['initdone', variable(CameraDataStruct.INITDONE), false],
-    ['scancode', variable(CameraDataStruct.SCANCODE), false], 
-  ];
+  static defaultProps = cameraDefaultProps.map(transformDefaultProps)
+  static defaultEvents = cameraDefaultEvents.map(transformDefaultEvent)
 
   constructor () {
     super(

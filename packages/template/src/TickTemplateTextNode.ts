@@ -1,27 +1,16 @@
-import { variable } from './shared'
+
+import {
+  textDefaultEvents,
+  textDefaultProps,
+} from '@tickjs/struct'
 import {
   TickTemplateOpenningComponent,
   MiniProgramTemplateID,
-  DataStruct
 } from './TickTemplateComponent';
-
-
-export enum TextDataStruct {
-  TAP = 5,
-  LONGTAP,
-  LONGPRESS,
-  TOUCHSTART,
-  TOUCHMOVE,
-  TOUCHEND,
-  TOUCHCANCEL,
-  TOUCHFORCECHANGE,
-  TRANSITIONSTART,
-  TRANSITIONITERATION,
-  TRANSITIONEND,
-  ANIMATIONSTART,
-  ANIMATIONITERATION,
-  ANIMATIONNEND
-}
+import { 
+  transformDefaultEvent,
+  transformDefaultProps
+} from './shared'
 
 export function createText () {
   const text = new TickTemplateTextNode();
@@ -30,25 +19,8 @@ export function createText () {
 }
 
 export class TickTemplateTextNode extends TickTemplateOpenningComponent {
-  static defaultProps = [
-    ['tap', variable(TextDataStruct.TAP), true], 
-    ['longtap', variable(TextDataStruct.LONGTAP), true],
-    ['longpress', variable(TextDataStruct.LONGPRESS), true],
-    ['touchstart', variable(TextDataStruct.TOUCHSTART), true],
-    ['touchmove', variable(TextDataStruct.TOUCHMOVE), true],
-    ['touchend', variable(TextDataStruct.TOUCHEND), true], 
-    ['touchcancel', variable(TextDataStruct.TOUCHCANCEL), true], 
-    ['touchforcechange', variable(TextDataStruct.TOUCHFORCECHANGE), true], 
-    ['transitionstart', variable(TextDataStruct.TRANSITIONSTART), true],
-    ['transitioniteration', variable(TextDataStruct.TRANSITIONITERATION), true],
-    ['transitionend', variable(TextDataStruct.TRANSITIONEND), true],
-    ['animationstart', variable(TextDataStruct.ANIMATIONSTART), true],
-    ['animationiteration', variable(TextDataStruct.ANIMATIONITERATION), true],
-    ['animationend', variable(TextDataStruct.ANIMATIONNEND), true],
-  ];
-
-  static defaultEvents = [
-  ];
+  static defaultProps = textDefaultEvents.map(transformDefaultProps)
+  static defaultEvents = textDefaultEvents.map(transformDefaultEvent)
 
   constructor () {
     super(

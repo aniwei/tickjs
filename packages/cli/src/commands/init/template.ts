@@ -5,6 +5,8 @@ import {
   createCanvas,
   createView,
   createText,
+  createImage,
+  createScrollView,
   createCirculate,
   createWorker,
   TickTemplateHTMLBlockNode,
@@ -52,6 +54,8 @@ export function createWorkerTemplate (options = defaultOptions) {
     [createAudio(), 0],
     [createCanvas(), 0],
     [createCamera(), 0],
+    [createImage(), 0],
+    [createScrollView(), 0],
   ];
 
   for (let cursor = 0; cursor < options.numberOfCycles; cursor++) {

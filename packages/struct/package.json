@@ -1,5 +1,5 @@
 {
-  "name": "@tickjs/template",
+  "name": "@tickjs/struct",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -10,7 +10,6 @@
   "author": "aniwei",
   "license": "ISC",
   "dependencies": {
-    "@tickjs/struct": "^1.0.0",
     "xml-beautifier": "^0.4.3"
   }
 }

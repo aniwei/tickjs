@@ -10,8 +10,11 @@ export * from './TickTemplateButtonNode';
 export * from './TickTemplateCameraNode';
 export * from './TickTemplateCanvasNode';
 export * from './TickTemplateCirculateNode';
+export * from './TickTemplateImageNode';
 export * from './TickTemplateTextNode';
+export * from './TickTemplateScrollViewNode';
 export * from './TickTemplateViewNode';
+
 
 export * from './shared';
 export * from './createTemplate';

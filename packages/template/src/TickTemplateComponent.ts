@@ -51,6 +51,8 @@ export enum MiniProgramTemplateID {
   CANVAS,
   CAMERA,
   AUDIO,
+  IMAGE,
+  SCROLL_VIEW
 }
 
 export class TickTemplateComponent extends TickTemplate {
