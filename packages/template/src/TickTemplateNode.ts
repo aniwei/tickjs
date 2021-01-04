@@ -3,6 +3,8 @@ import {
   TickTemplate
 } from './TickTemplate';
 
+
+
 export class TickTemplateNode extends TickTemplate {
   static is (templateName: string, data: string): TickTemplateNode {
     const templateNode = new TickTemplateNode();

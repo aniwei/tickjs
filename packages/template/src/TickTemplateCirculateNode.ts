@@ -3,18 +3,17 @@ import {
 } from './TickTemplateNode';
 import {
   quotate,
-  variable,
   VARIABLE_NAME,
 } from './shared'
 import { 
-  TickTemplateClosingComponent 
+  MiniProgramTemplateID,  
+  TickTemplateClosingComponent,
+  DataStruct,
 } from './TickTemplateComponent';
 
-enum DataStruct {
+export enum CirculateDataStruct {
   I = 6
 }
-
-export const CirculateDataStruct = DataStruct
 
 export function createCirculate (options) {
   const circulateNode = new TickTemplateCirculateNode(options);
@@ -35,6 +34,8 @@ export class TickTemplateCirculateNode extends TickTemplateClosingComponent {
       `${options.prefix}.${0}`, 
       quotate(`{{${VARIABLE_NAME}:${VARIABLE_NAME}}}`))
     )
+
+    this.setAttribute('template',MiniProgramTemplateID.CIRCLATE);
   }
 }
 

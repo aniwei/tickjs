@@ -184,7 +184,7 @@ export class TickTemplate {
   }
 
   getAttribute (keyName) {
-    this.attributes.getAttribute(keyName);
+    return this.attributes.getAttribute(keyName);
   }
 
   setAttribute (keyName, valueName, defaultValue?) {

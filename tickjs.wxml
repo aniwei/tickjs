@@ -1,380 +1,233 @@
 <template name=".tickjs">
-  <template name="circlate.null">
-    <circulate template="{{i[1]}}" id="{{i[2]}}" class="--tickjs-circulate" i="{{i}}"/>
-  </template>
-  <template name="audio.null">
-    <audio template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" src="{{i[6]}}" loop="{{i[7]}}" controls="{{i[8]}}" poster="{{i[9]}}" name="{{i[10]}}" author="{{i[11]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[19]}}" bind:tap="{{i[16]}}" bind:longtap="{{i[17]}}" bind:error="{{i[23]}}" bind:play="{{i[24]}}" bind:pause="{{i[25]}}" bind:ended="{{i[27]}}" bind:timeupdate="{{i[26]}}"/>
-  </template>
-  <template name="canvas.null">
-    <canvas template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" type="{{i[6]}}" canvas-id="{{i[7]}}" webp="{{i[8]}}" disable-scroll="{{i[9]}}"/>
-  </template>
-  <template name="camera.null">
-    <camera template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}"/>
-  </template>
-  <template name="audio.0">
-    <audio template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" src="{{i[6]}}" loop="{{i[7]}}" controls="{{i[8]}}" poster="{{i[9]}}" name="{{i[10]}}" author="{{i[11]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[19]}}" bind:tap="{{i[16]}}" bind:longtap="{{i[17]}}" bind:error="{{i[23]}}" bind:play="{{i[24]}}" bind:pause="{{i[25]}}" bind:ended="{{i[27]}}" bind:timeupdate="{{i[26]}}"/>
-  </template>
-  <template name="button.0">
-    <button template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="button.1" data="{{i:i}}"/>
-    </button>
-  </template>
-  <template name="text.0">
-    <text template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" tap="{{i[6]}}" longtap="{{i[7]}}" longpress="{{i[8]}}" touchstart="{{i[9]}}" touchmove="{{i[10]}}" touchend="{{i[11]}}" touchcancel="{{i[12]}}" touchforcechange="{{i[13]}}" transitionstart="{{i[14]}}" transitioniteration="{{i[15]}}" transitionend="{{i[16]}}" animationstart="{{i[17]}}" animationiteration="{{i[18]}}" animationend="{{i[19]}}">
-      <template is="text.1" data="{{i:i}}"/>
-    </text>
-  </template>
-  <template name="view.0">
-    <view template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="view.1" data="{{i:i}}"/>
-    </view>
-  </template>
-  <template name="h1.0">
-    <h1 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h1.1" data="{{i:i}}"/>
-    </h1>
-  </template>
-  <template name="h2.0">
-    <h2 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h2.1" data="{{i:i}}"/>
-    </h2>
-  </template>
-  <template name="h3.0">
-    <h3 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h3.1" data="{{i:i}}"/>
-    </h3>
-  </template>
-  <template name="h4.0">
-    <h4 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h4.1" data="{{i:i}}"/>
-    </h4>
-  </template>
-  <template name="h5.0">
-    <h5 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h5.1" data="{{i:i}}"/>
-    </h5>
-  </template>
-  <template name="h6.0">
-    <h6 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h6.1" data="{{i:i}}"/>
-    </h6>
-  </template>
-  <template name="div.0">
-    <div template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="div.1" data="{{i:i}}"/>
-    </div>
-  </template>
-  <template name="p.0">
-    <p template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="p.1" data="{{i:i}}"/>
-    </p>
-  </template>
-  <template name="ul.0">
-    <ul template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="ul.1" data="{{i:i}}"/>
-    </ul>
-  </template>
-  <template name="ol.0">
-    <ol template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="ol.1" data="{{i:i}}"/>
-    </ol>
-  </template>
-  <template name="li.0">
-    <li template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="li.1" data="{{i:i}}"/>
-    </li>
-  </template>
-  <template name="audio.1">
-    <audio template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" src="{{i[6]}}" loop="{{i[7]}}" controls="{{i[8]}}" poster="{{i[9]}}" name="{{i[10]}}" author="{{i[11]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[19]}}" bind:tap="{{i[16]}}" bind:longtap="{{i[17]}}" bind:error="{{i[23]}}" bind:play="{{i[24]}}" bind:pause="{{i[25]}}" bind:ended="{{i[27]}}" bind:timeupdate="{{i[26]}}"/>
-  </template>
-  <template name="button.1">
-    <button template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="button.2" data="{{i:i}}"/>
-    </button>
-  </template>
-  <template name="text.1">
-    <text template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" tap="{{i[6]}}" longtap="{{i[7]}}" longpress="{{i[8]}}" touchstart="{{i[9]}}" touchmove="{{i[10]}}" touchend="{{i[11]}}" touchcancel="{{i[12]}}" touchforcechange="{{i[13]}}" transitionstart="{{i[14]}}" transitioniteration="{{i[15]}}" transitionend="{{i[16]}}" animationstart="{{i[17]}}" animationiteration="{{i[18]}}" animationend="{{i[19]}}">
-      <template is="text.2" data="{{i:i}}"/>
-    </text>
-  </template>
-  <template name="view.1">
-    <view template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="view.2" data="{{i:i}}"/>
-    </view>
-  </template>
-  <template name="h1.1">
-    <h1 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h1.2" data="{{i:i}}"/>
-    </h1>
-  </template>
-  <template name="h2.1">
-    <h2 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h2.2" data="{{i:i}}"/>
-    </h2>
-  </template>
-  <template name="h3.1">
-    <h3 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h3.2" data="{{i:i}}"/>
-    </h3>
-  </template>
-  <template name="h4.1">
-    <h4 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h4.2" data="{{i:i}}"/>
-    </h4>
-  </template>
-  <template name="h5.1">
-    <h5 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h5.2" data="{{i:i}}"/>
-    </h5>
-  </template>
-  <template name="h6.1">
-    <h6 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h6.2" data="{{i:i}}"/>
-    </h6>
-  </template>
-  <template name="div.1">
-    <div template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="div.2" data="{{i:i}}"/>
-    </div>
-  </template>
-  <template name="p.1">
-    <p template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="p.2" data="{{i:i}}"/>
-    </p>
-  </template>
-  <template name="ul.1">
-    <ul template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="ul.2" data="{{i:i}}"/>
-    </ul>
-  </template>
-  <template name="ol.1">
-    <ol template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="ol.2" data="{{i:i}}"/>
-    </ol>
-  </template>
-  <template name="li.1">
-    <li template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="li.2" data="{{i:i}}"/>
-    </li>
-  </template>
-  <template name="audio.2">
-    <audio template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" src="{{i[6]}}" loop="{{i[7]}}" controls="{{i[8]}}" poster="{{i[9]}}" name="{{i[10]}}" author="{{i[11]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[19]}}" bind:tap="{{i[16]}}" bind:longtap="{{i[17]}}" bind:error="{{i[23]}}" bind:play="{{i[24]}}" bind:pause="{{i[25]}}" bind:ended="{{i[27]}}" bind:timeupdate="{{i[26]}}"/>
-  </template>
-  <template name="button.2">
-    <button template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="button.3" data="{{i:i}}"/>
-    </button>
-  </template>
-  <template name="text.2">
-    <text template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" tap="{{i[6]}}" longtap="{{i[7]}}" longpress="{{i[8]}}" touchstart="{{i[9]}}" touchmove="{{i[10]}}" touchend="{{i[11]}}" touchcancel="{{i[12]}}" touchforcechange="{{i[13]}}" transitionstart="{{i[14]}}" transitioniteration="{{i[15]}}" transitionend="{{i[16]}}" animationstart="{{i[17]}}" animationiteration="{{i[18]}}" animationend="{{i[19]}}">
-      <template is="text.3" data="{{i:i}}"/>
-    </text>
-  </template>
-  <template name="view.2">
-    <view template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="view.3" data="{{i:i}}"/>
-    </view>
-  </template>
-  <template name="h1.2">
-    <h1 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h1.3" data="{{i:i}}"/>
-    </h1>
-  </template>
-  <template name="h2.2">
-    <h2 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h2.3" data="{{i:i}}"/>
-    </h2>
-  </template>
-  <template name="h3.2">
-    <h3 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h3.3" data="{{i:i}}"/>
-    </h3>
-  </template>
-  <template name="h4.2">
-    <h4 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h4.3" data="{{i:i}}"/>
-    </h4>
-  </template>
-  <template name="h5.2">
-    <h5 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h5.3" data="{{i:i}}"/>
-    </h5>
-  </template>
-  <template name="h6.2">
-    <h6 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="h6.3" data="{{i:i}}"/>
-    </h6>
-  </template>
-  <template name="div.2">
-    <div template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="div.3" data="{{i:i}}"/>
-    </div>
-  </template>
-  <template name="p.2">
-    <p template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="p.3" data="{{i:i}}"/>
-    </p>
-  </template>
-  <template name="ul.2">
-    <ul template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="ul.3" data="{{i:i}}"/>
-    </ul>
-  </template>
-  <template name="ol.2">
-    <ol template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="ol.3" data="{{i:i}}"/>
-    </ol>
-  </template>
-  <template name="li.2">
-    <li template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is="li.3" data="{{i:i}}"/>
-    </li>
-  </template>
-  <template name="audio.3">
-    <audio template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" src="{{i[6]}}" loop="{{i[7]}}" controls="{{i[8]}}" poster="{{i[9]}}" name="{{i[10]}}" author="{{i[11]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[19]}}" bind:tap="{{i[16]}}" bind:longtap="{{i[17]}}" bind:error="{{i[23]}}" bind:play="{{i[24]}}" bind:pause="{{i[25]}}" bind:ended="{{i[27]}}" bind:timeupdate="{{i[26]}}"/>
-  </template>
-  <template name="button.3">
-    <button template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </button>
-  </template>
-  <template name="text.3">
-    <text template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" tap="{{i[6]}}" longtap="{{i[7]}}" longpress="{{i[8]}}" touchstart="{{i[9]}}" touchmove="{{i[10]}}" touchend="{{i[11]}}" touchcancel="{{i[12]}}" touchforcechange="{{i[13]}}" transitionstart="{{i[14]}}" transitioniteration="{{i[15]}}" transitionend="{{i[16]}}" animationstart="{{i[17]}}" animationiteration="{{i[18]}}" animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </text>
-  </template>
-  <template name="view.3">
-    <view template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </view>
-  </template>
-  <template name="h1.3">
-    <h1 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </h1>
-  </template>
-  <template name="h2.3">
-    <h2 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </h2>
-  </template>
-  <template name="h3.3">
-    <h3 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </h3>
-  </template>
-  <template name="h4.3">
-    <h4 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </h4>
-  </template>
-  <template name="h5.3">
-    <h5 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </h5>
-  </template>
-  <template name="h6.3">
-    <h6 template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </h6>
-  </template>
-  <template name="div.3">
-    <div template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </div>
-  </template>
-  <template name="p.3">
-    <p template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </p>
-  </template>
-  <template name="ul.3">
-    <ul template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </ul>
-  </template>
-  <template name="ol.3">
-    <ol template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </ol>
-  </template>
-  <template name="li.3">
-    <li template="{{i[1]}}" id="{{i[2]}}" class="{{i[3]}}" style="{{i[4]}}" catch:tap="{{i[6]}}" catch:longtap="{{i[7]}}" catch:longpress="{{i[8]}}" catch:touchstart="{{i[9]}}" catch:touchmove="{{i[10]}}" catch:touchend="{{i[11]}}" catch:touchcancel="{{i[12]}}" catch:touchforcechange="{{i[13]}}" catch:transitionstart="{{i[14]}}" catch:transitioniteration="{{i[15]}}" catch:transitionend="{{i[16]}}" catch:animationstart="{{i[17]}}" catch:animationiteration="{{i[18]}}" catch:animationend="{{i[19]}}">
-      <template is=".tickjs" data="{{i:i}}"/>
-    </li>
-  </template>
-  <template name="beginWork">
-    <template wx:if="{{i[1]=='circlate'}}" data="{{i:i}}" is="circlate"></template>
-    <template wx:elif="{{i[1]=='audio'}}" data="{{i:i}}" is="audio"></template>
-    <template wx:elif="{{i[1]=='canvas'}}" data="{{i:i}}" is="canvas"></template>
-    <template wx:elif="{{i[1]=='camera'}}" data="{{i:i}}" is="camera"></template>
-    <template wx:elif="{{i[1]=='audio.0'}}" data="{{i:i}}" is="audio.0"></template>
-    <template wx:elif="{{i[1]=='button.0'}}" data="{{i:i}}" is="button.0"></template>
-    <template wx:elif="{{i[1]=='text.0'}}" data="{{i:i}}" is="text.0"></template>
-    <template wx:elif="{{i[1]=='view.0'}}" data="{{i:i}}" is="view.0"></template>
-    <template wx:elif="{{i[1]=='h1.0'}}" data="{{i:i}}" is="h1.0"></template>
-    <template wx:elif="{{i[1]=='h2.0'}}" data="{{i:i}}" is="h2.0"></template>
-    <template wx:elif="{{i[1]=='h3.0'}}" data="{{i:i}}" is="h3.0"></template>
-    <template wx:elif="{{i[1]=='h4.0'}}" data="{{i:i}}" is="h4.0"></template>
-    <template wx:elif="{{i[1]=='h5.0'}}" data="{{i:i}}" is="h5.0"></template>
-    <template wx:elif="{{i[1]=='h6.0'}}" data="{{i:i}}" is="h6.0"></template>
-    <template wx:elif="{{i[1]=='div.0'}}" data="{{i:i}}" is="div.0"></template>
-    <template wx:elif="{{i[1]=='p.0'}}" data="{{i:i}}" is="p.0"></template>
-    <template wx:elif="{{i[1]=='ul.0'}}" data="{{i:i}}" is="ul.0"></template>
-    <template wx:elif="{{i[1]=='ol.0'}}" data="{{i:i}}" is="ol.0"></template>
-    <template wx:elif="{{i[1]=='li.0'}}" data="{{i:i}}" is="li.0"></template>
-    <template wx:elif="{{i[1]=='audio.1'}}" data="{{i:i}}" is="audio.1"></template>
-    <template wx:elif="{{i[1]=='button.1'}}" data="{{i:i}}" is="button.1"></template>
-    <template wx:elif="{{i[1]=='text.1'}}" data="{{i:i}}" is="text.1"></template>
-    <template wx:elif="{{i[1]=='view.1'}}" data="{{i:i}}" is="view.1"></template>
-    <template wx:elif="{{i[1]=='h1.1'}}" data="{{i:i}}" is="h1.1"></template>
-    <template wx:elif="{{i[1]=='h2.1'}}" data="{{i:i}}" is="h2.1"></template>
-    <template wx:elif="{{i[1]=='h3.1'}}" data="{{i:i}}" is="h3.1"></template>
-    <template wx:elif="{{i[1]=='h4.1'}}" data="{{i:i}}" is="h4.1"></template>
-    <template wx:elif="{{i[1]=='h5.1'}}" data="{{i:i}}" is="h5.1"></template>
-    <template wx:elif="{{i[1]=='h6.1'}}" data="{{i:i}}" is="h6.1"></template>
-    <template wx:elif="{{i[1]=='div.1'}}" data="{{i:i}}" is="div.1"></template>
-    <template wx:elif="{{i[1]=='p.1'}}" data="{{i:i}}" is="p.1"></template>
-    <template wx:elif="{{i[1]=='ul.1'}}" data="{{i:i}}" is="ul.1"></template>
-    <template wx:elif="{{i[1]=='ol.1'}}" data="{{i:i}}" is="ol.1"></template>
-    <template wx:elif="{{i[1]=='li.1'}}" data="{{i:i}}" is="li.1"></template>
-    <template wx:elif="{{i[1]=='audio.2'}}" data="{{i:i}}" is="audio.2"></template>
-    <template wx:elif="{{i[1]=='button.2'}}" data="{{i:i}}" is="button.2"></template>
-    <template wx:elif="{{i[1]=='text.2'}}" data="{{i:i}}" is="text.2"></template>
-    <template wx:elif="{{i[1]=='view.2'}}" data="{{i:i}}" is="view.2"></template>
-    <template wx:elif="{{i[1]=='h1.2'}}" data="{{i:i}}" is="h1.2"></template>
-    <template wx:elif="{{i[1]=='h2.2'}}" data="{{i:i}}" is="h2.2"></template>
-    <template wx:elif="{{i[1]=='h3.2'}}" data="{{i:i}}" is="h3.2"></template>
-    <template wx:elif="{{i[1]=='h4.2'}}" data="{{i:i}}" is="h4.2"></template>
-    <template wx:elif="{{i[1]=='h5.2'}}" data="{{i:i}}" is="h5.2"></template>
-    <template wx:elif="{{i[1]=='h6.2'}}" data="{{i:i}}" is="h6.2"></template>
-    <template wx:elif="{{i[1]=='div.2'}}" data="{{i:i}}" is="div.2"></template>
-    <template wx:elif="{{i[1]=='p.2'}}" data="{{i:i}}" is="p.2"></template>
-    <template wx:elif="{{i[1]=='ul.2'}}" data="{{i:i}}" is="ul.2"></template>
-    <template wx:elif="{{i[1]=='ol.2'}}" data="{{i:i}}" is="ol.2"></template>
-    <template wx:elif="{{i[1]=='li.2'}}" data="{{i:i}}" is="li.2"></template>
-    <template wx:elif="{{i[1]=='audio.3'}}" data="{{i:i}}" is="audio.3"></template>
-    <template wx:elif="{{i[1]=='button.3'}}" data="{{i:i}}" is="button.3"></template>
-    <template wx:elif="{{i[1]=='text.3'}}" data="{{i:i}}" is="text.3"></template>
-    <template wx:elif="{{i[1]=='view.3'}}" data="{{i:i}}" is="view.3"></template>
-    <template wx:elif="{{i[1]=='h1.3'}}" data="{{i:i}}" is="h1.3"></template>
-    <template wx:elif="{{i[1]=='h2.3'}}" data="{{i:i}}" is="h2.3"></template>
-    <template wx:elif="{{i[1]=='h3.3'}}" data="{{i:i}}" is="h3.3"></template>
-    <template wx:elif="{{i[1]=='h4.3'}}" data="{{i:i}}" is="h4.3"></template>
-    <template wx:elif="{{i[1]=='h5.3'}}" data="{{i:i}}" is="h5.3"></template>
-    <template wx:elif="{{i[1]=='h6.3'}}" data="{{i:i}}" is="h6.3"></template>
-    <template wx:elif="{{i[1]=='div.3'}}" data="{{i:i}}" is="div.3"></template>
-    <template wx:elif="{{i[1]=='p.3'}}" data="{{i:i}}" is="p.3"></template>
-    <template wx:elif="{{i[1]=='ul.3'}}" data="{{i:i}}" is="ul.3"></template>
-    <template wx:elif="{{i[1]=='ol.3'}}" data="{{i:i}}" is="ol.3"></template>
-    <template wx:elif="{{i[1]=='li.3'}}" data="{{i:i}}" is="li.3"></template>
-  </template>
-  <template name="workLoop">
-    <block wx:if="{{i[5].length>0}}">
-      <block wx:for="{{i[5]}}" wx:key="index" wx:for-item="i">
-        <template is="beginWork" data="{{i:i}}"/>
+  <template name="0.0">
+    <circulate id="{{i[1]}}" class="--tickjs-circulate" i="{{i}}"/>
+  </template>
+  <template name="6.0">
+    <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:touchstart="{{i[11]}}" bind:touchmove="{{i[12]}}" bind:touchend="{{i[13]}}" bind:touchcancel="{{i[14]}}" bind:touchforcechange="{{i[18]}}" bind:tap="{{i[15]}}" bind:longtap="{{i[16]}}" bind:error="{{i[22]}}" bind:play="{{i[23]}}" bind:pause="{{i[24]}}" bind:ended="{{i[26]}}" bind:timeupdate="{{i[25]}}"/>
+  </template>
+  <template name="4.0">
+    <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" webp="{{i[7]}}" disable-scroll="{{i[8]}}"/>
+  </template>
+  <template name="5.0">
+    <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" frame-size="{{i[9]}}" bind:stop="{{i[10]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}"/>
+  </template>
+  <template name="1.0">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
       </block>
-    </block>
+    </view>
   </template>
-  <template is="workLoop" data="{{i:i}}"/>
+  <template name="5.0">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </button>
+  </template>
+  <template name="2.0">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </text>
+  </template>
+  <template name="7.0">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h1>
+  </template>
+  <template name="8.0">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h2>
+  </template>
+  <template name="10.0">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </div>
+  </template>
+  <template name="1.1">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </view>
+  </template>
+  <template name="5.1">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </button>
+  </template>
+  <template name="2.1">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </text>
+  </template>
+  <template name="7.1">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h1>
+  </template>
+  <template name="8.1">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h2>
+  </template>
+  <template name="10.1">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </div>
+  </template>
+  <template name="1.2">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </view>
+  </template>
+  <template name="5.2">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </button>
+  </template>
+  <template name="2.2">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </text>
+  </template>
+  <template name="7.2">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h1>
+  </template>
+  <template name="8.2">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h2>
+  </template>
+  <template name="10.2">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </div>
+  </template>
+  <template name="1.3">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </view>
+  </template>
+  <template name="5.3">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </button>
+  </template>
+  <template name="2.3">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" tap="{{i[5]}}" longtap="{{i[6]}}" longpress="{{i[7]}}" touchstart="{{i[8]}}" touchmove="{{i[9]}}" touchend="{{i[10]}}" touchcancel="{{i[11]}}" touchforcechange="{{i[12]}}" transitionstart="{{i[13]}}" transitioniteration="{{i[14]}}" transitionend="{{i[15]}}" animationstart="{{i[16]}}" animationiteration="{{i[17]}}" animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </text>
+  </template>
+  <template name="7.3">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h1>
+  </template>
+  <template name="8.3">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </h2>
+  </template>
+  <template name="10.3">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}">
+        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+          <template is="{{i[0]}}" data="{{i:i}}"/>
+        </block>
+      </block>
+    </div>
+  </template>
+  <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+    <template is="{{i[0]}}" data="{{i:i}}"/>
+  </block>
 </template>

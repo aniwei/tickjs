@@ -1,4 +1,5 @@
 export * from './TickTemplateNode';
+export * from './TickTemplateComponent';
 export * from './TickTemplateBlockNode';
 export * from './TickTemplateWorker';
 

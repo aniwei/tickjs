@@ -1,13 +1,15 @@
 import {
   TickTemplateOpenningComponent,
+  MiniProgramTemplateID,
+  DataStruct
 } from './TickTemplateComponent';
 
 import {
   variable
 } from './shared'
 
-enum DataStruct {
-  TAP = 6,
+export enum ViewDataStruct {
+  TAP = 5,
   LONGTAP,
   LONGPRESS,
   TOUCHSTART,
@@ -23,8 +25,6 @@ enum DataStruct {
   ANIMATIONNEND
 }
 
-export const ViewDataStruct = DataStruct;
-
 export function createView () {
   const view = new TickTemplateViewNode();
 
@@ -35,20 +35,20 @@ export class TickTemplateViewNode extends TickTemplateOpenningComponent {
   static defaultProps = [];
 
   static defaultEvents = [
-    ['tap', variable(DataStruct.TAP), true], 
-    ['longtap', variable(DataStruct.LONGTAP), true],
-    ['longpress', variable(DataStruct.LONGPRESS), true],
-    ['touchstart', variable(DataStruct.TOUCHSTART), true],
-    ['touchmove', variable(DataStruct.TOUCHMOVE), true],
-    ['touchend', variable(DataStruct.TOUCHEND), true], 
-    ['touchcancel', variable(DataStruct.TOUCHCANCEL), true], 
-    ['touchforcechange', variable(DataStruct.TOUCHFORCECHANGE), true], 
-    ['transitionstart', variable(DataStruct.TRANSITIONSTART), true],
-    ['transitioniteration', variable(DataStruct.TRANSITIONITERATION), true],
-    ['transitionend', variable(DataStruct.TRANSITIONEND), true],
-    ['animationstart', variable(DataStruct.ANIMATIONSTART), true],
-    ['animationiteration', variable(DataStruct.ANIMATIONITERATION), true],
-    ['animationend', variable(DataStruct.ANIMATIONNEND), true],
+    ['tap', variable(ViewDataStruct.TAP), true], 
+    ['longtap', variable(ViewDataStruct.LONGTAP), true],
+    ['longpress', variable(ViewDataStruct.LONGPRESS), true],
+    ['touchstart', variable(ViewDataStruct.TOUCHSTART), true],
+    ['touchmove', variable(ViewDataStruct.TOUCHMOVE), true],
+    ['touchend', variable(ViewDataStruct.TOUCHEND), true], 
+    ['touchcancel', variable(ViewDataStruct.TOUCHCANCEL), true], 
+    ['touchforcechange', variable(ViewDataStruct.TOUCHFORCECHANGE), true], 
+    ['transitionstart', variable(ViewDataStruct.TRANSITIONSTART), true],
+    ['transitioniteration', variable(ViewDataStruct.TRANSITIONITERATION), true],
+    ['transitionend', variable(ViewDataStruct.TRANSITIONEND), true],
+    ['animationstart', variable(ViewDataStruct.ANIMATIONSTART), true],
+    ['animationiteration', variable(ViewDataStruct.ANIMATIONITERATION), true],
+    ['animationend', variable(ViewDataStruct.ANIMATIONNEND), true],
   ];
 
   constructor () {
@@ -57,6 +57,8 @@ export class TickTemplateViewNode extends TickTemplateOpenningComponent {
       TickTemplateViewNode.defaultProps, 
       TickTemplateViewNode.defaultEvents
     );
+
+    this.setAttribute('template',MiniProgramTemplateID.VIEW)
   }
 }
 

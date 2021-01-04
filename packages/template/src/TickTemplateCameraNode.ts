@@ -1,12 +1,14 @@
 import {
   TickTemplateClosingComponent,
+  MiniProgramTemplateID,
+  DataStruct
 } from './TickTemplateComponent';
 
 import {
   variable
 } from './shared'
 
-export enum DataStruct {
+export enum CameraDataStruct {
   MODE = 5,
   RESOLUTION,
   DEVICE_POSITION,
@@ -18,7 +20,6 @@ export enum DataStruct {
   SCANCODE
 }
 
-export const CameraDataStruct = DataStruct;
 
 export function createCamera () {
   const camera = new TickTemplateCameraNode();
@@ -28,39 +29,25 @@ export function createCamera () {
 
 export class TickTemplateCameraNode extends TickTemplateClosingComponent {
   static defaultProps = [
-    ['mode', variable(DataStruct.MODE), null],
-    ['resolution', variable(DataStruct.RESOLUTION), false],
-    ['device-position', variable(DataStruct.DEVICE_POSITION), false], 
-    ['frame-size', variable(DataStruct.FRAME_SIZE), false]
+    ['mode', variable(CameraDataStruct.MODE), null],
+    ['resolution', variable(CameraDataStruct.RESOLUTION), false],
+    ['device-position', variable(CameraDataStruct.DEVICE_POSITION), false], 
+    ['frame-size', variable(CameraDataStruct.FRAME_SIZE), false]
   ];
 
   static defaultEvents = [
-    ['stop', variable(DataStruct.STOP), false], 
-    ['initdone', variable(DataStruct.INITDONE), false],
-    ['scancode', variable(DataStruct.SCANCODE), false], 
+    ['stop', variable(CameraDataStruct.STOP), false], 
+    ['initdone', variable(CameraDataStruct.INITDONE), false],
+    ['scancode', variable(CameraDataStruct.SCANCODE), false], 
   ];
 
   constructor () {
-    super('camera');
+    super(
+      'camera', 
+      TickTemplateCameraNode.defaultProps, 
+      TickTemplateCameraNode.defaultEvents
+    );
 
-    for (
-      const [
-        keyName, 
-        valueName, 
-        defaultValue
-      ] of TickTemplateCameraNode.defaultProps
-    ) {
-      this.setAttribute(keyName, valueName, defaultValue);
-    }
-
-    for (
-      const [
-        eventName, 
-        listenerName, 
-        capture
-      ] of TickTemplateCameraNode.defaultEvents
-    ) {
-      this.addEventListener(eventName, listenerName, capture);
-    }
+    this.setAttribute('template', MiniProgramTemplateID.CAMERA);
   }
 }

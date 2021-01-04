@@ -4,7 +4,7 @@ import {
 } from './TickTemplate';
 
 export class TickTemplateBlockNode extends TickTemplate {
-  constructor () {
+  constructor (templateId) {
     super('block', TagType.OPENNING);
   }
 }

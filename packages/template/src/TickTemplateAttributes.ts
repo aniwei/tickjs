@@ -9,6 +9,11 @@ type Attribute = {
   defaultValue: any
 }
 
+export enum IngoreAttribute {
+  TAGNAME = 'tagName',
+  TEMPLATE = 'template'
+}
+
 export class TickTemplateAttributes {
   public attributes: Map<string, Attribute>
 
@@ -24,8 +29,8 @@ export class TickTemplateAttributes {
     })
   }
 
-  getAttribute (keyName): Attribute | undefined {
-    return this.attributes.get(keyName);
+  getAttribute (keyName): string | undefined {
+    return this.attributes.get(keyName)?.valueName;
   }
 
   removeAttribute (keyName) {
@@ -38,11 +43,23 @@ export class TickTemplateAttributes {
 
   stringify () {
     const template: Template = new Template();
+    let count = 1;
+
     for (const [keyName, attribute] of this.attributes) {
+      if (
+        keyName === IngoreAttribute.TEMPLATE ||
+        keyName === IngoreAttribute.TAGNAME
+      ) {
+        continue;
+      }
+
       template.next(keyName);
       template.next('=');
       template.next(attribute.valueName);
-      template.space();
+
+      if (count < this.attributes.size) {
+        template.space();
+      }
     }
 
     return template.stringify();

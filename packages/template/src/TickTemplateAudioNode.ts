@@ -1,13 +1,15 @@
 import {
   TickTemplateClosingComponent,
+  MiniProgramTemplateID,
+  DataStruct
 } from './TickTemplateComponent';
 
 import {
   variable
 } from './shared'
 
-enum DataStruct {
-  SRC = 6,
+export enum AudioDataStruct {
+  SRC = 5,
   LOOP,
   CONTROLS,
   POSTER,
@@ -31,8 +33,6 @@ enum DataStruct {
   ENDED
 }
 
-export const AudioDataStruct = DataStruct;
-
 export function createAudio () {
   const audio = new TickTemplateAudioNode();
 
@@ -41,27 +41,27 @@ export function createAudio () {
 
 export class TickTemplateAudioNode extends TickTemplateClosingComponent {
   static defaultProps = [
-    ['src', variable(DataStruct.SRC), null],
-    ['loop', variable(DataStruct.LOOP), false],
-    ['controls', variable(DataStruct.CONTROLS), false], 
-    ['poster', variable(DataStruct.POSTER), false], 
-    ['name', variable(DataStruct.NAME), false], 
-    ['author', variable(DataStruct.AUTHOR), false]
+    ['src', variable(AudioDataStruct.SRC), null],
+    ['loop', variable(AudioDataStruct.LOOP), false],
+    ['controls', variable(AudioDataStruct.CONTROLS), false], 
+    ['poster', variable(AudioDataStruct.POSTER), false], 
+    ['name', variable(AudioDataStruct.NAME), false], 
+    ['author', variable(AudioDataStruct.AUTHOR), false]
   ];
 
   static defaultEvents = [
-    ['touchstart', variable(DataStruct.TOUCHSTART), false],
-    ['touchmove', variable(DataStruct.TOUCHMOVE), false],
-    ['touchend', variable(DataStruct.TOUCHEND), false], 
-    ['touchcancel', variable(DataStruct.TOUCHCANCEL), false], 
-    ['touchforcechange', variable(DataStruct.TOUCHFORCECHANGE), false], 
-    ['tap', variable(DataStruct.TAP), false], 
-    ['longtap', variable(DataStruct.LONGTAP), false],
-    ['error', variable(DataStruct.ERROR), false],
-    ['play', variable(DataStruct.PLAY), false],
-    ['pause', variable(DataStruct.PAUSE), false],
-    ['ended', variable(DataStruct.ENDED), false],
-    ['timeupdate', variable(DataStruct.TIMEUPDATE), false],
+    ['touchstart', variable(AudioDataStruct.TOUCHSTART), false],
+    ['touchmove', variable(AudioDataStruct.TOUCHMOVE), false],
+    ['touchend', variable(AudioDataStruct.TOUCHEND), false], 
+    ['touchcancel', variable(AudioDataStruct.TOUCHCANCEL), false], 
+    ['touchforcechange', variable(AudioDataStruct.TOUCHFORCECHANGE), false], 
+    ['tap', variable(AudioDataStruct.TAP), false], 
+    ['longtap', variable(AudioDataStruct.LONGTAP), false],
+    ['error', variable(AudioDataStruct.ERROR), false],
+    ['play', variable(AudioDataStruct.PLAY), false],
+    ['pause', variable(AudioDataStruct.PAUSE), false],
+    ['ended', variable(AudioDataStruct.ENDED), false],
+    ['timeupdate', variable(AudioDataStruct.TIMEUPDATE), false],
   ];
 
   constructor () {
@@ -70,5 +70,7 @@ export class TickTemplateAudioNode extends TickTemplateClosingComponent {
       TickTemplateAudioNode.defaultProps, 
       TickTemplateAudioNode.defaultEvents
     );
+
+    this.setAttribute('template',MiniProgramTemplateID.AUDIO);
   }
 }

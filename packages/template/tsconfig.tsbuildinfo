@@ -212,8 +212,8 @@
         "affectsGlobalScope": true
       },
       "./src/ticktemplateattributes.ts": {
-        "version": "e8ae1bef4354d6cb88365a5642a50265e66eba531fad8c77deb33578bb0a65e9",
-        "signature": "bc746fdb7778b233dd106c675b5b13038d8c7621c438ea60d65ed9bbd53ecf0a",
+        "version": "a616e78994ddf290e356236c6bcbbc5ccdffcb0300277fed78cd53763dc42322",
+        "signature": "7ef0465f912d1cac7ada57f28557b17fef205a4558cb4f4b276720e54c99a174",
         "affectsGlobalScope": false
       },
       "./src/ticktemplateevents.ts": {
@@ -222,8 +222,8 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplate.ts": {
-        "version": "ee194173141a5847895698a8c19d1e69d364caee7b9c792bd02f47874c5da9b5",
-        "signature": "da31c1c3987f0cbae60672dba0e3b575048230dbac3218e65c51a078f3503a4f",
+        "version": "9569431cee38a25501dd9e5dde158680809e9b6ffe621494f5780aded7ae3f0f",
+        "signature": "dc96f4ab8eabfd7c108a419560c02efb968283e8bf1ebb55b813d2998dcfdda8",
         "affectsGlobalScope": false
       },
       "./src/shared.ts": {
@@ -232,48 +232,48 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplatecomponent.ts": {
-        "version": "123e5a818a91674f9f1750100d75a9cc2e5800e12a20cc339ef4d928d3afd4ff",
-        "signature": "07d764c04db1eaedf1c9cb48cdb6811da0c10a023ba45dbc54b81114623d4551",
+        "version": "6979471aa2bab58532d2a20a3e170f46a7c56332b10961c3a0c06e3b240a9987",
+        "signature": "5181977f1599f7e0048b50e8955f32fe17e3acca160cc59d84bf3096fa38ac4a",
         "affectsGlobalScope": false
       },
       "./src/ticktemplateaudionode.ts": {
-        "version": "a6d2eab9ac7993d10a3ad85a6bfde2986b59eef9d2be42a1a80fb1ca0b069a92",
-        "signature": "1faf02bed266e00c3726c64fd7f3cdb7d3bd2c3d9ee38bb67f3d437fedb8cb48",
+        "version": "9a0f961638b8b893ae5882c8bf05502e31400ae4fda6196a25b290ac76cc444f",
+        "signature": "0311d2548b44557bc251268255895253f6c3f16e01691f3d3cb7e48405a6c96b",
         "affectsGlobalScope": false
       },
       "./src/ticktemplateblocknode.ts": {
-        "version": "4e3c2cbde5d6966ab18f473771b88d33bfb5a0313b353e51d13d51c5be93de6f",
-        "signature": "a96d5c6bc7ce728494e44f9eaff7081c41f55c0c8903120ba7a6fcefd55e1883",
+        "version": "42c8cc8c2a7491f0a841ec4657a083b355596770da7839fa823c892d589d631b",
+        "signature": "09ebd7a2c1777554ba06c05b9d36e79cfa391857f61e9e056bbea8649f1d1676",
         "affectsGlobalScope": false
       },
       "./src/ticktemplatebuttonnode.ts": {
-        "version": "338244e234310bd7a5d514a1a2f12cb9078649ca5431a84eb6057cf6943f6f11",
-        "signature": "ac55279cbb91626758f8af65027ad71caf3997b2b0b16d55ea523ceb7eec3b7e",
+        "version": "5bf93d57e350b28b6c7f0d8bcde8e2dfc4b4cbaa72b8b656cde143d83d6f6756",
+        "signature": "618b2ee13b0ed8b27b8e8d606d57bd532544ab8a67f6212e6abb2ffeb04414bb",
         "affectsGlobalScope": false
       },
       "./src/ticktemplatecameranode.ts": {
-        "version": "077a8fb5f582619d1492775ce01c7f4deb31a3a99de34cf00053a263bef9ab80",
-        "signature": "a7412eccc8fc9c9b310101c5e43011062ae1c42973817ca45a7e6f6909b3f23f",
+        "version": "dc441c7e0288435b984622f89aad701a7edd8a834a5a9ae4734b6c7aec811517",
+        "signature": "12c337ecefa5453d76e3314bc9caecc95bef66f960eef872fb68d3abf5cadaa3",
         "affectsGlobalScope": false
       },
       "./src/ticktemplatecanvasnode.ts": {
-        "version": "ba125ad281af9b3fb61aef4f75f2a936f0a37c2e662ba5f16f4ccd31d55316b0",
-        "signature": "27f77b6ba1edf1e849b35aaa34c8d5425b87f7ff90bd525e335ca3e89c5b816b",
+        "version": "f02a80da60163f5d24b67088d8895031dbbdad12a1a9e71eaf720ffdcf7e99b3",
+        "signature": "236e3279dd7fd969e9d700ea24aab481d9c2530489c1c5fe1e4ac811fd71e895",
         "affectsGlobalScope": false
       },
       "./src/ticktemplatenode.ts": {
-        "version": "425b9a98003cddf33a6d683dce9bb3f2ff573df2490edb095a0b541d6fcc5e95",
+        "version": "ff49d1b1c8d5d9c7ba56ccec313240b2d139ea4b145001b52492ce4b94b8c1a7",
         "signature": "553b27ffd436d07d5d0822486c90bef246551e53a2831b4a0666ceae834b6fad",
         "affectsGlobalScope": false
       },
       "./src/ticktemplatecirculatenode.ts": {
-        "version": "4c44a9ed4275c9c8c51b14d138f9c205a55974a8f0a7c29167b41b42611d8079",
-        "signature": "087dfc85d03e021c4d0b3e65baad66d2ea5b8d9650fb09fd9ecd8d605f07181b",
+        "version": "5903bd34300dd9517c9261cf3840bf217328901d81b9b73075186779793bd663",
+        "signature": "28cf5eb740e901ba6bc9e595e314193ff7849823791fa3e289c8f73a6d77f35d",
         "affectsGlobalScope": false
       },
       "./src/ticktemplatehtmlblocknode.ts": {
-        "version": "5e4224e733792e5626c5d8ce320b9074e83b4ce3e712c4fa10af04979bf38d5b",
-        "signature": "42cc8c46d36865aca0a4174840e12d8073aa683508ebfc421591df6e9a9df958",
+        "version": "7d400736c952925dfca0180596993ad755bb99911365e0b366700dd7625d8614",
+        "signature": "86c26d84854196b12e2f8ea2121e5bd674ae7fab905196ed2c909408803bb2d1",
         "affectsGlobalScope": false
       },
       "./src/ticktemplateifexpression.ts": {
@@ -292,13 +292,13 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplatetextnode.ts": {
-        "version": "08bf40a37ee4e9409cfb34ea7b9789b4fc5cff532ac3336410be32a39f42d7a6",
-        "signature": "0a0d542d8a0847190455512686b6c1200d394720a2135a6b6a297ee9edb9f904",
+        "version": "892bf9aef59fa24d66699445ba94b7e27ceb7d506fef6fe9dd1a11e849f7e320",
+        "signature": "d44a1fd48ad7d29d3edf7abd5a49714e9f03389443a1b66a73edb879cda11019",
         "affectsGlobalScope": false
       },
       "./src/ticktemplateviewnode.ts": {
-        "version": "f91348ebddc09e95b1d7a221f847149af2431307847ac99514a188ff9599047a",
-        "signature": "887c7d88032a6de4ebb658065a092a718f46b762827a2cf8a64088a982d2cace",
+        "version": "db7e3a8a6615cc82cfc8576e46a11eda98ea0a4e2e7c7038ecf7c62bb75c382f",
+        "signature": "c30591ae506b61f52dd24a2ad33c860f674923bea3f2319ef4cb99e301bd0ea2",
         "affectsGlobalScope": false
       },
       "./src/createtemplate.ts": {
@@ -307,13 +307,13 @@
         "affectsGlobalScope": false
       },
       "./src/ticktemplateworker.ts": {
-        "version": "8e9905774f7eb5dc414316c7b21fc3af8198603d560cca5712944a5b6dc829d1",
+        "version": "fcd351ab4583bbb99403a0bbc1baa288ffb08a800f10a2c1e38d8be4c044d4b0",
         "signature": "32d4b64abc5386429463b0d497f5ef0c812e653d22024540e60c51a7d145dbb3",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "309ec61f2c2c7f3e4f3b61c74632fea55b9dcbc05ac6f862e7d276c299a0af20",
-        "signature": "9dd0607cf9a03287d7bf54f7e5b5c92d9b90a7be00b09a5b8e221a48951bb6f7",
+        "version": "4a82690d885f6b96327b4cfe2225afbf8e42b7385ea48487bd77abd599886cb0",
+        "signature": "6d45677f38cd7a06feea8be24b5886fdfee86cd2bc0268b95fd90736e92270ff",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/anymatch/index.d.ts": {
@@ -1011,6 +1011,7 @@
         "./src/ticktemplatecameranode.ts",
         "./src/ticktemplatecanvasnode.ts",
         "./src/ticktemplatecirculatenode.ts",
+        "./src/ticktemplatecomponent.ts",
         "./src/ticktemplatehtmlblocknode.ts",
         "./src/ticktemplatenode.ts",
         "./src/ticktemplatetextnode.ts",
@@ -1373,6 +1374,7 @@
         "./src/ticktemplatecameranode.ts",
         "./src/ticktemplatecanvasnode.ts",
         "./src/ticktemplatecirculatenode.ts",
+        "./src/ticktemplatecomponent.ts",
         "./src/ticktemplatehtmlblocknode.ts",
         "./src/ticktemplatenode.ts",
         "./src/ticktemplatetextnode.ts",

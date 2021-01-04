@@ -1,13 +1,15 @@
 import {
   TickTemplateOpenningComponent,
+  MiniProgramTemplateID,
+  DataStruct
 } from './TickTemplateComponent';
 
 import {
   variable
 } from './shared'
 
-enum DataStruct {
-  TAP = 6,
+export enum ButtonDataStruct {
+  TAP = 5,
   LONGTAP,
   LONGPRESS,
   TOUCHSTART,
@@ -23,8 +25,6 @@ enum DataStruct {
   ANIMATIONNEND
 }
 
-export const ButtonDataStruct = DataStruct;
-
 export function createButton () {
   const button = new TickTemplateButtonNode();
 
@@ -35,23 +35,29 @@ export class TickTemplateButtonNode extends TickTemplateOpenningComponent {
   static defaultProps = [];
 
   static defaultEvents = [
-    ['tap', variable(DataStruct.TAP), true], 
-    ['longtap', variable(DataStruct.LONGTAP), true],
-    ['longpress', variable(DataStruct.LONGPRESS), true],
-    ['touchstart', variable(DataStruct.TOUCHSTART), true],
-    ['touchmove', variable(DataStruct.TOUCHMOVE), true],
-    ['touchend', variable(DataStruct.TOUCHEND), true], 
-    ['touchcancel', variable(DataStruct.TOUCHCANCEL), true], 
-    ['touchforcechange', variable(DataStruct.TOUCHFORCECHANGE), true], 
-    ['transitionstart', variable(DataStruct.TRANSITIONSTART), true],
-    ['transitioniteration', variable(DataStruct.TRANSITIONITERATION), true],
-    ['transitionend', variable(DataStruct.TRANSITIONEND), true],
-    ['animationstart', variable(DataStruct.ANIMATIONSTART), true],
-    ['animationiteration', variable(DataStruct.ANIMATIONITERATION), true],
-    ['animationend', variable(DataStruct.ANIMATIONNEND), true],
+    ['tap', variable(ButtonDataStruct.TAP), true], 
+    ['longtap', variable(ButtonDataStruct.LONGTAP), true],
+    ['longpress', variable(ButtonDataStruct.LONGPRESS), true],
+    ['touchstart', variable(ButtonDataStruct.TOUCHSTART), true],
+    ['touchmove', variable(ButtonDataStruct.TOUCHMOVE), true],
+    ['touchend', variable(ButtonDataStruct.TOUCHEND), true], 
+    ['touchcancel', variable(ButtonDataStruct.TOUCHCANCEL), true], 
+    ['touchforcechange', variable(ButtonDataStruct.TOUCHFORCECHANGE), true], 
+    ['transitionstart', variable(ButtonDataStruct.TRANSITIONSTART), true],
+    ['transitioniteration', variable(ButtonDataStruct.TRANSITIONITERATION), true],
+    ['transitionend', variable(ButtonDataStruct.TRANSITIONEND), true],
+    ['animationstart', variable(ButtonDataStruct.ANIMATIONSTART), true],
+    ['animationiteration', variable(ButtonDataStruct.ANIMATIONITERATION), true],
+    ['animationend', variable(ButtonDataStruct.ANIMATIONNEND), true],
   ];
 
   constructor () {
-    super('button', TickTemplateButtonNode.defaultProps, TickTemplateButtonNode.defaultEvents);
+    super(
+      'button', 
+      TickTemplateButtonNode.defaultProps, 
+      TickTemplateButtonNode.defaultEvents
+    );
+
+    this.setAttribute('template', MiniProgramTemplateID.CAMERA);
   }
 }
