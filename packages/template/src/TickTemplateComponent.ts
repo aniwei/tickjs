@@ -52,7 +52,13 @@ export enum MiniProgramTemplateID {
   CAMERA,
   AUDIO,
   IMAGE,
-  SCROLL_VIEW
+  INPUT,
+  PICKER,
+  PICKER_VIEW,
+  PICKER_VIEW_COLUMN,
+  SCROLL_VIEW,
+  SWIPER,
+  SWIPER_ITEM,
 }
 
 export class TickTemplateComponent extends TickTemplate {

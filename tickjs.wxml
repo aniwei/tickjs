@@ -3,239 +3,734 @@
     <circulate id="{{i[1]}}" class="--tickjs-circulate" i="{{i}}"/>
   </template>
   <template name="6.0">
-    <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}" bind:error="{{i[11]}}" bind:play="{{i[12]}}" bind:pause="{{i[13]}}" bind:ended="{{i[15]}}" bind:timeupdate="{{i[14]}}"/>
+    <audio id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" loop="{{i[6]}}" controls="{{i[7]}}" poster="{{i[8]}}" name="{{i[9]}}" author="{{i[10]}}"/>
   </template>
   <template name="4.0">
-    <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}" bind:error="{{i[13]}}" bind:longtap="{{i[7]}}" bind:touchstart="{{i[8]}}" bind:touchmove="{{i[9]}}" bind:touchend="{{i[10]}}" bind:touchcancel="{{i[11]}}" bind:touchforcechange="{{i[12]}}"/>
+    <canvas id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" type="{{i[5]}}" canvas-id="{{i[6]}}"/>
   </template>
   <template name="5.0">
-    <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" flash="{{i[8]}}" frame-size="{{i[9]}}" bind:error="{{i[10]}}" bind:stop="{{i[11]}}" bind:initdone="{{i[12]}}" bind:scancode="{{i[13]}}"/>
+    <camera id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" mode="{{i[5]}}" resolution="{{i[6]}}" device-position="{{i[7]}}" flash="{{i[8]}}" frame-size="{{i[9]}}"/>
   </template>
   <template name="7.0">
-    <image id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" mode="{{i[6]}}" webp="{{i[7]}}" lazy-load="{{i[8]}}" show-menu-by-longpress="{{i[9]}}" bind:error="{{i[10]}}" bind:load="{{i[11]}}"/>
+    <image id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" mode="{{i[6]}}" webp="{{i[7]}}" lazy-load="{{i[8]}}" show-menu-by-longpress="{{i[9]}}"/>
   </template>
   <template name="8.0">
-    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" scroll-x="{{i[5]}}" scroll-y="{{i[6]}}" upper-threshold="{{i[7]}}" lower-threshold="{{i[8]}}" scroll-top="{{i[9]}}" scroll-left="{{i[10]}}" bind:error="{{i[21]}}" bind:play="{{i[22]}}" bind:pause="{{i[23]}}" bind:ended="{{i[25]}}" bind:timeupdate="{{i[24]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <input id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" type="{{i[6]}}" password="{{i[7]}}" placeholder="{{i[8]}}" placeholder-style="{{i[9]}}" placeholder-class="{{i[10]}}" disabled="{{i[11]}}" maxlength="{{i[12]}}" cursor-spacing="{{i[13]}}" auto-focus="{{i[13]}}" confirm-type="{{i[16]}}" always-embed="{{i[16]}}" confirm-hold="{{i[16]}}" cursor="{{i[19]}}" selection-start="{{i[20]}}" selection-end="{{i[21]}}" adjust-position="{{i[22]}}" hold-keyboard="{{i[23]}}"/>
+  </template>
+  <template name="9.0">
+    <picker id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" header-text="{{i[5]}}" mode="{{i[6]}}" disabled="{{i[7]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </picker>
+  </template>
+  <template name="10.0">
+    <picker-view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" value="{{i[5]}}" indicator-style="{{i[6]}}" indicator-class="{{i[7]}}" mask-style="{{i[8]}}" mask-class="{{i[9]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </picker-view>
+  </template>
+  <template name="11.0">
+    <picker-view-column id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </picker-view-column>
+  </template>
+  <template name="12.0">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" scroll-x="{{i[5]}}" scroll-y="{{i[6]}}" upper-threshold="{{i[7]}}" lower-threshold="{{i[8]}}" scroll-top="{{i[9]}}" scroll-left="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </button>
   </template>
+  <template name="13.0">
+    <swiper id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" indicator-dots="{{i[5]}}" indicator-color="{{i[6]}}" indicator-active-color="{{i[7]}}" autoplay="{{i[8]}}" current="{{i[9]}}" interval="{{i[10]}}" duration="{{i[11]}}" circular="{{i[10]}}" vertical="{{i[13]}}" previous-margin="{{i[14]}}" next-margin="{{i[14]}}" snap-to-edge="{{i[16]}}" display-multiple-items="{{i[17]}}" easing-function="{{i[18]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </swiper>
+  </template>
+  <template name="14.0">
+    <swiper-item id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" indicator-dots="{{i[5]}}" skip-hidden-item-layout="{{i[6]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </swiper-item>
+  </template>
+  <template name="8.0">
+    <textarea id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" src="{{i[5]}}" type="{{i[6]}}" password="{{i[7]}}" placeholder="{{i[8]}}" placeholder-style="{{i[9]}}" placeholder-class="{{i[10]}}" disabled="{{i[11]}}" maxlength="{{i[12]}}" cursor-spacing="{{i[13]}}" auto-focus="{{i[13]}}" confirm-type="{{i[16]}}" always-embed="{{i[16]}}" confirm-hold="{{i[16]}}" cursor="{{i[19]}}" selection-start="{{i[20]}}" selection-end="{{i[21]}}" adjust-position="{{i[22]}}" hold-keyboard="{{i[23]}}"/>
+  </template>
   <template name="1.0">
-    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </view>
   </template>
   <template name="5.0">
-    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}" bind:touchstart="{{i[32]}}" bind:touchmove="{{i[33]}}" bind:touchend="{{i[34]}}" bind:touchcancel="{{i[35]}}" bind:touchforcechange="{{i[36]}}" bind:animationstart="{{i[40]}}" bind:animationiteration="{{i[41]}}" bind:animationend="{{i[42]}}" bind:transitionstart="{{i[37]}}" bind:transitioniteration="{{i[38]}}" bind:transitionend="{{i[39]}}" bind:tap="{{i[29]}}" bind:longtap="{{i[30]}}" bind:error="{{i[26]}}" bind:getuserinfo="{{i[23]}}" bind:getphonenumber="{{i[24]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </button>
   </template>
   <template name="2.0">
-    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[16]}}" bind:tap="{{i[9]}}" bind:longtap="{{i[10]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </text>
   </template>
   <template name="7.0">
-    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h1>
   </template>
   <template name="8.0">
-    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h2>
   </template>
   <template name="10.0">
-    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </div>
   </template>
   <template name="1.1">
-    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </view>
   </template>
   <template name="5.1">
-    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}" bind:touchstart="{{i[32]}}" bind:touchmove="{{i[33]}}" bind:touchend="{{i[34]}}" bind:touchcancel="{{i[35]}}" bind:touchforcechange="{{i[36]}}" bind:animationstart="{{i[40]}}" bind:animationiteration="{{i[41]}}" bind:animationend="{{i[42]}}" bind:transitionstart="{{i[37]}}" bind:transitioniteration="{{i[38]}}" bind:transitionend="{{i[39]}}" bind:tap="{{i[29]}}" bind:longtap="{{i[30]}}" bind:error="{{i[26]}}" bind:getuserinfo="{{i[23]}}" bind:getphonenumber="{{i[24]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </button>
   </template>
   <template name="2.1">
-    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[16]}}" bind:tap="{{i[9]}}" bind:longtap="{{i[10]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </text>
   </template>
   <template name="7.1">
-    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h1>
   </template>
   <template name="8.1">
-    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h2>
   </template>
   <template name="10.1">
-    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </div>
   </template>
   <template name="1.2">
-    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </view>
   </template>
   <template name="5.2">
-    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}" bind:touchstart="{{i[32]}}" bind:touchmove="{{i[33]}}" bind:touchend="{{i[34]}}" bind:touchcancel="{{i[35]}}" bind:touchforcechange="{{i[36]}}" bind:animationstart="{{i[40]}}" bind:animationiteration="{{i[41]}}" bind:animationend="{{i[42]}}" bind:transitionstart="{{i[37]}}" bind:transitioniteration="{{i[38]}}" bind:transitionend="{{i[39]}}" bind:tap="{{i[29]}}" bind:longtap="{{i[30]}}" bind:error="{{i[26]}}" bind:getuserinfo="{{i[23]}}" bind:getphonenumber="{{i[24]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </button>
   </template>
   <template name="2.2">
-    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[16]}}" bind:tap="{{i[9]}}" bind:longtap="{{i[10]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </text>
   </template>
   <template name="7.2">
-    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h1>
   </template>
   <template name="8.2">
-    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h2>
   </template>
   <template name="10.2">
-    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </div>
   </template>
   <template name="1.3">
-    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </view>
   </template>
   <template name="5.3">
-    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}" bind:touchstart="{{i[32]}}" bind:touchmove="{{i[33]}}" bind:touchend="{{i[34]}}" bind:touchcancel="{{i[35]}}" bind:touchforcechange="{{i[36]}}" bind:animationstart="{{i[40]}}" bind:animationiteration="{{i[41]}}" bind:animationend="{{i[42]}}" bind:transitionstart="{{i[37]}}" bind:transitioniteration="{{i[38]}}" bind:transitionend="{{i[39]}}" bind:tap="{{i[29]}}" bind:longtap="{{i[30]}}" bind:error="{{i[26]}}" bind:getuserinfo="{{i[23]}}" bind:getphonenumber="{{i[24]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </button>
   </template>
   <template name="2.3">
-    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}" bind:touchstart="{{i[12]}}" bind:touchmove="{{i[13]}}" bind:touchend="{{i[14]}}" bind:touchcancel="{{i[15]}}" bind:touchforcechange="{{i[16]}}" bind:tap="{{i[9]}}" bind:longtap="{{i[10]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </text>
   </template>
   <template name="7.3">
-    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h1>
   </template>
   <template name="8.3">
-    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </h2>
   </template>
   <template name="10.3">
-    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" catch:tap="{{i[5]}}" catch:longtap="{{i[6]}}" catch:longpress="{{i[7]}}" catch:touchstart="{{i[8]}}" catch:touchmove="{{i[9]}}" catch:touchend="{{i[10]}}" catch:touchcancel="{{i[11]}}" catch:touchforcechange="{{i[12]}}" catch:transitionstart="{{i[13]}}" catch:transitioniteration="{{i[14]}}" catch:transitionend="{{i[15]}}" catch:animationstart="{{i[16]}}" catch:animationiteration="{{i[17]}}" catch:animationend="{{i[18]}}">
-      <block wx:if="{{i[4].length>0}}">
-        <block wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
-          <template is="{{i[0]}}" data="{{i:i}}"/>
-        </block>
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.4">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.4">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.4">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.4">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.4">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.4">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.5">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.5">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.5">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.5">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.5">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.5">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.6">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.6">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.6">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.6">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.6">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.6">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.7">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.7">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.7">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.7">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.7">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.7">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.8">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.8">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.8">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.8">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.8">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.8">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.9">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.9">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.9">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.9">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.9">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.9">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.10">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.10">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.10">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.10">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.10">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.10">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.11">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.11">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.11">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.11">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.11">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.11">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.12">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.12">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.12">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.12">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.12">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.12">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.13">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.13">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.13">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.13">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.13">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.13">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.14">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.14">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.14">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.14">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.14">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.14">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </div>
+  </template>
+  <template name="1.15">
+    <view id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </view>
+  </template>
+  <template name="5.15">
+    <button id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" size="{{i[5]}}" type="{{i[6]}}" plain="{{i[7]}}" disabled="{{i[8]}}" loading="{{i[9]}}" form-type="{{i[10]}}" open-type="{{i[10]}}" hover-class="{{i[12]}}" hover-stop-propagation="{{i[13]}}" hover-start-time="{{i[14]}}" hover-stay-time="{{i[14]}}" lang="{{i[16]}}" session-from="{{i[17]}}" send-message-title="{{i[18]}}" send-message-path="{{i[19]}}" send-message-img="{{i[20]}}" app-parameter="{{i[21]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </button>
+  </template>
+  <template name="2.15">
+    <text id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}" touchstart="{{i[12]}}" touchmove="{{i[13]}}" touchend="{{i[14]}}" touchcancel="{{i[15]}}" touchforcechange="{{i[16]}}" tap="{{i[9]}}" longtap="{{i[10]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </text>
+  </template>
+  <template name="7.15">
+    <h1 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h1>
+  </template>
+  <template name="8.15">
+    <h2 id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
+      </block>
+    </h2>
+  </template>
+  <template name="10.15">
+    <div id="{{i[1]}}" class="{{i[2]}}" style="{{i[3]}}">
+      <block wx:if="{{i[4].length>0}}" wx:for="{{i[4]}}" wx:key="index" wx:for-item="i">
+        <template is="{{i[0]}}" data="{{i:i}}"/>
       </block>
     </div>
   </template>

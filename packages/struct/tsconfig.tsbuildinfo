@@ -212,12 +212,12 @@
         "affectsGlobalScope": true
       },
       "./src/base.ts": {
-        "version": "001a27e68db7d80f784664dcea0953a3b12fbed19f9929e0faa5c6739757dc7b",
-        "signature": "1401c44dfc126a8869570c16baf0dda75fc133d445af7c3aa6583d6a743f3142",
+        "version": "7da14ec6c30b6dad9d9d0201fecf12a9d8f861cea128ac61a915056be855e66f",
+        "signature": "a5813554e921d0c8b1190eb57f8db6f1099c383e9ae7dce042d99949f6f43afe",
         "affectsGlobalScope": false
       },
       "./src/audio.ts": {
-        "version": "123e68799ba47bc423512e8764b79eaf82a720aa2010ba03c07062ceae7d1bd6",
+        "version": "aaa1dded3c9f57caab7e53b5d4f8cb32d828cb422918fb484bcee4391af37277",
         "signature": "c3491ec50482901e4b219245f0fd291ab54f5eab070effe60efd39e670556e54",
         "affectsGlobalScope": false
       },
@@ -228,7 +228,7 @@
       },
       "./src/button.ts": {
         "version": "fdf1b11b79c2190ec92f31efc770c134a0974a1c10e510cfc833cbd7e9764291",
-        "signature": "ae532cfe6f98350dbf0cbec41a78e1c32a232e847b668cb04ebb0d09bda4f06b",
+        "signature": "0774be447d5263a9725aa85ad22dfba288413b121345351c11fcc83f5d1075d0",
         "affectsGlobalScope": false
       },
       "./src/camera.ts": {
@@ -246,14 +246,44 @@
         "signature": "b2de00eafe585f09be4798973bcc8f67d1bc05a9cba1176497ebdd1acabf8ce2",
         "affectsGlobalScope": false
       },
+      "./src/input.ts": {
+        "version": "2f43114e57fa98c254397189ce1a4e70af01ad37aa6f8ca745c86a3b2bc18788",
+        "signature": "90769b61505e25a2bca9e3da78754a9c30057350e01da493c83962d4ffd88c3e",
+        "affectsGlobalScope": false
+      },
+      "./src/picker.ts": {
+        "version": "8be15f386ca2a6add7765c4fb85cd39ed74033de2fa5152921e6b8a735704bf2",
+        "signature": "1c3f8b6afc893637bae142a897214adfce892bf87b8c848e1357d2ffeb389c20",
+        "affectsGlobalScope": false
+      },
+      "./src/pickerview.ts": {
+        "version": "d4562206c8f8e0e3f461d63db332615fe88cc817a7eb6f955de7cf2cd0cb88c8",
+        "signature": "47ed1bf01c7151279a6531ceca675069b7291ae6583898233683ce71efa01451",
+        "affectsGlobalScope": false
+      },
       "./src/scrollview.ts": {
-        "version": "0e47b4fa7eddff890f419d3f91d57f9f9626008f31184042b3fa4600bd784a67",
+        "version": "b25dda57fa9ba242a1b1aeefad7a66938674f7b5d52721a9eee459564b452605",
         "signature": "b38b39fb295e0b3b2a750664b838be003aa98fd922607b3bf8c0dc94953e38da",
+        "affectsGlobalScope": false
+      },
+      "./src/swiper.ts": {
+        "version": "05111077121993fabc86bafd3ce2ea80024d1b2af1910a5d823005eaea7b47af",
+        "signature": "ec6d1ce8d974211d44cdbd8154a1e1b22c8538229edf079cdb6cd26a9338236a",
+        "affectsGlobalScope": false
+      },
+      "./src/swiperitem.ts": {
+        "version": "988e2cfbc3e08fcc9a6e77e166803a4bed966004e6459d34a210656cfa17bca7",
+        "signature": "a2807d5fb84b843cdafdc9dd3a40c76b85c07674c0c7a2898f7e18bbe2d2cab4",
         "affectsGlobalScope": false
       },
       "./src/text.ts": {
         "version": "b4f5bd4887d102aadab3fd20d614f706d6351b7b3d0bec35052ec6ec9686b94b",
         "signature": "62620e1dbd98053c90804f39a4d08d2ae503dd8d8a595da4a89d68107026f7f9",
+        "affectsGlobalScope": false
+      },
+      "./src/textarea.ts": {
+        "version": "63623e6f76505c0e126acfd6777577f5f2c9f780dc698f112432727f9c39adff",
+        "signature": "9ec092ccd0a042497ecfb42ec088c1bd2bdc6ada50b765c6c76474c073083fb5",
         "affectsGlobalScope": false
       },
       "./src/video.ts": {
@@ -263,12 +293,12 @@
       },
       "./src/view.ts": {
         "version": "2bcc6b270948d56576563fb10b2da15d8f7f2c8aac6a27f990c905098f0d56fc",
-        "signature": "87dd0216bb2445dc10372a9cabc78e9605d44d73b0cfbe9a9b0a11d34ebcf584",
+        "signature": "f2c3486711932fb92ac95b9cc62691c6df5019286f3322d2f24f58997f3befdf",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "2ecdbae4d6780ea7b7e2582591b36be65cee38b1a5bc432472dfd571f157f88f",
-        "signature": "c1e6d952958187df57a405cae4fae6b7bae936e7785cc179dcf22ae2783db346",
+        "version": "4abb90621a8b1cb6c417b3a652a01c86ae10ba64ace22237ee676bf644bda382",
+        "signature": "d9d3659930239a3158f1252ee848927711f80e608b1c1d50b0655cdc04f5e947",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/anymatch/index.d.ts": {
@@ -954,15 +984,45 @@
         "./src/camera.ts",
         "./src/canvas.ts",
         "./src/image.ts",
+        "./src/input.ts",
+        "./src/picker.ts",
+        "./src/pickerview.ts",
         "./src/scrollview.ts",
         "./src/shared.ts",
-        "./src/text.ts"
+        "./src/swiper.ts",
+        "./src/swiperitem.ts",
+        "./src/text.ts",
+        "./src/textarea.ts"
+      ],
+      "./src/input.ts": [
+        "./src/base.ts",
+        "./src/shared.ts"
+      ],
+      "./src/picker.ts": [
+        "./src/base.ts",
+        "./src/shared.ts"
+      ],
+      "./src/pickerview.ts": [
+        "./src/base.ts",
+        "./src/shared.ts"
       ],
       "./src/scrollview.ts": [
         "./src/base.ts"
       ],
+      "./src/swiper.ts": [
+        "./src/base.ts",
+        "./src/shared.ts"
+      ],
+      "./src/swiperitem.ts": [
+        "./src/base.ts",
+        "./src/shared.ts"
+      ],
       "./src/text.ts": [
         "./src/base.ts"
+      ],
+      "./src/textarea.ts": [
+        "./src/base.ts",
+        "./src/shared.ts"
       ],
       "./src/video.ts": [
         "./src/base.ts"
@@ -1244,11 +1304,23 @@
         "./src/camera.ts",
         "./src/canvas.ts",
         "./src/image.ts",
+        "./src/input.ts",
+        "./src/picker.ts",
+        "./src/pickerview.ts",
         "./src/scrollview.ts",
         "./src/shared.ts",
-        "./src/text.ts"
+        "./src/swiper.ts",
+        "./src/swiperitem.ts",
+        "./src/text.ts",
+        "./src/textarea.ts"
       ],
       "./src/scrollview.ts": [
+        "./src/base.ts"
+      ],
+      "./src/swiper.ts": [
+        "./src/base.ts"
+      ],
+      "./src/swiperitem.ts": [
         "./src/base.ts"
       ]
     },
@@ -1376,9 +1448,15 @@
       "./src/canvas.ts",
       "./src/image.ts",
       "./src/index.ts",
+      "./src/input.ts",
+      "./src/picker.ts",
+      "./src/pickerview.ts",
       "./src/scrollview.ts",
       "./src/shared.ts",
+      "./src/swiper.ts",
+      "./src/swiperitem.ts",
       "./src/text.ts",
+      "./src/textarea.ts",
       "./src/video.ts",
       "./src/view.ts"
     ]

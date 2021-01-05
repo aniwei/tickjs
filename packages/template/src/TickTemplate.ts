@@ -6,6 +6,10 @@ import {
 TickTemplateEvents
 } from './TickTemplateEvents';
 
+import {
+  IngoreAttribute
+} from './TickTemplateAttributes'
+
 export enum TagType {
   CLOSING,
   OPENNING
@@ -47,7 +51,7 @@ export class TickTemplateTag {
 
     // property-name="property-value" ...
     for (const props of properties) {
-      if (props.size() > 0) {
+      if (props.size > 0) {
         template
           .next(props.stringify())
           .space();
@@ -193,6 +197,27 @@ export class TickTemplate {
 
   removeAttribute (keyName) {
     this.attributes.removeAttribute(keyName);
+  }
+
+  merge (node: TickTemplate): TickTemplate {
+    const { childNodes, attributes } = node;
+
+    for (const child of childNodes) {
+      this.appendChild(child);
+    }
+
+    for (const [keyName, attribute] of attributes) {
+      if (
+        keyName === IngoreAttribute.TEMPLATE ||
+        keyName === IngoreAttribute.TAGNAME
+      ) {
+        continue;
+      }
+
+      this.setAttribute(keyName, attribute.valueName, attribute.defaultValue);
+    }
+
+    return this;
   }
 
   json () {}

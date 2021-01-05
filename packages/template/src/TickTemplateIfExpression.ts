@@ -53,17 +53,19 @@ export class TickTemplateIfExpression extends TickTemplate  {
     super('empty', TagType.OPENNING);
   }
 
-  If (condition: string, ifTemplate: TickTemplate | Map<string, string>, tagName?: string) {
+  If (condition: string, ifTemplate?: TickTemplate | Map<string, string> | undefined, tagName?: string) {
     const ifNode = new TickTemplateIf(condition, tagName)
 
     if (ifTemplate instanceof TickTemplate) {
       ifNode.appendChild(ifTemplate);
     } else {
-      for (const [key, value] of ifTemplate) {
-        ifNode.setAttribute(
-          key,
-          value
-        )
+      if (ifTemplate !== undefined) {
+        for (const [key, value] of ifTemplate) {
+          ifNode.setAttribute(
+            key,
+            value
+          )
+        }
       }
     }
 

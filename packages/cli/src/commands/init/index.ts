@@ -9,9 +9,11 @@ import {
 export async function init () {
   const template = createWorkerTemplate();
 
+  const xml = template.stringify();
+
   await fs.writeFile(
     'tickjs.wxml', 
-    formatter(template.stringify(), {
+    formatter(xml, {
       indentation: '  ',
       lineSeparator: '\n'
     })

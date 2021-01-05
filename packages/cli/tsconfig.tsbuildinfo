@@ -462,8 +462,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateattributes.d.ts": {
-        "version": "7ef0465f912d1cac7ada57f28557b17fef205a4558cb4f4b276720e54c99a174",
-        "signature": "7ef0465f912d1cac7ada57f28557b17fef205a4558cb4f4b276720e54c99a174",
+        "version": "dd414335445e894ca54399ec67edd17c43e9637f97b68fb65d28ddcf2f6ac065",
+        "signature": "dd414335445e894ca54399ec67edd17c43e9637f97b68fb65d28ddcf2f6ac065",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateevents.d.ts": {
@@ -472,8 +472,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplate.d.ts": {
-        "version": "dc96f4ab8eabfd7c108a419560c02efb968283e8bf1ebb55b813d2998dcfdda8",
-        "signature": "dc96f4ab8eabfd7c108a419560c02efb968283e8bf1ebb55b813d2998dcfdda8",
+        "version": "29b56a68d3a4b007afae6af0575facf65b3adc5213573898843f22c40e73fde3",
+        "signature": "29b56a68d3a4b007afae6af0575facf65b3adc5213573898843f22c40e73fde3",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatenode.d.ts": {
@@ -482,8 +482,8 @@
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplatecomponent.d.ts": {
-        "version": "9fe9c2ec8eaf29ae5859b1450bfb2010eea5884f7421283db16a30362311b9f8",
-        "signature": "9fe9c2ec8eaf29ae5859b1450bfb2010eea5884f7421283db16a30362311b9f8",
+        "version": "5c072059065770bb70f50c352822553ac4ded82f8212f1490a8afadc616ef5ff",
+        "signature": "5c072059065770bb70f50c352822553ac4ded82f8212f1490a8afadc616ef5ff",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateblocknode.d.ts": {
@@ -531,14 +531,49 @@
         "signature": "07915c3fae830e2dcb023b614d837d9abcd652e569bbb0682763cec82bf1e884",
         "affectsGlobalScope": false
       },
+      "../template/dist/ticktemplateinputnode.d.ts": {
+        "version": "34d4260ab7cbeec37d871081979ee7b72360686f88dd212104ab63e4e2cda54b",
+        "signature": "34d4260ab7cbeec37d871081979ee7b72360686f88dd212104ab63e4e2cda54b",
+        "affectsGlobalScope": false
+      },
       "../template/dist/ticktemplatetextnode.d.ts": {
         "version": "117ef688eb75a0a04b2bee1b80721ac4f883bd9c7cff41f46c1fc1043359845b",
         "signature": "117ef688eb75a0a04b2bee1b80721ac4f883bd9c7cff41f46c1fc1043359845b",
         "affectsGlobalScope": false
       },
+      "../template/dist/ticktemplatepickernode.d.ts": {
+        "version": "8d2b493afc1288aadfc8fc7e0085e13567cbf86a1924d8200f2ce6b8a880d55d",
+        "signature": "8d2b493afc1288aadfc8fc7e0085e13567cbf86a1924d8200f2ce6b8a880d55d",
+        "affectsGlobalScope": false
+      },
+      "../template/dist/ticktemplatepickerviewnode.d.ts": {
+        "version": "bce430023d541fc96199c6711da8fb23f227992e62164425b614ec8e6ad79d76",
+        "signature": "bce430023d541fc96199c6711da8fb23f227992e62164425b614ec8e6ad79d76",
+        "affectsGlobalScope": false
+      },
+      "../template/dist/ticktemplatepickerviewcolumnnode.d.ts": {
+        "version": "6b5aafdd9115652baa96aa91a8f3ceed1da9da12e75a7c67dc417fe9257b3c19",
+        "signature": "6b5aafdd9115652baa96aa91a8f3ceed1da9da12e75a7c67dc417fe9257b3c19",
+        "affectsGlobalScope": false
+      },
       "../template/dist/ticktemplatescrollviewnode.d.ts": {
         "version": "e3f3fa112131d24d4524113189669bf9f750c3dfebe82e1b1b7d075af3d8de81",
         "signature": "e3f3fa112131d24d4524113189669bf9f750c3dfebe82e1b1b7d075af3d8de81",
+        "affectsGlobalScope": false
+      },
+      "../template/dist/ticktemplateswipernode.d.ts": {
+        "version": "dc9b8bc330ad4155fdee85bac39b2886748b6c2d86a1128882617c0f71d0a8dd",
+        "signature": "dc9b8bc330ad4155fdee85bac39b2886748b6c2d86a1128882617c0f71d0a8dd",
+        "affectsGlobalScope": false
+      },
+      "../template/dist/ticktemplateswiperitemnode.d.ts": {
+        "version": "98237f9c35a025b052616cd3afe6966b984e4ad672b4f1949dec9dc8d374b2f8",
+        "signature": "98237f9c35a025b052616cd3afe6966b984e4ad672b4f1949dec9dc8d374b2f8",
+        "affectsGlobalScope": false
+      },
+      "../template/dist/ticktemplatetextareanode.d.ts": {
+        "version": "1f5e14ce5d1b3df675919c31483b05facb6ad0d8f90356260259cfb919e41b7f",
+        "signature": "1f5e14ce5d1b3df675919c31483b05facb6ad0d8f90356260259cfb919e41b7f",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateviewnode.d.ts": {
@@ -557,17 +592,17 @@
         "affectsGlobalScope": false
       },
       "../template/dist/index.d.ts": {
-        "version": "4c8cb5df471285a50f2f120b75d52798c81fabb9999f1854a866e8e73d35a42d",
-        "signature": "4c8cb5df471285a50f2f120b75d52798c81fabb9999f1854a866e8e73d35a42d",
+        "version": "a1ca9156395c306cba2cbd02cc424d95ca79406c272e295c33668565f124b139",
+        "signature": "a1ca9156395c306cba2cbd02cc424d95ca79406c272e295c33668565f124b139",
         "affectsGlobalScope": false
       },
       "./src/commands/init/template.ts": {
-        "version": "540814a5086fed9366f4207dbd0c3d91875faa9b57906c5c33555180af407e1e",
+        "version": "bf416eb61bddb05a13fea57cc4dc16300f60530181f9c07e959bff08de359827",
         "signature": "4ed6ea46f0386c19a873e45c98938f0b584d79f26261f0f1a910992b1b2118c0",
         "affectsGlobalScope": false
       },
       "./src/commands/init/index.ts": {
-        "version": "0554de9c4617a8179bb42db79cb41fe88a32861e25dda9997e7c30678f2fc405",
+        "version": "e430f43e0066dc2a26d9d62d40dc75c5ea2b472f198de6cda35d50b7d55fa430",
         "signature": "5b377a10d7e7e0f5b817dca15bc2c3a43917793ff88e70146cf009d70da578e6",
         "affectsGlobalScope": false
       },
@@ -1074,8 +1109,15 @@
         "../template/dist/ticktemplatecomponent.d.ts",
         "../template/dist/ticktemplatehtmlblocknode.d.ts",
         "../template/dist/ticktemplateimagenode.d.ts",
+        "../template/dist/ticktemplateinputnode.d.ts",
         "../template/dist/ticktemplatenode.d.ts",
+        "../template/dist/ticktemplatepickernode.d.ts",
+        "../template/dist/ticktemplatepickerviewcolumnnode.d.ts",
+        "../template/dist/ticktemplatepickerviewnode.d.ts",
         "../template/dist/ticktemplatescrollviewnode.d.ts",
+        "../template/dist/ticktemplateswiperitemnode.d.ts",
+        "../template/dist/ticktemplateswipernode.d.ts",
+        "../template/dist/ticktemplatetextareanode.d.ts",
         "../template/dist/ticktemplatetextnode.d.ts",
         "../template/dist/ticktemplateviewnode.d.ts",
         "../template/dist/ticktemplateworker.d.ts"
@@ -1111,10 +1153,31 @@
       "../template/dist/ticktemplateimagenode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
       ],
+      "../template/dist/ticktemplateinputnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
       "../template/dist/ticktemplatenode.d.ts": [
         "../template/dist/ticktemplate.d.ts"
       ],
+      "../template/dist/ticktemplatepickernode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplatepickerviewcolumnnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplatepickerviewnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
       "../template/dist/ticktemplatescrollviewnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplateswiperitemnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplateswipernode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplatetextareanode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
       ],
       "../template/dist/ticktemplatetextnode.d.ts": [
@@ -1411,8 +1474,15 @@
         "../template/dist/ticktemplatecomponent.d.ts",
         "../template/dist/ticktemplatehtmlblocknode.d.ts",
         "../template/dist/ticktemplateimagenode.d.ts",
+        "../template/dist/ticktemplateinputnode.d.ts",
         "../template/dist/ticktemplatenode.d.ts",
+        "../template/dist/ticktemplatepickernode.d.ts",
+        "../template/dist/ticktemplatepickerviewcolumnnode.d.ts",
+        "../template/dist/ticktemplatepickerviewnode.d.ts",
         "../template/dist/ticktemplatescrollviewnode.d.ts",
+        "../template/dist/ticktemplateswiperitemnode.d.ts",
+        "../template/dist/ticktemplateswipernode.d.ts",
+        "../template/dist/ticktemplatetextareanode.d.ts",
         "../template/dist/ticktemplatetextnode.d.ts",
         "../template/dist/ticktemplateviewnode.d.ts",
         "../template/dist/ticktemplateworker.d.ts"
@@ -1448,10 +1518,31 @@
       "../template/dist/ticktemplateimagenode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
       ],
+      "../template/dist/ticktemplateinputnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
       "../template/dist/ticktemplatenode.d.ts": [
         "../template/dist/ticktemplate.d.ts"
       ],
+      "../template/dist/ticktemplatepickernode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplatepickerviewcolumnnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplatepickerviewnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
       "../template/dist/ticktemplatescrollviewnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplateswiperitemnode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplateswipernode.d.ts": [
+        "../template/dist/ticktemplatecomponent.d.ts"
+      ],
+      "../template/dist/ticktemplatetextareanode.d.ts": [
         "../template/dist/ticktemplatecomponent.d.ts"
       ],
       "../template/dist/ticktemplatetextnode.d.ts": [
@@ -1608,8 +1699,15 @@
       "../template/dist/ticktemplateevents.d.ts",
       "../template/dist/ticktemplatehtmlblocknode.d.ts",
       "../template/dist/ticktemplateimagenode.d.ts",
+      "../template/dist/ticktemplateinputnode.d.ts",
       "../template/dist/ticktemplatenode.d.ts",
+      "../template/dist/ticktemplatepickernode.d.ts",
+      "../template/dist/ticktemplatepickerviewcolumnnode.d.ts",
+      "../template/dist/ticktemplatepickerviewnode.d.ts",
       "../template/dist/ticktemplatescrollviewnode.d.ts",
+      "../template/dist/ticktemplateswiperitemnode.d.ts",
+      "../template/dist/ticktemplateswipernode.d.ts",
+      "../template/dist/ticktemplatetextareanode.d.ts",
       "../template/dist/ticktemplatetextnode.d.ts",
       "../template/dist/ticktemplateviewnode.d.ts",
       "../template/dist/ticktemplateworker.d.ts"

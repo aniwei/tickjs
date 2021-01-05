@@ -20,12 +20,12 @@ export enum AudioDataStruct {
 }
 
 export const audioDefaultProps: DefaultProps[] = [
-  ['src', AudioDataStruct.SRC, null],
-  ['loop', AudioDataStruct.LOOP, false],
-  ['controls', AudioDataStruct.CONTROLS, false], 
-  ['poster', AudioDataStruct.POSTER, false], 
-  ['name', AudioDataStruct.NAME, false], 
-  ['author', AudioDataStruct.AUTHOR, false]
+  ['src', AudioDataStruct.SRC, null, String],
+  ['loop', AudioDataStruct.LOOP, false, Boolean],
+  ['controls', AudioDataStruct.CONTROLS, false, Boolean], 
+  ['poster', AudioDataStruct.POSTER, false, String], 
+  ['name', AudioDataStruct.NAME, false, String], 
+  ['author', AudioDataStruct.AUTHOR, false, String]
 ]
 
 export const audioDefaultEvents: DefaultEvents[] = [

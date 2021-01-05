@@ -1,4 +1,4 @@
-export type DefaultProps = [string, number, any];
+export type DefaultProps = [string, number, any, any];
 export type DefaultEvents = [string, number, boolean];
 
 export enum DataStruct {

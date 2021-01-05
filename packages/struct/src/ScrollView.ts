@@ -31,12 +31,12 @@ export enum ScrollViewDataStruct {
 }
 
 export const scrollViewDefaultProps: DefaultProps[] = [
-  ['scroll-x', ScrollViewDataStruct.SCROLL_X, null],
-  ['scroll-y', ScrollViewDataStruct.SCROLL_Y, false],
-  ['upper-threshold', ScrollViewDataStruct.UPPER_THRESHOLD, false], 
-  ['lower-threshold', ScrollViewDataStruct.LOWER_THRESHOLD, false],
-  ['scroll-top', ScrollViewDataStruct.SCROLL_TOP, false], 
-  ['scroll-left', ScrollViewDataStruct.SCROLL_LEFT, false], 
+  ['scroll-x', ScrollViewDataStruct.SCROLL_X, null, Boolean],
+  ['scroll-y', ScrollViewDataStruct.SCROLL_Y, false, Boolean],
+  ['upper-threshold', ScrollViewDataStruct.UPPER_THRESHOLD, false, Number], 
+  ['lower-threshold', ScrollViewDataStruct.LOWER_THRESHOLD, false, Number],
+  ['scroll-top', ScrollViewDataStruct.SCROLL_TOP, false, Number], 
+  ['scroll-left', ScrollViewDataStruct.SCROLL_LEFT, false, Number], 
 ]
 
 export const scrollViewDefaultEvents: DefaultEvents[] = [

@@ -20,11 +20,12 @@ function createComponentsWorker (node) {
   const isName = `{{${VARIABLE_NAME}[${(DataStruct.TEMPLATE)}]}}`
 
   ifExpressionNode.If(
-    quotate(`{{${VARIABLE_NAME}[${DataStruct.CHILDREN}].length>0}}`), 
-    new TickTemplateLoopNode(
-      TickTemplateNode.is(quotate(isName), assign())
-    )
+    quotate(`{{${VARIABLE_NAME}[${DataStruct.CHILDREN}].length>0}}`)
   );
+
+  const loopNode = new TickTemplateLoopNode(TickTemplateNode.is(quotate(isName), assign()))
+
+  ifExpressionNode.firstChild?.merge(loopNode)
 
   node.appendChild(ifExpressionNode);
 }

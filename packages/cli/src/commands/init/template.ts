@@ -6,7 +6,14 @@ import {
   createView,
   createText,
   createImage,
+  createInput,
+  createPicker,
+  createPickerView,
+  createPickerViewColumn,
   createScrollView,
+  createSwiper,
+  createSwiperItem,
+  createTextArea,
   createCirculate,
   createWorker,
   TickTemplateHTMLBlockNode,
@@ -41,7 +48,7 @@ enum HTMLComponentTemplateId {
 const defaultOptions = {
   ...defaultWorkerOptions,
   name: 'tickjs',
-  numberOfCycles: 4,
+  numberOfCycles: 16,
   supportHTMLComponents: true,
   circulateNodeName: 'circulate',
   circulateNodeClassName: '--tickjs-circulate',
@@ -55,7 +62,14 @@ export function createWorkerTemplate (options = defaultOptions) {
     [createCanvas(), 0],
     [createCamera(), 0],
     [createImage(), 0],
+    [createInput(), 0],
+    [createPicker(), 0],
+    [createPickerView(), 0],
+    [createPickerViewColumn(), 0],
     [createScrollView(), 0],
+    [createSwiper(), 0],
+    [createSwiperItem(), 0],
+    [createTextArea(), 0],
   ];
 
   for (let cursor = 0; cursor < options.numberOfCycles; cursor++) {
