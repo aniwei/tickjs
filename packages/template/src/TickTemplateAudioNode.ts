@@ -1,10 +1,10 @@
 import {
   audioDefaultProps,
   audioDefaultEvents,
+  MiniProgramTemplateID,
 } from '@tickjs/struct'
 import {
   TickTemplateClosingComponent,
-  MiniProgramTemplateID,
 } from './TickTemplateComponent';
 
 import {

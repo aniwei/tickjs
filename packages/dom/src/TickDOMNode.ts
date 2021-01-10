@@ -1,3 +1,6 @@
+import { 
+  MiniProgramTemplateID
+} from '@tickjs/struct'
 import {
   NodeType,
 } from './shared';
@@ -9,6 +12,10 @@ import {
 import {
   TickDOMStyle
 } from './TickDOMStyle';
+
+import {
+  TickDOMClassName
+} from './TickDOMClassName';
 
 enum SpecialAttributeNode {
   STYLE = 'style',
@@ -34,7 +41,8 @@ export class TickDOMNode {
   private attributes: TickDOMNodeAttributes = new TickDOMNodeAttributes();
   private events: TickDOMNodeEvents = new TickDOMNodeEvents()
 
-  private _style: TickDOMStyle | null = null
+  protected _style: TickDOMStyle | null = null
+  protected _templateId: MiniProgramTemplateID | null = null
 
   public constructor (nodeType: NodeType, nodeName: string) {
     this.nodeType = nodeType
@@ -42,8 +50,16 @@ export class TickDOMNode {
     this.updator = TickDOMNodeUpdator;
   }
 
+  public get templateId (): MiniProgramTemplateID {
+    return this._templateId;
+  }
+
   public get style (): TickDOMStyle | null {
     return this._style || (this._style = new TickDOMStyle());
+  }
+
+  public get className (): TickDOMClassName | null {
+    return null;
   }
 
   public get parentElement (): TickDOMNode | null {
@@ -118,46 +134,11 @@ export class TickDOMNode {
       this.style
     }
 
-    if (qualifiedName === 'style') {
-      this.style.cssText = value as string
-      qualifiedName = Shortcuts.Style
-    } else if (qualifiedName === 'id') {
-      eventSource.delete(this.uid)
-      this.props[qualifiedName] = this.uid = value as string
-      eventSource.set(value as string, this)
-      qualifiedName = 'uid'
-    } else {
-      this.props[qualifiedName] = value as string
-      if (qualifiedName === 'class') {
-        qualifiedName = Shortcuts.Class
-      }
-      if (qualifiedName.startsWith('data-')) {
-        if (this.dataset === EMPTY_OBJ) {
-          this.dataset = Object.create(null)
-        }
-        this.dataset[toCamelCase(qualifiedName.replace(/^data-/, ''))] = value
-      }
-    }
-
-    this.enqueueUpdate({
-      path: `${this._path}.${toCamelCase(qualifiedName)}`,
-      value
-    })
+    
   }
 
   public removeAttribute (qualifiedName: string) {
-    if (qualifiedName === 'style') {
-      this.style.cssText = ''
-    } else {
-      delete this.props[qualifiedName]
-    }
-
-    CurrentReconciler.removeAttribute?.(this, qualifiedName)
-
-    this.enqueueUpdate({
-      path: `${this._path}.${toCamelCase(qualifiedName)}`,
-      value: ''
-    })
+    
   }
 
   public getAttribute (keyName: string): string {
@@ -185,11 +166,22 @@ export class TickDOMNode {
     return child
   }
 
+  public dehydrate () {
+    return [
+      this._templateId,
+      this.id,
+      this.className,
+      this.style,
+      this.childNodes.map(child => child.dehydrate()),
+    ]
+  }
+
   protected findIndex (childeNodes: TickDOMNode[], refChild: TickDOMNode) {
     const index = childeNodes.indexOf(refChild)
 
     return index
   }
+
 
   
 }

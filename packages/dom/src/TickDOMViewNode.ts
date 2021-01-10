@@ -1,17 +1,18 @@
-import { MiniProgramTemplateId, ViewDataStruct } from '@tickjs/template';
+import { 
+  MiniProgramTemplateId, 
+  viewDefaultProps, 
+  viewDefaultEvents,
+} from '@tickjs/struct';
+import { dehydrateEvents, dehydrateProps } from './shared';
 import { TickDOMNode } from './TickDOMNode';
 
 export class TickDOMViewNode extends TickDOMNode {
-  private templateId = MiniProgramTemplateId.VIEW;
+  protected _templateId = MiniProgramTemplateId.VIEW;
 
-  hyrate () {
-    return [
-      this.templateId,
-      this.id,
-      this.className,
-      this.style,
-      this.childNodes.map(child => child.hyrate()),
-      
-    ]
+  dehydrate () {
+    return super.dehydrate().concat(
+      dehydrateProps(this, viewDefaultProps),
+      dehydrateEvents(this, viewDefaultEvents),
+    )
   }
 }

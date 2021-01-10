@@ -16,3 +16,60 @@ export type UpdatePayload = {
   path: string,
   value: any
 }
+
+
+export function camelcase (string) {
+  return string.replace(/-([a-z]|[0-9])/ig, (all, letter) => {
+    return (letter + '').toUpperCase();
+  })
+}
+
+export function dehydrateProps (node, defaultProps) {
+  const props: any[] = [];
+
+  for (const prop of defaultProps) {
+    let value = node.getAttribute(prop[0]);
+
+    if (value === undefined) {
+      value = prop[2]
+    }
+
+    props.push([
+      prop[1],
+      value
+    ])
+  }
+
+  return props;
+}
+
+export function dehydrateEvents (node, defaultEvents) {
+  const props: any[] = [];
+
+  for (const prop of defaultEvents) {
+    let value = node.getAttribute(prop[0]);
+
+    props.push([
+      prop[1],
+      value
+    ])
+  }
+
+  return props;
+}
+
+export function dehydrate (node, datastruct, defaultProps, defaultEvents) {
+  for (const prop of defaultProps) {
+    let value = node.getAttribute(prop[0]);
+
+    if (value === undefined) {
+      value = prop[2]
+    }
+
+    return [
+      prop[1],
+      value
+    ]
+  }
+
+}

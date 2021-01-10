@@ -222,13 +222,13 @@
         "affectsGlobalScope": false
       },
       "./src/shared.ts": {
-        "version": "e3926440bc37f75b9d67fe1806d63d372f7a2a6a51909157b3384f15fc81f868",
-        "signature": "69ae5c7dba1452f04039b9bdf88889b014ed9a7bff4deb79b3317366285623d0",
+        "version": "791b498495198c6d9315388aafe55fb283f76237086410e0f0b4ecb558855b8c",
+        "signature": "21cf16600b8b9e6b51547176908c1cdcf7fdd73606dbb1cc93d57ee078244200",
         "affectsGlobalScope": false
       },
       "./src/button.ts": {
         "version": "fdf1b11b79c2190ec92f31efc770c134a0974a1c10e510cfc833cbd7e9764291",
-        "signature": "0774be447d5263a9725aa85ad22dfba288413b121345351c11fcc83f5d1075d0",
+        "signature": "7b3bd2dad0ed8a26c4d74c77b034876d946e873475094e31699c2d654df25721",
         "affectsGlobalScope": false
       },
       "./src/camera.ts": {
@@ -248,12 +248,12 @@
       },
       "./src/input.ts": {
         "version": "2f43114e57fa98c254397189ce1a4e70af01ad37aa6f8ca745c86a3b2bc18788",
-        "signature": "90769b61505e25a2bca9e3da78754a9c30057350e01da493c83962d4ffd88c3e",
+        "signature": "9d37cef961dd7eedbeec45da48d66ceabbe09ca5e45ca058b283e338c5bf94d4",
         "affectsGlobalScope": false
       },
       "./src/picker.ts": {
         "version": "8be15f386ca2a6add7765c4fb85cd39ed74033de2fa5152921e6b8a735704bf2",
-        "signature": "1c3f8b6afc893637bae142a897214adfce892bf87b8c848e1357d2ffeb389c20",
+        "signature": "7e7f84ef9b3d5166d5e9906d40f0418cf3ff7344a76af816d295c435dbc432e5",
         "affectsGlobalScope": false
       },
       "./src/pickerview.ts": {
@@ -293,7 +293,7 @@
       },
       "./src/view.ts": {
         "version": "2bcc6b270948d56576563fb10b2da15d8f7f2c8aac6a27f990c905098f0d56fc",
-        "signature": "f2c3486711932fb92ac95b9cc62691c6df5019286f3322d2f24f58997f3befdf",
+        "signature": "87dd0216bb2445dc10372a9cabc78e9605d44d73b0cfbe9a9b0a11d34ebcf584",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
@@ -580,6 +580,26 @@
         "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/prop-types/index.d.ts": {
+        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/react/global.d.ts": {
+        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/csstype/index.d.ts": {
+        "version": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
+        "signature": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/react/index.d.ts": {
+        "version": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
+        "signature": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
+        "affectsGlobalScope": true
       },
       "../../node_modules/@types/source-list-map/index.d.ts": {
         "version": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
@@ -874,6 +894,11 @@
       ],
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
+      ],
+      "../../node_modules/@types/react/index.d.ts": [
+        "../../node_modules/@types/prop-types/index.d.ts",
+        "../../node_modules/@types/react/global.d.ts",
+        "../../node_modules/csstype/index.d.ts"
       ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
@@ -1209,6 +1234,11 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
+      "../../node_modules/@types/react/index.d.ts": [
+        "../../node_modules/@types/prop-types/index.d.ts",
+        "../../node_modules/@types/react/global.d.ts",
+        "../../node_modules/csstype/index.d.ts"
+      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1381,6 +1411,9 @@
       "../../node_modules/@types/node/zlib.d.ts",
       "../../node_modules/@types/normalize-package-data/index.d.ts",
       "../../node_modules/@types/parse-json/index.d.ts",
+      "../../node_modules/@types/prop-types/index.d.ts",
+      "../../node_modules/@types/react/global.d.ts",
+      "../../node_modules/@types/react/index.d.ts",
       "../../node_modules/@types/source-list-map/index.d.ts",
       "../../node_modules/@types/tapable/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
@@ -1398,6 +1431,7 @@
       "../../node_modules/@types/webpack-sources/lib/sourcemapsource.d.ts",
       "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
       "../../node_modules/@types/webpack/index.d.ts",
+      "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts",

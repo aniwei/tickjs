@@ -12,6 +12,15 @@
     },
     {
       "type": "typescript",
+      "tsconfig": "packages/dom/tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build",
+      "label": "build dom",
+    },
+    {
+      "type": "typescript",
       "tsconfig": "packages/template/tsconfig.json",
       "problemMatcher": [
         "$tsc"
@@ -33,6 +42,7 @@
       "dependsOn": [
         "build struct",
         "build template",
+        "build dom",
         "build cli",
       ]
     }
