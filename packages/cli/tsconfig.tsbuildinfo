@@ -462,13 +462,13 @@
         "affectsGlobalScope": false
       },
       "./src/shared/env.ts": {
-        "version": "9e4e27ced22ca16070e0d3caf123db2829d8c5e07a758b9d94e4f710de9dc6ab",
-        "signature": "5ab95e553dca57fe6ea7587ae3663e89eceb39729479de736c67a0c718702bab",
+        "version": "794cee713ac26cc3461c6d2d31ff247b0a3c6226dad94f35b2ead91f1165c7fe",
+        "signature": "6aef33b6e2bf6422890f1f3f13e36fc13c8392c0df0509c9fcf63de9ce729ae4",
         "affectsGlobalScope": false
       },
       "./src/shared/project.ts": {
-        "version": "78f32b40745caf7866752b5e73c8778c4ba89dd6087f0d4907710b3b938d8d04",
-        "signature": "166f51efce601b357ca4f78237295df4f6ff1d10b9a1c077ad58f77618ce7b4d",
+        "version": "ef5ae116f8035d530dae8cb90762d3ec4e6a8323341f2c9a3e16aba6c9d36e69",
+        "signature": "38fdd92161b0658df2867c3a3ae24f4703a042e429e652d5da103ad926ce4ca5",
         "affectsGlobalScope": false
       },
       "./src/commands/init/index.ts": {
@@ -482,7 +482,7 @@
         "affectsGlobalScope": false
       },
       "./src/commands/start/index.ts": {
-        "version": "bf2fe0778f83bafd23d7e4b60ad395e4da2d67e67385e9c46569b623843f187d",
+        "version": "ca7b88460176268718cc6f35d1a02f395729dcb7fec0e16ca7ae8a0c24147a90",
         "signature": "f6e082f5e00badd2acf0dd0bc8f77aa092563cb40a298324ee7f65f7a14a2c00",
         "affectsGlobalScope": false
       },
@@ -656,6 +656,21 @@
         "signature": "e6ee7197469f3244c0862d7ebf654022740a5bee17cf9c8ce030f2d10a935f7b",
         "affectsGlobalScope": true
       },
+      "./node_modules/compare-versions/index.d.ts": {
+        "version": "da071b1cc8ccd8c440859e4113d30525b20f24d58d69c588ab2a9389746cd6d7",
+        "signature": "da071b1cc8ccd8c440859e4113d30525b20f24d58d69c588ab2a9389746cd6d7",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/axios/index.d.ts": {
+        "version": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
+        "signature": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
+        "affectsGlobalScope": false
+      },
+      "./src/tvm/index.ts": {
+        "version": "f3a6b3b44d97582dddee02685a4d1eded3aa281e77412ac4996369b1c81f6aa4",
+        "signature": "24d913a15397f4ad97c6816ce8e39efe6a78b4627a1e95e5013a965905752697",
+        "affectsGlobalScope": false
+      },
       "./node_modules/@types/color-name/index.d.ts": {
         "version": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
         "signature": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
@@ -700,26 +715,6 @@
         "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/prop-types/index.d.ts": {
-        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/global.d.ts": {
-        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "affectsGlobalScope": true
-      },
-      "../../node_modules/csstype/index.d.ts": {
-        "version": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "signature": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/index.d.ts": {
-        "version": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "signature": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "affectsGlobalScope": true
       },
       "../../node_modules/@types/source-list-map/index.d.ts": {
         "version": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
@@ -841,7 +836,7 @@
           "../template/*"
         ]
       },
-      "pathsBasePath": "/Users/weiyanhai/Downloads/tick/packages/cli",
+      "pathsBasePath": "/Users/aniwei/Desktop/tickjs/packages/cli",
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
@@ -1021,11 +1016,6 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
-      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1149,6 +1139,11 @@
         "../../node_modules/@types/fs-extra/index.d.ts",
         "../../node_modules/@types/node/path.d.ts",
         "./node_modules/chalk/index.d.ts",
+        "./src/shared/env.ts"
+      ],
+      "./src/tvm/index.ts": [
+        "./node_modules/axios/index.d.ts",
+        "./node_modules/compare-versions/index.d.ts",
         "./src/shared/env.ts"
       ],
       "../template/dist/createtemplate.d.ts": [
@@ -1424,11 +1419,6 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
-      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1677,9 +1667,6 @@
       "../../node_modules/@types/node/zlib.d.ts",
       "../../node_modules/@types/normalize-package-data/index.d.ts",
       "../../node_modules/@types/parse-json/index.d.ts",
-      "../../node_modules/@types/prop-types/index.d.ts",
-      "../../node_modules/@types/react/global.d.ts",
-      "../../node_modules/@types/react/index.d.ts",
       "../../node_modules/@types/source-list-map/index.d.ts",
       "../../node_modules/@types/tapable/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
@@ -1697,7 +1684,6 @@
       "../../node_modules/@types/webpack-sources/lib/sourcemapsource.d.ts",
       "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
       "../../node_modules/@types/webpack/index.d.ts",
-      "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
       "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -1743,7 +1729,9 @@
       "../../node_modules/typescript/lib/lib.esnext.string.d.ts",
       "../../node_modules/typescript/lib/lib.esnext.weakref.d.ts",
       "./node_modules/@types/color-name/index.d.ts",
+      "./node_modules/axios/index.d.ts",
       "./node_modules/chalk/index.d.ts",
+      "./node_modules/compare-versions/index.d.ts",
       "./src/commands/index.ts",
       "./src/commands/init/__project__/src/app.js",
       "./src/commands/init/__project__/src/index/index.js",
@@ -1756,6 +1744,7 @@
       "./src/shared/env.ts",
       "./src/shared/print.js",
       "./src/shared/project.ts",
+      "./src/tvm/index.ts",
       "../template/dist/createtemplate.d.ts",
       "../template/dist/index.d.ts",
       "../template/dist/shared.d.ts",

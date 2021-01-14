@@ -12,6 +12,7 @@ export * from './Swiper';
 export * from './SwiperItem';
 export * from './TextArea';
 export * from './Text';
+export * from './View';
 
 
 export * from './shared';
