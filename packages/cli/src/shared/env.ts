@@ -4,11 +4,12 @@ import home from 'user-home';
 
 
 const cwd = process.cwd();
-const pkgJson = fs.readJsonSync(resolve(cwd, 'package.json'));
+const pkgJson = fs.existsSync(resolve(cwd, 'package.json')) ?
+  fs.readJsonSync(resolve(cwd, 'package.json')) : {}
 
-export const version = pkgJson.version;
+export const VERSION = pkgJson.version;
 
-export {
-  home,
-  cwd,
-}
+export const CWD = cwd;
+export const PROJECT_DIR = CWD;
+export const TICKRC = '.tickrc.js';
+export const HOME = home;

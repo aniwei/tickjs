@@ -41,6 +41,11 @@
         "signature": "fc7a21dd3ee27fd0a9ff1c46534efcd9c3cec51a445b479bb326d871c0aa8302",
         "affectsGlobalScope": false
       },
+      "../../node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "signature": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "affectsGlobalScope": true
+      },
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts": {
         "version": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
         "signature": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
@@ -211,9 +216,9 @@
         "signature": "1e61418f41d404e744b6536af9f8c6f6674dd4d54c12335cd0c4f7eded69cf3f",
         "affectsGlobalScope": true
       },
-      "./node_modules/xml-formatter/index.d.ts": {
-        "version": "f5e46714d9f9bc844cbc243bc21ab502ce9a0af87af8ac9e7520ec50fb9948d4",
-        "signature": "f5e46714d9f9bc844cbc243bc21ab502ce9a0af87af8ac9e7520ec50fb9948d4",
+      "./node_modules/chalk/index.d.ts": {
+        "version": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
+        "signature": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/node/globals.d.ts": {
@@ -457,8 +462,33 @@
         "affectsGlobalScope": false
       },
       "./src/shared/env.ts": {
-        "version": "518614828b293cdcaec7825ca96b7bfcf5595f33532f5c679804d3de6c1a554e",
-        "signature": "cbfa8ca9a8557c8a6a78b86c92d2cbb9550957edaef36e08c5ec6651bae491d0",
+        "version": "9e4e27ced22ca16070e0d3caf123db2829d8c5e07a758b9d94e4f710de9dc6ab",
+        "signature": "5ab95e553dca57fe6ea7587ae3663e89eceb39729479de736c67a0c718702bab",
+        "affectsGlobalScope": false
+      },
+      "./src/shared/project.ts": {
+        "version": "78f32b40745caf7866752b5e73c8778c4ba89dd6087f0d4907710b3b938d8d04",
+        "signature": "166f51efce601b357ca4f78237295df4f6ff1d10b9a1c077ad58f77618ce7b4d",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/init/index.ts": {
+        "version": "f3d9b357c6c75654b4968401cb98b35ff68ded361c35cae4d95c5a520b227793",
+        "signature": "5b377a10d7e7e0f5b817dca15bc2c3a43917793ff88e70146cf009d70da578e6",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/start/project.ts": {
+        "version": "2fa5a4fd1a0ba06ed553fe6ce8b0c749d3da3d46d10c13528e67d1552185228d",
+        "signature": "4709f9454db90801a91ef380256691344d61bb17f9451a5b69afc4bdc04bdcff",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/start/index.ts": {
+        "version": "bf2fe0778f83bafd23d7e4b60ad395e4da2d67e67385e9c46569b623843f187d",
+        "signature": "f6e082f5e00badd2acf0dd0bc8f77aa092563cb40a298324ee7f65f7a14a2c00",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/index.ts": {
+        "version": "c6e44185434d0fccd877c3ab82ca2b676af17da1add4ac48a3f2414060d775a6",
+        "signature": "767d39e74c9588813191fe62a2cc54c343574e9f4403c76ddf75a014245983ff",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateattributes.d.ts": {
@@ -601,21 +631,6 @@
         "signature": "4ed6ea46f0386c19a873e45c98938f0b584d79f26261f0f1a910992b1b2118c0",
         "affectsGlobalScope": false
       },
-      "./src/commands/init/index.ts": {
-        "version": "e430f43e0066dc2a26d9d62d40dc75c5ea2b472f198de6cda35d50b7d55fa430",
-        "signature": "5b377a10d7e7e0f5b817dca15bc2c3a43917793ff88e70146cf009d70da578e6",
-        "affectsGlobalScope": false
-      },
-      "./src/commands/start/index.ts": {
-        "version": "926b547afe12e9f39759a1666a5d8bb3413e1cb5dfd3ab80e5c810b0af582902",
-        "signature": "1df5fb043349621399aa7d1f01becd40c706f743d2fe3413af5544ff4cf5ccc8",
-        "affectsGlobalScope": false
-      },
-      "./src/commands/index.ts": {
-        "version": "c6e44185434d0fccd877c3ab82ca2b676af17da1add4ac48a3f2414060d775a6",
-        "signature": "767d39e74c9588813191fe62a2cc54c343574e9f4403c76ddf75a014245983ff",
-        "affectsGlobalScope": false
-      },
       "./src/commands/init/__project__/src/app.js": {
         "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -626,15 +641,15 @@
         "signature": "306352e210f35c3050ba7bd0b7fd4c21a10b972c347a07de9aa24449272f2228",
         "affectsGlobalScope": false
       },
+      "./src/commands/start/template.ts": {
+        "version": "4b9ca596482cf5a9d3ee1dfdd4abf5164b1ef8f8c721e94416fc484ba5659a66",
+        "signature": "c4511b4e00b657ce17aeb3e7baf333cc7fb63148962caab59e5c0c9a11ade5d1",
+        "affectsGlobalScope": false
+      },
       "./src/shared/defaultwebpackconfig.js": {
         "version": "2600c80fd3bf46c6e5b84faaef7cb3029191c4a01b1c5b114c794b716320747e",
         "signature": "a0273e9ec754a0fee045ce840b045c6016fe3eff058a6f2752d2cc6c45800b74",
         "affectsGlobalScope": true
-      },
-      "./node_modules/chalk/index.d.ts": {
-        "version": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
-        "signature": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
-        "affectsGlobalScope": false
       },
       "./src/shared/print.js": {
         "version": "5c1e50a6721fb07152ebbe36bbbcc176f79b184e2fd7ea8b7a09510b7706e740",
@@ -798,9 +813,10 @@
       }
     },
     "options": {
-      "target": 3,
+      "target": 4,
       "lib": [
-        "lib.esnext.d.ts"
+        "lib.esnext.d.ts",
+        "lib.dom.d.ts"
       ],
       "allowJs": true,
       "skipLibCheck": true,
@@ -1100,12 +1116,22 @@
         "./src/commands/start/index.ts"
       ],
       "./src/commands/init/index.ts": [
-        "../../node_modules/@types/fs-extra/index.d.ts",
-        "./node_modules/xml-formatter/index.d.ts",
-        "./src/commands/init/template.ts",
-        "./src/shared/env.ts"
+        "./node_modules/chalk/index.d.ts",
+        "./src/shared/project.ts"
       ],
       "./src/commands/init/template.ts": [
+        "../template/dist/index.d.ts"
+      ],
+      "./src/commands/start/index.ts": [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "./src/commands/start/project.ts"
+      ],
+      "./src/commands/start/project.ts": [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "../../node_modules/@types/node/path.d.ts",
+        "./src/shared/env.ts"
+      ],
+      "./src/commands/start/template.ts": [
         "../template/dist/index.d.ts"
       ],
       "./src/shared/defaultwebpackconfig.js": [
@@ -1118,6 +1144,12 @@
       ],
       "./src/shared/print.js": [
         "./node_modules/chalk/index.d.ts"
+      ],
+      "./src/shared/project.ts": [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "../../node_modules/@types/node/path.d.ts",
+        "./node_modules/chalk/index.d.ts",
+        "./src/shared/env.ts"
       ],
       "../template/dist/createtemplate.d.ts": [
         "../template/dist/ticktemplatenode.d.ts"
@@ -1489,6 +1521,9 @@
       "./src/commands/init/template.ts": [
         "../template/dist/index.d.ts"
       ],
+      "./src/commands/start/template.ts": [
+        "../template/dist/index.d.ts"
+      ],
       "../template/dist/createtemplate.d.ts": [
         "../template/dist/ticktemplatenode.d.ts"
       ],
@@ -1664,6 +1699,7 @@
       "../../node_modules/@types/webpack/index.d.ts",
       "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
+      "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.d.ts",
@@ -1708,16 +1744,18 @@
       "../../node_modules/typescript/lib/lib.esnext.weakref.d.ts",
       "./node_modules/@types/color-name/index.d.ts",
       "./node_modules/chalk/index.d.ts",
-      "./node_modules/xml-formatter/index.d.ts",
       "./src/commands/index.ts",
       "./src/commands/init/__project__/src/app.js",
       "./src/commands/init/__project__/src/index/index.js",
       "./src/commands/init/index.ts",
       "./src/commands/init/template.ts",
       "./src/commands/start/index.ts",
+      "./src/commands/start/project.ts",
+      "./src/commands/start/template.ts",
       "./src/shared/defaultwebpackconfig.js",
       "./src/shared/env.ts",
       "./src/shared/print.js",
+      "./src/shared/project.ts",
       "../template/dist/createtemplate.d.ts",
       "../template/dist/index.d.ts",
       "../template/dist/shared.d.ts",

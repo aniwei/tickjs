@@ -13,7 +13,8 @@
       "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
       // "runtimeExecutable": "/Users/aniwei/.nvm/versions/node/v12.18.1/bin/node",
       "sourceMaps": true,
-      "args": ["init"]
+      "args": ["init"],
+      "cwd": "${workspaceFolder}/packages/test"
     },
     {
       "type": "node",

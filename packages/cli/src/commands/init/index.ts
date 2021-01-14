@@ -1,21 +1,11 @@
-import formatter from 'xml-formatter';
-import * as fs from 'fs-extra';
-import * as env from '../../shared/env';
+import chalk from 'chalk';
 
-import {
-  createWorkerTemplate
-} from './template'
+import { project } from '../../shared/project';
 
 export async function init () {
-  const template = createWorkerTemplate();
-
-  const xml = template.stringify();
-
-  await fs.writeFile(
-    'tickjs.wxml', 
-    formatter(xml, {
-      indentation: '  ',
-      lineSeparator: '\n'
-    })
-  )
+  if (project.exists()) {
+    console.log(chalk.red(`初始化失败，当前目录已经存在 ${chalk.bgRed('Tick')} 项目`))
+  } else {
+    project.create();
+  }
 }

@@ -41,6 +41,11 @@
         "signature": "fc7a21dd3ee27fd0a9ff1c46534efcd9c3cec51a445b479bb326d871c0aa8302",
         "affectsGlobalScope": false
       },
+      "../../node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "signature": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "affectsGlobalScope": true
+      },
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts": {
         "version": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
         "signature": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
@@ -211,129 +216,39 @@
         "signature": "1e61418f41d404e744b6536af9f8c6f6674dd4d54c12335cd0c4f7eded69cf3f",
         "affectsGlobalScope": true
       },
-      "./src/tickdomclassname.ts": {
-        "version": "5b7d3c0be4baec81db982ecd36528ce3dc830c12730957eea22ba5248ebeffcd",
-        "signature": "0406c3e70f0d13d76ecfc871ef7809efe63c499ae9b38244f3c6ec31f03da9ef",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/base.d.ts": {
-        "version": "a5813554e921d0c8b1190eb57f8db6f1099c383e9ae7dce042d99949f6f43afe",
-        "signature": "a5813554e921d0c8b1190eb57f8db6f1099c383e9ae7dce042d99949f6f43afe",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/audio.d.ts": {
-        "version": "c3491ec50482901e4b219245f0fd291ab54f5eab070effe60efd39e670556e54",
-        "signature": "c3491ec50482901e4b219245f0fd291ab54f5eab070effe60efd39e670556e54",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/button.d.ts": {
-        "version": "7b3bd2dad0ed8a26c4d74c77b034876d946e873475094e31699c2d654df25721",
-        "signature": "7b3bd2dad0ed8a26c4d74c77b034876d946e873475094e31699c2d654df25721",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/camera.d.ts": {
-        "version": "f03440dc885e2f95d0c88254d4a65322e1e730711abaad9101e6f5cfc6fcc498",
-        "signature": "f03440dc885e2f95d0c88254d4a65322e1e730711abaad9101e6f5cfc6fcc498",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/canvas.d.ts": {
-        "version": "0bebd3d6ce037e3b3a488ff4e87f50a04acbb34648c68ba598bf72403a7d5628",
-        "signature": "0bebd3d6ce037e3b3a488ff4e87f50a04acbb34648c68ba598bf72403a7d5628",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/image.d.ts": {
-        "version": "b2de00eafe585f09be4798973bcc8f67d1bc05a9cba1176497ebdd1acabf8ce2",
-        "signature": "b2de00eafe585f09be4798973bcc8f67d1bc05a9cba1176497ebdd1acabf8ce2",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/input.d.ts": {
-        "version": "9d37cef961dd7eedbeec45da48d66ceabbe09ca5e45ca058b283e338c5bf94d4",
-        "signature": "9d37cef961dd7eedbeec45da48d66ceabbe09ca5e45ca058b283e338c5bf94d4",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/picker.d.ts": {
-        "version": "7e7f84ef9b3d5166d5e9906d40f0418cf3ff7344a76af816d295c435dbc432e5",
-        "signature": "7e7f84ef9b3d5166d5e9906d40f0418cf3ff7344a76af816d295c435dbc432e5",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/pickerview.d.ts": {
-        "version": "47ed1bf01c7151279a6531ceca675069b7291ae6583898233683ce71efa01451",
-        "signature": "47ed1bf01c7151279a6531ceca675069b7291ae6583898233683ce71efa01451",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/scrollview.d.ts": {
-        "version": "b38b39fb295e0b3b2a750664b838be003aa98fd922607b3bf8c0dc94953e38da",
-        "signature": "b38b39fb295e0b3b2a750664b838be003aa98fd922607b3bf8c0dc94953e38da",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/swiper.d.ts": {
-        "version": "ec6d1ce8d974211d44cdbd8154a1e1b22c8538229edf079cdb6cd26a9338236a",
-        "signature": "ec6d1ce8d974211d44cdbd8154a1e1b22c8538229edf079cdb6cd26a9338236a",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/swiperitem.d.ts": {
-        "version": "a2807d5fb84b843cdafdc9dd3a40c76b85c07674c0c7a2898f7e18bbe2d2cab4",
-        "signature": "a2807d5fb84b843cdafdc9dd3a40c76b85c07674c0c7a2898f7e18bbe2d2cab4",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/textarea.d.ts": {
-        "version": "9ec092ccd0a042497ecfb42ec088c1bd2bdc6ada50b765c6c76474c073083fb5",
-        "signature": "9ec092ccd0a042497ecfb42ec088c1bd2bdc6ada50b765c6c76474c073083fb5",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/text.d.ts": {
-        "version": "62620e1dbd98053c90804f39a4d08d2ae503dd8d8a595da4a89d68107026f7f9",
-        "signature": "62620e1dbd98053c90804f39a4d08d2ae503dd8d8a595da4a89d68107026f7f9",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/shared.d.ts": {
-        "version": "21cf16600b8b9e6b51547176908c1cdcf7fdd73606dbb1cc93d57ee078244200",
-        "signature": "21cf16600b8b9e6b51547176908c1cdcf7fdd73606dbb1cc93d57ee078244200",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/index.d.ts": {
-        "version": "d9d3659930239a3158f1252ee848927711f80e608b1c1d50b0655cdc04f5e947",
-        "signature": "d9d3659930239a3158f1252ee848927711f80e608b1c1d50b0655cdc04f5e947",
-        "affectsGlobalScope": false
-      },
       "./src/shared.ts": {
-        "version": "5e1409ac32833b5f7fa3c5b8ca30ead83bbac5313b414385ad43483afba8d5d4",
-        "signature": "d6b0ff1819643162d2d3f541dc7b484f548686d7057c25e8b96f149ade27e3fb",
+        "version": "c6a29493d113aabd929da7b034a524b8b832aa1bed0fe87320b937726ee05c68",
+        "signature": "31390cb86ebcc1c7ccc3f4ebf15f2c8accf383c8a775dcba3e689dc8c6bc554c",
         "affectsGlobalScope": false
       },
-      "./src/tickdomnodeupdator.ts": {
-        "version": "320fc7ddea3b9cfbf8f07e98c4184a383590d226be154506e746eeb3cb1628e2",
-        "signature": "32eeef6e5b30b0d8fa1f3f32557b5391d9223034855aa5d880e7be8ab22eb34f",
+      "./src/document.ts": {
+        "version": "ccf4d5e0a9d7aff818704d59a5c59f75bbabd4fb340e00578dd4d1737aae22c4",
+        "signature": "06a63e6475e6a4f726e1bb861671a131c1c0d00e3314d3bbc2b93946141ab2e8",
         "affectsGlobalScope": false
       },
-      "./src/tickdomstyle.ts": {
-        "version": "383f68b2b29eac14f69c5223b784629bed447bab76be6c41f8cdc2c7bc60a8fe",
-        "signature": "be4c25e7237b0bf63fa9ab89743bcc27ddc2a47c273eef18a0ceeca51b9908db",
-        "affectsGlobalScope": false
-      },
-      "./src/tickdomnode.ts": {
-        "version": "120973b089a5be52c3b288638d7886644f716ac390a49c800fe429e7510f0e40",
-        "signature": "83cdc6740ab92dcaa67cfd895cace4233c5fd6c3c9a90deb8b62a6710990459b",
-        "affectsGlobalScope": false
-      },
-      "./src/tickdomupdatenode.ts": {
-        "version": "dbdd7afef561f852fba475c2f083ac496de67ab823926dcc8175103ef77fe92a",
-        "signature": "7e0a1c1575b4042dfec493b7bf81732db045453da8e5bf15ff4a1edcaf367078",
-        "affectsGlobalScope": false
-      },
-      "./src/tickdomrootnode.ts": {
-        "version": "fe3b219996311dd5746b77f56fd011d13b51121bc126c48440176cf1e7ffe6b7",
-        "signature": "bd274aea91be7112487757f8588c052b6b3fa5c47a659a3abe9e1bda70b868e6",
-        "affectsGlobalScope": false
-      },
-      "./src/tickdomviewnode.ts": {
-        "version": "0828bca14b1b073c90d4378fd072808c48e00a58d5284e024441a650524591e6",
-        "signature": "4f6652122c67fede66606a6adde0364c2331be4b5a698ce6c32ad0b66d6ff77c",
-        "affectsGlobalScope": false
+      "./src/global.d.ts": {
+        "version": "ad5ea005675c84d5b18c9c2420fb1eeb002028eda0c6a90634552d53eec8a23e",
+        "signature": "ad5ea005675c84d5b18c9c2420fb1eeb002028eda0c6a90634552d53eec8a23e",
+        "affectsGlobalScope": true
       },
       "./src/index.ts": {
         "version": "d9183bf22c3f1001501b4e42d6bd3b9729e1328a80149c694269f149af96ee07",
         "signature": "c55ff14595a38a5c1cbd3249a83fba927188b1f9149ab0ec521e35cca600c620",
+        "affectsGlobalScope": false
+      },
+      "./src/navigator.ts": {
+        "version": "5f7f4ca1877d787640e7555cfe73fea0da7a201b5c6c35676f0e2c731911f954",
+        "signature": "ecb83d33fcfc60c168586e2458709fb70883f9b9386bae4cc093ce8e6a17338d",
+        "affectsGlobalScope": false
+      },
+      "./src/performance.ts": {
+        "version": "057e9819e009f99a08531829019713e42a18aeb932deaec670869ab358410900",
+        "signature": "498f4d126f7e43f5eb5e1b6e95c66239238a809612b7cedde6e44e1ba690acec",
+        "affectsGlobalScope": false
+      },
+      "./src/window.ts": {
+        "version": "de69c02aeea90f57342393059f04106f8734bc300c343220c82bed2956cea94b",
+        "signature": "479832b6913dd533ef72a103278cdd01f3f06a96abe0bf09f16a6adeb2cbbd54",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/anymatch/index.d.ts": {
@@ -728,9 +643,10 @@
       }
     },
     "options": {
-      "target": 3,
+      "target": 4,
       "lib": [
-        "lib.esnext.d.ts"
+        "lib.esnext.d.ts",
+        "lib.dom.d.ts"
       ],
       "allowJs": true,
       "skipLibCheck": true,
@@ -1020,58 +936,19 @@
         "../../node_modules/@types/webpack-sources/index.d.ts",
         "../../node_modules/source-map/source-map.d.ts"
       ],
+      "./src/document.ts": [
+        "./src/shared.ts"
+      ],
       "./src/index.ts": [
         "./src/shared.ts"
       ],
-      "./src/shared.ts": [
-        "./src/tickdomnode.ts"
+      "./src/navigator.ts": [
+        "./src/shared.ts"
       ],
-      "./src/tickdomnode.ts": [
-        "../struct/dist/index.d.ts",
-        "./src/shared.ts",
-        "./src/tickdomclassname.ts",
-        "./src/tickdomnodeupdator.ts",
-        "./src/tickdomstyle.ts"
-      ],
-      "./src/tickdomrootnode.ts": [
-        "./src/tickdomupdatenode.ts"
-      ],
-      "./src/tickdomupdatenode.ts": [
-        "./src/tickdomnode.ts"
-      ],
-      "./src/tickdomviewnode.ts": [
-        "../struct/dist/index.d.ts",
-        "./src/shared.ts",
-        "./src/tickdomnode.ts"
-      ],
-      "../struct/dist/audio.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/index.d.ts": [
-        "../struct/dist/audio.d.ts",
-        "../struct/dist/base.d.ts",
-        "../struct/dist/button.d.ts",
-        "../struct/dist/camera.d.ts",
-        "../struct/dist/canvas.d.ts",
-        "../struct/dist/image.d.ts",
-        "../struct/dist/input.d.ts",
-        "../struct/dist/picker.d.ts",
-        "../struct/dist/pickerview.d.ts",
-        "../struct/dist/scrollview.d.ts",
-        "../struct/dist/shared.d.ts",
-        "../struct/dist/swiper.d.ts",
-        "../struct/dist/swiperitem.d.ts",
-        "../struct/dist/text.d.ts",
-        "../struct/dist/textarea.d.ts"
-      ],
-      "../struct/dist/scrollview.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiper.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiperitem.d.ts": [
-        "../struct/dist/base.d.ts"
+      "./src/window.ts": [
+        "./src/document.ts",
+        "./src/navigator.ts",
+        "./src/shared.ts"
       ]
     },
     "exportedModulesMap": {
@@ -1343,53 +1220,6 @@
       ],
       "./src/index.ts": [
         "./src/shared.ts"
-      ],
-      "./src/shared.ts": [
-        "./src/tickdomnode.ts"
-      ],
-      "./src/tickdomnode.ts": [
-        "../struct/dist/index.d.ts",
-        "./src/shared.ts",
-        "./src/tickdomclassname.ts",
-        "./src/tickdomstyle.ts"
-      ],
-      "./src/tickdomrootnode.ts": [
-        "./src/tickdomupdatenode.ts"
-      ],
-      "./src/tickdomupdatenode.ts": [
-        "./src/tickdomnode.ts"
-      ],
-      "./src/tickdomviewnode.ts": [
-        "./src/tickdomnode.ts"
-      ],
-      "../struct/dist/audio.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/index.d.ts": [
-        "../struct/dist/audio.d.ts",
-        "../struct/dist/base.d.ts",
-        "../struct/dist/button.d.ts",
-        "../struct/dist/camera.d.ts",
-        "../struct/dist/canvas.d.ts",
-        "../struct/dist/image.d.ts",
-        "../struct/dist/input.d.ts",
-        "../struct/dist/picker.d.ts",
-        "../struct/dist/pickerview.d.ts",
-        "../struct/dist/scrollview.d.ts",
-        "../struct/dist/shared.d.ts",
-        "../struct/dist/swiper.d.ts",
-        "../struct/dist/swiperitem.d.ts",
-        "../struct/dist/text.d.ts",
-        "../struct/dist/textarea.d.ts"
-      ],
-      "../struct/dist/scrollview.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiper.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiperitem.d.ts": [
-        "../struct/dist/base.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -1471,6 +1301,7 @@
       "../../node_modules/@types/webpack/index.d.ts",
       "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
+      "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.d.ts",
@@ -1513,112 +1344,78 @@
       "../../node_modules/typescript/lib/lib.esnext.promise.d.ts",
       "../../node_modules/typescript/lib/lib.esnext.string.d.ts",
       "../../node_modules/typescript/lib/lib.esnext.weakref.d.ts",
+      "./src/document.ts",
+      "./src/global.d.ts",
       "./src/index.ts",
-      "./src/shared.ts",
-      "./src/tickdomclassname.ts",
+      "./src/navigator.ts",
+      "./src/performance.ts",
       [
-        "./src/tickdomnode.ts",
+        "./src/shared.ts",
         [
           {
-            "file": "./src/tickdomnode.ts",
-            "start": 1094,
-            "length": 24,
+            "file": "./src/shared.ts",
+            "start": 122,
+            "length": 12,
             "code": 2322,
             "category": 1,
             "messageText": {
-              "messageText": "Type 'MiniProgramTemplateID | null' is not assignable to type 'MiniProgramTemplateID'.",
+              "messageText": "Type '(Window & typeof globalThis) | {}' is not assignable to type 'Window'.",
               "category": 1,
               "code": 2322,
               "next": [
                 {
-                  "messageText": "Type 'null' is not assignable to type 'MiniProgramTemplateID'.",
+                  "messageText": "Type '{}' is missing the following properties from type 'Window': applicationCache, clientInformation, closed, customElements, and 224 more.",
                   "category": 1,
-                  "code": 2322
+                  "code": 2740
+                }
+              ]
+            }
+          },
+          {
+            "file": "./src/shared.ts",
+            "start": 183,
+            "length": 14,
+            "code": 2322,
+            "category": 1,
+            "messageText": {
+              "messageText": "Type 'Document | {}' is not assignable to type 'Document'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Type '{}' is missing the following properties from type 'Document': URL, alinkColor, all, anchors, and 237 more.",
+                  "category": 1,
+                  "code": 2740
                 }
               ]
             }
           }
         ]
       ],
-      "./src/tickdomnodeupdator.ts",
-      "./src/tickdomrootnode.ts",
-      "./src/tickdomstyle.ts",
-      "./src/tickdomupdatenode.ts",
       [
-        "./src/tickdomviewnode.ts",
+        "./src/window.ts",
         [
           {
-            "file": "./src/tickdomviewnode.ts",
-            "start": 12,
-            "length": 21,
-            "messageText": "'\"../node_modules/@tickjs/struct/dist\"' has no exported member named 'MiniProgramTemplateId'. Did you mean 'MiniProgramTemplateID'?",
+            "file": "./src/window.ts",
+            "start": 157,
+            "length": 6,
+            "code": 2322,
             "category": 1,
-            "code": 2724,
-            "relatedInformation": [
-              {
-                "file": "../struct/dist/shared.d.ts",
-                "start": 74,
-                "length": 21,
-                "messageText": "'MiniProgramTemplateID' is declared here.",
-                "category": 3,
-                "code": 2728
-              }
-            ]
-          },
-          {
-            "file": "./src/tickdomviewnode.ts",
-            "start": 38,
-            "length": 16,
-            "messageText": "'\"../node_modules/@tickjs/struct/dist\"' has no exported member named 'viewDefaultProps'. Did you mean 'imageDefaultProps'?",
-            "category": 1,
-            "code": 2724,
-            "relatedInformation": [
-              {
-                "file": "../struct/dist/image.d.ts",
-                "start": 183,
-                "length": 17,
-                "messageText": "'imageDefaultProps' is declared here.",
-                "category": 3,
-                "code": 2728
-              }
-            ]
-          },
-          {
-            "file": "./src/tickdomviewnode.ts",
-            "start": 59,
-            "length": 17,
-            "messageText": "'\"../node_modules/@tickjs/struct/dist\"' has no exported member named 'viewDefaultEvents'. Did you mean 'imageDefaultEvents'?",
-            "category": 1,
-            "code": 2724,
-            "relatedInformation": [
-              {
-                "file": "../struct/dist/image.d.ts",
-                "start": 339,
-                "length": 18,
-                "messageText": "'imageDefaultEvents' is declared here.",
-                "category": 3,
-                "code": 2728
-              }
-            ]
+            "messageText": {
+              "messageText": "Type 'Window | { navigator: Navigator | { appCodeName: string; appName: string; appVersion: string; cookieEnabled: boolean; mimeTypes: never[]; onLine: boolean; platform: string; ... 5 more ...; vendorSub: string; }; document: TaroDocumentInstance; }' is not assignable to type 'Window'.",
+              "category": 1,
+              "code": 2322,
+              "next": [
+                {
+                  "messageText": "Type '{ navigator: Navigator | { appCodeName: string; appName: string; appVersion: string; cookieEnabled: boolean; mimeTypes: never[]; onLine: boolean; platform: string; plugins: never[]; ... 4 more ...; vendorSub: string; }; document: TaroDocumentInstance; }' is missing the following properties from type 'Window': applicationCache, clientInformation, closed, customElements, and 222 more.",
+                  "category": 1,
+                  "code": 2740
+                }
+              ]
+            }
           }
         ]
-      ],
-      "../struct/dist/audio.d.ts",
-      "../struct/dist/base.d.ts",
-      "../struct/dist/button.d.ts",
-      "../struct/dist/camera.d.ts",
-      "../struct/dist/canvas.d.ts",
-      "../struct/dist/image.d.ts",
-      "../struct/dist/index.d.ts",
-      "../struct/dist/input.d.ts",
-      "../struct/dist/picker.d.ts",
-      "../struct/dist/pickerview.d.ts",
-      "../struct/dist/scrollview.d.ts",
-      "../struct/dist/shared.d.ts",
-      "../struct/dist/swiper.d.ts",
-      "../struct/dist/swiperitem.d.ts",
-      "../struct/dist/text.d.ts",
-      "../struct/dist/textarea.d.ts"
+      ]
     ]
   },
   "version": "4.1.3"

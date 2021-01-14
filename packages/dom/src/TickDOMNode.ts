@@ -50,7 +50,7 @@ export class TickDOMNode {
     this.updator = TickDOMNodeUpdator;
   }
 
-  public get templateId (): MiniProgramTemplateID {
+  public get templateId (): MiniProgramTemplateID | null {
     return this._templateId;
   }
 

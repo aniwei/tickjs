@@ -15,10 +15,12 @@
   "dependencies": {
     "@tickjs/template": "^1.0.0",
     "chalk": "^4.1.0",
+    "cli-color": "^2.0.0",
     "clone": "^2.1.2",
     "commander": "^6.1.0",
     "fs-extra": "^9.0.1",
     "globby": "^11.0.1",
+    "inquirer": "^7.3.3",
     "user-home": "^2.0.0",
     "webpack": "^4.44.1",
     "xml-beautifier": "^0.4.3",

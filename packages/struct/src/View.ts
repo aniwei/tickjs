@@ -26,14 +26,14 @@ export enum ViewDataStruct {
   ANIMATION_END
 }
 
-export const buttonDefaultProps = [
+export const viewDefaultProps = [
   ['hover-class', ViewDataStruct.HOVER_CLASS, quotate('button-hover'), String],
   ['hover-stop-propagation', ViewDataStruct.HOVER_STOP_PROPAGATION, false, Boolean],
   ['hover-start-time', ViewDataStruct.HOVER_START_TIME, 20, Number],
   ['hover-stay-time', ViewDataStruct.HOVER_START_TIME, 70, Number]
 ]
 
-export const buttonDefaultEvents = [
+export const viewDefaultEvents = [
   ['touchstart', ViewDataStruct.TOUCH_START, false],
   ['touchmove', ViewDataStruct.TOUCH_MOVE, false],
   ['touchend', ViewDataStruct.TOUCH_END, false], 

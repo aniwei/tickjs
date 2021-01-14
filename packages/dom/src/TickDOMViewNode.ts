@@ -1,5 +1,5 @@
 import { 
-  MiniProgramTemplateId, 
+  MiniProgramTemplateID, 
   viewDefaultProps, 
   viewDefaultEvents,
 } from '@tickjs/struct';
@@ -7,7 +7,7 @@ import { dehydrateEvents, dehydrateProps } from './shared';
 import { TickDOMNode } from './TickDOMNode';
 
 export class TickDOMViewNode extends TickDOMNode {
-  protected _templateId = MiniProgramTemplateId.VIEW;
+  protected _templateId = MiniProgramTemplateID.VIEW;
 
   dehydrate () {
     return super.dehydrate().concat(

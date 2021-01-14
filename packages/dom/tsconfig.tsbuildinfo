@@ -41,6 +41,11 @@
         "signature": "fc7a21dd3ee27fd0a9ff1c46534efcd9c3cec51a445b479bb326d871c0aa8302",
         "affectsGlobalScope": false
       },
+      "../../node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "signature": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "affectsGlobalScope": true
+      },
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts": {
         "version": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
         "signature": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
@@ -286,14 +291,19 @@
         "signature": "62620e1dbd98053c90804f39a4d08d2ae503dd8d8a595da4a89d68107026f7f9",
         "affectsGlobalScope": false
       },
+      "../struct/dist/view.d.ts": {
+        "version": "0e289f789e888155a40d70011e06991d7dbb8bdd9229c2530fb710efd8258d39",
+        "signature": "0e289f789e888155a40d70011e06991d7dbb8bdd9229c2530fb710efd8258d39",
+        "affectsGlobalScope": false
+      },
       "../struct/dist/shared.d.ts": {
         "version": "21cf16600b8b9e6b51547176908c1cdcf7fdd73606dbb1cc93d57ee078244200",
         "signature": "21cf16600b8b9e6b51547176908c1cdcf7fdd73606dbb1cc93d57ee078244200",
         "affectsGlobalScope": false
       },
       "../struct/dist/index.d.ts": {
-        "version": "d9d3659930239a3158f1252ee848927711f80e608b1c1d50b0655cdc04f5e947",
-        "signature": "d9d3659930239a3158f1252ee848927711f80e608b1c1d50b0655cdc04f5e947",
+        "version": "4f030f2b4acd44a6b43e41edd906f4960616fc141352d835a9aeec978a660b73",
+        "signature": "4f030f2b4acd44a6b43e41edd906f4960616fc141352d835a9aeec978a660b73",
         "affectsGlobalScope": false
       },
       "./src/shared.ts": {
@@ -312,8 +322,8 @@
         "affectsGlobalScope": false
       },
       "./src/tickdomnode.ts": {
-        "version": "120973b089a5be52c3b288638d7886644f716ac390a49c800fe429e7510f0e40",
-        "signature": "83cdc6740ab92dcaa67cfd895cace4233c5fd6c3c9a90deb8b62a6710990459b",
+        "version": "794e9dd6c3b67119987ab29d8c10b8b9aeee987cddcf988741648ef27cb5adce",
+        "signature": "df58972891bd80377d403fee69a9e5229938d4a589462ba9b2f57d82577af195",
         "affectsGlobalScope": false
       },
       "./src/tickdomupdatenode.ts": {
@@ -327,8 +337,8 @@
         "affectsGlobalScope": false
       },
       "./src/tickdomviewnode.ts": {
-        "version": "0828bca14b1b073c90d4378fd072808c48e00a58d5284e024441a650524591e6",
-        "signature": "4f6652122c67fede66606a6adde0364c2331be4b5a698ce6c32ad0b66d6ff77c",
+        "version": "35ac9446b4901bb058610ea7f498df0f4e64ab7cc68b1adb7a5395a47b666570",
+        "signature": "c59295009f0516350086346eeeb500faf86da91399a456e3c46523e91dd330c7",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
@@ -728,9 +738,10 @@
       }
     },
     "options": {
-      "target": 3,
+      "target": 4,
       "lib": [
-        "lib.esnext.d.ts"
+        "lib.esnext.d.ts",
+        "lib.dom.d.ts"
       ],
       "allowJs": true,
       "skipLibCheck": true,
@@ -1062,7 +1073,8 @@
         "../struct/dist/swiper.d.ts",
         "../struct/dist/swiperitem.d.ts",
         "../struct/dist/text.d.ts",
-        "../struct/dist/textarea.d.ts"
+        "../struct/dist/textarea.d.ts",
+        "../struct/dist/view.d.ts"
       ],
       "../struct/dist/scrollview.d.ts": [
         "../struct/dist/base.d.ts"
@@ -1360,6 +1372,7 @@
         "./src/tickdomnode.ts"
       ],
       "./src/tickdomviewnode.ts": [
+        "../struct/dist/index.d.ts",
         "./src/tickdomnode.ts"
       ],
       "../struct/dist/audio.d.ts": [
@@ -1380,7 +1393,8 @@
         "../struct/dist/swiper.d.ts",
         "../struct/dist/swiperitem.d.ts",
         "../struct/dist/text.d.ts",
-        "../struct/dist/textarea.d.ts"
+        "../struct/dist/textarea.d.ts",
+        "../struct/dist/view.d.ts"
       ],
       "../struct/dist/scrollview.d.ts": [
         "../struct/dist/base.d.ts"
@@ -1471,6 +1485,7 @@
       "../../node_modules/@types/webpack/index.d.ts",
       "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
+      "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.d.ts",
@@ -1516,93 +1531,12 @@
       "./src/index.ts",
       "./src/shared.ts",
       "./src/tickdomclassname.ts",
-      [
-        "./src/tickdomnode.ts",
-        [
-          {
-            "file": "./src/tickdomnode.ts",
-            "start": 1094,
-            "length": 24,
-            "code": 2322,
-            "category": 1,
-            "messageText": {
-              "messageText": "Type 'MiniProgramTemplateID | null' is not assignable to type 'MiniProgramTemplateID'.",
-              "category": 1,
-              "code": 2322,
-              "next": [
-                {
-                  "messageText": "Type 'null' is not assignable to type 'MiniProgramTemplateID'.",
-                  "category": 1,
-                  "code": 2322
-                }
-              ]
-            }
-          }
-        ]
-      ],
+      "./src/tickdomnode.ts",
       "./src/tickdomnodeupdator.ts",
       "./src/tickdomrootnode.ts",
       "./src/tickdomstyle.ts",
       "./src/tickdomupdatenode.ts",
-      [
-        "./src/tickdomviewnode.ts",
-        [
-          {
-            "file": "./src/tickdomviewnode.ts",
-            "start": 12,
-            "length": 21,
-            "messageText": "'\"../node_modules/@tickjs/struct/dist\"' has no exported member named 'MiniProgramTemplateId'. Did you mean 'MiniProgramTemplateID'?",
-            "category": 1,
-            "code": 2724,
-            "relatedInformation": [
-              {
-                "file": "../struct/dist/shared.d.ts",
-                "start": 74,
-                "length": 21,
-                "messageText": "'MiniProgramTemplateID' is declared here.",
-                "category": 3,
-                "code": 2728
-              }
-            ]
-          },
-          {
-            "file": "./src/tickdomviewnode.ts",
-            "start": 38,
-            "length": 16,
-            "messageText": "'\"../node_modules/@tickjs/struct/dist\"' has no exported member named 'viewDefaultProps'. Did you mean 'imageDefaultProps'?",
-            "category": 1,
-            "code": 2724,
-            "relatedInformation": [
-              {
-                "file": "../struct/dist/image.d.ts",
-                "start": 183,
-                "length": 17,
-                "messageText": "'imageDefaultProps' is declared here.",
-                "category": 3,
-                "code": 2728
-              }
-            ]
-          },
-          {
-            "file": "./src/tickdomviewnode.ts",
-            "start": 59,
-            "length": 17,
-            "messageText": "'\"../node_modules/@tickjs/struct/dist\"' has no exported member named 'viewDefaultEvents'. Did you mean 'imageDefaultEvents'?",
-            "category": 1,
-            "code": 2724,
-            "relatedInformation": [
-              {
-                "file": "../struct/dist/image.d.ts",
-                "start": 339,
-                "length": 18,
-                "messageText": "'imageDefaultEvents' is declared here.",
-                "category": 3,
-                "code": 2728
-              }
-            ]
-          }
-        ]
-      ],
+      "./src/tickdomviewnode.ts",
       "../struct/dist/audio.d.ts",
       "../struct/dist/base.d.ts",
       "../struct/dist/button.d.ts",
@@ -1618,7 +1552,8 @@
       "../struct/dist/swiper.d.ts",
       "../struct/dist/swiperitem.d.ts",
       "../struct/dist/text.d.ts",
-      "../struct/dist/textarea.d.ts"
+      "../struct/dist/textarea.d.ts",
+      "../struct/dist/view.d.ts"
     ]
   },
   "version": "4.1.3"

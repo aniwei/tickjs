@@ -41,6 +41,11 @@
         "signature": "fc7a21dd3ee27fd0a9ff1c46534efcd9c3cec51a445b479bb326d871c0aa8302",
         "affectsGlobalScope": false
       },
+      "../../node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "signature": "abadddbf660adeec27e9a56584907d52fa1d6e1e1dc49f639a921baa951b7a84",
+        "affectsGlobalScope": true
+      },
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts": {
         "version": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
         "signature": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
@@ -292,8 +297,8 @@
         "affectsGlobalScope": false
       },
       "./src/view.ts": {
-        "version": "2bcc6b270948d56576563fb10b2da15d8f7f2c8aac6a27f990c905098f0d56fc",
-        "signature": "87dd0216bb2445dc10372a9cabc78e9605d44d73b0cfbe9a9b0a11d34ebcf584",
+        "version": "8846fb9f1f67342a03ff0f2d7d41a65ec876924449438d69d696d44e3f6b64b4",
+        "signature": "0e289f789e888155a40d70011e06991d7dbb8bdd9229c2530fb710efd8258d39",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
@@ -693,9 +698,10 @@
       }
     },
     "options": {
-      "target": 3,
+      "target": 4,
       "lib": [
-        "lib.esnext.d.ts"
+        "lib.esnext.d.ts",
+        "lib.dom.d.ts"
       ],
       "allowJs": true,
       "skipLibCheck": true,
@@ -1433,6 +1439,7 @@
       "../../node_modules/@types/webpack/index.d.ts",
       "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
+      "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.d.ts",

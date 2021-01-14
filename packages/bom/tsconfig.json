@@ -4,7 +4,11 @@
     "composite": true,
     "rootDir": "./src",
     "baseUrl": "./",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "lib": [
+      "esnext",
+      "dom"
+    ]
   },
   "include": [
     "./src"

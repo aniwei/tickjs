@@ -1,12 +1,10 @@
 
-import { EMPTY_OBJ, isBrowser } from './shared'
+import { EMPTY_OBJ, isBrowser, globalWindow } from './shared'
 
 import { navigator } from './navigator'
-import { docuemnt } from './document';
+import { document } from './document';
 
-export const window: Window = isBrowser ? window : {
+export const window = isBrowser ? globalWindow : {
   navigator,
   document
 }
-
-print("hello world");
