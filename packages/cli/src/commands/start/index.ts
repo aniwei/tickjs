@@ -1,5 +1,4 @@
 import fs from 'fs-extra';
-import cli from 'cli-color';
 
 import { project } from './project'
 

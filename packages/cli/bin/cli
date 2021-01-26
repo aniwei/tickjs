@@ -8,7 +8,7 @@ commander
   .action(
     TickVersionManager
       .sharedInstance()
-      .command('init')
+      .init()
   )
 
 commander
@@ -16,7 +16,7 @@ commander
   .action(
     TickVersionManager
       .sharedInstance()
-      .command('start', true)
+      .start()
   )
 
 commander.parse(process.argv);
