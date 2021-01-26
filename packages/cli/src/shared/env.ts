@@ -11,5 +11,6 @@ export const VERSION = pkgJson.version;
 
 export const CWD = cwd;
 export const PROJECT_DIR = CWD;
-export const TICKRC = '.tickrc.js';
 export const HOME = home;
+export const TICKRC = '.tickrc.js';
+export const TICK_PACKAGE_URL = 'https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.3.tgz'
