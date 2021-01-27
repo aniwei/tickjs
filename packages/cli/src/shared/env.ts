@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import fs from 'fs-extra';
 import home from 'user-home';
+import minimist from 'minimist'
 
 
 const cwd = process.cwd();
@@ -13,8 +14,6 @@ export const CWD = cwd;
 export const PROJECT_DIR = CWD;
 export const HOME = home;
 export const TICKRC = '.tickrc.js';
-<<<<<<< HEAD
-export const TICK_PACKAGE_URL = 'https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.3.tgz'
-=======
 export const TICK_NPM = `https://registry.npmjs.org/@tickjs/cli`;
->>>>>>> d6a5880c24edeb57b2034849f5af8bc4ed5e1640
+
+export const ARGV = minimist(process.argv.slice(2))
