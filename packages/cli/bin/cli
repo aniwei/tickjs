@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 const commander = require('commander');
 
-const { TickVersionManager } = require('../dist/tvm');
+const { 
+  TickCLI,
+  Commands
+} = require('../dist/TickCLI');
+
+const cli = new TickCLI();
 
 commander
-  .command('init')
-  .action(
-    TickVersionManager
-      .sharedInstance()
-      .init()
-  )
+  .command(Commands.INIT)
+  .action(cli.init)
 
 commander
-  .command('start')
-  .action(
-    TickVersionManager
-      .sharedInstance()
-      .start()
-  )
+  .command(Commands.START)
+  .action(cli.start)
+
+commander 
+  .command(Commands.LS)
+  .action(cli.ls);
 
 commander.parse(process.argv);
