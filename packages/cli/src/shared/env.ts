@@ -12,5 +12,10 @@ export const VERSION = pkgJson.version;
 export const CWD = cwd;
 export const PROJECT_DIR = CWD;
 export const HOME = home;
-export const TICKRC = '.tickrc.js';
+
+export const TICK_RC = '.tickrc.js';
+export const TICK_DIST = '.tickjs';
+
+export const TICK_SRC = 'src';
+
 export const TICK_NPM = `https://registry.npmjs.org/@tickjs/cli`;

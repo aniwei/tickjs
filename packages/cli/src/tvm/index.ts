@@ -5,6 +5,8 @@ import {
   TICK_NPM
 } from '../shared/env'
 
+import { init } from '../commands'
+
 export class TickVersionManager {
   static tickVersionManagerInstance: TickVersionManager | null = null;
   static sharedInstance () {
@@ -26,19 +28,23 @@ export class TickVersionManager {
   }
 
   async execCommand (name) {
-
+    init();
   }
 
   init () {
-    console.log('init')
     return this.command('init', async () => {
+      await this.forTickUpdate();
+    })
+  }
+
+  start () {
+    return this.command('start', async () => {
       await this.forTickUpdate();
     })
   }
 
   command (name, beforeCommandExec?) {
     return async (...argv) => {
-      console.log(123);
       if (typeof beforeCommandExec === 'function') {
         await beforeCommandExec(...argv);
       }
