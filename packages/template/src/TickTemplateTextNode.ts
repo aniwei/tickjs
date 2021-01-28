@@ -19,7 +19,7 @@ export function createText () {
 }
 
 export class TickTemplateTextNode extends TickTemplateOpenningComponent {
-  static defaultProps = textDefaultEvents.map(transformDefaultProps)
+  static defaultProps = textDefaultProps.map(transformDefaultProps)
   static defaultEvents = textDefaultEvents.map(transformDefaultEvent)
 
   constructor () {

@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import fs from 'fs-extra';
 import home from 'user-home';
+import minimist from 'minimist'
 
 
 const cwd = process.cwd();
@@ -12,10 +13,9 @@ export const VERSION = pkgJson.version;
 export const CWD = cwd;
 export const PROJECT_DIR = CWD;
 export const HOME = home;
-
-export const TICK_RC = '.tickrc.js';
-export const TICK_DIST = '.tickjs';
-
-export const TICK_SRC = 'src';
-
+export const TICK_DAEMON_PORT = 10086;
+export const TICK_CACHE = '.tick';
+export const TICKRC = '.tickrc.js';
 export const TICK_NPM = `https://registry.npmjs.org/@tickjs/cli`;
+
+export const ARGV = minimist(process.argv.slice(2))

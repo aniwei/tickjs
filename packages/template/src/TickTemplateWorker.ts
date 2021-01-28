@@ -1,12 +1,11 @@
 import { TickTemplateNode } from './TickTemplateNode';
 import { TickTemplateIfExpression } from './TickTemplateIfExpression'
-import { DataStruct, MiniProgramTemplateID } from './TickTemplateComponent';
+import { DataStruct } from './TickTemplateComponent';
 import { TickTemplateLoopNode } from './TickTemplateLoopNode';
 import { createTemplate } from './createTemplate';
 import { TagType } from './TickTemplate';
 import {
   quotate,
-  variable,
   VARIABLE_NAME
 } from './shared'
 

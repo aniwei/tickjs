@@ -1,4 +1,3 @@
-import compare from 'compare-versions';
 import axios from 'axios';
 
 import {

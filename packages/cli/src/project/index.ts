@@ -1,1 +1,11 @@
-export * from './create';
+
+
+export const project = new class {
+  init () {
+    
+  }
+
+  start () {
+
+  }
+}

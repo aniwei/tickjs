@@ -1,9 +1,8 @@
-import fs from 'fs-extra';
-import chalk from 'chalk';
 import inquirer from 'inquirer';
-import {
-  exists
-} from './exists';
+
+async function exists () {
+  return true;
+}
 
 async function prompt () {
   inquirer.prompt([
@@ -18,15 +17,4 @@ export async function create () {
     return console.log('exists')
   }
 
-  const { yes } = await inquirer.prompt([
-    {
-      type: 'confirm',
-      message: `是否在当前目录创建 ${chalk.green(`「Tick」`)}项目?`,
-      name: 'yes'
-    }
-  ]);
-
-  if (yes) {
-
-  }
 }
