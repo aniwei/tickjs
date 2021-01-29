@@ -2,10 +2,10 @@
 import {
   buttonDefaultEvents,
   buttonDefaultProps,
+  MiniProgramTemplateID,
 } from '@tickjs/struct'
 import {
   TickTemplateOpenningComponent,
-  MiniProgramTemplateID,
 } from './TickTemplateComponent';
 
 import {

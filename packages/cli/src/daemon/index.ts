@@ -1,27 +1,33 @@
-import { Server } from 'rpc-websockets';
+import fs from 'fs-extra';
+import path from 'path';
+import debug from 'debug';
+import { Server } from './rpc';
 
 import {
-  TICK_DAEMON_PORT
-} from '../shared/env'
+  TICK_DAEMON_SOCK,
+  TICK_CACHE,
+  HOME
+} from '../shared/env';
+
+function isNotExistSockFile (sock) {
+  return !fs.existsSync(sock)
+}
 
 export const daemon = new class {
-  public server: Server | null = null;
+  public server : Server | null = null;
+  public sock = path.join(HOME, TICK_CACHE, TICK_DAEMON_SOCK);
   
   async launch () {
-    this.server = new Server({
-      port: TICK_DAEMON_PORT,
-      host: '127.0.0.1'
-    });
+    debug('daemon is launching on %s', this.sock);
 
-    this.server.register('ping', () => {
-      return true;
-    });
+    console.log(this)
 
-    this.server.register('command', () => {
+    if (isNotExistSockFile(this.sock)) {
+      debug('creating sock file on %s', this.sock);
+      fs.writeFileSync(this.sock, Buffer.from(''));
+    }
 
-    });
-
-    this.server.event('heartbeat');
+    this.server = new Server(this.sock);
   }
 
   async command () {
@@ -29,3 +35,4 @@ export const daemon = new class {
   }
 }
 
+daemon.launch();

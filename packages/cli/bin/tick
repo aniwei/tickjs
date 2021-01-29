@@ -2,11 +2,11 @@
 const commander = require('commander');
 
 const { 
-  TickCLI,
+  CLI,
   Commands
-} = require('../dist/TickCLI');
+} = require('../dist/CLI');
 
-const cli = new TickCLI();
+const cli = new CLI();
 
 commander
   .command(Commands.INIT)

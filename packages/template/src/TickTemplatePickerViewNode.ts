@@ -1,10 +1,10 @@
 import {
   pickerViewDefaultProps,
   pickerViewDefaultEvents,
+  MiniProgramTemplateID,
 } from '@tickjs/struct'
 import {
   TickTemplateOpenningComponent,
-  MiniProgramTemplateID,
 } from './TickTemplateComponent';
 
 import {

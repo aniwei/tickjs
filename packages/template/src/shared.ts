@@ -1,4 +1,3 @@
-import { TickTemplate } from './TickTemplate';
 
 export const VARIABLE_NAME = 'i';
 

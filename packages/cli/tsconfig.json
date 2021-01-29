@@ -6,7 +6,8 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "paths": {
-      "@tickjs/template": ["../template/*"]
+      "@tickjs/template": ["../template/*"],
+      "@tickjs/struct": ["../struct/*"]
     },
   },
   "include": [

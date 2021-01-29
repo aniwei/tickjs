@@ -2,10 +2,10 @@
 import {
   scrollViewDefaultProps,
   scrollViewDefaultEvents,
+  MiniProgramTemplateID,
 } from '@tickjs/struct'
 import {
   TickTemplateOpenningComponent,
-  MiniProgramTemplateID,
 } from './TickTemplateComponent';
 
 import {
