@@ -1,30 +1,36 @@
 {
-	"name": "@tickjs/cli",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"bin": {
-		"tick": "./bin/cli"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"axios": "^0.21.1",
-		"chalk": "^4.1.0",
-		"cli-color": "^2.0.0",
-		"clone": "^2.1.2",
-		"commander": "^6.1.0",
-		"compare-versions": "^3.6.0",
-		"fs-extra": "^9.0.1",
-		"globby": "^11.0.1",
-		"inquirer": "^7.3.3",
-		"minimist": "^1.2.5",
-		"node-ipc": "^9.1.3",
-		"rpc-websockets": "^7.4.8",
-		"user-home": "^2.0.0",
-		"webpack": "^4.44.1",
-		"xml-beautifier": "^0.4.3",
-		"xml-formatter": "^2.4.0",
-		"zerorpc": "^0.9.8"
-	}
+  "name": "@tickjs/cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "",
+    "tsc": "tsc"
+  },
+  "bin": {
+    "tick": "./bin/cli"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tickjs/template": "^1.0.0",
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0",
+    "cli-color": "^2.0.0",
+    "clone": "^2.1.2",
+    "commander": "^6.1.0",
+    "compare-versions": "^3.6.0",
+    "fs-extra": "^9.0.1",
+    "globby": "^11.0.1",
+    "inquirer": "^7.3.3",
+    "minimist": "^1.2.5",
+    "node-ipc": "^9.1.3",
+    "rpc-websockets": "^7.4.8",
+    "user-home": "^2.0.0",
+    "webpack": "^4.44.1",
+    "xml-beautifier": "^0.4.3",
+    "xml-formatter": "^2.4.0",
+    "zerorpc": "^0.9.8"
+  }
 }
