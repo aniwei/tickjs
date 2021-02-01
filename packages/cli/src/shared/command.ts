@@ -133,7 +133,7 @@ export class ServerCommand extends Command {
       case Commands.PING: {
         debug(`ServerCommand`)(`接收 Ping 请求`);
         
-        reply(this.reply(id, Commands.CALLBACK, reply));
+        this.reply(id, reply)
         break;
       }
 
@@ -142,13 +142,13 @@ export class ServerCommand extends Command {
 
         this.clients.set(payload.id, sock || null);
         
-        reply(this.reply(id, Commands.CALLBACK, reply));
+        this.reply(id, reply)
         break;
       }
 
       default: {         
         this.emit('message', message, (data) => {
-          this.reply(id, reply);
+          this.reply(id, data, reply);
         });
         break;
       }

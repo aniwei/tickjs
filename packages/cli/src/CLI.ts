@@ -1,5 +1,7 @@
 import debug from 'debug';
+import path from 'path';
 import { fork } from 'child_process';
+import inquirer from 'inquirer';
 import { 
   ClientCommand, 
   CommandServerState, 
@@ -9,7 +11,8 @@ import {
 
 import {
   TICK_DAEMON_SOCK,
-  ARGV
+  ARGV,
+  PROJECT_DIR,
 } from './shared/env';
 
 import {
@@ -47,11 +50,14 @@ export class CLI {
       const child = fork('./daemon/index', { 
         cwd: __dirname,
         detached: true,
-        stdio: 'inherit',
+        stdio: 'ignore',
         ...childProcessConfig
       });
 
       child.unref();
+
+      
+      resolve(DaemonProcessState.OK);
     })
   }
 
@@ -71,21 +77,25 @@ export class CLI {
   }
 
   init = async () => {
+    const parsed = path.parse(PROJECT_DIR);
+    const payload = await inquirer.prompt([
+      {
+        type: 'input',
+        message: '请输入项目名称:',
+        name: 'name',
+        default: parsed.name
+      }
+    ]);
+
     await this.connect();
-    await this.command(Commands.INIT);
+    await this.command(Commands.INIT, payload);
 
     this.client?.close();
-
-    if (ARGV.d) {
-      debug('CLI')('后台运行指令');
-    } else {
-      
-    }
   }
 
   start = async () => {
     await this.connect();
-    await this.command(Commands.START);
+    await this.command(Commands.START, ARGV);
   }
 }
 

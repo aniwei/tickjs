@@ -12,6 +12,18 @@ import {
   TICK_DAEMON_CACHE,
 } from '../shared/env';
 
+import {
+  init
+} from '../commands/init';
+
+import {
+  start
+} from '../commands/start';
+
+import {
+  getLatestNotifycation
+} from './notification'
+
 export enum DaemonProcessState {
   OK = 'ok'
 }
@@ -47,14 +59,24 @@ export const daemon = new class {
     }
   }
 
-  onMessageFromCLI = (message, reply: Function) => {
-    const { command } = message;
+  onMessageFromCLI = async (message, reply: Function) => {
+    const { command, payload, clientId } = message;
+
+    await getLatestNotifycation(clientId);
 
     switch (command) {
       case Commands.INIT: {
-        reply({
-          command: Commands.CALLBACK,
-        });
+        await init(payload);
+
+        reply({ command: Commands.CALLBACK });
+
+        break;
+      }
+
+      case Commands.START: {
+        await start(payload);
+
+        reply({ command: Commands.CALLBACK })
       }
     }
   }
