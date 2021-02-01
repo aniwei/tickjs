@@ -1,38 +1,76 @@
 import fs from 'fs-extra';
-import path from 'path';
 import debug from 'debug';
-import { Server } from './rpc';
+
+import {
+  CommandSource,
+  ServerCommand,
+  Commands
+} from '../shared/command';
 
 import {
   TICK_DAEMON_SOCK,
-  TICK_CACHE,
-  HOME
+  TICK_DAEMON_CACHE,
 } from '../shared/env';
 
-function isNotExistSockFile (sock) {
+export enum DaemonProcessState {
+  OK = 'ok'
+}
+
+function isNotExist (sock) {
   return !fs.existsSync(sock)
 }
 
 export const daemon = new class {
-  public server : Server | null = null;
-  public sock = path.join(HOME, TICK_CACHE, TICK_DAEMON_SOCK);
+  public command: ServerCommand | null = null;
+  public projects = [];
   
-  async launch () {
-    debug('daemon is launching on %s', this.sock);
-
-    console.log(this)
-
-    if (isNotExistSockFile(this.sock)) {
-      debug('creating sock file on %s', this.sock);
-      fs.writeFileSync(this.sock, Buffer.from(''));
+  launch () {
+    if (isNotExist(TICK_DAEMON_CACHE)) {
+      debug('daemon')('不存在 Tick 缓存地址 %s', TICK_DAEMON_SOCK);
     }
 
-    this.server = new Server(this.sock);
+    this.command = new ServerCommand();
+    this.command.on('message', this.onMessage);
+    this.command.on('listening', this.onListening);
+
+    this.command.listen(TICK_DAEMON_SOCK);
   }
 
-  async command () {
+  onMessage = (message, reply) => {
+    const { source } = message;
 
+    switch (source) {
+      case CommandSource.CLI: {
+        this.onMessageFromCLI(message, reply);
+        break;
+      }
+    }
+  }
+
+  onMessageFromCLI = (message, reply: Function) => {
+    const { command } = message;
+
+    switch (command) {
+      case Commands.INIT: {
+        reply({
+          command: Commands.CALLBACK,
+        });
+      }
+    }
+  }
+
+  onListening = () => { 
+    debug('daemon')('服务已经启动，服务地址：%s', TICK_DAEMON_SOCK);
+  }
+
+  onError = (error) => {
+    console.log(error)
   }
 }
 
-daemon.launch();
+
+export function launch (process: any) {
+  daemon.launch();
+}
+
+launch(process);

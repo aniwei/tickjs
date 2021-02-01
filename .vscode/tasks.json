@@ -40,10 +40,7 @@
     {
       "label": "build",
       "dependsOn": [
-        "build struct",
-        "build template",
-        "build dom",
-        "build cli",
+        "build cli"
       ]
     }
   ]

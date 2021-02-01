@@ -221,91 +221,6 @@
         "signature": "0406c3e70f0d13d76ecfc871ef7809efe63c499ae9b38244f3c6ec31f03da9ef",
         "affectsGlobalScope": false
       },
-      "../struct/dist/base.d.ts": {
-        "version": "a5813554e921d0c8b1190eb57f8db6f1099c383e9ae7dce042d99949f6f43afe",
-        "signature": "a5813554e921d0c8b1190eb57f8db6f1099c383e9ae7dce042d99949f6f43afe",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/audio.d.ts": {
-        "version": "c3491ec50482901e4b219245f0fd291ab54f5eab070effe60efd39e670556e54",
-        "signature": "c3491ec50482901e4b219245f0fd291ab54f5eab070effe60efd39e670556e54",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/button.d.ts": {
-        "version": "7b3bd2dad0ed8a26c4d74c77b034876d946e873475094e31699c2d654df25721",
-        "signature": "7b3bd2dad0ed8a26c4d74c77b034876d946e873475094e31699c2d654df25721",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/camera.d.ts": {
-        "version": "f03440dc885e2f95d0c88254d4a65322e1e730711abaad9101e6f5cfc6fcc498",
-        "signature": "f03440dc885e2f95d0c88254d4a65322e1e730711abaad9101e6f5cfc6fcc498",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/canvas.d.ts": {
-        "version": "0bebd3d6ce037e3b3a488ff4e87f50a04acbb34648c68ba598bf72403a7d5628",
-        "signature": "0bebd3d6ce037e3b3a488ff4e87f50a04acbb34648c68ba598bf72403a7d5628",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/image.d.ts": {
-        "version": "b2de00eafe585f09be4798973bcc8f67d1bc05a9cba1176497ebdd1acabf8ce2",
-        "signature": "b2de00eafe585f09be4798973bcc8f67d1bc05a9cba1176497ebdd1acabf8ce2",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/input.d.ts": {
-        "version": "9d37cef961dd7eedbeec45da48d66ceabbe09ca5e45ca058b283e338c5bf94d4",
-        "signature": "9d37cef961dd7eedbeec45da48d66ceabbe09ca5e45ca058b283e338c5bf94d4",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/picker.d.ts": {
-        "version": "7e7f84ef9b3d5166d5e9906d40f0418cf3ff7344a76af816d295c435dbc432e5",
-        "signature": "7e7f84ef9b3d5166d5e9906d40f0418cf3ff7344a76af816d295c435dbc432e5",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/pickerview.d.ts": {
-        "version": "47ed1bf01c7151279a6531ceca675069b7291ae6583898233683ce71efa01451",
-        "signature": "47ed1bf01c7151279a6531ceca675069b7291ae6583898233683ce71efa01451",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/scrollview.d.ts": {
-        "version": "b38b39fb295e0b3b2a750664b838be003aa98fd922607b3bf8c0dc94953e38da",
-        "signature": "b38b39fb295e0b3b2a750664b838be003aa98fd922607b3bf8c0dc94953e38da",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/swiper.d.ts": {
-        "version": "ec6d1ce8d974211d44cdbd8154a1e1b22c8538229edf079cdb6cd26a9338236a",
-        "signature": "ec6d1ce8d974211d44cdbd8154a1e1b22c8538229edf079cdb6cd26a9338236a",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/swiperitem.d.ts": {
-        "version": "a2807d5fb84b843cdafdc9dd3a40c76b85c07674c0c7a2898f7e18bbe2d2cab4",
-        "signature": "a2807d5fb84b843cdafdc9dd3a40c76b85c07674c0c7a2898f7e18bbe2d2cab4",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/textarea.d.ts": {
-        "version": "9ec092ccd0a042497ecfb42ec088c1bd2bdc6ada50b765c6c76474c073083fb5",
-        "signature": "9ec092ccd0a042497ecfb42ec088c1bd2bdc6ada50b765c6c76474c073083fb5",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/text.d.ts": {
-        "version": "62620e1dbd98053c90804f39a4d08d2ae503dd8d8a595da4a89d68107026f7f9",
-        "signature": "62620e1dbd98053c90804f39a4d08d2ae503dd8d8a595da4a89d68107026f7f9",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/view.d.ts": {
-        "version": "ef0a1da452b6cce3a8d36f4194c03eabef029e9a8aede0437a5cbb7dfb384905",
-        "signature": "ef0a1da452b6cce3a8d36f4194c03eabef029e9a8aede0437a5cbb7dfb384905",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/shared.d.ts": {
-        "version": "21cf16600b8b9e6b51547176908c1cdcf7fdd73606dbb1cc93d57ee078244200",
-        "signature": "21cf16600b8b9e6b51547176908c1cdcf7fdd73606dbb1cc93d57ee078244200",
-        "affectsGlobalScope": false
-      },
-      "../struct/dist/index.d.ts": {
-        "version": "4f030f2b4acd44a6b43e41edd906f4960616fc141352d835a9aeec978a660b73",
-        "signature": "4f030f2b4acd44a6b43e41edd906f4960616fc141352d835a9aeec978a660b73",
-        "affectsGlobalScope": false
-      },
       "./src/shared.ts": {
         "version": "5e1409ac32833b5f7fa3c5b8ca30ead83bbac5313b414385ad43483afba8d5d4",
         "signature": "d6b0ff1819643162d2d3f541dc7b484f548686d7057c25e8b96f149ade27e3fb",
@@ -338,7 +253,7 @@
       },
       "./src/tickdomviewnode.ts": {
         "version": "35ac9446b4901bb058610ea7f498df0f4e64ab7cc68b1adb7a5395a47b666570",
-        "signature": "c59295009f0516350086346eeeb500faf86da91399a456e3c46523e91dd330c7",
+        "signature": "4f6652122c67fede66606a6adde0364c2331be4b5a698ce6c32ad0b66d6ff77c",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
@@ -625,6 +540,26 @@
         "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/prop-types/index.d.ts": {
+        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/react/global.d.ts": {
+        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/csstype/index.d.ts": {
+        "version": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
+        "signature": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/react/index.d.ts": {
+        "version": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
+        "signature": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
+        "affectsGlobalScope": true
       },
       "../../node_modules/@types/source-list-map/index.d.ts": {
         "version": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
@@ -921,6 +856,11 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
+      "../../node_modules/@types/react/index.d.ts": [
+        "../../node_modules/@types/prop-types/index.d.ts",
+        "../../node_modules/@types/react/global.d.ts",
+        "../../node_modules/csstype/index.d.ts"
+      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1013,7 +953,6 @@
         "./src/tickdomnode.ts"
       ],
       "./src/tickdomnode.ts": [
-        "../struct/dist/index.d.ts",
         "./src/shared.ts",
         "./src/tickdomclassname.ts",
         "./src/tickdomnodeupdator.ts",
@@ -1026,39 +965,8 @@
         "./src/tickdomnode.ts"
       ],
       "./src/tickdomviewnode.ts": [
-        "../struct/dist/index.d.ts",
         "./src/shared.ts",
         "./src/tickdomnode.ts"
-      ],
-      "../struct/dist/audio.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/index.d.ts": [
-        "../struct/dist/audio.d.ts",
-        "../struct/dist/base.d.ts",
-        "../struct/dist/button.d.ts",
-        "../struct/dist/camera.d.ts",
-        "../struct/dist/canvas.d.ts",
-        "../struct/dist/image.d.ts",
-        "../struct/dist/input.d.ts",
-        "../struct/dist/picker.d.ts",
-        "../struct/dist/pickerview.d.ts",
-        "../struct/dist/scrollview.d.ts",
-        "../struct/dist/shared.d.ts",
-        "../struct/dist/swiper.d.ts",
-        "../struct/dist/swiperitem.d.ts",
-        "../struct/dist/text.d.ts",
-        "../struct/dist/textarea.d.ts",
-        "../struct/dist/view.d.ts"
-      ],
-      "../struct/dist/scrollview.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiper.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiperitem.d.ts": [
-        "../struct/dist/base.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -1238,6 +1146,11 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
+      "../../node_modules/@types/react/index.d.ts": [
+        "../../node_modules/@types/prop-types/index.d.ts",
+        "../../node_modules/@types/react/global.d.ts",
+        "../../node_modules/csstype/index.d.ts"
+      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1330,7 +1243,6 @@
         "./src/tickdomnode.ts"
       ],
       "./src/tickdomnode.ts": [
-        "../struct/dist/index.d.ts",
         "./src/shared.ts",
         "./src/tickdomclassname.ts",
         "./src/tickdomstyle.ts"
@@ -1342,38 +1254,7 @@
         "./src/tickdomnode.ts"
       ],
       "./src/tickdomviewnode.ts": [
-        "../struct/dist/index.d.ts",
         "./src/tickdomnode.ts"
-      ],
-      "../struct/dist/audio.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/index.d.ts": [
-        "../struct/dist/audio.d.ts",
-        "../struct/dist/base.d.ts",
-        "../struct/dist/button.d.ts",
-        "../struct/dist/camera.d.ts",
-        "../struct/dist/canvas.d.ts",
-        "../struct/dist/image.d.ts",
-        "../struct/dist/input.d.ts",
-        "../struct/dist/picker.d.ts",
-        "../struct/dist/pickerview.d.ts",
-        "../struct/dist/scrollview.d.ts",
-        "../struct/dist/shared.d.ts",
-        "../struct/dist/swiper.d.ts",
-        "../struct/dist/swiperitem.d.ts",
-        "../struct/dist/text.d.ts",
-        "../struct/dist/textarea.d.ts",
-        "../struct/dist/view.d.ts"
-      ],
-      "../struct/dist/scrollview.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiper.d.ts": [
-        "../struct/dist/base.d.ts"
-      ],
-      "../struct/dist/swiperitem.d.ts": [
-        "../struct/dist/base.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -1433,6 +1314,9 @@
       "../../node_modules/@types/node/zlib.d.ts",
       "../../node_modules/@types/normalize-package-data/index.d.ts",
       "../../node_modules/@types/parse-json/index.d.ts",
+      "../../node_modules/@types/prop-types/index.d.ts",
+      "../../node_modules/@types/react/global.d.ts",
+      "../../node_modules/@types/react/index.d.ts",
       "../../node_modules/@types/source-list-map/index.d.ts",
       "../../node_modules/@types/tapable/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
@@ -1450,6 +1334,7 @@
       "../../node_modules/@types/webpack-sources/lib/sourcemapsource.d.ts",
       "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
       "../../node_modules/@types/webpack/index.d.ts",
+      "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
       "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -1497,29 +1382,36 @@
       "./src/index.ts",
       "./src/shared.ts",
       "./src/tickdomclassname.ts",
-      "./src/tickdomnode.ts",
+      [
+        "./src/tickdomnode.ts",
+        [
+          {
+            "file": "./src/tickdomnode.ts",
+            "start": 41,
+            "length": 16,
+            "messageText": "Cannot find module '@tickjs/struct' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
       "./src/tickdomnodeupdator.ts",
       "./src/tickdomrootnode.ts",
       "./src/tickdomstyle.ts",
       "./src/tickdomupdatenode.ts",
-      "./src/tickdomviewnode.ts",
-      "../struct/dist/audio.d.ts",
-      "../struct/dist/base.d.ts",
-      "../struct/dist/button.d.ts",
-      "../struct/dist/camera.d.ts",
-      "../struct/dist/canvas.d.ts",
-      "../struct/dist/image.d.ts",
-      "../struct/dist/index.d.ts",
-      "../struct/dist/input.d.ts",
-      "../struct/dist/picker.d.ts",
-      "../struct/dist/pickerview.d.ts",
-      "../struct/dist/scrollview.d.ts",
-      "../struct/dist/shared.d.ts",
-      "../struct/dist/swiper.d.ts",
-      "../struct/dist/swiperitem.d.ts",
-      "../struct/dist/text.d.ts",
-      "../struct/dist/textarea.d.ts",
-      "../struct/dist/view.d.ts"
+      [
+        "./src/tickdomviewnode.ts",
+        [
+          {
+            "file": "./src/tickdomviewnode.ts",
+            "start": 85,
+            "length": 16,
+            "messageText": "Cannot find module '@tickjs/struct' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ]
     ]
   },
   "version": "4.1.3"
