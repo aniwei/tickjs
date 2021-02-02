@@ -1,5 +1,5 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= projectName %>",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -20,8 +20,5 @@
     "babel-plugin-add-module-exports": "^1.0.2",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0"
-  },
-  "dependencies": {
-    "@tickjs/tok": "^0.x.x"
   }
 }

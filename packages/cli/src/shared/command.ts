@@ -7,6 +7,7 @@ import * as uuid from 'uuid';
 import { 
   Client, 
   Server, 
+  pack
 } from './sock';
 
 export let messageId = 0;
@@ -40,8 +41,12 @@ export enum Commands {
   CONNECT = 'connect',
   CALLBACK = 'callback',
   INIT = 'init',
+  INIT_INQUIRER = 'init_inquirer',
   START = 'start',
-  BUILD = 'build'
+  BUILD = 'build',
+  LOG = 'log',
+
+
 }
 
 export type CommandMessage = {
@@ -51,6 +56,16 @@ export type CommandMessage = {
   id: string,
   sourceId?: string,
   clientId?: string
+}
+
+export enum CommandResponseStatusCode {
+  SUCCESS = 'success',
+  FAIL = 'fail'
+}
+
+export type CommandResponse = {
+  code: CommandResponseStatusCode,
+  message: string
 }
 
 
@@ -85,14 +100,34 @@ export class ServerCommand extends Command {
     }
   }
 
-  onListening = () => {
-    debug(`ServerCommand`)(`服务器已经启动`);
-    this.emit('listening');
+  send (clientId: string, payload: object, callback?: Function) {
+    let clients;
+
+    if (typeof clientId === 'object') {
+      clients = this.clients;
+    } else if (typeof clientId === 'string') {
+      clients = new Map();
+      clients.set(clientId, this.clients.get(clientId));
+    }
+
+    for (const [id, client] of clients) {
+      if (client.writable) {
+        const id = getMessageId();
+
+        client.write(pack([{
+          source: this.source,
+          ...payload,
+          id
+        }]));
+      }
+    }
   }
 
-  onError = (error) => {
-    this.emit('error', error);
-    this.transport?.removeAllListeners();
+  log (clientId, message) {
+    return this.send(clientId, {
+      command: Commands.LOG,
+      payload: { message }
+    })
   }
 
   reply (id: string, reply: Function);
@@ -112,6 +147,17 @@ export class ServerCommand extends Command {
         id: getMessageId()
       })
     }
+  }
+
+
+  onListening = () => {
+    debug(`ServerCommand`)(`服务器已经启动`);
+    this.emit('listening');
+  }
+
+  onError = (error) => {
+    this.emit('error', error);
+    this.transport?.removeAllListeners();
   }
 
   onDisconnect = (sock) => {
@@ -170,27 +216,25 @@ export class ClientCommand extends Command {
   }
 
   connect (uri): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       if (this.transport instanceof Client) {
         const onConnect = async () => {
-          
           const parsed = URL.parse(uri);
+          const query = qs.parse(parsed.query || '');
+          const id: string = query ? query.id : uuid.v4();
 
-          if (parsed.query) {
-            const query = qs.parse(parsed.query);
-
-            this.send({
+          try {
+            await this.send({
               command: Commands.CONNECT,
-              payload: { id: query.id }
-            }, () => {
-              resolve();
-
-              this.id = query.id;
+              payload: { id }
             });
-          } else {
+
+            resolve();
+
             this.emit('connect');
             this.transport?.off('connect', onConnect);
-            resolve();
+          } catch (error) {
+            reject(error);
           }
         }
 
@@ -209,43 +253,45 @@ export class ClientCommand extends Command {
     });
   }
 
-  send (command, callback?: Function) {
-    if (this.transport instanceof Client) {
-      const message = {
-        clientId: this.id,
-        source: this.source,
-        id: getMessageId(),
-        ...command,
-      }
-
-      this.transport.send(message);
-      
-      if (callback) {
-        const messageCallback = (...argv) => {
-          callback(...argv, message);
-          this.off(message.id, messageCallback);
+  send (command) {
+    return new Promise((resolve, reject) => {
+      if (this.transport instanceof Client) {
+        const message: CommandMessage = {
+          clientId: this.id,
+          source: this.source,
+          id: getMessageId(),
+          ...command
         }
+
+        this.transport.send(message);
         
-        this.on(message.id, messageCallback);
+        const callback = (res) => {
+          resolve(res);
+
+          this.off(message.id, callback);
+        }
+
+        this.on(message.id, callback);
+      } else {
+        reject(new Error(`Error`))
       }
-    }
+    });
   }
 
   ping (uri): Promise<CommandServerState> {
     return new Promise(async (resolve) => {
       try {
         await this.connect(uri);
-        
-        this.send({ command: Commands.PING }, (res) => {
-          debug('ClientCommand')('Ping 通服务');
-          resolve(CommandServerState.OPENED);
-          this.close();
-        });
+        await this.send({ command: Commands.PING });
+
+        debug('ClientCommand')('Ping 通服务');
+        resolve(CommandServerState.OPENED);
       } catch (error) {
         debug('ClientCommand')('无法 Ping 通服务')
         resolve(CommandServerState.CLOSED);
-        this.close();
       }
+
+      this.close();
     })
   }
 
@@ -266,7 +312,8 @@ export class ClientCommand extends Command {
       }
 
       default: {
-        this.emit('message', payload, reply, sock);
+        this.emit('message', message, reply, sock);
+        break;
       }
     }
   }

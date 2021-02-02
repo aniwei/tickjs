@@ -17,8 +17,8 @@ debug('env')(`项目名称：%s`, pkgJson.name || `无 Tick 项目`);
 export const VERSION = pkgJson.version;
 
 export const CWD = cwd;
-export const PROJECT_DIR = CWD;
 export const HOME = home;
+export const PROJ_DIR = CWD;
 
 export const TICK_DAEMON_CACHE = `${home}/.tickjs`;
 export const TICK_DAEMON_SOCK = `unix://${TICK_DAEMON_CACHE}/tick.sock`;

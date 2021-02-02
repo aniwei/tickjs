@@ -4,6 +4,7 @@ import debug from 'debug';
 import {
   CommandSource,
   ServerCommand,
+  CommandResponse,
   Commands
 } from '../shared/command';
 
@@ -23,10 +24,6 @@ import {
 import {
   getLatestNotifycation
 } from './notification'
-
-export enum DaemonProcessState {
-  OK = 'ok'
-}
 
 function isNotExist (sock) {
   return !fs.existsSync(sock)
@@ -66,17 +63,17 @@ export const daemon = new class {
 
     switch (command) {
       case Commands.INIT: {
-        await init(payload);
+        const result = await init(message, this.command);
 
-        reply({ command: Commands.CALLBACK });
-
+        reply(result);
         break;
       }
 
       case Commands.START: {
-        await start(payload);
+        const result = await start(message, this.command);
 
-        reply({ command: Commands.CALLBACK })
+        reply(result);
+        break;
       }
     }
   }

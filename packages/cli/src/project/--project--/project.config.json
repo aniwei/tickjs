@@ -1,5 +1,5 @@
 {
-	"miniprogramRoot": "<%= compile %>",
+	"miniprogramRoot": "<%= miniprogramRoot %>",
   "description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
@@ -15,7 +15,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.0",
 	"appid": "<%= appid %>",
-	"projectname": "<%= name %>",
+	"projectname": "<%= projectName %>",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

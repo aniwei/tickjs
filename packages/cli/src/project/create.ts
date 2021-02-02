@@ -1,20 +1,16 @@
-import inquirer from 'inquirer';
+import { resolve } from 'path';
+import mem from 'mem-fs';
+import editor from 'mem-fs-editor';
 
-async function exists () {
-  return true;
-}
 
-async function prompt () {
-  inquirer.prompt([
-    {
-      type: ''
-    }
-  ])
-}
+const store = mem.create();
+const fs = editor.create(store);
 
-export async function create () {
-  if (await exists()) {
-    return console.log('exists')
-  }
+const PROJ_TPL = resolve(__dirname, '--project--');
 
+export function create (dest, context) {
+  return new Promise((resolve) => {
+    fs.copyTpl(PROJ_TPL, dest, context);
+    fs.commit(resolve);
+  });
 }
