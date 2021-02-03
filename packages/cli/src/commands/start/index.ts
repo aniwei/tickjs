@@ -1,4 +1,5 @@
 
-export async function start (argv, commandar) {
+export async function start (payload, message, commandar, daemon?) {
+  
 }
 

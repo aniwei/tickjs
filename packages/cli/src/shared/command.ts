@@ -42,11 +42,18 @@ export enum Commands {
   CALLBACK = 'callback',
   INIT = 'init',
   INIT_INQUIRER = 'init_inquirer',
+  LS = 'ls',
   START = 'start',
   BUILD = 'build',
   LOG = 'log',
+  SPIN = 'spin',
+}
 
-
+export enum CommandSpinnerState {
+  READY = 0,
+  PENDING = 1,
+  DONE = 4,
+  FAIL = 5
 }
 
 export type CommandMessage = {
@@ -73,12 +80,71 @@ export class Command extends EventEmitter {
   public source: CommandSource;
   public transport: Server | Client | null = null;
   public type: CommandType | null = null;
+  public commands: Map<string, any> = new Map;
 
   constructor (source: CommandSource, transport) {
     super();
 
     this.source = source;
     this.transport = transport;
+
+    this.command(Commands.CALLBACK, (payload, { sourceId }) => {
+      this.emit(sourceId, payload);
+    })
+  }
+
+  async onMessage (message: CommandMessage, reply: Function, sock?: net.Socket);
+
+  async onMessage (message, reply: Function, sock?: net.Socket) {
+    debug('ServerCommand')('接收消息：%s', message);
+
+    const { command, payload, id } = message;
+    const isNotCallbackCommand = command !== Commands.CALLBACK;
+
+    for (const [key, { prefixTasks, handle }] of this.commands) {
+      if (key === command) {
+        if (prefixTasks.length > 0) {
+          for (const task of prefixTasks) {
+            await task(payload, message, sock);
+          }
+        }
+
+        const result = await handle(payload, message, sock);
+
+        if (isNotCallbackCommand) {
+          return reply({
+            sourceId: id,
+            command: Commands.CALLBACK,
+            payload: result || null,
+            id: getMessageId()
+          })
+        }
+
+      }
+    }
+
+    if (isNotCallbackCommand) {
+      reply({
+        sourceId: id,
+        command: Commands.CALLBACK,
+        payload: null,
+        id: getMessageId()
+      });
+    }
+  }
+
+  command (type: Commands, prefixTasks: Function[] | Function, handle?: Function) {
+    if (typeof prefixTasks === 'function') {
+      handle = prefixTasks;
+      prefixTasks = [];
+    }
+
+    this.commands.set(type, {
+      prefixTasks,
+      handle,
+    });
+
+    return this;
   }
 }
 
@@ -91,114 +157,65 @@ export class ServerCommand extends Command {
 
   listen (uri) {
     if (this.transport instanceof Server) {
-      this.transport?.on('listening', this.onListening);
-      this.transport?.on('message', this.onMessage);
-      this.transport?.on('disconnect', this.onDisconnect);
-      this.transport?.on('error', this.onError);
 
-      this.transport?.listen(uri)
-    }
-  }
+      this.transport?.on('listening', () => {
+        debug(`ServerCommand`)(`服务器已经启动`);
+        this.emit('listening');
+      });
 
-  send (clientId: string, payload: object, callback?: Function) {
-    let clients;
+      this.transport?.on('error', (error) => {
+        this.emit('error', error);
+        this.transport?.removeAllListeners();
+      });
 
-    if (typeof clientId === 'object') {
-      clients = this.clients;
-    } else if (typeof clientId === 'string') {
-      clients = new Map();
-      clients.set(clientId, this.clients.get(clientId));
-    }
+      this.transport?.on('disconnect', (sock) => {
+        for (const [id, client] of this.clients) {
+          if (client === sock) {
+            debug(`ServerCommand`)(`断开连接：%s`, id);
+            this.clients.delete(id);
+            break;
+          }
+        }
+      });
 
-    for (const [id, client] of clients) {
-      if (client.writable) {
-        const id = getMessageId();
+      this.transport?.on('message', this.onMessage.bind(this));
+      this.transport?.listen(uri);
 
-        client.write(pack([{
-          source: this.source,
-          ...payload,
-          id
-        }]));
-      }
-    }
-  }
+      this.command(Commands.PING, () => {
+        debug(`ServerCommand`)(`客户端 Ping 请求`);
+      });
 
-  log (clientId, message) {
-    return this.send(clientId, {
-      command: Commands.LOG,
-      payload: { message }
-    })
-  }
-
-  reply (id: string, reply: Function);
-  reply (id: string, payload: any, reply: Function)
-
-  reply (id: string, payload?: any, reply?: Function) {
-    if (typeof payload === 'function') {
-      reply = payload;
-      payload = null;
-    }
-
-    if (reply) {
-      reply({
-        sourceId: id,
-        command: Commands.CALLBACK,
-        payload,
-        id: getMessageId()
-      })
-    }
-  }
-
-
-  onListening = () => {
-    debug(`ServerCommand`)(`服务器已经启动`);
-    this.emit('listening');
-  }
-
-  onError = (error) => {
-    this.emit('error', error);
-    this.transport?.removeAllListeners();
-  }
-
-  onDisconnect = (sock) => {
-    for (const [id, client] of this.clients) {
-      if (client === sock) {
-        debug(`ServerCommand`)(`断开连接：%s`, id);
-        this.clients.delete(id);
-        break;
-      }
-    }
-  }
-
-  onMessage = (message, reply: Function, sock?: net.Socket) => {
-    debug('ServerCommand')('接收消息：%s', message);
-
-    const { command, payload, id } = message;
-
-    switch (command) {
-      case Commands.PING: {
-        debug(`ServerCommand`)(`接收 Ping 请求`);
-        
-        this.reply(id, reply)
-        break;
-      }
-
-      case Commands.CONNECT: {
+      this.command(Commands.CONNECT, (payload, message, sock) => {
+        console.log(payload)
         debug(`ServerCommand`)(`接收客户端连接请求：%s`, payload.id);
+        this.clients.set(payload.id, sock);
+      });
 
-        this.clients.set(payload.id, sock || null);
-        
-        this.reply(id, reply)
-        break;
-      }
-
-      default: {         
-        this.emit('message', message, (data) => {
-          this.reply(id, data, reply);
-        });
-        break;
-      }
+      this.command(Commands.LOG, ({ message }) => {
+        console.log(message);
+      })  
     }
+  }
+
+  send (clientId: string, payload: object) {
+    return new Promise((resolve, reject) => {
+      const client = this.clients.get(clientId);
+      const message = {
+        source: this.source,
+        id: getMessageId(),
+        ...payload,
+      }
+
+      if (client) {
+        client?.write(pack([message]));
+  
+        this.once(message.id, (res) => {
+          resolve(res);
+        })
+      } else {
+        reject();
+      }
+    });
   }
 }
 
@@ -218,10 +235,13 @@ export class ClientCommand extends Command {
   connect (uri): Promise<void> {
     return new Promise(async (resolve, reject) => {
       if (this.transport instanceof Client) {
-        const onConnect = async () => {
+        this.transport?.connect(uri);
+
+        this.transport?.on('message', this.onMessage.bind(this));
+        this.transport?.once('connect', async () => {
           const parsed = URL.parse(uri);
           const query = qs.parse(parsed.query || '');
-          const id: string = query ? query.id : uuid.v4();
+          const id: string = query.id ? query.id : uuid.v4();
 
           try {
             await this.send({
@@ -229,26 +249,20 @@ export class ClientCommand extends Command {
               payload: { id }
             });
 
-            resolve();
-
+            this.id = id;
             this.emit('connect');
-            this.transport?.off('connect', onConnect);
+
+            resolve();
           } catch (error) {
             reject(error);
           }
-        }
+        });
 
-        const onError = (error) => {
+        this.transport?.once('error', (error) => {
           reject(error);
-          this.transport?.off('connect', onConnect);
-          this.transport?.off('error', onError);
-        }
-
-        this.transport?.connect(uri);
-
-        this.transport?.on('message', this.onMessage);
-        this.transport?.on('connect', onConnect);
-        this.transport?.on('error', onError);
+        });
+      } else {
+        reject();
       }
     });
   }
@@ -265,13 +279,9 @@ export class ClientCommand extends Command {
 
         this.transport.send(message);
         
-        const callback = (res) => {
+        this.once(message.id, (res) => {
           resolve(res);
-
-          this.off(message.id, callback);
-        }
-
-        this.on(message.id, callback);
+        });
       } else {
         reject(new Error(`Error`))
       }
@@ -298,23 +308,5 @@ export class ClientCommand extends Command {
   close () {
     this.transport?.close();
     this.transport?.removeAllListeners();
-  }
-
-  onMessage = (message, reply?: Function, sock?: net.Socket) => {
-    const { command, sourceId, payload } = message;
-
-    debug('ClientCommand')('接收消息：%s', message);
-
-    switch (command) {
-      case Commands.CALLBACK: {
-        this.emit(sourceId, payload);
-        break;
-      }
-
-      default: {
-        this.emit('message', message, reply, sock);
-        break;
-      }
-    }
   }
 }

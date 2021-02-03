@@ -88,7 +88,10 @@ export class Server extends EventEmitter {
 
     this.emit('message', message, (data) => {
       debug('server')('响应消息 %o', data);
-      sock?.write(pack([data]));
+
+      if (sock?.writable) {
+        sock?.write(pack([data]));
+      }
     }, sock);
   }
 
@@ -201,18 +204,13 @@ export class Client extends EventEmitter {
 
   onMessage = (data, sock?: net.Socket | null) => {
     const message = new Message(data).args[0];
+
+    debug('client')('接收消息 %s', message);
     
     this.emit('message', message, (data) => {
       debug('client')('响应消息 %s', message);
       this.send(data);
     }, this.sock);
-
-    debug('client')('接收消息 %s', message);
-
-    if (!isCalled) {
-
-    }
-
   }
 
   onClose = () => {

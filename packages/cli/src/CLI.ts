@@ -1,22 +1,26 @@
 import debug from 'debug';
-import path from 'path';
 import { fork } from 'child_process';
 import inquirer from 'inquirer';
-import * as art from 'ascii-art';
+import chalk from 'chalk';
 import { 
   ClientCommand, 
   CommandServerState, 
   Commands,
   CommandSource, 
   CommandResponse,
-  CommandResponseStatusCode
+  CommandResponseStatusCode,
 } from './shared/command';
+
+import {
+  Spinner
+} from './shared/Spinner'
 
 import {
   ARGV,
   PROJ_DIR,
   TICK_DAEMON_SOCK,
 } from './shared/env';
+
 
 enum PingState {
   OK = 'ok',
@@ -25,6 +29,7 @@ enum PingState {
 
 export class CLI {
   public client: ClientCommand | null = null;
+  public spinner: Spinner | null = null;
 
   async connect (childProcessConfig?) {
     if (await this.ping() === CommandServerState.CLOSED) {
@@ -35,31 +40,26 @@ export class CLI {
     this.client.on('close', () => {
       this.client?.removeAllListeners();
       this.client?.close();
+
+      this.spinner = null;
     });
 
     this.client.on('error', (error) => {
       debug('client')('连接服务器错误：%s', error.code || error.message);
       this.client?.removeAllListeners();
       this.client?.close();
+
+      this.spinner = null;
     });
 
-    this.client.on('message', this.onMessage)
+    this.client.command(Commands.LOG, ({ message }) => {
+      debug('client')('接收日志信息：%s', message);
+      console.log(message);
+    });
+
+    this.spinner = new Spinner(this.client);
     
     return await this.client.connect(TICK_DAEMON_SOCK + '?id=cli');
-  }
-
-  onMessage = async (message, reply) => {
-    const { command, payload } = message;
-
-    switch (command) {
-      case Commands.INIT_INQUIRER: {
-        const result = await inquirer.prompt(payload.inquirers);
-
-        reply()
-
-        break;
-      }
-    }
   }
 
   async fork (childProcessConfig?): Promise<string> {
@@ -83,33 +83,50 @@ export class CLI {
     return await ClientCommand.ping(TICK_DAEMON_SOCK);
   }
 
-  async command (command: Commands, payload?) {
+  async send (command: Commands, payload?) {
     return this.client?.send({
       command,
       payload
     });
   }
 
-  init = async () => {
-    const parsed = path.parse(PROJ_DIR);
-    const payload = await inquirer.prompt([
-      {
-        type: 'input',
-        message: '请输入项目名称:',
-        name: 'name',
-        default: parsed.name
-      }
-    ]);
+  async command (type: Commands, func: Function) {
+    return this.client?.command(type, func);
+  }
 
+  init = async () => {
     await this.connect();
+
+    this.command(Commands.INIT_INQUIRER, async (prompts) => {
+      return await inquirer.prompt(prompts.map(prompt => {
+        return  {
+          ...prompt,
+          message: prompt.label,
+          validate (input) {
+            const done = this.async();
+            if (prompt.required) {
+              if (!input) {
+                return done(prompt.message);
+              }
+
+              done(null, true);
+            } else {
+              done(null, true);
+            }
+          }
+        }
+      }));
+    });
     
-    const result: CommandResponse = await this.command(Commands.INIT, {
-      ...payload,
+    const result: CommandResponse = await this.send(Commands.INIT, {
       proj: PROJ_DIR
     }) as CommandResponse;
 
-    if (result.code !== CommandResponseStatusCode.FAIL) {
+    if (result.code === CommandResponseStatusCode.FAIL) {
       debug('CLI')('init 命令执行失败：%s', result.message);
+      console.log(chalk.yellow(result.message));
+    } else {
+      debug('CLI')('init 命令执行完毕：%s', result.message);
     }
 
     this.client?.close();
@@ -117,7 +134,7 @@ export class CLI {
 
   start = async () => {
     await this.connect();
-    await this.command(Commands.START, ARGV);
+    await this.send(Commands.START, ARGV);
   }
 }
 

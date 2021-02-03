@@ -1,16 +1,16 @@
 import fs from 'fs-extra';
 import debug from 'debug';
+import axios from 'axios';
 
 import {
-  CommandSource,
   ServerCommand,
-  CommandResponse,
   Commands
 } from '../shared/command';
 
 import {
   TICK_DAEMON_SOCK,
   TICK_DAEMON_CACHE,
+  TICK_NPM,
 } from '../shared/env';
 
 import {
@@ -22,60 +22,72 @@ import {
 } from '../commands/start';
 
 import {
-  getLatestNotifycation
-} from './notification'
+  ls
+} from '../commands/ls';
+
 
 function isNotExist (sock) {
   return !fs.existsSync(sock)
 }
 
 export const daemon = new class {
-  public command: ServerCommand | null = null;
+  public commandar: ServerCommand | null = null;
   public projects = [];
+
+  getLatestNotifycation = async (clientId) => {
+    debug('daemon')(`执行最新推送`);
+  }
+
+  getLatestTick = async (payload) => {
+    debug('daemon')(`获取Tick最新版本`);
+
+    const result: any = await axios.get(TICK_NPM);
+    
+    console.log(result.body);
+  }
+
+  getLatestProject (payload) {
+    debug('daemon')(`获取项目列表`);
+  }
+
+  statister = async (payload) => {
+    debug('daemon')(`执行上报统计`);
+  }
   
   launch () {
     if (isNotExist(TICK_DAEMON_CACHE)) {
       debug('daemon')('不存在 Tick 缓存地址 %s', TICK_DAEMON_SOCK);
     }
 
-    this.command = new ServerCommand();
-    this.command.on('message', this.onMessage);
-    this.command.on('listening', this.onListening);
+    this.commandar = new ServerCommand();
+    this.commandar.on('listening', this.onListening);
 
-    this.command.listen(TICK_DAEMON_SOCK);
-  }
+    this.commandar.listen(TICK_DAEMON_SOCK);
 
-  onMessage = (message, reply) => {
-    const { source } = message;
+    const mustExecutePrefixTasks = [
+      this.getLatestNotifycation, 
+      this.getLatestTick, 
+      this.getLatestProject, 
+      this.statister
+    ];
 
-    switch (source) {
-      case CommandSource.CLI: {
-        this.onMessageFromCLI(message, reply);
-        break;
-      }
-    }
-  }
+    this.commandar.command(
+      Commands.INIT, 
+      [...mustExecutePrefixTasks], 
+      (payload, message) => init(payload, message, this.commandar, this)
+    );
 
-  onMessageFromCLI = async (message, reply: Function) => {
-    const { command, payload, clientId } = message;
+    this.commandar.command(
+      Commands.START, 
+      [...mustExecutePrefixTasks], 
+      (payload, message) => start(payload, message, this.commandar, this)
+    );
 
-    await getLatestNotifycation(clientId);
-
-    switch (command) {
-      case Commands.INIT: {
-        const result = await init(message, this.command);
-
-        reply(result);
-        break;
-      }
-
-      case Commands.START: {
-        const result = await start(message, this.command);
-
-        reply(result);
-        break;
-      }
-    }
+    this.commandar.command(
+      Commands.LS, 
+      [...mustExecutePrefixTasks], 
+      (payload, message) => ls(payload, message, this.commandar, this)
+    );
   }
 
   onListening = () => { 
@@ -87,9 +99,4 @@ export const daemon = new class {
   }
 }
 
-
-export function launch (process: any) {
-  daemon.launch();
-}
-
-launch(process);
+daemon.launch();
