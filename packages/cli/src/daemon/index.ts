@@ -64,32 +64,34 @@ export const daemon = new class {
   getLatestTick = async (payload) => {
     debug('daemon')(`获取Tick最新版本`);
 
-    const result: any = await axios.get(TICK_NPM);
-    const data = result.data;
-
-    const dist = data['dist-tags'].latest;
-    const versions = data.versions;
-    const compared = compare(dist, payload.version);
-
-    debug('daemon')('Tick 最新版本：%s', dist);
-    debug('daemon')('Tick 最新版本：%o', compared);
-
-    if (compared > 0) {
-      notifier.notify({
-        title: 'Tick 有可更新版本',
-        message: '主要修复',
-        icon: resolve(__dirname, '../shared/logo.jpeg')
-      });
-
-      notifier.once('click', () => {
-        debug('daemon')('点击 Notifier');
-      })
-
-      notifier.once('timeout', () => {
-        debug('daemon')('Notifier 超时');
-        notifier.removeAllListeners();
-      })
-    }
+    process.nextTick(async () => {
+      const result: any = await axios.get(TICK_NPM);
+      const data = result.data;
+  
+      const dist = data['dist-tags'].latest;
+      const versions = data.versions;
+      const compared = compare(dist, payload.version);
+  
+      debug('daemon')('Tick 最新版本：%s', dist);
+      debug('daemon')('Tick 最新版本：%o', compared);
+  
+      if (compared > 0) {
+        notifier.notify({
+          title: 'Tick 有可更新版本',
+          message: '主要修复',
+          icon: resolve(__dirname, '../shared/logo.jpeg')
+        });
+  
+        notifier.once('click', () => {
+          debug('daemon')('点击 Notifier');
+        })
+  
+        notifier.once('timeout', () => {
+          debug('daemon')('Notifier 超时');
+          notifier.removeAllListeners();
+        })
+      }
+    })
   }
 
   getLatestProject (payload) {

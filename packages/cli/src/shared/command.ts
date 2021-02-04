@@ -165,7 +165,6 @@ export class ServerCommand extends Command {
       });
 
       this.transport?.on('error', (error) => {
-        this.emit('error', error);
         this.transport?.removeAllListeners();
       });
 
@@ -236,8 +235,9 @@ export class ClientCommand extends Command {
   connect (uri): Promise<void> {
     return new Promise(async (resolve, reject) => {
       if (this.transport instanceof Client) {
-        this.transport?.connect(uri);
-
+        this.transport?.once('error', (error) => {
+          reject(error);
+        });
         this.transport?.on('message', this.onMessage.bind(this));
         this.transport?.once('connect', async () => {
           const parsed = URL.parse(uri);
@@ -255,13 +255,12 @@ export class ClientCommand extends Command {
 
             resolve();
           } catch (error) {
+
             reject(error);
           }
         });
 
-        this.transport?.once('error', (error) => {
-          reject(error);
-        });
+        this.transport?.connect(uri);
       } else {
         reject();
       }
@@ -297,9 +296,11 @@ export class ClientCommand extends Command {
 
         debug('ClientCommand')('Ping 通服务');
         resolve(CommandServerState.OPENED);
+        this.close();
       } catch (error) {
         debug('ClientCommand')('无法 Ping 通服务')
         resolve(CommandServerState.CLOSED);
+        
       }
 
       this.close();

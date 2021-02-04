@@ -1,5 +1,5 @@
 import debug from 'debug';
-import { fork } from 'child_process';
+import { fork, spawn } from 'child_process';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import { 
@@ -68,29 +68,31 @@ export class CLI {
       const child = fork('./daemon/index', { 
         cwd: __dirname,
         detached: true,
-        stdio: 'inherit',
+        stdio: ['ipc', 'ignore', 'ignore'],
         ...childProcessConfig
       });
 
-      child.unref();
-
-      child.on('message', (message) => {
-        debug('CLI')('启动 Daemon 进程完毕 %s', message);
-        resolve(PingState.OK);
+      child.once('error', (error) => {
+        console.error(error.message || error);
       });
 
-      child.on('exit', () => {
+      child.once('message', () => {
+        resolve('OK');
+
         child.removeAllListeners();
-      });
+        child.disconnect();
+      })
 
-      child.on('error', (error) => {
-        console.log(error)
-      });
+      child.unref();
     })
   }
 
   async ping () : Promise<CommandServerState> {
-    return await ClientCommand.ping(TICK_DAEMON_SOCK);
+    try {
+      return await ClientCommand.ping(TICK_DAEMON_SOCK);
+    } catch (error) {
+      return CommandServerState.CLOSED;
+    }
   }
 
   async send (command: Commands, payload?) {

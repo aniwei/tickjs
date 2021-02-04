@@ -41,14 +41,14 @@ export async function start (payload, message, commandar, daemon?) {
   const child = fork('./project', {
     cwd: __dirname,
     detached: true,
-    stdio: 'ignore',
+    stdio: 'inherit',
     env: {
       PROJ_ID: uuid.v4(),
       PROJ_DIR: proj
     }
   });
 
-  child.unref();
+  // child.unref();
 
   return {
     code: CommandResponseStatusCode.SUCCESS,

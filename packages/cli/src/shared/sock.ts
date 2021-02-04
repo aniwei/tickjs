@@ -186,7 +186,7 @@ export class Client extends EventEmitter {
     this.sock?.destroy();
     this.sock?.removeAllListeners();
 
-    this.stream.removeAllListeners();
+    this.stream?.removeAllListeners();
     this.stream = null;
   }
 
