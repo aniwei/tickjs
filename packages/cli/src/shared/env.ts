@@ -6,13 +6,11 @@ import minimist from 'minimist'
 
 
 const cwd = process.cwd();
-const pkgJson = fs.existsSync(resolve(cwd, 'package.json')) ?
-  fs.readJsonSync(resolve(cwd, 'package.json')) : {}
-
+const pkgJson = fs.existsSync(resolve(__dirname, '../../package.json')) ?
+  fs.readJsonSync(resolve(__dirname, '../../package.json')) : {}
 
 debug('env')(`命令执行位置：%s`, cwd);
-debug('env')(`项目版本：%s`, pkgJson.version || `无 Tick 项目`);
-debug('env')(`项目名称：%s`, pkgJson.name || `无 Tick 项目`);
+debug('env')(`CLI版本：%s`, pkgJson.version);
 
 export const VERSION = pkgJson.version;
 

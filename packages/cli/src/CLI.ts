@@ -19,6 +19,7 @@ import {
   ARGV,
   PROJ_DIR,
   TICK_DAEMON_SOCK,
+  VERSION,
 } from './shared/env';
 
 
@@ -52,7 +53,7 @@ export class CLI {
       this.spinner = null;
     });
 
-    this.client.command(Commands.LOG, ({ message }) => {
+    this.client.command(Commands.LOG, ({ type, message }) => {
       debug('client')('接收日志信息：%s', message);
       console.log(message);
     });
@@ -119,7 +120,8 @@ export class CLI {
     });
     
     const result: CommandResponse = await this.send(Commands.INIT, {
-      proj: PROJ_DIR
+      proj: PROJ_DIR,
+      version: VERSION
     }) as CommandResponse;
 
     if (result.code === CommandResponseStatusCode.FAIL) {

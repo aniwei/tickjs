@@ -1,6 +1,11 @@
+import { resolve } from 'path';
 import fs from 'fs-extra';
 import debug from 'debug';
 import axios from 'axios';
+import compare from 'compare-versions';
+import notifier from 'node-notifier';
+
+import { Project } from './project';
 
 import {
   ServerCommand,
@@ -30,9 +35,37 @@ function isNotExist (sock) {
   return !fs.existsSync(sock)
 }
 
+
+
 export const daemon = new class {
   public commandar: ServerCommand | null = null;
-  public projects = [];
+  public version: any | null = null;
+  public projects: Project[] = [];
+
+  readTickJSONData = () => {
+    const filename = resolve(TICK_DAEMON_CACHE, 'tick.json');
+    let data;
+
+    if (!fs.existsSync(filename)) {
+      data = {
+        version: {
+          notification: {
+            current: Date.now() / 1000,
+            next: Date.now() / 1000 + 4 * 3600
+          }
+        },
+
+        projects: []
+      };
+
+      fs.writeJSONSync(filename, data);
+    } else {
+      data = fs.readJson(filename); 
+    }
+
+    this.version = data.version;
+    this.projects = data.projects;
+  }
 
   getLatestNotifycation = async (clientId) => {
     debug('daemon')(`执行最新推送`);
@@ -42,8 +75,26 @@ export const daemon = new class {
     debug('daemon')(`获取Tick最新版本`);
 
     const result: any = await axios.get(TICK_NPM);
-    
-    console.log(result.body);
+    const data = result.data;
+
+    const dist = data['dist-tags'].latest;
+    const versions = data.versions;
+    const compared = compare(dist, payload.version);
+
+    debug('daemon')('Tick 最新版本：%s', dist);
+    debug('daemon')('Tick 最新版本：%o', compared);
+
+    if (compared > 0) {
+      notifier.notify({
+        title: 'Tick 有可更新版本',
+        message: '主要修复',
+        icon: resolve(__dirname, '../shared/logo.jpeg')
+      });
+
+      notifier.on('click', () => {
+        debug('daemon')('点击 Notifier');
+      })
+    }
   }
 
   getLatestProject (payload) {
@@ -65,6 +116,7 @@ export const daemon = new class {
     this.commandar.listen(TICK_DAEMON_SOCK);
 
     const mustExecutePrefixTasks = [
+      this.readTickJSONData,
       this.getLatestNotifycation, 
       this.getLatestTick, 
       this.getLatestProject, 

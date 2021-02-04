@@ -1,6 +1,8 @@
 import { resolve, parse } from 'path';
 import fs from 'fs-extra'
 import npmintall from 'npminstall';
+import mem from 'mem-fs';
+import editor from 'mem-fs-editor';
 import {
   TICKRC,
 } from '../../shared/env';
@@ -11,16 +13,23 @@ import {
   CommandResponseStatusCode, 
   CommandSpinnerState,
   CommandMessage
-} from '../../shared/command'
-
-import {
-  create
-} from '../../project/create'
+} from '../../shared/command';
 
 function isExistFile (root, filename) {
   const path = resolve(root, filename);
 
   return fs.existsSync(path);
+}
+
+function createProject (dest, context) {
+  const PROJ_TPL = resolve(__dirname, '--project--');
+  const store = mem.create();
+  const fs = editor.create(store);
+
+  return new Promise((resolve) => {
+    fs.copyTpl(PROJ_TPL, dest, context);
+    fs.commit(resolve);
+  });
 }
 
 async function inquire (commandar: ServerCommand, message: CommandMessage) {
@@ -71,7 +80,7 @@ async function copyTemplate (commandar: ServerCommand, message: CommandMessage, 
     }
   });
 
-  await create(proj, {
+  await createProject(proj, {
     miniprogramRoot: '',
     projectName: name,
     appid,
