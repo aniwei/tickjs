@@ -47,6 +47,7 @@ export enum Commands {
   BUILD = 'build',
   STOP = 'stop',
   LOG = 'log',
+  PROJ_LOG = 'proj_log',
   SPIN = 'spin',
 }
 
@@ -116,7 +117,7 @@ export class Command extends EventEmitter {
           return reply({
             sourceId: id,
             command: Commands.CALLBACK,
-            payload: result || null,
+            payload: result instanceof Promise ? (await result) : (result || null),
             id: getMessageId()
           })
         }

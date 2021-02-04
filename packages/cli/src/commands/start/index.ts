@@ -27,32 +27,36 @@ function isNotExistTickProject (proj) {
 }
 
 export async function start (payload, message, commandar, daemon?) {
-  const { proj } = payload;
+  return new Promise((resolve, reject) => {
 
-  debug('start')('执行 START 命令');
-
-  if (isNotExistTickProject(proj)) {
-    return {
-      code: CommandResponseStatusCode.FAIL,
-      message: `该目录不存在 Tick 项目`
+    const { proj } = payload;
+  
+    debug('start')('执行 START 命令');
+  
+    if (isNotExistTickProject(proj)) {
+      resolve({
+        code: CommandResponseStatusCode.FAIL,
+        message: `该目录不存在 Tick 项目`
+      })
     }
-  }
+  
+    const child = fork('./project', {
+      cwd: __dirname,
+      // detached: false,
+      stdio: 'inherit',
+      env: {
+        PROJ_ID: uuid.v4(),
+        PROJ_DIR: proj
+      }
+    });
 
-  const child = fork('./project', {
-    cwd: __dirname,
-    detached: true,
-    stdio: 'inherit',
-    env: {
-      PROJ_ID: uuid.v4(),
-      PROJ_DIR: proj
-    }
-  });
+    debug('start')('运行项目容器：%s', child.pid);
+    
+    resolve({
+      code: CommandResponseStatusCode.SUCCESS,
+      message: `START 命令执行成功`
+    })
+  })
 
-  // child.unref();
-
-  return {
-    code: CommandResponseStatusCode.SUCCESS,
-    message: `START 命令执行成功`
-  }
 }
 

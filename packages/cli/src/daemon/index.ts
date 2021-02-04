@@ -143,6 +143,16 @@ export const daemon = new class {
       [...mustExecutePrefixTasks],
       (payload, message) => stop(payload, message, this.commandar, this)
     )
+
+    this.commandar.command(
+      Commands.PROJ_LOG,
+      (payload, message) => {
+        this.commandar?.send('cli', {
+          command: Commands.LOG,
+          payload
+        })
+      }
+    )
   }
 
   onListening = () => { 

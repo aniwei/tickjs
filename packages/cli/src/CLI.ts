@@ -23,11 +23,6 @@ import {
 } from './shared/env';
 
 
-enum PingState {
-  OK = 'ok',
-  TIMEOUT = 'timeout'
-}
-
 export class CLI {
   public client: ClientCommand | null = null;
   public spinner: Spinner | null = null;
@@ -181,4 +176,4 @@ export class CLI {
 
 const cli = new CLI();
 
-cli.stop()
+cli.start()
