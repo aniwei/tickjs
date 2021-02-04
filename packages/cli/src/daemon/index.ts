@@ -5,7 +5,6 @@ import axios from 'axios';
 import compare from 'compare-versions';
 import notifier from 'node-notifier';
 
-import { Project } from './project';
 
 import {
   ServerCommand,
@@ -19,30 +18,21 @@ import {
 } from '../shared/env';
 
 import {
-  init
-} from '../commands/init';
-
-import {
-  start
-} from '../commands/start';
-
-import {
-  ls
-} from '../commands/ls';
-
+  init,
+  start,
+  ls,
+  stop
+} from '../commands';
 
 function isNotExist (sock) {
   return !fs.existsSync(sock)
 }
 
-
-
 export const daemon = new class {
   public commandar: ServerCommand | null = null;
   public version: any | null = null;
-  public projects: Project[] = [];
 
-  readTickJSONData = () => {
+  readTickJSONData = async () => {
     const filename = resolve(TICK_DAEMON_CACHE, 'tick.json');
     let data;
 
@@ -64,7 +54,7 @@ export const daemon = new class {
     }
 
     this.version = data.version;
-    this.projects = data.projects;
+    // this.projects = data.projects;
   }
 
   getLatestNotifycation = async (clientId) => {
@@ -91,8 +81,13 @@ export const daemon = new class {
         icon: resolve(__dirname, '../shared/logo.jpeg')
       });
 
-      notifier.on('click', () => {
+      notifier.once('click', () => {
         debug('daemon')('点击 Notifier');
+      })
+
+      notifier.once('timeout', () => {
+        debug('daemon')('Notifier 超时');
+        notifier.removeAllListeners();
       })
     }
   }
@@ -140,10 +135,21 @@ export const daemon = new class {
       [...mustExecutePrefixTasks], 
       (payload, message) => ls(payload, message, this.commandar, this)
     );
+
+    this.commandar.command(
+      Commands.STOP,
+      [...mustExecutePrefixTasks],
+      (payload, message) => stop(payload, message, this.commandar, this)
+    )
   }
 
   onListening = () => { 
     debug('daemon')('服务已经启动，服务地址：%s', TICK_DAEMON_SOCK);
+    const send = (<any>process)?.send;
+
+    if (send) {
+      (<any>process)?.send('OK');
+    }
   }
 
   onError = (error) => {

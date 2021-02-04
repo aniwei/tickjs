@@ -3,10 +3,10 @@ import { fork } from 'child_process';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import { 
-  ClientCommand, 
-  CommandServerState, 
   Commands,
   CommandSource, 
+  ClientCommand, 
+  CommandServerState, 
   CommandResponse,
   CommandResponseStatusCode,
 } from './shared/command';
@@ -65,18 +65,27 @@ export class CLI {
 
   async fork (childProcessConfig?): Promise<string> {
     return new Promise((resolve) => {
-      debug('CLI')('开始启动 Daemon 进程');
-
       const child = fork('./daemon/index', { 
         cwd: __dirname,
         detached: true,
-        stdio: 'ignore',
+        stdio: 'inherit',
         ...childProcessConfig
       });
 
       child.unref();
 
-      resolve(PingState.OK);
+      child.on('message', (message) => {
+        debug('CLI')('启动 Daemon 进程完毕 %s', message);
+        resolve(PingState.OK);
+      });
+
+      child.on('exit', () => {
+        child.removeAllListeners();
+      });
+
+      child.on('error', (error) => {
+        console.log(error)
+      });
     })
   }
 
@@ -87,7 +96,11 @@ export class CLI {
   async send (command: Commands, payload?) {
     return this.client?.send({
       command,
-      payload
+      payload: {
+        version: VERSION,
+        proj: PROJ_DIR,
+        ...payload
+      }
     });
   }
 
@@ -136,10 +149,34 @@ export class CLI {
 
   start = async () => {
     await this.connect();
-    await this.send(Commands.START, ARGV);
+    const result: CommandResponse = await this.send(Commands.START, ARGV) as CommandResponse;
+
+    if (result.code === CommandResponseStatusCode.FAIL) {
+      debug('CLI')('start 命令执行失败：%s', result.message);
+    } else {
+      debug('CLI')('start 命令执行完毕');
+    }
+
+    this.client?.close();
+  }
+
+  stop = async () => {
+    if (await this.ping()) {
+      await this.connect();
+
+      const result: CommandResponse = await this.send(Commands.STOP) as CommandResponse;
+
+      if (result.code === CommandResponseStatusCode.FAIL) {
+        debug('CLI')('stop 命令执行失败：%s', result.message);
+      } else {
+        debug('CLI')('stop 命令执行完毕');
+      }
+
+      this.client?.close();
+    }
   }
 }
 
 const cli = new CLI();
 
-cli.init()
+cli.stop()

@@ -45,6 +45,7 @@ export enum Commands {
   LS = 'ls',
   START = 'start',
   BUILD = 'build',
+  STOP = 'stop',
   LOG = 'log',
   SPIN = 'spin',
 }
@@ -96,7 +97,7 @@ export class Command extends EventEmitter {
   async onMessage (message: CommandMessage, reply: Function, sock?: net.Socket);
 
   async onMessage (message, reply: Function, sock?: net.Socket) {
-    debug('ServerCommand')('接收消息：%s', message);
+    debug('Commands')('接收消息：%o', message);
 
     const { command, payload, id } = message;
     const isNotCallbackCommand = command !== Commands.CALLBACK;
