@@ -1,8 +1,9 @@
-import { EventEmitter } from 'events';
-import { spawn } from 'child_process';
 import debug from 'debug';
-
-import { createWorkerTemplate } from './template';
+import fs from 'fs-extra';
+import { resolve } from 'path';
+import { spawn } from 'child_process';
+import { EventEmitter } from 'events';
+import { template } from './template';
 
 import { 
   ClientCommand, 
@@ -11,6 +12,7 @@ import {
 } from '../../shared/command';
 
 import {
+  TICKRC,
   TICK_DAEMON_SOCK,
 } from '../../shared/env';
 
@@ -45,8 +47,19 @@ export class Project extends EventEmitter {
     });
 
     this.client.on('connect', async () => {
-      createWorkerTemplate();
-      debug('project')('连接服务器错误');
+      (<any>process)?.send('OK');
+      debug('project')('连接服务');
+
+      let tickrc = require(resolve(this.projDir as string, TICKRC));
+      tickrc = tickrc.default || tickrc; 
+
+      (<any>process)?.send(JSON.stringify(tickrc))
+       
+      await template.clean(this.projDir);
+      await template.create(this.projDir, {
+        beautify: true,
+        thirdParty: tickrc.thirdParty
+      });
     });
     
     return await this.client.connect(TICK_DAEMON_SOCK + `?id=${this.id}`);

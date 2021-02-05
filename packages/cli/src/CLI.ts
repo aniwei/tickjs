@@ -17,6 +17,7 @@ import {
 
 import {
   ARGV,
+  NODE_ENV,
   PROJ_DIR,
   TICK_DAEMON_SOCK,
   VERSION,
@@ -96,6 +97,7 @@ export class CLI {
       payload: {
         version: VERSION,
         proj: PROJ_DIR,
+        env: NODE_ENV,
         ...payload
       }
     });

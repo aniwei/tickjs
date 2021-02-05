@@ -109,6 +109,7 @@ export const daemon = new class {
 
     this.commandar = new ServerCommand();
     this.commandar.on('listening', this.onListening);
+    this.commandar.on('error', this.onError);
 
     this.commandar.listen(TICK_DAEMON_SOCK);
 
@@ -165,6 +166,8 @@ export const daemon = new class {
   }
 
   onError = (error) => {
+    this.commandar?.removeAllListeners();
+    
     console.log(error)
   }
 }

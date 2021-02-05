@@ -15,10 +15,17 @@ import {
   CommandMessage
 } from '../../shared/command';
 
-function isExistFile (root, filename) {
+function isExistFile (root: string, filename: string): boolean {
   const path = resolve(root, filename);
 
   return fs.existsSync(path);
+}
+
+function isExistProject (proj: string): boolean {
+  return (
+    isExistFile(proj, TICKRC) &&
+    isExistFile(proj, 'package.json')
+  )
 }
 
 function createProject (dest, context) {
@@ -136,13 +143,9 @@ async function installDependences (commandar: ServerCommand, message: CommandMes
 }
 
 export async function init (payload, message, commandar, daemon?) {
-  const { clientId } = message;
   const { proj } = payload;
 
-  if (
-    isExistFile(proj, TICKRC) &&
-    isExistFile(proj, 'package.json')
-  ) {
+  if (isExistProject(proj)) {
     return {
       code: CommandResponseStatusCode.FAIL,
       message: `该目录已经存在 Tick 项目` 
