@@ -216,29 +216,9 @@
         "signature": "1e61418f41d404e744b6536af9f8c6f6674dd4d54c12335cd0c4f7eded69cf3f",
         "affectsGlobalScope": true
       },
-      "./node_modules/eventemitter3/index.d.ts": {
-        "version": "b80c780c52524beb13488942543972c8b0e54400e8b59cee0169f38d0fabb968",
-        "signature": "b80c780c52524beb13488942543972c8b0e54400e8b59cee0169f38d0fabb968",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/rpc-websockets/dist/lib/client/client.types.d.ts": {
-        "version": "df3b06e7d4d5e20fe32ef5954f0b7a676370039c1d1a43953ffb2c52a52a74b2",
-        "signature": "df3b06e7d4d5e20fe32ef5954f0b7a676370039c1d1a43953ffb2c52a52a74b2",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/rpc-websockets/dist/lib/client.d.ts": {
-        "version": "387a1082396ef5c67b7b20b9517b82e0c2d1b9c9b051c8980222be84a4035da4",
-        "signature": "387a1082396ef5c67b7b20b9517b82e0c2d1b9c9b051c8980222be84a4035da4",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/rpc-websockets/dist/lib/server.d.ts": {
-        "version": "0de884ddeb343b7cb656a382a204d11888bf5826b89b74c9de46057d854f0dc4",
-        "signature": "0de884ddeb343b7cb656a382a204d11888bf5826b89b74c9de46057d854f0dc4",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/rpc-websockets/dist/index.d.ts": {
-        "version": "45b7c884b58ed21b127103a61ebe54963f300bbbb56803908bbf4faf4248041d",
-        "signature": "45b7c884b58ed21b127103a61ebe54963f300bbbb56803908bbf4faf4248041d",
+      "./node_modules/chalk/index.d.ts": {
+        "version": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
+        "signature": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/node/globals.d.ts": {
@@ -481,19 +461,44 @@
         "signature": "76a02f534821c0cb5ff05906b2f5279bc12e69cf0a6136c3d1bdf816b2814572",
         "affectsGlobalScope": false
       },
+      "./src/shared/sock.ts": {
+        "version": "a45cf2fdbaebdfa1d9e6df3706885ddf067dd60f9b71a4c6cb265fb7ec4653ba",
+        "signature": "2b44fe52e559ac53431cbaa405f96862758f427b83e91aaf653f39ce13ddba9d",
+        "affectsGlobalScope": false
+      },
+      "./src/shared/command.ts": {
+        "version": "4d98c0b8274c5d3e680e9e24474e3f04db12d89d38bf72aea5f614cfa23cdb9e",
+        "signature": "6ea2b76f705d4a1f5c15b12ebce50491a1b07bca38877ca8378c5809ecbfdeca",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/cli-spinners/index.d.ts": {
+        "version": "16687804859a9abc3d1783fe4cb0cd27e65eeba8e2bea772c109e8992a458d71",
+        "signature": "16687804859a9abc3d1783fe4cb0cd27e65eeba8e2bea772c109e8992a458d71",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/ora/index.d.ts": {
+        "version": "e1b2ca876adc0c52a492a0928fabecf1b05dee176865e2e256c8de798fb87c45",
+        "signature": "e1b2ca876adc0c52a492a0928fabecf1b05dee176865e2e256c8de798fb87c45",
+        "affectsGlobalScope": false
+      },
+      "./src/shared/spinner.ts": {
+        "version": "3febc4ec1fc5fa4818473c1635aa207497f83b1d8fdbb66a6736bdd8fcb5abea",
+        "signature": "4f4ace941ed262771b9eb1e3e64209ac7a800c5f14f15ff9997b8cbaf7a69f30",
+        "affectsGlobalScope": false
+      },
       "../../node_modules/@types/minimist/index.d.ts": {
         "version": "e437d83044ba17246a861aa9691aa14223ff4a9d6f338ab1269c41c758586a88",
         "signature": "e437d83044ba17246a861aa9691aa14223ff4a9d6f338ab1269c41c758586a88",
         "affectsGlobalScope": false
       },
       "./src/shared/env.ts": {
-        "version": "377d64a3fe397cce042f6d1b48a38c42cc398d8ceb9712af2bcac56de2830976",
-        "signature": "447e6f41f12dbd0b2d98e5ea3be49c42560bd344fca7b211c89c49c141a787bb",
+        "version": "2411b165723d35b05ae8da12269b72428e7fa63e938ec1977776b0bfeaaceb78",
+        "signature": "7f3199a26887a6d325bca39a6a2075931ed7cbc9a8a6412a34d70ce3dae80433",
         "affectsGlobalScope": false
       },
-      "./src/tickcli.ts": {
-        "version": "eb4eab2bb6f2dc42a6ac6ee1b3f51c68ee33bb9c183fc31e11768a171bc23b28",
-        "signature": "46868236716af305a87dcc0a28466bb7ec0df329575c127e6c22500d041c1699",
+      "./src/cli.ts": {
+        "version": "db3f1f31571446d190e177428065e36f7c1d40e5cf9d1ac0622126a2e3731087",
+        "signature": "fddd14cb9cfaa9cc7003647847f9514f64e6ba02931cc5dc7fb2b518d17568b0",
         "affectsGlobalScope": false
       },
       "./src/global.d.ts": {
@@ -502,18 +507,43 @@
         "affectsGlobalScope": true
       },
       "./src/commands/init/index.ts": {
-        "version": "459cd053c52c8ea24a61aefdbc5069a978c2850da5a0083a32f47dc7bf78d035",
-        "signature": "5b377a10d7e7e0f5b817dca15bc2c3a43917793ff88e70146cf009d70da578e6",
+        "version": "61eec2bd7fa5e1cd26f99c08cef2b055755cbab2e74fb5fc5f5a3a42656f844c",
+        "signature": "6a70926db5606b00c4fdb353111a08d732633c17860fa88e3a02f58006f6e636",
         "affectsGlobalScope": false
       },
       "./src/commands/start/index.ts": {
-        "version": "7b238ce31ff46ab66aa6609ec96797279265789779950e86035d54875f3d2c3f",
-        "signature": "f6e082f5e00badd2acf0dd0bc8f77aa092563cb40a298324ee7f65f7a14a2c00",
+        "version": "f1503c12ee96825234c91e1988a85aea76130b017b2e5b7dc375721f587157d4",
+        "signature": "0c0452bcd6db2ad5ebfb59b1e2839c8cde606ce99ef875d83c9950c0c07977fa",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/ls/index.ts": {
+        "version": "74b6962eb9d094e409230125396daf147a3dcd346c61e99ae3b00560a5071658",
+        "signature": "91f8bcdc56c1041a9117b5fc0babb1e3f60ac4ce953537c1c313d0dda4457878",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/stop/index.ts": {
+        "version": "4335da1cb10397777777e86aadecc083f33e5091278cb111bb5389c2c632be2d",
+        "signature": "dddc5e59f19969ae7b47c1883693aba708cdc7c8f87b6a2fd01ef2a283ade5d4",
         "affectsGlobalScope": false
       },
       "./src/commands/index.ts": {
-        "version": "c6e44185434d0fccd877c3ab82ca2b676af17da1add4ac48a3f2414060d775a6",
-        "signature": "767d39e74c9588813191fe62a2cc54c343574e9f4403c76ddf75a014245983ff",
+        "version": "77f0ec4392400dae9d51839dec5e5005c62682bfb6aa4584a4c68286458ba75a",
+        "signature": "448f9e061a8b2fa5c7cc5778085b59c7dc5b4bb27f4f35ed0ee04b8d2ceb1274",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/init/--project--/src/app.js": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": false
+      },
+      "./src/commands/init/--project--/src/index/index.js": {
+        "version": "f741fe7d6a88dce8831048deec7f24bd4121a6e492064d52c55c1c9a1161b73a",
+        "signature": "306352e210f35c3050ba7bd0b7fd4c21a10b972c347a07de9aa24449272f2228",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/xml-formatter/index.d.ts": {
+        "version": "f5e46714d9f9bc844cbc243bc21ab502ce9a0af87af8ac9e7520ec50fb9948d4",
+        "signature": "f5e46714d9f9bc844cbc243bc21ab502ce9a0af87af8ac9e7520ec50fb9948d4",
         "affectsGlobalScope": false
       },
       "../template/dist/ticktemplateattributes.d.ts": {
@@ -652,43 +682,38 @@
         "affectsGlobalScope": false
       },
       "./src/commands/start/template.ts": {
-        "version": "4b9ca596482cf5a9d3ee1dfdd4abf5164b1ef8f8c721e94416fc484ba5659a66",
-        "signature": "c4511b4e00b657ce17aeb3e7baf333cc7fb63148962caab59e5c0c9a11ade5d1",
+        "version": "c95640a9a470756dc05183614bc0d3cfb5d18609473e247284bbedb54d2b65b2",
+        "signature": "78eeea89367d2ce2f39091d80f8d15f74be4e6d126bee48fd3488572f413ba27",
         "affectsGlobalScope": false
       },
-      "./src/daemon/rpc.ts": {
-        "version": "8b151e10ba0c96e21ba57ffed3b65ef6da14b27b9cb7d659b01235532277e9ee",
-        "signature": "78ed668f1cb1a4fcc91fdbe3776de173c2f8c8b2991ae76cd6f945f575917c09",
+      "./src/commands/start/project.ts": {
+        "version": "0086c509f37ddd6feb6cce48ccfc101b212c2dfe76802ec9985ff6658d05abcf",
+        "signature": "94a51eb1f6f52713d1b309b545a1a009df996dce5730f294b7da2959060c0c7c",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/axios/index.d.ts": {
+        "version": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
+        "signature": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/compare-versions/index.d.ts": {
+        "version": "da071b1cc8ccd8c440859e4113d30525b20f24d58d69c588ab2a9389746cd6d7",
+        "signature": "da071b1cc8ccd8c440859e4113d30525b20f24d58d69c588ab2a9389746cd6d7",
         "affectsGlobalScope": false
       },
       "./src/daemon/index.ts": {
-        "version": "a7cac22e2b980f6027b8fc4b1cae8e32ff874824b2698b83917e4e15748f3072",
-        "signature": "d765277154315dbb832a10ad8e39b748728bab5e0fffc50e02f1b403dc0a3250",
+        "version": "bb75f695294f00ea39c0ac06f22aaabd5a4503b9cdbf66b68a2b227715bfa81d",
+        "signature": "354c48a40fe155a5012e7ca60731142eb9d2f1b13f48789e643499b33192a08c",
+        "affectsGlobalScope": false
+      },
+      "./src/daemon/vm.ts": {
+        "version": "61b09a1f5d9376d2316352b24f2993d299af337a8dec6e19d86fbf979f796f82",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
       "./src/project/create.ts": {
-        "version": "b965cc38916b3357a46f6b200c8107495fa62d40850dc3c324f3ace41e6bbfa0",
-        "signature": "8226cfe730546d1cf696bcb10f24324f4cb498272ea06139d2f774325fedae86",
-        "affectsGlobalScope": false
-      },
-      "./src/project/index.ts": {
-        "version": "29a1d1ec5440f8936c05883205f7dc0f5cba53723b01d2f68c3f3e54298e3af1",
-        "signature": "c33db766e301eb8fb8091cdad4e768acc0c8683a953c247741a8674c47deaece",
-        "affectsGlobalScope": false
-      },
-      "./src/project/path.ts": {
-        "version": "4f879042df9c385e086272958dafe1ff5dc21d40c868fe2cb182a2e365de892f",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "./src/project/__project__/src/app.js": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "./src/project/__project__/src/index/index.js": {
-        "version": "f741fe7d6a88dce8831048deec7f24bd4121a6e492064d52c55c1c9a1161b73a",
-        "signature": "661dd41e490db0388f9f3e2f47ed80aa563767703739d7ce1e440fac49795cae",
+        "version": "28e6b05c50c1565322eb9fb19c19cde66da7f1cf2531ae45f36c2045227a3792",
+        "signature": "3d3cb4a1d534ae8a8a24c68c70ade181d37caee701023cc938e40b9f49492d3b",
         "affectsGlobalScope": false
       },
       "./src/shared/defaultwebpackconfig.js": {
@@ -696,30 +721,55 @@
         "signature": "a0273e9ec754a0fee045ce840b045c6016fe3eff058a6f2752d2cc6c45800b74",
         "affectsGlobalScope": true
       },
-      "./node_modules/chalk/index.d.ts": {
-        "version": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
-        "signature": "0d14fa22c41fdc7277e6f71473b20ebc07f40f00e38875142335d5b63cdfc9d2",
-        "affectsGlobalScope": false
-      },
-      "./src/shared/print.js": {
-        "version": "5c1e50a6721fb07152ebbe36bbbcc176f79b184e2fd7ea8b7a09510b7706e740",
-        "signature": "e6ee7197469f3244c0862d7ebf654022740a5bee17cf9c8ce030f2d10a935f7b",
-        "affectsGlobalScope": true
-      },
-      "./node_modules/axios/index.d.ts": {
-        "version": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
-        "signature": "0d892f035dbee4534f0ba096407136877595ca592f67ec9bb8a5c912b9c967e8",
-        "affectsGlobalScope": false
-      },
-      "./src/tvm/index.ts": {
-        "version": "3319140b9d7ac2ee74d83c8c19534a7666234c7d3579cc335194216efb7f418c",
-        "signature": "884ec58f641060711063ef0616dcd0d6d7fe6ff246ebd0f787d1dc8e854a86fc",
-        "affectsGlobalScope": false
-      },
       "./node_modules/@types/color-name/index.d.ts": {
         "version": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
         "signature": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
         "affectsGlobalScope": false
+      },
+      "./node_modules/@types/minimatch/index.d.ts": {
+        "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
+        "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/wechat-miniprogram/lib.wx.app.d.ts": {
+        "version": "d41bab0278e5b53ab12796f69f334cb1238969a5e3b6a74a6eae4a4e6714c363",
+        "signature": "d41bab0278e5b53ab12796f69f334cb1238969a5e3b6a74a6eae4a4e6714c363",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/wechat-miniprogram/lib.wx.page.d.ts": {
+        "version": "367f98f15dd2def697dd6ed975d154f60cdc09a7ac38cc57ca6a1b926c6bb86e",
+        "signature": "367f98f15dd2def697dd6ed975d154f60cdc09a7ac38cc57ca6a1b926c6bb86e",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/wechat-miniprogram/lib.wx.api.d.ts": {
+        "version": "d21d6ee3d067571dc40dd5d1105e3f830b6b7b9948136a3674c3db8a6f571063",
+        "signature": "d21d6ee3d067571dc40dd5d1105e3f830b6b7b9948136a3674c3db8a6f571063",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/wechat-miniprogram/lib.wx.cloud.d.ts": {
+        "version": "100c1c6083b204cb924849969a0a00c50b9c6b0b038d8e4948c893f7b248c061",
+        "signature": "100c1c6083b204cb924849969a0a00c50b9c6b0b038d8e4948c893f7b248c061",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/wechat-miniprogram/lib.wx.component.d.ts": {
+        "version": "d560ba9655c609fb92a7d60f1cd18563afefc8104082be43d2601b1ecccb1105",
+        "signature": "d560ba9655c609fb92a7d60f1cd18563afefc8104082be43d2601b1ecccb1105",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/wechat-miniprogram/lib.wx.behavior.d.ts": {
+        "version": "3b5100b44f67571d4d02e36e2820069f23a78787b337bc53ca0a566e3b85b87f",
+        "signature": "3b5100b44f67571d4d02e36e2820069f23a78787b337bc53ca0a566e3b85b87f",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/wechat-miniprogram/lib.wx.event.d.ts": {
+        "version": "45b8f9a138d7cff6137943fbbce58eeec8975ef43ec508ea2b949128a503e447",
+        "signature": "45b8f9a138d7cff6137943fbbce58eeec8975ef43ec508ea2b949128a503e447",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/wechat-miniprogram/index.d.ts": {
+        "version": "7aaf209f1eacca3af38d4829e8d0d5e61e562ce99a056764ea815784d6c00884",
+        "signature": "7aaf209f1eacca3af38d4829e8d0d5e61e562ce99a056764ea815784d6c00884",
+        "affectsGlobalScope": true
       },
       "../../node_modules/@types/anymatch/index.d.ts": {
         "version": "48b52264fa193879a074197839dbb4796fa07e86350ff888e5361e06aa46df76",
@@ -755,26 +805,6 @@
         "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/prop-types/index.d.ts": {
-        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/global.d.ts": {
-        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "affectsGlobalScope": true
-      },
-      "../../node_modules/csstype/index.d.ts": {
-        "version": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "signature": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/index.d.ts": {
-        "version": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "signature": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "affectsGlobalScope": true
       },
       "../../node_modules/@types/source-list-map/index.d.ts": {
         "version": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
@@ -888,6 +918,7 @@
       "charset": "utf8",
       "sourceMap": true,
       "composite": true,
+      "jsx": 2,
       "rootDir": "./src",
       "baseUrl": "./",
       "outDir": "./dist",
@@ -899,7 +930,7 @@
           "../struct/*"
         ]
       },
-      "pathsBasePath": "/Users/weiyanhai/Downloads/tick/packages/cli",
+      "pathsBasePath": "/Users/aniwei/Desktop/tickjs/packages/cli",
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
@@ -908,9 +939,9 @@
         "../../node_modules/@types/node/index.d.ts"
       ],
       "../../node_modules/@types/glob/index.d.ts": [
-        "../../node_modules/@types/minimatch/index.d.ts",
         "../../node_modules/@types/node/events.d.ts",
-        "../../node_modules/@types/node/index.d.ts"
+        "../../node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/minimatch/index.d.ts"
       ],
       "../../node_modules/@types/node/base.d.ts": [
         "../../node_modules/@types/node/assert.d.ts",
@@ -1079,11 +1110,6 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
-      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1169,33 +1195,84 @@
         "../../node_modules/@types/webpack-sources/index.d.ts",
         "../../node_modules/source-map/source-map.d.ts"
       ],
-      "./node_modules/rpc-websockets/dist/index.d.ts": [
-        "./node_modules/rpc-websockets/dist/lib/client.d.ts",
-        "./node_modules/rpc-websockets/dist/lib/client/client.types.d.ts",
-        "./node_modules/rpc-websockets/dist/lib/server.d.ts"
+      "./node_modules/@types/wechat-miniprogram/index.d.ts": [
+        "./node_modules/@types/wechat-miniprogram/lib.wx.api.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.app.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.behavior.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.cloud.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.component.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.event.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.page.d.ts"
       ],
-      "./node_modules/rpc-websockets/dist/lib/client.d.ts": [
-        "./node_modules/eventemitter3/index.d.ts",
-        "./node_modules/rpc-websockets/dist/lib/client/client.types.d.ts"
+      "./node_modules/ora/index.d.ts": [
+        "../../node_modules/@types/node/index.d.ts",
+        "./node_modules/cli-spinners/index.d.ts"
       ],
-      "./node_modules/rpc-websockets/dist/lib/server.d.ts": [
-        "./node_modules/eventemitter3/index.d.ts"
+      "./src/cli.ts": [
+        "../../node_modules/@types/node/child_process.d.ts",
+        "./node_modules/chalk/index.d.ts",
+        "./src/shared/command.ts",
+        "./src/shared/env.ts",
+        "./src/shared/spinner.ts"
       ],
       "./src/commands/index.ts": [
         "./src/commands/init/index.ts",
-        "./src/commands/start/index.ts"
+        "./src/commands/ls/index.ts",
+        "./src/commands/start/index.ts",
+        "./src/commands/stop/index.ts"
+      ],
+      "./src/commands/init/index.ts": [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "../../node_modules/@types/node/path.d.ts",
+        "./src/shared/command.ts",
+        "./src/shared/env.ts"
+      ],
+      "./src/commands/start/index.ts": [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "../../node_modules/@types/node/child_process.d.ts",
+        "../../node_modules/@types/node/path.d.ts",
+        "./src/shared/command.ts",
+        "./src/shared/env.ts"
+      ],
+      "./src/commands/start/project.ts": [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "../../node_modules/@types/node/child_process.d.ts",
+        "../../node_modules/@types/node/events.d.ts",
+        "../../node_modules/@types/node/path.d.ts",
+        "./src/commands/start/template.ts",
+        "./src/shared/command.ts",
+        "./src/shared/env.ts"
       ],
       "./src/commands/start/template.ts": [
-        "../template/dist/index.d.ts"
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "../../node_modules/@types/node/path.d.ts",
+        "../template/dist/index.d.ts",
+        "./node_modules/xml-formatter/index.d.ts"
+      ],
+      "./src/commands/stop/index.ts": [
+        "./src/shared/command.ts"
       ],
       "./src/daemon/index.ts": [
         "../../node_modules/@types/fs-extra/index.d.ts",
         "../../node_modules/@types/node/path.d.ts",
-        "./src/daemon/rpc.ts",
+        "./node_modules/axios/index.d.ts",
+        "./node_modules/compare-versions/index.d.ts",
+        "./src/commands/index.ts",
+        "./src/shared/command.ts",
         "./src/shared/env.ts"
       ],
-      "./src/daemon/rpc.ts": [
-        "../../node_modules/@types/node/net.d.ts"
+      "./src/daemon/vm.ts": [
+        "./node_modules/axios/index.d.ts",
+        "./src/shared/env.ts"
+      ],
+      "./src/project/create.ts": [
+        "../../node_modules/@types/node/path.d.ts"
+      ],
+      "./src/shared/command.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "../../node_modules/@types/node/net.d.ts",
+        "../../node_modules/@types/node/url.d.ts",
+        "./src/shared/sock.ts"
       ],
       "./src/shared/defaultwebpackconfig.js": [
         "../../node_modules/@types/node/path.d.ts",
@@ -1206,18 +1283,17 @@
         "../../node_modules/@types/minimist/index.d.ts",
         "../../node_modules/@types/node/path.d.ts"
       ],
-      "./src/shared/print.js": [
-        "./node_modules/chalk/index.d.ts"
+      "./src/shared/sock.ts": [
+        "../../node_modules/@types/fs-extra/index.d.ts",
+        "../../node_modules/@types/node/constants.d.ts",
+        "../../node_modules/@types/node/events.d.ts",
+        "../../node_modules/@types/node/net.d.ts",
+        "../../node_modules/@types/node/url.d.ts"
       ],
-      "./src/tickcli.ts": [
-        "../../node_modules/@types/node/child_process.d.ts",
-        "./node_modules/rpc-websockets/dist/index.d.ts",
-        "./src/shared/env.ts"
-      ],
-      "./src/tvm/index.ts": [
-        "./node_modules/axios/index.d.ts",
-        "./src/commands/index.ts",
-        "./src/shared/env.ts"
+      "./src/shared/spinner.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "./node_modules/ora/index.d.ts",
+        "./src/shared/command.ts"
       ],
       "../template/dist/createtemplate.d.ts": [
         "../template/dist/ticktemplatenode.d.ts"
@@ -1492,11 +1568,6 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
-      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1582,36 +1653,57 @@
         "../../node_modules/@types/webpack-sources/index.d.ts",
         "../../node_modules/source-map/source-map.d.ts"
       ],
-      "./node_modules/rpc-websockets/dist/index.d.ts": [
-        "./node_modules/rpc-websockets/dist/lib/client.d.ts",
-        "./node_modules/rpc-websockets/dist/lib/client/client.types.d.ts",
-        "./node_modules/rpc-websockets/dist/lib/server.d.ts"
+      "./node_modules/@types/wechat-miniprogram/index.d.ts": [
+        "./node_modules/@types/wechat-miniprogram/lib.wx.api.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.app.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.behavior.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.cloud.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.component.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.event.d.ts",
+        "./node_modules/@types/wechat-miniprogram/lib.wx.page.d.ts"
       ],
-      "./node_modules/rpc-websockets/dist/lib/client.d.ts": [
-        "./node_modules/eventemitter3/index.d.ts",
-        "./node_modules/rpc-websockets/dist/lib/client/client.types.d.ts"
+      "./node_modules/ora/index.d.ts": [
+        "../../node_modules/@types/node/index.d.ts",
+        "./node_modules/cli-spinners/index.d.ts"
       ],
-      "./node_modules/rpc-websockets/dist/lib/server.d.ts": [
-        "./node_modules/eventemitter3/index.d.ts"
+      "./src/cli.ts": [
+        "./src/shared/command.ts",
+        "./src/shared/spinner.ts"
       ],
       "./src/commands/index.ts": [
         "./src/commands/init/index.ts",
-        "./src/commands/start/index.ts"
+        "./src/commands/ls/index.ts",
+        "./src/commands/start/index.ts",
+        "./src/commands/stop/index.ts"
       ],
-      "./src/commands/start/template.ts": [
-        "../template/dist/index.d.ts"
+      "./src/commands/init/index.ts": [
+        "./src/shared/command.ts"
+      ],
+      "./src/commands/start/project.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "./src/shared/command.ts"
+      ],
+      "./src/commands/stop/index.ts": [
+        "./src/shared/command.ts"
       ],
       "./src/daemon/index.ts": [
-        "./src/daemon/rpc.ts"
+        "./src/shared/command.ts"
       ],
-      "./src/daemon/rpc.ts": [
-        "../../node_modules/@types/node/net.d.ts"
+      "./src/shared/command.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "../../node_modules/@types/node/net.d.ts",
+        "./src/shared/sock.ts"
       ],
       "./src/shared/env.ts": [
         "../../node_modules/@types/minimist/index.d.ts"
       ],
-      "./src/tickcli.ts": [
-        "./node_modules/rpc-websockets/dist/index.d.ts"
+      "./src/shared/sock.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "../../node_modules/@types/node/net.d.ts"
+      ],
+      "./src/shared/spinner.ts": [
+        "../../node_modules/@types/node/events.d.ts",
+        "./src/shared/command.ts"
       ],
       "../template/dist/createtemplate.d.ts": [
         "../template/dist/ticktemplatenode.d.ts"
@@ -1766,9 +1858,6 @@
       "../../node_modules/@types/node/zlib.d.ts",
       "../../node_modules/@types/normalize-package-data/index.d.ts",
       "../../node_modules/@types/parse-json/index.d.ts",
-      "../../node_modules/@types/prop-types/index.d.ts",
-      "../../node_modules/@types/react/global.d.ts",
-      "../../node_modules/@types/react/index.d.ts",
       "../../node_modules/@types/source-list-map/index.d.ts",
       "../../node_modules/@types/tapable/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
@@ -1786,7 +1875,6 @@
       "../../node_modules/@types/webpack-sources/lib/sourcemapsource.d.ts",
       "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
       "../../node_modules/@types/webpack/index.d.ts",
-      "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
       "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -1832,30 +1920,40 @@
       "../../node_modules/typescript/lib/lib.esnext.string.d.ts",
       "../../node_modules/typescript/lib/lib.esnext.weakref.d.ts",
       "./node_modules/@types/color-name/index.d.ts",
+      "./node_modules/@types/minimatch/index.d.ts",
+      "./node_modules/@types/wechat-miniprogram/index.d.ts",
+      "./node_modules/@types/wechat-miniprogram/lib.wx.api.d.ts",
+      "./node_modules/@types/wechat-miniprogram/lib.wx.app.d.ts",
+      "./node_modules/@types/wechat-miniprogram/lib.wx.behavior.d.ts",
+      "./node_modules/@types/wechat-miniprogram/lib.wx.cloud.d.ts",
+      "./node_modules/@types/wechat-miniprogram/lib.wx.component.d.ts",
+      "./node_modules/@types/wechat-miniprogram/lib.wx.event.d.ts",
+      "./node_modules/@types/wechat-miniprogram/lib.wx.page.d.ts",
       "./node_modules/axios/index.d.ts",
       "./node_modules/chalk/index.d.ts",
-      "./node_modules/eventemitter3/index.d.ts",
-      "./node_modules/rpc-websockets/dist/index.d.ts",
-      "./node_modules/rpc-websockets/dist/lib/client.d.ts",
-      "./node_modules/rpc-websockets/dist/lib/client/client.types.d.ts",
-      "./node_modules/rpc-websockets/dist/lib/server.d.ts",
+      "./node_modules/cli-spinners/index.d.ts",
+      "./node_modules/compare-versions/index.d.ts",
+      "./node_modules/ora/index.d.ts",
+      "./node_modules/xml-formatter/index.d.ts",
+      "./src/cli.ts",
       "./src/commands/index.ts",
+      "./src/commands/init/--project--/src/app.js",
+      "./src/commands/init/--project--/src/index/index.js",
       "./src/commands/init/index.ts",
+      "./src/commands/ls/index.ts",
       "./src/commands/start/index.ts",
+      "./src/commands/start/project.ts",
       "./src/commands/start/template.ts",
+      "./src/commands/stop/index.ts",
       "./src/daemon/index.ts",
-      "./src/daemon/rpc.ts",
+      "./src/daemon/vm.ts",
       "./src/global.d.ts",
-      "./src/project/__project__/src/app.js",
-      "./src/project/__project__/src/index/index.js",
       "./src/project/create.ts",
-      "./src/project/index.ts",
-      "./src/project/path.ts",
+      "./src/shared/command.ts",
       "./src/shared/defaultwebpackconfig.js",
       "./src/shared/env.ts",
-      "./src/shared/print.js",
-      "./src/tickcli.ts",
-      "./src/tvm/index.ts",
+      "./src/shared/sock.ts",
+      "./src/shared/spinner.ts",
       "../template/dist/createtemplate.d.ts",
       "../template/dist/index.d.ts",
       "../template/dist/shared.d.ts",

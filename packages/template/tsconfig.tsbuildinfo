@@ -446,6 +446,11 @@
         "signature": "32d4b64abc5386429463b0d497f5ef0c812e653d22024540e60c51a7d145dbb3",
         "affectsGlobalScope": false
       },
+      "./src/tickthirdparty.ts": {
+        "version": "917e8b14cb67363d8d397d34500fcd310fcb7cd0c665091d9139d3d730e68c62",
+        "signature": "2fe9f824ee9689fa988eb5eb5fa870b83a5237a70aff59bd80a1fb9b45f47c39",
+        "affectsGlobalScope": false
+      },
       "./src/index.ts": {
         "version": "eef565ad68a84a925c7cc9e1f57a7faebb10d75db78dcb637a07ba0721af82b3",
         "signature": "18addab31876e7285358fcb323f3e2f367970bef92b1c48145501a0704b09179",
@@ -730,26 +735,6 @@
         "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
         "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/prop-types/index.d.ts": {
-        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/global.d.ts": {
-        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "affectsGlobalScope": true
-      },
-      "../../node_modules/csstype/index.d.ts": {
-        "version": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "signature": "ea58e4cbcf3d760a15f9300978a360c46360f544b355c737b60c733a385b8858",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/index.d.ts": {
-        "version": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "signature": "277e380acf34d4f66398100a66ac29213ea43674f114906f007204f29cc9a8b7",
-        "affectsGlobalScope": true
       },
       "../../node_modules/@types/source-list-map/index.d.ts": {
         "version": "67fc055eb86a0632e2e072838f889ffe1754083cb13c8c80a06a7d895d877aae",
@@ -1045,11 +1030,6 @@
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
       ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
-      ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
       ],
@@ -1313,6 +1293,10 @@
         "./src/ticktemplateifexpression.ts",
         "./src/ticktemplateloopnode.ts",
         "./src/ticktemplatenode.ts"
+      ],
+      "./src/tickthirdparty.ts": [
+        "./src/shared.ts",
+        "./src/ticktemplatecomponent.ts"
       ]
     },
     "exportedModulesMap": {
@@ -1491,11 +1475,6 @@
       ],
       "../../node_modules/@types/node/zlib.d.ts": [
         "../../node_modules/@types/node/stream.d.ts"
-      ],
-      "../../node_modules/@types/react/index.d.ts": [
-        "../../node_modules/@types/prop-types/index.d.ts",
-        "../../node_modules/@types/react/global.d.ts",
-        "../../node_modules/csstype/index.d.ts"
       ],
       "../../node_modules/@types/uglify-js/index.d.ts": [
         "../../node_modules/source-map/source-map.d.ts"
@@ -1715,6 +1694,9 @@
       ],
       "./src/ticktemplateworker.ts": [
         "./src/ticktemplatenode.ts"
+      ],
+      "./src/tickthirdparty.ts": [
+        "./src/ticktemplatecomponent.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -1774,9 +1756,6 @@
       "../../node_modules/@types/node/zlib.d.ts",
       "../../node_modules/@types/normalize-package-data/index.d.ts",
       "../../node_modules/@types/parse-json/index.d.ts",
-      "../../node_modules/@types/prop-types/index.d.ts",
-      "../../node_modules/@types/react/global.d.ts",
-      "../../node_modules/@types/react/index.d.ts",
       "../../node_modules/@types/source-list-map/index.d.ts",
       "../../node_modules/@types/tapable/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
@@ -1794,7 +1773,6 @@
       "../../node_modules/@types/webpack-sources/lib/sourcemapsource.d.ts",
       "../../node_modules/@types/webpack-sources/node_modules/source-map/source-map.d.ts",
       "../../node_modules/@types/webpack/index.d.ts",
-      "../../node_modules/csstype/index.d.ts",
       "../../node_modules/source-map/source-map.d.ts",
       "../../node_modules/typescript/lib/lib.dom.d.ts",
       "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -1885,7 +1863,8 @@
       "./src/ticktemplatetextareanode.ts",
       "./src/ticktemplatetextnode.ts",
       "./src/ticktemplateviewnode.ts",
-      "./src/ticktemplateworker.ts"
+      "./src/ticktemplateworker.ts",
+      "./src/tickthirdparty.ts"
     ]
   },
   "version": "4.1.3"

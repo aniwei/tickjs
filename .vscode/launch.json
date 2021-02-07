@@ -7,23 +7,18 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "test-cli-init",
-      "program": "${workspaceFolder}/packages/cli/bin/cli",
-      "preLaunchTask": "build",
+      "name": "test-program",
       "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
-      // "runtimeExecutable": "/Users/aniwei/.nvm/versions/node/v12.18.1/bin/node",
       "sourceMaps": true,
-      "args": ["init"],
-      "cwd": "${workspaceFolder}/packages/test"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "test-template",
-      "program": "${workspaceFolder}/packages/template/__test__/index.js",
-      "preLaunchTask": "build",
-      "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
-      "sourceMaps": true
+      "cwd": "${workspaceFolder}/packages/program",
+      "env": {
+        "DEBUG": "*"
+      },
+      "args": [
+        "-r",
+        "ts-node/register",
+        "./src/index.ts"
+      ]
     }
   ]
 }

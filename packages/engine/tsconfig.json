@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react",
+    "rootDir": "../vm/src",
+    "baseUrl": "../vm",
+    "outDir": "../vm/dist",
+    "paths": {
+    },
+  },
+  "include": [
+    "../vm/src"
+  ],
+  "references": [{ "path": "../vm" }]
+ }

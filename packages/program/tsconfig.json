@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": [
+      "esnext"
+    ],
+    "types": ["reflect-metadata"],
+    "jsx": "react",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "paths": {
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "./src"
+  ],
+  "references": [{ "path": "../program" }]
+ }
