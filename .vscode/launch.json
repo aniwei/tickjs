@@ -17,7 +17,7 @@
       "args": [
         "-r",
         "ts-node/register",
-        "./src/index.ts"
+        "./src/node/index.ts"
       ]
     }
   ]

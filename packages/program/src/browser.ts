@@ -5,7 +5,7 @@ import {
   MiniProgramContext,
   MiniProgramScript,
   // MiniProgramScriptLoader,
-} from './MiniProgram/MiniProgram';
+} from './MiniProgram';
 
 export function runMiniApplication ({
   invokeHandler,

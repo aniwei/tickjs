@@ -1,13 +1,14 @@
 import debug from 'debug';
+import fs from 'fs-extra';
 
 import { 
   MiniProgramMachine,
   MiniProgramContext,
   MiniProgramScript,
   // MiniProgramScriptLoader,
-} from './MiniProgram/MiniProgram';
+} from './MiniProgram';
 
-export function runMiniApplication ({
+export async function runMiniApplication ({
   invokeHandler,
   publishHandler
 }) {

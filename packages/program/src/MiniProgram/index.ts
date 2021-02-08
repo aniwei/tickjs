@@ -1,76 +1,59 @@
+import { debug } from 'console';
 import { EventEmitter } from 'events';
-import { resolve } from 'path';
-import debug from 'debug';
-import fs from 'fs-extra';
-import vm from 'vm';
 
-import {
-  getMiniProgramContext
-} from './context'
+export const subscribeHandler = (name, options, id) => (`
+WeixinJSBridge.subscribeHandler(
+  "${name}",
+  ${JSON.stringify(options)},
+  ${id},
+  { nativeTime: ${Date.now() / 1000} }
+)`);
 
-export class VMWare extends EventEmitter {
-  static WAServiceFileString: string | null = null;
-  static WAAPPServiceFileString: string | null = null;
+export const invokeCallbackHandler = (name, options, id) => (`
+WeixinJSBridge.invokeCallbackHandler(
+  "${name}",
+  ${JSON.stringify(options)},
+  ${id},
+  { nativeTime: ${Date.now() / 1000} }
+)`);
 
-  static async JSScriptLoader () {
-    debug('VMWare')(`加载 SDK JavaScript`);
+export abstract class MiniProgram extends EventEmitter {
+  public context: any | null = {};
+  public scripts: any[] = [];
+  public abstract invokeHandler: Function | null;
+  public abstract publishHandler: Function | null;
 
-    if (this.WAServiceFileString === null) {
-      debug('VMWare')(`加载 WAService.js`);
-      this.WAServiceFileString = String(await fs.readFile(resolve(__dirname, 'thirdParty/WAService.js')))
-    }
-
-    if (this.WAAPPServiceFileString === null) {
-      debug('VMWare')(`加载 app-service.js`);
-      this.WAAPPServiceFileString = String(await fs.readFile(resolve(__dirname, 'thirdParty/app-service.js')))
-    }
-  }
-
-  public script: vm.Script | null = null;
-  public context: object | null = null;
-  public appid: string | null = null;
-
-  constructor (appid: string) {
+  constructor () {
     super();
 
-    this.appid = appid;
+    this.injectContext('WeixinJSCore', {
+      invokeHandler: (name, options, callbackId) => {
+        if (this.invokeHandler) {
+          return this.invokeHandler(name, options, callbackId)
+        }
+      },
+      publishHandler: (name, options, callbackId) => {
+        if (this.publishHandler) {
+          return this.publishHandler(name, options, callbackId)
+        }
+      }
+    })
   }
 
-  async run () {
-    await VMWare.JSScriptLoader();
+  injectContext (name: string, value: any) {
+    this.context[name] = value;
 
-    this.context = getMiniProgramContext();
-
-    debug('VMWare')(`执行小程序运行环境`);
-
-    Object.assign(globalThis, this.context);
-
-    const script = new vm.Script(VMWare.WAServiceFileString as string, {
-      filename: 'WAService.js'
-    });
-
-    script.runInThisContext(this.context);
-
-    const app = new vm.Script(VMWare.WAAPPServiceFileString as string, {
-      filename: 'app-service.js'
-    });
-
-    app.runInThisContext(this.context);    
-
-    const launch = new vm.Script(`WeixinJSBridge.subscribeHandler("onAppRoute", {path: "pages/piece/piece.html", query: {}, openType: "reLaunch"}, 3, {nativeTime: 1612684779258}, )`, {
-      filename: 'app-service.js'
-    });
-
-    launch.runInThisContext(this.context);
+    this.runInContext(this.context);
   }
 
-  async destroy () {
+  abstract evaluateScript (code: string, filename?: string);
+  abstract runInContext (context: any | null);
 
+  invokeCallbackHandler (name: string, options: any, id: number) {
+    return invokeCallbackHandler(name, options, id);
+  }
+
+  subscribeHandler (name, options, id) {
+    return subscribeHandler(name, options, id);
   }
 }
-
-const env = process.env;
-debug('VMWare')(`创建小程序 VMWare：%s`, env.APPID);
-const vmware = new VMWare(env.APPID as string);
-
-vmware.run();
