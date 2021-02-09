@@ -5,7 +5,6 @@ import fs from 'fs-extra';
 import vm, { RunningScriptOptions } from 'vm';
 import { MiniProgram } from '../MiniProgram';
 import { navigator } from './context/navigator';
-import { WeixinJSCore } from './context/WeixinJSCore';
 
 class MiniProgramImpl extends MiniProgram {
   evaluateScript (code: string, filename?: string) {
@@ -19,16 +18,20 @@ class MiniProgramImpl extends MiniProgram {
   }
 
 
-  invokeHandler = function (name, options, callbackId) {
-    console.log(name)
+  invokeHandler = (name, options, callbackId) => {
+    debug('MiniProgramImpl')('调用原生能力：%s, %d', name, callbackId);
 
-    if (name === 'getStorageSync') {
-      debugger;
-      return 'test'
+    if (name === 'getStorageSync' && options.indexOf('name') > -1) {
+      this.invokeCallbackHandler(callbackId, {
+        
+        data: 'test',
+        dataType: 'String'
+      });
     }
+
   }
 
-  publishHandler = function () {
+  publishHandler = () => {
 
   }
 }
@@ -36,10 +39,13 @@ class MiniProgramImpl extends MiniProgram {
 export async function createMiniProgram ({ appid, application, config }) {
   const miniProgram = new MiniProgramImpl();
 
-  miniProgram.injectContext('navigator', navigator);
   miniProgram.injectContext('setTimeout', setTimeout);
   miniProgram.injectContext('setInterval', setInterval);
   miniProgram.injectContext('clearTimeout', clearTimeout);
+  
+  miniProgram.injectContext('navigator', {
+    userAgent: ''
+  });
 
   miniProgram.injectContext('__wxConfig', config);
 

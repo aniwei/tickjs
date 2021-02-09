@@ -32613,6 +32613,8 @@ define("app.js", function(require, module, exports, window, document, frames, se
             App({
                 onLaunch: function() {
                     debugger;
+                    const a = wx.getStorageSync('name');
+                    debugger;
                     t.dataSync.updateSystemInfo(this),
                     this.checkAppUpdate()
                 },
@@ -40319,7 +40321,8 @@ define("pages/piece/piece.js", function(require, module, exports, window, docume
                     })
                 },
                 onLoad: function() {
-                    debugger;
+                    
+
                     var t = this;
                     this.selectComponent("#loading").openModal(),
                     wx.hideShareMenu(),

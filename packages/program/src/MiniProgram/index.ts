@@ -9,12 +9,10 @@ WeixinJSBridge.subscribeHandler(
   { nativeTime: ${Date.now() / 1000} }
 )`);
 
-export const invokeCallbackHandler = (name, options, id) => (`
+export const invokeCallbackHandler = (callbackId: number | string, data: any) => (`
 WeixinJSBridge.invokeCallbackHandler(
-  "${name}",
-  ${JSON.stringify(options)},
-  ${id},
-  { nativeTime: ${Date.now() / 1000} }
+  ${callbackId},
+  ${JSON.stringify(data)}
 )`);
 
 export abstract class MiniProgram extends EventEmitter {
@@ -49,8 +47,8 @@ export abstract class MiniProgram extends EventEmitter {
   abstract evaluateScript (code: string, filename?: string);
   abstract runInContext (context: any | null);
 
-  invokeCallbackHandler (name: string, options: any, id: number) {
-    return invokeCallbackHandler(name, options, id);
+  invokeCallbackHandler (callbackId: number | string, data: any) {
+    return this.evaluateScript(invokeCallbackHandler(callbackId, data));
   }
 
   subscribeHandler (name, options, id) {
