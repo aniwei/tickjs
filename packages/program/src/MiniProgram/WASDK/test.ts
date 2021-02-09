@@ -7,7 +7,17 @@ if (!globalThis.WeixinJSBridge.__dev__) {
     invokeCallbackHandler: function () {
       console.log('「invokeCallbackHandler」', arguments);
       originWeixinJSBridge.invokeCallbackHandler.apply(globalThis.WeixinJSBridge, arguments)
-    }
+    }, 
+
+    subscribeHandler: function () {
+      console.log('「subscribeHandler」     ', arguments);
+      originWeixinJSBridge.subscribeHandler.apply(globalThis.WeixinJSBridge, arguments)
+    },
+
+    on: function () {
+      console.log('「on」                   ', arguments);
+      originWeixinJSBridge.on.apply(globalThis.WeixinJSBridge, arguments)
+    },
   })
 
   globalThis.WeixinJSBridge.__dev__ = true;

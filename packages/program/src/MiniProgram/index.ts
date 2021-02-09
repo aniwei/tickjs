@@ -1,12 +1,12 @@
 import { debug } from 'console';
 import { EventEmitter } from 'events';
 
-export const subscribeHandler = (name, options, id) => (`
+export const subscribeHandler = (name, params, callbackId, options?) => (`
 WeixinJSBridge.subscribeHandler(
   "${name}",
-  ${JSON.stringify(options)},
-  ${id},
-  { nativeTime: ${Date.now() / 1000} }
+  ${JSON.stringify(params)},
+  ${callbackId},
+  ${JSON.stringify({ nativeTime: Date.now(), ...options })}
 )`);
 
 export const invokeCallbackHandler = (callbackId: number | string, data: any) => (`
@@ -44,6 +44,16 @@ export abstract class MiniProgram extends EventEmitter {
     this.runInContext(this.context);
   }
 
+  launch ({ path , query }) {
+    this.subscribeHandler('onAppRoute', {
+      path,
+      query,
+      openType: 'appLaunch'
+    }, 2, {
+      nativeTime: Date.now()
+    })
+  }
+
   abstract evaluateScript (code: string, filename?: string);
   abstract runInContext (context: any | null);
 
@@ -51,7 +61,7 @@ export abstract class MiniProgram extends EventEmitter {
     return this.evaluateScript(invokeCallbackHandler(callbackId, data));
   }
 
-  subscribeHandler (name, options, id) {
-    return subscribeHandler(name, options, id);
+  subscribeHandler (name, params, callbackId, options?) {
+    return this.evaluateScript(subscribeHandler(name, params, callbackId, options));
   }
 }
