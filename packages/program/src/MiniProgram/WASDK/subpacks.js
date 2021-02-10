@@ -47,7 +47,6 @@ define("subpacks/UsuallyModule/Invite/InviteDetail.js", function (require, modul
       e.atourRequest("GET", "fission/".concat(1 == a ? "lucky" : "invitation", "/shareDetail"), {
         shareCode: n
       }).then(function (e) {
-        debugger;
         var o = e.data;
         0 == o.retcode ? t.initData(o.result) : 10015 == o.retcode ? t.clearToken() : t.hideShare()
       }).catch(function (e) {

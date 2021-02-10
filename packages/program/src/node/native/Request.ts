@@ -3,16 +3,28 @@ import { EventEmitter } from 'events';
 import { Invoker, InvokerInterface } from './Invoker';
 
 class Request extends EventEmitter{
-  static cursor = 0;
+  static cursor = 1;
 
   public id: number = Request.cursor++;
   
   constructor (params) {
     super();
 
+    debugger;
+
     setTimeout(() => {
       this.emit('change', {
-        requestTaskId: this.id,
+        requestTaskId: String(this.id),
+        state: 'headersReceived',
+        data: `{}`,
+        statusCode: 200,
+        header: {}
+      });
+    }, 500)
+
+    setTimeout(() => {
+      this.emit('change', {
+        requestTaskId: String(this.id),
         state: 'success',
         data: `{}`,
         statusCode: 200,
@@ -23,7 +35,7 @@ class Request extends EventEmitter{
 
 }
 
-export class AsyncRequest extends Invoker implements InvokerInterface {
+export class SyncRequest extends Invoker implements InvokerInterface {
   invoke (options, callbackId): void {
     super.invoke(options, callbackId);
 
@@ -32,10 +44,10 @@ export class AsyncRequest extends Invoker implements InvokerInterface {
     request.on('change', this.onChange);
 
     this.data = {
-      requestTaskId: request.id
+      requestTaskId: String(request.id)
     }
 
-    this.success().async();
+    this.success().sync();
   }
 
   onChange = (data) => {

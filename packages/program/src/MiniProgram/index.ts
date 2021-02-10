@@ -1,4 +1,3 @@
-import { debug } from 'console';
 import { EventEmitter } from 'events';
 
 export const subscribeHandler = (name, params, callbackId, options?) => (`

@@ -49,6 +49,6 @@ export class NativeInvoker {
 
     this.bind(Invokers.GET_NETWORK_TYPE).to(Network.AsyncGetter);
 
-    this.bind(Invokers.CREATE_REQUEST_TASK).to(Request.AsyncRequest);
+    this.bind(Invokers.CREATE_REQUEST_TASK).to(Request.SyncRequest);
   }
 }
