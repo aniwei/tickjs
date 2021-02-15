@@ -1,6 +1,7 @@
 import debug from 'debug'
 import vm from 'vm';
 import { MiniProgram } from '../MiniProgram';
+import { MiniProgramRenderer } from './renderer';
 
 import {
   NativeInvoker
@@ -8,11 +9,17 @@ import {
 
 export class MiniProgramImpl extends MiniProgram {
   public invoker: NativeInvoker | null = null;
+  public renderer: MiniProgramRenderer | null = null;
+  public config: any | null = null;
+  public appid: string | null = null;
 
-  constructor () {
+  constructor (appid, config) {
     super();
 
+    this.appid = appid;
+    this.config = config;
     this.invoker = new NativeInvoker(this);
+    this.renderer = new MiniProgramRenderer();
     this.invoker.binding();
   }
 
@@ -26,6 +33,12 @@ export class MiniProgramImpl extends MiniProgram {
     this.context = context;
   }
 
+  async launch (options) {
+    await this.renderer?.launch();
+    super.launch(options);
+
+    this.renderer?.open(options.path, this.config);
+  }
 
   invokeHandler = (name, options, callbackId) => {
     debug('MiniProgramImpl')('调用原生能力：%s, %d', name, callbackId);

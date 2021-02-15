@@ -12,7 +12,10 @@
   "dependencies": {
     "axios": "^0.21.1",
     "events": "^3.2.0",
+    "express": "^4.17.1",
+    "farrow": "^1.5.3",
     "inversify": "^5.0.5",
+    "puppeteer": "^7.0.4",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0"

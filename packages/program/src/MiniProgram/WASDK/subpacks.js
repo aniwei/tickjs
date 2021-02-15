@@ -43,7 +43,6 @@ define("subpacks/UsuallyModule/Invite/InviteDetail.js", function (require, modul
         o = this.data.options,
         n = o.shareCode,
         a = o.type;
-      debugger;
       e.atourRequest("GET", "fission/".concat(1 == a ? "lucky" : "invitation", "/shareDetail"), {
         shareCode: n
       }).then(function (e) {

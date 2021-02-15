@@ -36,7 +36,7 @@ export class NativeInvoker {
   invoke (name: Invokers, options: any, callbackId: number) {
     const invoker: Invoker = this.get(name);
     if (invoker) {
-      invoker.invoke(options, callbackId);
+      invoker.invoke(JSON.parse(options), callbackId);
     }
   }
 

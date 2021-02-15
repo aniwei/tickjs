@@ -2,37 +2,37 @@ import axios from 'axios';
 import { EventEmitter } from 'events';
 import { Invoker, InvokerInterface } from './Invoker';
 
-class Request extends EventEmitter{
+class Request extends EventEmitter {
   static cursor = 1;
 
   public id: number = Request.cursor++;
   
-  constructor (params) {
+  constructor (options) {
     super();
 
-    debugger;
-
-    setTimeout(() => {
-      this.emit('change', {
-        requestTaskId: String(this.id),
-        state: 'headersReceived',
-        data: `{}`,
-        statusCode: 200,
-        header: {}
-      });
-    }, 500)
-
-    setTimeout(() => {
+    axios({
+      ...options,
+      headers: {
+        ...options.header
+      },
+    }).then(res => {
       this.emit('change', {
         requestTaskId: String(this.id),
         state: 'success',
-        data: `{}`,
-        statusCode: 200,
-        header: {}
+        data: JSON.stringify(res.data),
+        statusCode: res.status,
+        header: res.headers
       });
-    }, 1000)
+    }).catch(error => {
+      this.emit('change', {
+        requestTaskId: String(this.id),
+        state: 'error',
+        data: JSON.stringify(error.data),
+        statusCode: error.status,
+        header: error.headers
+      });
+    })
   }
-
 }
 
 export class SyncRequest extends Invoker implements InvokerInterface {

@@ -6,7 +6,7 @@ import { MiniProgramImpl } from './MiniProgramImpl';
 
 
 export async function createMiniProgram ({ appid, application, config }) {
-  const miniProgram = new MiniProgramImpl();
+  const miniProgram = new MiniProgramImpl(appid, config);
 
   miniProgram.injectContext('setTimeout', setTimeout);
   miniProgram.injectContext('setInterval', setInterval);
@@ -32,7 +32,7 @@ export async function runMiniProgram (config) {
   const SDKFilePath = (resolve(__dirname, '../MiniProgram/WASDK'));
   const application = (await fs.readFile(resolve(SDKFilePath, 'appservice.js'))).toString();
 
-  const subpacks = (await fs.readFile(resolve(SDKFilePath, 'subpacks.js'))).toString();
+  // const subpacks = (await fs.readFile(resolve(SDKFilePath, 'subpacks.js'))).toString();
   
 
   const miniProgram = await createMiniProgram({
@@ -41,7 +41,7 @@ export async function runMiniProgram (config) {
     config,
   });
 
-  miniProgram.evaluateScript(subpacks, 'subpacks.js')
+  // miniProgram.evaluateScript(subpacks, 'subpacks.js');
 
   miniProgram.launch(config.appLaunchInfo)
 
@@ -57,11 +57,13 @@ async function main () {
       USER_DATA_PATH: '/Users/weiyanhai/.tick/program'
     },
     appLaunchInfo: {
-      path: 'subpacks/UsuallyModule/Invite/InviteDetail',
+      path: 'pages/order/orderList/orderList',
       query: {
         scene: '',
         shareCode: 'LKYP_91959434850184',
-        type: '1'
+        type: '1',
+        suid: '2d444f77-cf85-438e-8369-175cea90aa5b',
+        ic: '8SZS84AB'
       },
       scene: 1001,
       shareTicket: null,
