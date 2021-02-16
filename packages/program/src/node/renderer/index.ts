@@ -29,8 +29,7 @@ export class MiniProgramRenderer extends EventEmitter {
       
       
 
-      page.evaluate(`var WeixinJSCore = {};`);
-      page.evaluate(`var WeixinJSBridge = {};`);
+      page.evaluate(this.context as string);
       page.evaluate(`var __wxConfig=${JSON.stringify(config)};`);
       
       
@@ -44,6 +43,10 @@ export class MiniProgramRenderer extends EventEmitter {
       page.on('console', msg => {
         for (let i = 0; i < msg.args().length; ++i)
           console.log(`${i}: ${msg.args()[i]}`); // 译者注：这句话的效果是打印到你的代码的控制台
+      });
+
+      await page.screenshot({
+        path: __dirname + '/screenshot.png' 
       });
 
       this.pages.set(uri, page);
