@@ -64,7 +64,7 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
     return this;
   }
 
-  async launch (options) {
+  async launch (appLaunchInfo) {
     return new Promise((resolve, reject) => {
       if (this.isContentLoaded) {
         this.once('contentloaded', async (files) => {
@@ -73,27 +73,22 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
             wxss,
             service,
           } = files;
-
-          options = {
-            ...config,
-            ...options
-          }
     
-          await this.service?.launch(options);
-          await this.renderer?.launch(options);
+          await this.service?.launch(appLaunchInfo);
+          await this.renderer?.launch(appLaunchInfo);
 
           this.service?.evaluateScript(service, 'app-service.js');
           this.renderer?.evaluateScript(wxss, 'app-wxss.js');
       
           const view = await this.renderer?.navigate({
             ...this.config,
-            appLaunchInfo: options.appLaunchInfo,
+            appLaunchInfo: appLaunchInfo,
             openType: 'launch'
           });
       
           this.service?.navigate({
             ...this.config,
-            appLaunchInfo: options.appLaunchInfo,
+            appLaunchInfo: appLaunchInfo,
             openType: 'launch',
             view
           });

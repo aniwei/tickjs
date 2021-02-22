@@ -42,4 +42,6 @@ miniProgram
     wxss: resolve(__dirname, 'app-wxss.js'),
     service: resolve(__dirname, 'app-service.js')
   })
-  .launch()
+  .launch({
+    
+  })
