@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import debug from 'debug'
 import vm from 'vm';
 import { resolve } from 'path';
-import { MiniProgramServiceLayer } from './index';
+import { MiniProgramServiceLayer } from './ServiceLayer';
 
 const SDKFilePath = (resolve(__dirname, '../WASDK'));
 const WAServiceJavaScriptString = fs.readFileSync(resolve(SDKFilePath, 'WAService.js')).toString();
@@ -20,12 +20,11 @@ export class MiniProgramServiceLayerNodeImpl extends MiniProgramServiceLayer {
     this.injectContext('setInterval', setInterval);
     this.injectContext('clearTimeout', clearTimeout);
 
+    this.injectContext('__wxConfig', config);
+
     this.injectContext('navigator', {
       userAgent: ''
     });
-
-    this.injectContext('__wxConfig', config);
-    this.evaluateScript(WAServiceJavaScriptString, 'WAService.js');
   }
 
   evaluateScript (code: string, filename?: string) {
@@ -38,8 +37,8 @@ export class MiniProgramServiceLayerNodeImpl extends MiniProgramServiceLayer {
     this.context = context;
   }
 
-  launch () { 
-    
+  launch () {
+    this.evaluateScript(WAServiceJavaScriptString, 'WAService.js');
   }
 
   navigate (options) {

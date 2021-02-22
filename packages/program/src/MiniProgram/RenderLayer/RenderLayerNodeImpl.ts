@@ -4,8 +4,8 @@ import debug from 'debug';
 import puppeteer from 'puppeteer';
 import fs from 'fs-extra';
 
-import { MiniProgramServiceLayer } from '../ServiceLayer'
-import { MiniProgramRenderLayer, MiniProgramViewLayer } from './index';
+import { MiniProgramServiceLayer } from '../ServiceLayer/ServiceLayer'
+import { MiniProgramRenderLayer, MiniProgramViewLayer } from './RenderLayer';
 import { MiniProgramViewLayerNodeImpl } from './ViewLayerNodeImpl';
 
 export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
@@ -74,7 +74,6 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
         for (const [code, filename] of this.scripts) {
           await view.evaluateScript(code, filename);
         }
-
 
         this.views.push({ id: view.id, path, view });
         this.current = view;

@@ -1,19 +1,17 @@
 import fs from 'fs-extra';
-import { EventEmitter } from 'events';
-import { parse, resolve } from 'path';
-import { MiniProgramNativeLayer } from './index'
-import { MiniProgramRenderLayer } from '../RenderLayer';
+import { parse } from 'path';
+import { MiniProgramNativeLayer } from './NativeLayer';
 import { MiniProgramServiceLayerNodeImpl } from '../ServiceLayer';
+import { MiniProgramRenderLayerNodeImpl } from '../RenderLayer'
 
 export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
   isContentLoaded = false;
 
-  static import (files) {
-    const miniProgram = new MiniProgramNativeLayerNodeImpl(files);
-
-    miniProgram.import(files);
-
-    return miniProgram;
+  constructor (config) {
+    super({
+      service: new MiniProgramServiceLayerNodeImpl(config),
+      renderer: new MiniProgramRenderLayerNodeImpl(config)
+    });
   }
 
   content (files) {
