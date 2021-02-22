@@ -4,10 +4,7 @@ import debug from 'debug';
 import fs from 'fs-extra';
 import { MiniProgramImpl } from './MiniProgramImpl';
 
-
-export async function createMiniProgram ({ appid, application, config }) {
-  const miniProgram = new MiniProgramImpl(appid, config);
-
+export async function injectMiniProgramContext (miniProgram) {
   miniProgram.injectContext('setTimeout', setTimeout);
   miniProgram.injectContext('setInterval', setInterval);
   miniProgram.injectContext('clearTimeout', clearTimeout);
@@ -15,6 +12,12 @@ export async function createMiniProgram ({ appid, application, config }) {
   miniProgram.injectContext('navigator', {
     userAgent: ''
   });
+}
+
+export async function createMiniProgram ({ appid, application, config }) {
+  const miniProgram = new MiniProgramImpl(appid, config);
+
+  injectMiniProgramContext(miniProgram);
 
   miniProgram.injectContext('__wxConfig', config);
 

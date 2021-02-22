@@ -1,0 +1,1 @@
+(() => {var s = document.createElement('script');s.src='http://127.0.0.1:50069/__pageframe__/pages/index/__dev__/WAWebview.js';document.body.appendChild(s);})()

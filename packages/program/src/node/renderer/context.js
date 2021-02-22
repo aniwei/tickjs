@@ -1,18 +1,10 @@
 var WeixinJSCore = {
-  invokeHandle: function () {
-    console.log(arguments);
+  invokeHandler: function (name, params) {
+    console.log('[invokeHandler]', name);
+    window.__invokeHandler__(name, params);
   },
-  publishHandle: function () {
-    console.log(arguments);
+  publishHandler: function (name, params, callbackId, options) {
+    console.log('[publishHandler]', name);
+    window.__publishHandler__(name, params, callbackId, options);
   }
 }
-
-var WeixinJSBridge = {
-  invokeCallbackHandler: function () {
-    console.log(arguments);
-  },
-
-  subscribeHandler: function () {
-    console.log(arguments);
-  }
-};

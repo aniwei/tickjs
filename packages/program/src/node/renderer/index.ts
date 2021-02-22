@@ -3,6 +3,7 @@ import { EventEmitter } from 'events';
 import debug from 'debug';
 import puppeteer from 'puppeteer';
 import fs from 'fs-extra';
+import { MiniProgramImpl } from '../MiniProgramImpl';
 
 export class MiniProgramRenderer extends EventEmitter {
   public browser: puppeteer.Browser | null = null;
@@ -12,9 +13,18 @@ export class MiniProgramRenderer extends EventEmitter {
   public html: string = fs.readFileSync(resolve(__dirname, 'WAPageFrame.html')).toString();
   public context = fs.readFileSync(resolve(__dirname, 'context.js')).toString();
   public javascript = fs.readFileSync(resolve(__dirname, 'WAWebview.js')).toString();
-  public wxconfig = fs.readFileSync(resolve(__dirname, 'wxconfig.js')).toString();
+  public wxappcode = fs.readFileSync(resolve(__dirname, 'wxappcode.js')).toString();
 
-  async launch () {
+  public miniProgram:  MiniProgramImpl | null = null;
+  public config: any | null = null;
+
+  constructor (miniProgram) {
+    super();
+    this.miniProgram = miniProgram;
+  }
+  
+  async launch (config) {
+    this.config = config;
     this.browser = await puppeteer.launch();
   }
 
@@ -22,31 +32,70 @@ export class MiniProgramRenderer extends EventEmitter {
     this.browser?.close();
   }
 
-  async open (uri, config) {
+  async publish (name, options, callbackId) {
+    
+
+    if (name === 'custom_event_onAppRoute') {
+      const data = JSON.parse(options).data;
+
+      await this.open(data.path);
+
+      this.current?.evaluate(`WeixinJSBridge.subscribeHandler("${name}", ${options}, ${callbackId})`);
+      // this.open()
+    }
+  }
+
+  async open (uri) {
     if (!this.pages.has(uri)) {
       const page = await this.browser?.newPage() as puppeteer.Page;
       page.setContent(this.html);
       
-      
+      await page.exposeFunction('__invokeHandler__', (name) => {
+        console.log('__invokeHandler__', name);
+      });
+
+      await page.exposeFunction('__publishHandler__', async (name, params, callbackId, options) => { 
+        this.miniProgram?.subscribeHandler(name, JSON.parse(params), callbackId, options);
+      });
 
       page.evaluate(this.context as string);
-      page.evaluate(`var __wxConfig=${JSON.stringify(config)};`);
+      
+      page.evaluate(`window.__wxConfig=${JSON.stringify(this.config)};`);
       
       
       page.evaluate(this.javascript as string);
-      page.evaluate(this.wxconfig as string);
+      page.evaluate(this.wxappcode as string);
+
+      page.evaluate(`
+        var route = __wxConfig.appLaunchInfo.path.replace(/\.html$/, '');
+        __wxAppCode__[route + '.wxss']();
+        console.log('route', __wxAppCode__[route + '.wxml']);
+
+        var event = new CustomEvent('generateFuncReady', { 
+          detail: { 
+            generateFunc: __wxAppCode__[route + '.wxml'] 
+          } 
+        });
+        document.dispatchEvent(event);
+        
+      `);
+      // page.evaluate(`__wxAppCode__[__wxConfig.appLaunchInfo.path.replace(/\.html$/, "").replace(/^\//, "") + '.wxss']()`);
+      // page.evaluate(`document.dispatchEvent(new CustomEvent('generateFuncReady'), { detail: { generateFunc: __wxAppCode__[__wxConfig.appLaunchInfo.path.replace(/\.html$/, "").replace(/^\//, "") + '.wxml'] } });`)
+      page.evaluate(`WeixinJSBridge.subscribeHandler('onWxConfigReady', '', 0, '')`);
+
+      page.screenshot({
+        path: __dirname + '/screenshot.png' 
+      });
 
       page.on('close', () => {
         this.pages.delete(uri);
       });
 
-      page.on('console', msg => {
-        for (let i = 0; i < msg.args().length; ++i)
-          console.log(`${i}: ${msg.args()[i]}`); // 译者注：这句话的效果是打印到你的代码的控制台
-      });
+      page.on('console', message => {
+        const type = message.type();
+        const text = message.text();
 
-      await page.screenshot({
-        path: __dirname + '/screenshot.png' 
+        console[type](text);
       });
 
       this.pages.set(uri, page);

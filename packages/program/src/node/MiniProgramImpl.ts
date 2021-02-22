@@ -19,7 +19,7 @@ export class MiniProgramImpl extends MiniProgram {
     this.appid = appid;
     this.config = config;
     this.invoker = new NativeInvoker(this);
-    this.renderer = new MiniProgramRenderer();
+    this.renderer = new MiniProgramRenderer(this);
     this.invoker.binding();
   }
 
@@ -33,11 +33,8 @@ export class MiniProgramImpl extends MiniProgram {
     this.context = context;
   }
 
-  async launch (options) {
-    await this.renderer?.launch();
-    super.launch(options);
-
-    this.renderer?.open(options.path, this.config);
+  async launch () {
+    await this.renderer?.launch(this.config);
   }
 
   invokeHandler = (name, options, callbackId) => {
@@ -47,7 +44,7 @@ export class MiniProgramImpl extends MiniProgram {
     this.invoker?.invoke(name, options, callbackId);
   }
 
-  publishHandler = () => {
-    
-  }
+  publishHandler = (name, options, callbackId) => {
+    this.renderer?.publish(name, options, callbackId);
+  } 
 }

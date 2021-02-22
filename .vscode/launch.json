@@ -5,6 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/packages/program/src/MiniProgram/WASDK/server.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "test-program",
@@ -19,6 +28,7 @@
         "ts-node/register",
         "./src/node/index.ts"
       ]
-    }
+    },
+
   ]
 }
