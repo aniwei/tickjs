@@ -5,13 +5,7 @@ import { MiniProgramNativeLayerNodeImpl } from '../NativeLayer';
 
 const config = fs.readJSONSync(resolve(__dirname, 'app-config.json'));
 
-const miniProgram = MiniProgramNativeLayerNodeImpl
-.import({
-  config: resolve(__dirname, 'app-config.json'),
-  wxss: resolve(__dirname, 'app-wxss.js'),
-  service: resolve(__dirname, 'app-service.js')
-})
-.launch({
+const miniProgram = new MiniProgramNativeLayerNodeImpl({
   ...config,
   env: {
     USER_DATA_PATH: '/Users/weiyanhai/.tick/program'
@@ -40,4 +34,12 @@ const miniProgram = MiniProgramNativeLayerNodeImpl
     downloadFile: 60000,
   },
   extAppid: ''
-})
+});
+
+miniProgram
+  .import({
+    config: resolve(__dirname, 'app-config.json'),
+    wxss: resolve(__dirname, 'app-wxss.js'),
+    service: resolve(__dirname, 'app-service.js')
+  })
+  .launch()

@@ -10,7 +10,8 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
   constructor (config) {
     super({
       service: new MiniProgramServiceLayerNodeImpl(config),
-      renderer: new MiniProgramRenderLayerNodeImpl(config)
+      renderer: new MiniProgramRenderLayerNodeImpl(config),
+      config
     });
   }
 
@@ -85,11 +86,13 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
           this.renderer?.evaluateScript(wxss, 'app-wxss.js');
       
           const view = await this.renderer?.navigate({
+            ...this.config,
             appLaunchInfo: options.appLaunchInfo,
             openType: 'launch'
           });
       
           this.service?.navigate({
+            ...this.config,
             appLaunchInfo: options.appLaunchInfo,
             openType: 'launch',
             view

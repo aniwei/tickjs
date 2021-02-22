@@ -7,9 +7,10 @@ export abstract class MiniProgramNativeLayer extends EventEmitter {
   public service: MiniProgramServiceLayer | null = null;
   public renderer: MiniProgramRenderLayer | null = null;
 
-  constructor ({ service, renderer }) {
+  constructor ({ service, renderer, config }) {
     super();
 
+    this.config = config;
     this.service = service;
     this.renderer = renderer;
 
