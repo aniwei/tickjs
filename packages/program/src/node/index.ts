@@ -21,7 +21,6 @@ export async function createMiniProgram ({ appid, application, config }) {
 
   miniProgram.injectContext('__wxConfig', config);
 
-
   const SDKFilePath = (resolve(__dirname, '../MiniProgram/WASDK'));
   const service = (await fs.readFile(resolve(SDKFilePath, 'WAService.js'))).toString();
 

@@ -9,14 +9,11 @@ import { MiniProgramRenderLayer, MiniProgramViewLayer } from './index';
 import { MiniProgramViewLayerNodeImpl } from './ViewLayerNodeImpl';
 
 export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
-  public views: Map<string, MiniProgramViewLayer> = new Map;
-  public owner: MiniProgramServiceLayer | null = null;
-  public current: MiniProgramViewLayer | null = null;
+  static ViewLayer = MiniProgramViewLayerNodeImpl;
 
   public browser: puppeteer.Browser | null = null;
-
-  
   public config: any | null = null;
+  public scripts: Map<string, string> = new Map();
 
   public injectContext (name: string, value: any) {
     const type = typeof value;
@@ -48,13 +45,24 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
     this.browser = await puppeteer.launch();
   }
 
+  public newView () {
+    return this.browser?.newPage();
+  }
 
-  public async navigate (options) {
+  evaluateScript (code, filename) {
+    this.scripts.set(filename, code);
+  }
+
+  public async navigate (options): Promise<MiniProgramViewLayer | null> {
     const { path, navigateType } = options;
 
     switch (navigateType) {
       case 'navigateBack': {
-        break;
+        if (this.current !== null) {
+          this.current = this.views.pop();
+        }
+
+        return null;
       }
 
       case 'navigateTo': {
@@ -63,11 +71,19 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
         await view.open();
         await view.runInContext(this.context);
 
-        this.views.set(path, view);
+        for (const [code, filename] of this.scripts) {
+          await view.evaluateScript(code, filename);
+        }
+
+
+        this.views.push({ id: view.id, path, view });
         this.current = view;
-        break;
+
+        return view;
       }
     }
+
+    return null;
   }
 }
 

@@ -38,7 +38,15 @@ export class MiniProgramServiceLayerNodeImpl extends MiniProgramServiceLayer {
     this.context = context;
   }
 
-  launch () {
+  launch () { 
+    
+  }
 
+  navigate (options) {
+    const { openType, appLaunchInfo, view } = options;
+    this.subscribeHandler('onAppRoute', {
+      openType,
+      ...appLaunchInfo
+    }, view.id);
   }
 }

@@ -1,15 +1,20 @@
-import { MiniProgramViewLayer, MiniProgramRenderLayer } from './index'
+import fs from 'fs-extra';
+import { resolve } from 'path';
+import { MiniProgramViewLayer, MiniProgramRenderLayer } from './index';
+
+const SDKFilePath = (resolve(__dirname, '../WASDK'));
+const WAWebviewJavaScriptString = fs.readFileSync(resolve(SDKFilePath, 'WAWebview.js')).toString();
+
 
 export class MiniProgramViewLayerNodeImpl extends MiniProgramViewLayer {
-
-  constructor (owner) {
-    super(owner);
-
-
+  public async evaluateScript (code, filename) {
+    await this.instance?.evaluate(code + `\n//# sourceURL=${filename}`);
   }
 
   async open () {
+    this.instance = await this.owner?.newView();
 
+    await this.evaluateScript(WAWebviewJavaScriptString, 'WAWebview.js');
   }
 
   async runInContext (context) {

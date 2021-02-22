@@ -2,6 +2,8 @@ import { EventEmitter } from 'events';
 import { MiniProgramRenderLayer } from '../RenderLayer';
 import { MiniProgramServiceLayer } from '../ServiceLayer';
 
+export * from './NativeLayerNodeImpl';
+
 export abstract class MiniProgramNativeLayer extends EventEmitter {
   public config: any | null = null;
   public service: MiniProgramServiceLayer | null = null;

@@ -20,18 +20,21 @@ export abstract class MiniProgramViewLayer extends EventEmitter {
   }
 
   abstract runInContext (context);
+  public abstract evaluateScript (code, filename);
 }
 
 export abstract class MiniProgramRenderLayer extends EventEmitter {
   public html: string | null = null;
-  public views: Map<string, MiniProgramViewLayer> = new Map;
+  public views: any[] = [];
   public owner: MiniProgramServiceLayer | null = null;
   public current: MiniProgramViewLayer | null = null;
 
   public context: Map<string, any> = new Map;
 
+  public abstract evaluateScript (code, filename);
   public abstract launch (options);
-  public abstract navigate (options);
+  public abstract navigate (options): any;
+  public abstract newView (): any;
   
   public injectContext (name: string, value: any) {
     this.context.set(name, value);
