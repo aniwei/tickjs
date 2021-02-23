@@ -5,7 +5,7 @@
     "lib": [
       "esnext"
     ],
-    "types": ["reflect-metadata"],
+    "types": ["reflect-metadata", "node"],
     "jsx": "react",
     "rootDir": "./src",
     "baseUrl": "./",
