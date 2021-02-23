@@ -8,6 +8,7 @@ const WAWebviewJavaScriptString = fs.readFileSync(resolve(SDKFilePath, 'WAWebvie
 
 export class MiniProgramViewLayerNodeImpl extends MiniProgramViewLayer {
   public async evaluateScript (code, filename) {
+    debugger;
     await this.instance?.evaluate(code + `\n//# sourceURL=${filename}`);
   }
 
@@ -21,7 +22,8 @@ export class MiniProgramViewLayerNodeImpl extends MiniProgramViewLayer {
 
       switch (type) {
         case 'string': {
-          await this.instance?.evaluate(`window[${name}]=${value};`);
+          debugger;
+          await this.instance?.evaluate(`window['${name}']=${value};`);
           break;
         }
 

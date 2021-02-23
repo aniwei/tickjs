@@ -15,19 +15,28 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
   public config: any | null = null;
   public scripts: Map<string, string> = new Map();
 
+  constructor (config) {
+    super();
+
+    this.config = config;
+
+    this.injectContext('__wxConfig', config);
+  }
+
   public injectContext (name: string, value: any) {
     const type = typeof value;
 
     switch (type) {
       case 'object': {
         if (name === 'WeixinJSCore') {
-          super.injectContext(`$$invokeHandler`, WeixinJSCore.invokeHandler);
-          super.injectContext(`$$publishHandler`, WeixinJSCore.publishHandler);
-          super.injectContext('WeixinJSCore', `
+          super.injectContext(`$$invokeHandler`, value.invokeHandler);
+          super.injectContext(`$$publishHandler`, value.publishHandler);
+          super.injectContext('WeixinJSCore', `{
             invokeHandler: function () { $$invokeHandler.apply(null, arguments) },
             publishHandler: function () { $$publishHandler.apply(null, arguments) }
-          `)
+          }`)
         } else {
+          super.injectContext(name, JSON.stringify(value));
           //
         }
 
@@ -54,9 +63,9 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
   }
 
   public async navigate (options): Promise<MiniProgramViewLayer | null> {
-    const { path, navigateType } = options;
+    const { path, openType } = options;
 
-    switch (navigateType) {
+    switch (openType) {
       case 'navigateBack': {
         if (this.current !== null) {
           this.current = this.views.pop();
@@ -65,14 +74,26 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
         return null;
       }
 
+      case 'redirectTo': {
+
+
+        break;
+      }
+
+      case 'reLaunch': {
+        this.views = [];
+      }
+
+      case 'launch': 
       case 'navigateTo': {
         const view = new MiniProgramViewLayerNodeImpl(this);
 
         await view.open();
         await view.runInContext(this.context);
 
-        for (const [code, filename] of this.scripts) {
-          await view.evaluateScript(code, filename);
+        for (const [filename, code] of this.scripts) {
+          debugger;
+          await view.evaluateScript(filename, code);
         }
 
         this.views.push({ id: view.id, path, view });
@@ -83,6 +104,24 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
     }
 
     return null;
+  }
+
+  invokeCallbackHandler (id, callbackId: number | string, data: any) {
+    for (const view of this.views) {
+      if (id === view.id) {
+        view.invokeCallbackHandler(callbackId, data);
+        break;
+      }
+    }
+  }
+
+  subscribeHandler (id, name, params, callbackId, options?) {
+    for (const view of this.views) {
+      if (id === view.id) {
+        view.subscribeHandler(name, params, callbackId, options);
+        break;
+      }
+    }
   }
 }
 

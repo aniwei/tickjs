@@ -2,9 +2,12 @@ import fs from 'fs-extra';
 import { parse } from 'path';
 import { MiniProgramNativeLayer } from './NativeLayer';
 import { MiniProgramServiceLayerNodeImpl } from '../ServiceLayer';
-import { MiniProgramRenderLayerNodeImpl } from '../RenderLayer'
+import { MiniProgramRenderLayerNodeImpl } from '../RenderLayer';
+import { MiniProgramNativeInvokerNodeImpl } from './InvokerNodeImpl';
 
 export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
+  public invoker: MiniProgramNativeInvokerNodeImpl | null = null;
+
   isContentLoaded = false;
 
   constructor (config) {
@@ -13,6 +16,8 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
       renderer: new MiniProgramRenderLayerNodeImpl(config),
       config
     });
+
+    this.invoker = new MiniProgramNativeInvokerNodeImpl(config);
   }
 
   content (files) {
@@ -32,7 +37,7 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
       const file = files[name];
       const parsed = parse(file);
 
-      if (parsed.ext === 'json') {
+      if (parsed.ext === '.json') {
         promises.push(new Promise(async (resolve, reject) => {
           resolve({
             name,
@@ -40,7 +45,7 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
             content: await fs.readJson(file)
           })
         }));
-      } else if (parsed.ext === 'js') {
+      } else if (parsed.ext === '.js') {
         promises.push(new Promise(async (resolve, reject) => {
           resolve({
             name,
@@ -64,31 +69,30 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
     return this;
   }
 
-  async launch (appLaunchInfo) {
+  async launch () {
+    const { appLaunchInfo } = this.config;
+
     return new Promise((resolve, reject) => {
       if (this.isContentLoaded) {
         this.once('contentloaded', async (files) => {
           const {
-            config,
             wxss,
             service,
           } = files;
     
-          await this.service?.launch(appLaunchInfo);
-          await this.renderer?.launch(appLaunchInfo);
+          await this.service?.launch();
+          await this.renderer?.launch();
 
           this.service?.evaluateScript(service, 'app-service.js');
           this.renderer?.evaluateScript(wxss, 'app-wxss.js');
       
           const view = await this.renderer?.navigate({
-            ...this.config,
-            appLaunchInfo: appLaunchInfo,
+            ...appLaunchInfo,
             openType: 'launch'
           });
       
           this.service?.navigate({
-            ...this.config,
-            appLaunchInfo: appLaunchInfo,
+            ...appLaunchInfo,
             openType: 'launch',
             view
           });
@@ -101,7 +105,25 @@ export class MiniProgramNativeLayerNodeImpl extends MiniProgramNativeLayer {
     })
   }
 
-  invokeHandlerFromService = () => {}
+  invokeServiceCallbackHandler (callbackId, data) {
+    this.service?.invokeCallbackHandler(callbackId, data)
+  }
+
+  subscribeServiceHandler (name, data, callbackId, options) {
+    this.service?.subscribeHandler(name, data, callbackId, options);
+  }
+
+  invokeViewCallbackHandler (callbackId, data) {
+    // this.renderer?.invokeCallbackHandler(callbackId, data)
+  }
+
+  subscribeViewHandler (name, data, callbackId, options) {
+    this.renderer?.subscribeHandler(callbackId, name, data, callbackId, options);
+  }
+
+  invokeHandlerFromService = (name, options, callbackId) => {
+    this.invoker?.invoke(name, options, callbackId);
+  }
   publishHandlerFromService = () => {}
 
   invokeHandlerFromView = () => {}

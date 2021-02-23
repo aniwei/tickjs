@@ -23,7 +23,7 @@ export abstract class MiniProgramServiceLayer extends EventEmitter {
     this.runInContext(this.context);
   }
 
-  abstract launch (options);
+  abstract launch ();
   abstract navigate (options);
 
   abstract evaluateScript (code: string, filename?: string);
