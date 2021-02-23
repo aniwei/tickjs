@@ -91,10 +91,13 @@ export class Renderer extends EventEmitter {
   subscribeHandler (name, data, options) {
     const [webviewId] = JSON.parse(options);
 
+    debugger;
+
     if (typeof webviewId !== 'undefined') {
       const page = this.pages.get(webviewId);
       page?.subscribeHandler(name, data, options);
     } else {
+      
       this.current?.subscribeHandler(name, data, options);
     }
   }

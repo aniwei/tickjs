@@ -33,7 +33,7 @@ export class Page extends EventEmitter {
 
   injectScripts (scripts) {
     for (const [filename, code] of scripts) {
-      this.evaluateScript(filename, code);
+      this.evaluateScript(code, filename);
     }
   }
 
