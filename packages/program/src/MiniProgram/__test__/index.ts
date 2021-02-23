@@ -1,10 +1,10 @@
 import fs from 'fs-extra';
 import { resolve } from 'path';
 
-import { MiniProgramNativeLayerNodeImpl } from '../NativeLayer';
+import { MiniProgram } from '../Core';
 
 
-const miniProgram = new MiniProgramNativeLayerNodeImpl({
+const miniProgram = new MiniProgram({
   ...fs.readJSONSync(resolve(__dirname, 'app-config.json')),
   appLaunchInfo: {
     path: 'pages/order/orderList/orderList',
@@ -30,7 +30,7 @@ const miniProgram = new MiniProgramNativeLayerNodeImpl({
   scrollBarMode: 0,
   screenWidth: 414.000000,
   screenHeight: 896.000000,
-  preload: true,
+  preload: 0,
   wxAppInfo: {
     maxRequestConcurrent: 10,
     maxUploadConcurrent: 10,

@@ -1,3 +1,3 @@
-export * from './NativeLayer/NativeLayer';
-export * from './ServiceLayer/ServiceLayer';
-export * from './RenderLayer/RenderLayer';
+export * from './Core/MiniProgram';
+export * from './Service/ServiceLayer';
+export * from './Renderer/Renderer';
