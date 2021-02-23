@@ -21,8 +21,8 @@ export class MiniProgramRenderLayerNodeImpl extends MiniProgramRenderLayer {
     switch (type) {
       case 'object': {
         if (name === 'WeixinJSCore') {
-          super.injectContext(`$$invokeHandler`, WeixinJSCore.invokeHandler);
-          super.injectContext(`$$publishHandler`, WeixinJSCore.publishHandler);
+          super.injectContext(`$$invokeHandler`, value.invokeHandler);
+          super.injectContext(`$$publishHandler`, value.publishHandler);
           super.injectContext('WeixinJSCore', `
             invokeHandler: function () { $$invokeHandler.apply(null, arguments) },
             publishHandler: function () { $$publishHandler.apply(null, arguments) }

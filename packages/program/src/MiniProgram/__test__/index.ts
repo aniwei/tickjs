@@ -43,5 +43,17 @@ miniProgram
     service: resolve(__dirname, 'app-service.js')
   })
   .launch({
-    
+    path: 'pages/order/orderList/orderList',
+    query: {
+      scene: '',
+      shareCode: 'LKYP_91959434850184',
+      type: '1',
+      suid: '2d444f77-cf85-438e-8369-175cea90aa5b',
+      ic: '8SZS84AB'
+    },
+    scene: 1001,
+    shareTicket: null,
+    referrerInfo: {
+      appid: 'wx42c1491feb6d12a1'
+    },
   })
