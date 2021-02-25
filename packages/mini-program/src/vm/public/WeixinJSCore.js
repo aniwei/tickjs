@@ -449,7 +449,7 @@ class RendererElement extends HTMLElement {
   }
 
   onAppRoute = (event) => {
-
+    const { detail } = event;
   }
 
   connectedCallback () {
