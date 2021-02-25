@@ -221,8 +221,8 @@ class ServiceElement extends HTMLElement {
     WeixinJSBridge.invokeCallbackHandler(callbackId, options)
   }
 
-  subscribeHandler (callbackId, options) {
-    WeixinJSBridge.subscribeHandler(callbackId, options)
+  subscribeHandler (callbackId, options, webviewId) {
+    WeixinJSBridge.subscribeHandler(callbackId, options, webviewId)
   }
 
   launch (webviewId, appLaunchInfo) {
@@ -294,6 +294,16 @@ class PageElement extends HTMLElement {
 
   constructor () {
     super();
+  }
+
+  invokeCallbackHandler (callbackId, options) {
+    const window = this.iframe.contentWindow;
+    window.WeixinJSBridge.invokeCallbackHandler(callbackId, options)
+  }
+
+  subscribeHandler (callbackId, options, webviewId) {
+    const window = this.iframe.contentWindow;
+    window.WeixinJSBridge.subscribeHandler(callbackId, options, webviewId)
   }
 
   scriptLoader (src) {
@@ -438,7 +448,7 @@ class RendererElement extends HTMLElement {
         resolve();
       }
 
-      page.setAttribute('id', id);
+      page.setAttribute('id', `webview_${id}`);
 
       this.appendChild(page);
     })
@@ -450,6 +460,18 @@ class RendererElement extends HTMLElement {
 
   onAppRoute = (event) => {
     const { detail } = event;
+    const { name, options, webviewIds } = detail;
+    
+    const { data } = JSON.parse(options);
+
+    if (data.webviewId) {
+      const element = this.querySelector(`#webview_${data.webviewId}`);
+
+
+      if (element) {
+        element.subscribeHandler(name, options, webviewIds);
+      }
+    }
   }
 
   connectedCallback () {
