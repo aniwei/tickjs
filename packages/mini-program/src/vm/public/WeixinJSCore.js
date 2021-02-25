@@ -171,6 +171,9 @@ class MiniProgram extends HTMLElement {
   
       this.on('createRequestTask', this.createRequestTask);
       this.on('custom_event_onAppRoute', this.onAppRoute);
+
+      const appLaunchInfo = this.config.appLaunchInfo;
+      const route = appLaunchInfo.path.replace(/\.html$/, '');
   
       (new Promise((resolve) => {
         const service = document.createElement('mini-program-service');
@@ -178,7 +181,6 @@ class MiniProgram extends HTMLElement {
         service.onload = () => {
           this.service = service;
           resolve();
-
         }
   
         document.body.appendChild(service);
@@ -197,14 +199,12 @@ class MiniProgram extends HTMLElement {
       }).then(() => {
         const webviewId = this.webviewId++;
 
-        this.renderer.launch(webviewId)
+        this.renderer.launch(webviewId, route)
           .then(() => {
             console.log(`「mini-program」`, `小程序已经启动`)
 
             this.service.launch(webviewId, this.config.appLaunchInfo);
-          })
-
-        
+          });
       });
     })
   }
@@ -238,6 +238,7 @@ class ServiceElement extends HTMLElement {
 
   connectedCallback () {
     this.style.display = 'none';
+
     this.injectScripts()
       .then(() => {
         this.dispatchEvent(new CustomEvent('load'));
@@ -290,10 +291,6 @@ class PageElement extends HTMLElement {
     const page = document.createElement('mini-program-page');
 
     return page;
-  }
-
-  constructor () {
-    super();
   }
 
   invokeCallbackHandler (callbackId, options) {
@@ -359,6 +356,35 @@ class PageElement extends HTMLElement {
 
       resolve();
     });
+  }
+
+  generate (route) {
+    return new Promise(() => {
+      const document = this.iframe.contentWindow.document;
+      const script = document.createElement('script');
+      
+      script.type = 'application/javascript';
+      script.innerText = `
+        var __setCssStartTime__ = Date.now();
+        __wxAppCode__['${route}.wxss']();
+        var __setCssEndTime__ = Date.now();
+        (function () {
+          var gf = $gwx('./${route}.wxml');
+          if (window.__wxAppCodeReadyCallback__) {
+            window.__wxAppCodeReadyCallback__(gf);
+          } else {
+            document.dispatchEvent(new CustomEvent("generateFuncReady", {
+              detail: {
+                generateFunc: gf
+              }
+            }));
+          }
+        })();
+        //# sourceURL=generateFunc.js
+      `;
+
+      document.head.appendChild(script);
+    })
   }
 
   injectIFrame () {
@@ -436,15 +462,16 @@ class RendererElement extends HTMLElement {
     this.on(name, handle);
   }
 
-  launch (webviewId) {
-    return this.create(webviewId);
+  launch (webviewId, route) {
+    return this.create(webviewId, route);
   }
 
-  create (id) {
+  create (id, route) {
     return new Promise((resolve, reject) => {
       const page = PageElement.create();
   
       page.onload = () => {
+        page.generate(route);
         resolve();
       }
 

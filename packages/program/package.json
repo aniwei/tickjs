@@ -20,12 +20,7 @@
     "farrow-http": "^1.5.3",
     "inversify": "^5.0.5",
     "koa": "^2.13.1",
-<<<<<<< HEAD
-    "next": "^10.0.7",
-    "nextjs": "^0.0.3",
-=======
     "koa-router": "^10.0.0",
->>>>>>> af653dd95abfcd8501a1ec8a22d4761adeb8f878
     "puppeteer": "^7.0.4",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^9.1.1",
