@@ -3,7 +3,21 @@
 <head>
   <title>Page</title>
 </head>
-<body is="pages/index/index">
+<body>
   
 </body>
+<script>
+    var targetNode = document.querySelector('body');
+    var observerOptions = {
+      childList: true,
+      attributes: true, // 观察属性变动
+    }
+
+    var observer = new MutationObserver((mutationList, observer) => {
+      debugger;
+      console.log(`[mutationList]`, mutationList)
+    });
+    
+    observer.observe(document.documentElement, observerOptions);
+  </script>
 </html>

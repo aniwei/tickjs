@@ -54,6 +54,6 @@ export async function createRequestTask (context) {
       header: res.headers
     })
   }).catch(error => {
-    debugger;
+    // debugger;
   })
 }
