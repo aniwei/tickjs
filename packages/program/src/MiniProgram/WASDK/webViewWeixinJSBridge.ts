@@ -25,3 +25,6 @@ if (!window.WeixinJSBridge.__dev__) {
 
   window.WeixinJSBridge.__dev__ = true;
 }
+
+
+//# sourceURL=./core/WeixinJSCore.js

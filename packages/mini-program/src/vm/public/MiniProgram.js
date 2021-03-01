@@ -1,40 +1,13 @@
-const nextTick = window.setTimeout;
-
-const WeixinJSCore = {
-  invokeHandler (name , options, callbackId, source) {
-    console.log(`【消息调用`, (source || 'Service') + '】', `「WeixinJSCore.invokeHandler」调用借口：${name}`, ` 数据：`, options, ` 回调函数：`,callbackId);
-    document.dispatchEvent(new CustomEvent(name, {
-      detail: {
-        name, 
-        options,
-        callbackId,
-        source,
-      }
-    }))
-  },
-
-  publishHandler (name, options, webviewIds, source) {
-    console.log(`【消息调用`, (source || 'Service') + '】', `「WeixinJSCore.publishHandler」调用借口：${name}`, ` 数据：`, options, ` WebView：`,webviewIds);
-
-    document.dispatchEvent(new CustomEvent(name, {
-      detail: {
-        name, 
-        options,
-        webviewIds,
-        source
-      }
-    }))
-  }
-}
-
-class MiniProgram extends HTMLElement {
+ class MiniProgram extends HTMLElement {
   constructor () {
     super();
 
     this.webviewId = 1;
+    this.taskId = 1;
   }
 
   connectedCallback () {
+    this.style.display = 'none';
     this.launch();
   }
 
@@ -57,9 +30,7 @@ class MiniProgram extends HTMLElement {
   }
 
   config () {
-    const appid = this.getAttribute('appid');
-
-    return this.scriptLoader(`/${appid}/config`)
+    return this.scriptLoader(`/config`)
   }
 
   on (name, callback) {
@@ -90,32 +61,32 @@ class MiniProgram extends HTMLElement {
 
   getStorage (event) {
     const { detail } = event;
-    const { options, callbackId } = detail;
+    const { data, callbackId } = detail;
 
     nextTick(() => {
       WeixinJSBridge.invokeCallbackHandler(callbackId, {
         errMsg: 'getStorage:ok',
-        data: localStorage.getItem(options.key)
+        data: localStorage.getItem(data.key)
       });
     })
   }
 
   getStorageSync (event) {
     const { detail } = event;
-    const { options, callbackId } = detail;
+    const { data, callbackId } = detail;
 
     WeixinJSBridge.invokeCallbackHandler(callbackId, {
       errMsg: 'getStorage:ok',
-      data: localStorage.getItem(options.key)
+      data: localStorage.getItem(data.key)
     });
   }
 
   setStorage (event) {
     const { detail } = event;
-    const { options, callbackId } = detail;
+    const { data, callbackId } = detail;
 
     nextTick(() => {
-      localStorage.setItem(options.key, options.data);
+      localStorage.setItem(data.key, data.data);
       WeixinJSBridge.invokeCallbackHandler(callbackId, {
         errMsg: 'setStorage:ok'
       });
@@ -124,9 +95,9 @@ class MiniProgram extends HTMLElement {
 
   setStorageSync (event) {
     const { detail } = event;
-    const { options, callbackId } = detail;
+    const { data, callbackId } = detail;
 
-    localStorage.setItem(options.key, options.data);
+    localStorage.setItem(data.key, data.data);
     WeixinJSBridge.invokeCallbackHandler(callbackId, {
       errMsg: 'setStorageSync:ok'
     });
@@ -144,16 +115,64 @@ class MiniProgram extends HTMLElement {
     })
   }
 
-  createRequestTask (event) {
-    const { detail, options } = event;
-    // const data = JSON.parse(options);
+  createRequestTask = (event) => {
+    const { detail } = event;
+    const { callbackId } = detail;
+    const data = JSON.parse(detail.data);
+
+    const taskId = this.taskId++;
+
+    fetch('/api/createRequestTask', {
+      method: 'POST',
+      json: true,
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data),
+    }).then(res => res.json()).then(res => {
+      WeixinJSBridge.subscribeHandler('onRequestTaskStateChange', {
+        requestTaskId: taskId,
+        state: 'success',
+        data: JSON.stringify(res.data),
+        statusCode: res.statuCode,
+        header: res.header
+      })
+    }).catch(error => {
+      WeixinJSBridge.subscribeHandler('onRequestTaskStateChange', {
+        requestTaskId: taskId,
+        state: 'error',
+        data: JSON.stringify(error.data),
+        statusCode: error.status,
+        header: error.headers
+      })
+    });
+
+    WeixinJSBridge.invokeCallbackHandler(callbackId, {
+      requestTaskId: taskId,
+    });
   }
 
-  onAppRoute =  (event) => {
+  login (event) {
     const { detail } = event;
-    this.renderer.dispatchEvent(new CustomEvent(event.type, {
-      detail
-    }));
+    const { callbackId } = detail;
+
+    nextTick(() => {
+      WeixinJSBridge.invokeCallbackHandler(callbackId, {
+        errMsg: 'login:ok',
+        code: '123321'
+      });
+    })
+  }
+
+  reportKeyValue = (event) => {
+    const { detail } = event;
+    const { callbackId } = detail;
+
+    nextTick(() => {
+      WeixinJSBridge.invokeCallbackHandler(callbackId, {
+        errMsg: 'reportKeyValue:ok'
+      });
+    })
   }
 
   launch () {
@@ -162,39 +181,40 @@ class MiniProgram extends HTMLElement {
 
       const appid = this.getAttribute('appid');
 
-      this.on('getSystemInfo', this.getSystemInfo);
-      this.on('getStorage', this.getStorage);
-      this.on('getStorageSync', this.getStorageSync);
-      this.on('setStorage', this.setStorage);
-      this.on('setStorageSync', this.setStorageSync);
-      this.on('getNetworkType', this.getNetworkType);
-  
-      this.on('createRequestTask', this.createRequestTask);
-      this.on('custom_event_onAppRoute', this.onAppRoute);
+      this.on('service.getSystemInfo', this.getSystemInfo);
+      this.on('service.getStorage', this.getStorage);
+      this.on('service.getStorageSync', this.getStorageSync);
+      this.on('service.setStorage', this.setStorage);
+      this.on('service.setStorageSync', this.setStorageSync);
+      this.on('service.getNetworkType', this.getNetworkType);
+      this.on('service.createRequestTask', this.createRequestTask);
+      this.on('service.reportKeyValue', this.reportKeyValue);
+      this.on('service.login', this.login);
 
       const appLaunchInfo = this.config.appLaunchInfo;
       const route = appLaunchInfo.path.replace(/\.html$/, '');
   
       (new Promise((resolve) => {
-        const service = document.createElement('mini-program-service');
-        service.setAttribute('appid', appid)
-        service.onload = () => {
-          this.service = service;
+        const renderer = document.createElement('mini-program-renderer');
+
+        renderer.setAttribute('appid', appid)
+        renderer.onload = () => {
           resolve();
         }
-  
-        document.body.appendChild(service);
+        
+        this.renderer = renderer;
+
+        document.body.appendChild(renderer);
       })).then(() => {
         return new Promise((resolve) => {
-          const renderer = document.createElement('mini-program-renderer');
-
-          renderer.setAttribute('appid', appid)
-          renderer.onload = () => {
-            this.renderer = renderer;
+          const service = document.createElement('mini-program-service');
+          service.setAttribute('appid', appid)
+          service.onload = () => {
+            this.service = service;
             resolve();
           }
-  
-          document.body.appendChild(renderer);
+    
+          document.body.appendChild(service);
         });
       }).then(() => {
         const webviewId = this.webviewId++;
@@ -213,16 +233,31 @@ class MiniProgram extends HTMLElement {
 class ServiceElement extends HTMLElement {
   constructor () {
     super();
+  }
 
-    this.attachShadow( { mode: 'closed' } );
+  on (name, callback) {
+    document.addEventListener(name, callback, false);
+  }
+
+  off (name, callback) {
+    document.removeEventListener(name, callback, false);
+  }
+
+  once (name, callback) {
+    const handle = () => {
+      callback.apply(null, arguments);
+      this.off(name, handle)
+    }
+
+    this.on(name, handle);
   }
 
   invokeCallbackHandler (callbackId, options) {
     WeixinJSBridge.invokeCallbackHandler(callbackId, options)
   }
 
-  subscribeHandler (callbackId, options, webviewId) {
-    WeixinJSBridge.subscribeHandler(callbackId, options, webviewId)
+  subscribeHandler (...args) {
+    WeixinJSBridge.subscribeHandler(...args)
   }
 
   launch (webviewId, appLaunchInfo) {
@@ -236,8 +271,20 @@ class ServiceElement extends HTMLElement {
 
   }
 
+  invokeMethod = (event) => {
+    const { args } = event.detail;
+
+    this.subscribeHandler(...args);
+  }
+
   connectedCallback () {
     this.style.display = 'none';
+
+    this.on('webview.custom_event_GenerateFuncReady', this.invokeMethod);
+    this.on('webview.custom_event_PAGE_EVENT',  this.invokeMethod);
+    this.on('webview.custom_event_initReady_getPerformance', this.invokeMethod)
+    this.on('webview.custom_event_vdSync', this.invokeMethod);
+    this.on('webview.custom_event_tapAnyWhere', this.invokeMethod);
 
     this.injectScripts()
       .then(() => {
@@ -270,10 +317,11 @@ class ServiceElement extends HTMLElement {
     return new Promise((resolve, reject) => {
       const appid = this.getAttribute('appid');
   
-      return this.scriptLoader(`/${appid}/config`)
-        .then(() => this.scriptLoader(`/${appid}/system`))
+      return this.scriptLoader(`/config`)
+        .then(() => this.scriptLoader(`/device`))
+        .then(() => this.scriptLoader(`/system`))
         .then(() => this.scriptLoader('/WAService.js'))
-        .then(() => this.scriptLoader(`/${appid}/service`))
+        .then(() => this.scriptLoader(`/service`))
         .then(() => {
           resolve();
           console.log(`「service」脚步加载完毕`)
@@ -287,8 +335,13 @@ class ServiceElement extends HTMLElement {
 }
 
 class PageElement extends HTMLElement {
-  static create () {
+  static create (id, appid, route) {
     const page = document.createElement('mini-program-page');
+
+    page.setAttribute('appid', appid);
+    page.setAttribute('id', `webview_${id}`);
+    page.setAttribute('webview-id', id);
+    page.setAttribute('route', route);
 
     return page;
   }
@@ -298,9 +351,9 @@ class PageElement extends HTMLElement {
     window.WeixinJSBridge.invokeCallbackHandler(callbackId, options)
   }
 
-  subscribeHandler (callbackId, options, webviewId) {
+  subscribeHandler (...args) {
     const window = this.iframe.contentWindow;
-    window.WeixinJSBridge.subscribeHandler(callbackId, options, webviewId)
+    window.WeixinJSBridge.subscribeHandler(...args)
   }
 
   scriptLoader (src) {
@@ -323,68 +376,16 @@ class PageElement extends HTMLElement {
   }
 
   injectContext () {
-    return new Promise ((resolve, reject) => {
-      const document = this.iframe.contentWindow.document;
-      const script = document.createElement('script');
-      
-      script.type = 'application/javascript';
-      script.innerText = `
-        const WeixinJSCore = window.parent.MiniProgramWeixinJSCore;
-
-        window.WeixinJSCore = {
-          invokeHandler (name, options, callbackId) {
-            WeixinJSCore.invokeHandler(name, options, callbackId, 'WebView');
-          },
-          
-          publishHandler (name, options, webviewIds) {
-            if (name === 'custom_event_webViewCreated') {
-              document.dispatchEvent(new CustomEvent('webviewcreated', {
-                name, 
-                options,
-                webviewIds
-              }));
-            }
-              
-            WeixinJSCore.publishHandler(name, options, webviewIds, 'WebView');
-          }
-        };
-
-        //# sourceURL=WeinxinJSCore
-      `;
-  
-      document.head.appendChild(script);
-
-      resolve();
-    });
+    const appid = this.getAttribute('appid');
+    const webviewId = this.getAttribute('webview-id');
+    return this.scriptLoader(`/WeixinJSCore?webviewId=${webviewId}`);
   }
 
-  generate (route) {
-    return new Promise(() => {
-      const document = this.iframe.contentWindow.document;
-      const script = document.createElement('script');
-      
-      script.type = 'application/javascript';
-      script.innerText = `
-        var __setCssStartTime__ = Date.now();
-        __wxAppCode__['${route}.wxss']();
-        var __setCssEndTime__ = Date.now();
-        (function () {
-          var gf = $gwx('./${route}.wxml');
-          if (window.__wxAppCodeReadyCallback__) {
-            window.__wxAppCodeReadyCallback__(gf);
-          } else {
-            document.dispatchEvent(new CustomEvent("generateFuncReady", {
-              detail: {
-                generateFunc: gf
-              }
-            }));
-          }
-        })();
-        //# sourceURL=generateFunc.js
-      `;
+  generate () {
+    const appid = this.getAttribute('appid');
+    const route = this.getAttribute('route');
 
-      document.head.appendChild(script);
-    })
+    return this.scriptLoader(`/generate?route=${route}`)
   }
 
   injectIFrame () {
@@ -393,29 +394,35 @@ class PageElement extends HTMLElement {
       const iframe = document.createElement('iframe');
       
       iframe.style.border = 'none';
-  
-      const script = document.createElement('script');
-      script.type = 'application/javascript';
-  
-      iframe.src = `/${appid}/pages`;
+      iframe.src = `/pages`;
   
       iframe.onload = () => {
-        iframe.contentWindow.document.addEventListener('webviewcreated', (event) => {
+        iframe.contentWindow.document.addEventListener('webview.created', (event) => {
           this.dispatchEvent(new CustomEvent('load'));
         }, false);
 
         this.injectContext()
-          .then(() => this.scriptLoader(`/${appid}/config`))
+          .then(() => this.scriptLoader(`/config`))
+          .then(() => this.scriptLoader(`/device`))
+          .then(() => this.scriptLoader(`/system`))
           .then(() => this.scriptLoader('/WAWebview.js'))
-          .then(() => this.scriptLoader(`/${appid}/wxss`))
-          .then(() => console.log(`「page」脚步加载完毕`))
-          .then(() => {            
+          .then(() => this.scriptLoader(`/wxss`))
+          .then(() => this.generate())
+          .then(() => {
+            const { screenHeight, screenWidth } = __system.model;
+
+            this.iframe.style.width = screenWidth + 'px';
+            this.iframe.style.height = screenHeight + 'px';
+
+            this.style.width = screenWidth + 'px';
+            this.style.height = screenHeight + 'px';
+
+            console.log(`「page」脚步加载完毕`)
             resolve();
           })
           .catch((error) => {
-            
-            reject(error)
             console.error(`「page」脚步加载错误`, error)
+            reject(error)
           })
       }
   
@@ -468,14 +475,12 @@ class RendererElement extends HTMLElement {
 
   create (id, route) {
     return new Promise((resolve, reject) => {
-      const page = PageElement.create();
+      const appid = this.getAttribute('appid');
+      const page = PageElement.create(id, appid, route);
   
       page.onload = () => {
-        page.generate(route);
         resolve();
       }
-
-      page.setAttribute('id', `webview_${id}`);
 
       this.appendChild(page);
     })
@@ -486,25 +491,35 @@ class RendererElement extends HTMLElement {
   }
 
   onAppRoute = (event) => {
-    const { detail } = event;
-    const { name, options, webviewIds } = detail;
-    
-    const { data } = JSON.parse(options);
+    const { args } = event.detail;    
+    const pages = this.querySelectorAll(`mini-program-page`);
 
-    if (data.webviewId) {
-      const element = this.querySelector(`#webview_${data.webviewId}`);
-
-
-      if (element) {
-        element.subscribeHandler(name, options, webviewIds);
+    for (const page of pages) {
+      if (page) {
+        page.subscribeHandler(...args);
       }
     }
   }
 
-  connectedCallback () {
-    this.on('custom_event_onAppRoute', this.onAppRoute);
+  invokeMethod = (event) => {
+    const { args, webviewId } = event.detail;
+    const element = this.querySelector(`#webview_${webviewId}`);
+      
+    if (element) {
+      element.subscribeHandler(...args);
+    }
+  }
 
-    this.dispatchEvent(new CustomEvent('load'));
+  connectedCallback () {
+    this.on('service.custom_event_onAppRoute', this.onAppRoute);
+    this.on('service.custom_event_invokeWebviewMethod', this.invokeMethod);
+    this.on('service.custom_event_checkWebviewAlive', this.invokeMethod);
+    this.on('service.custom_event_vdSync', this.invokeMethod);
+    this.on('service.custom_event_vdSyncBatch', this.invokeMethod);
+
+    this.dispatchEvent(new CustomEvent('load'))
+    
+    // this.on('webview.generate', this.dispatchEvent(new CustomEvent('load')));
   }
 }
 
@@ -513,6 +528,4 @@ window.customElements.define('mini-program-renderer', RendererElement);
 window.customElements.define('mini-program-page', PageElement);
 window.customElements.define('mini-program', MiniProgram);
 
-window.WeixinJSCore = WeixinJSCore;
-window.MiniProgramWeixinJSCore = WeixinJSCore;
 window.MiniProgram = MiniProgram;

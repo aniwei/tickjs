@@ -19,14 +19,14 @@
       "name": "test-program",
       "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
       "sourceMaps": true,
-      "cwd": "${workspaceFolder}/packages/mini-program",
+      "cwd": "${workspaceFolder}/packages/mini-program/heytea",
       "env": {
         "DEBUG": "*"
       },
       "args": [
         "-r",
         "ts-node/register",
-        "./src/vm/index.ts"
+        "index.ts"
       ]
     },
 

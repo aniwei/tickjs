@@ -1,0 +1,19 @@
+const __setCssStartTime__ = Date.now();
+
+__wxAppCode__['{{route}}.wxss']();
+
+const __setCssEndTime__ = Date.now();
+
+(function () {
+  const gf = $gwx('{{route}}.wxml');
+
+  if (window.__wxAppCodeReadyCallback__) {
+    window.__wxAppCodeReadyCallback__(gf);
+  } else {
+    document.dispatchEvent(new CustomEvent('generateFuncReady', {
+      detail: {
+        generateFunc: gf
+      }
+    }));
+  }
+})();

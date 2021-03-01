@@ -10,7 +10,6 @@ if (!globalThis.WeixinJSBridge.__dev__) {
     }, 
 
     subscribeHandler: function () {
-      debugger;
       console.log('「subscribeHandler」     ', arguments);
       originWeixinJSBridge.subscribeHandler.apply(globalThis.WeixinJSBridge, arguments)
     },
@@ -25,3 +24,5 @@ if (!globalThis.WeixinJSBridge.__dev__) {
 
   globalThis.WeixinJSBridge.__dev__ = true;
 }
+
+//# sourceURL=WeixinJSBridge.js

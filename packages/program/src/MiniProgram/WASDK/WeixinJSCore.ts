@@ -9,9 +9,13 @@ if (!h.__dev__) {
       origin.invokeHandler.apply(h, arguments)
     }, 
 
-    publishHandler: function () {
-      // console.log('publishHandler     ', arguments);
-      debugger;
+    publishHandler: function (name) {
+      if (name === 'custom_event_log') {
+        
+      } else {
+        console.log('publishHandler     ', arguments);
+      }
+
       origin.publishHandler.apply(h, arguments)
     }
   })
@@ -20,3 +24,4 @@ if (!h.__dev__) {
 
   globalThis.WeixinJSCore.__dev__ = true;
 }
+//# sourceURL=./core/WeixinJSCore.js
