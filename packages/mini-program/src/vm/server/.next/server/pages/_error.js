@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -127,7 +127,7 @@ eval("module.exports = require(\"next/dist/next-server/lib/head.js\");//# source
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!************************************!*\
   !*** multi next/dist/pages/_error ***!
   \************************************/

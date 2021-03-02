@@ -1,0 +1,42 @@
+(function () {
+  const document = window.parent.document;
+
+  const WeixinJSCore = {
+    invokeHandler (name , data, callbackId) {
+      console.log(`【消息调用`, 'Webview】', `「WeixinJSCore.invokeHandler」调用借口：${name}`, ` 数据：`, data, ` 回调函数：`,callbackId);
+      
+      document.dispatchEvent(new CustomEvent(`webview.${name}`, {
+        detail: {
+          source: 'webview',
+          name, 
+          data,
+          callbackId,
+        }
+      }))
+    },
+
+    publishHandler (name, data) {
+      console.log(`【消息调用`, 'Webview】', `「WeixinJSCore.publishHandler」调用借口：${name}`, ` 数据：`, data, ` WebView：`,{{webviewId}});
+      const nativeTime = Date.now();
+
+      if (name === 'custom_event_webviewCreated') {
+        document.dispatchEvent(new CustomEvent(`webview.created`, {
+          detail: {
+            source: 'webview',
+            args: [ name, JSON.parse(data), {{webviewId}}, nativeTime]
+          }
+        }));
+      }
+
+      document.dispatchEvent(new CustomEvent(`webview.${name}`, {
+        detail: {
+          source: 'webview',
+          args: [ name, JSON.parse(data), {{webviewId}}, { nativeTime }]
+        }
+      }));
+    }
+  }
+
+  window.WeixinJSCore = WeixinJSCore;
+})();
+
