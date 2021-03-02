@@ -1,0 +1,38 @@
+
+import Koa from 'koa';
+import path from 'path';
+import next from 'next';
+import KoaSticic from 'koa-static';
+import bodyParser from 'koa-bodyparser';
+import views from 'koa-views';
+import Router from 'koa-router';
+import debug from 'debug';
+
+export function Server () {
+  const app = next({ dev: true, dir: __dirname });
+  const handle = app.getRequestHandler()
+  
+  app.prepare().then(() => {
+    const server = new Koa();
+  
+    server.use(bodyParser());
+    server.use(KoaSticic(path.resolve(__dirname, 'public')));
+    // server.use(KoaSticic(path.resolve(process.env.cwd(), 'public'), { }));
+    
+    server.use(async (ctx, next) => {
+      await handle(ctx.req, ctx.res)
+    });
+
+    server.listen(3000)
+  });
+
+  return app;
+}
+
+
+Server();
+
+
+
+
+

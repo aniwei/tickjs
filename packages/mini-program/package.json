@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development node --inspect=[::]:9429 -r ts-node/register -r tsconfig-paths/register src/vm/index.ts"
+    "dev": "NODE_ENV=development node --inspect=[::]:9429 -r ts-node/register -r tsconfig-paths/register src/vm/index.ts",
+    "next": "next dev --port=8080"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "events": "^3.2.0",
+    "express": "^4.17.1",
     "farrow": "^1.5.3",
     "inversify": "^5.0.5",
     "koa": "^2.13.1",
@@ -21,7 +23,11 @@
     "koa-router": "^10.0.0",
     "koa-static": "^5.0.0",
     "koa-views": "^7.0.0",
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "reflect-metadata": "^0.1.13",
+    "styled-jsx": "^3.4.4",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0"
   }
