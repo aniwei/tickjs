@@ -1,0 +1,27 @@
+{
+  "name": "@tickjs/quickjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development node --inspect=[::]:9429 -r ts-node/register -r tsconfig-paths/register src/vm/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "events": "^3.2.0",
+    "farrow": "^1.5.3",
+    "inversify": "^5.0.5",
+    "koa": "^2.13.1",
+    "koa-hbs": "^0.9.0",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^7.0.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0"
+  }
+}

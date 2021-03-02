@@ -9,55 +9,58 @@ import views from 'koa-views';
 import Router from 'koa-router';
 import debug from 'debug';
 
-export function Server () {
+export async function createServer () {
   const app = next({ dev: true, dir: __dirname });
   const handle = app.getRequestHandler();
+
+  debug('mini-program:server')(`开始创建服务`);
   
-  app.prepare().then(() => {
-    const server = new Koa();
-    const router = new Router();
+  const server = new Koa();
+  server.use(bodyParser());
+  server.use(KoaSticic(path.resolve(__dirname, 'public')));
+  server.use(views(path.resolve(__dirname, 'views'), {
+    map: { hbs: 'handlebars' },
+    options: { cache: false }
+  }));
 
-    // router.get(`/context`, async context => {
-    //   await context.render('context.hbs', {
-
-    //   })
-    // });
-
-    router.get(`/config`, async context => {
-      console.log(123)
-      context.body = {
-        code: null,
-      };
-    });
-
-    router.get(`/uiservice`, async context => {
-      await context.render('uiservice.hbs', {
-        javascript: await fs.readFile(path.resolve(__dirname, './public/WAService.js'))
-      });
-    });
+  const router = new Router();
   
-    server.use(bodyParser());
-    server.use(KoaSticic(path.resolve(__dirname, 'public')));
-    server.use(views(path.resolve(__dirname, 'views'), {
-      map: { hbs: 'handlebars' },
-      options: { cache: false }
-    }));
+  router.get(`/uiservice`, async context => {
+    const miniProgram = context.miniProgram;
 
-    server.use(router.routes());
-    server.use(router.allowedMethods());
-    
-    server.use(async (ctx, next) => {
-      await handle(ctx.req, ctx.res)
+    context.type = 'application/javascript';
+    await context.render('uiservice.hbs', {
+      config: JSON.stringify(miniProgram.config),
+      system: JSON.stringify(miniProgram.system),
+      device: JSON.stringify(miniProgram.device),
+      app: miniProgram.app,
+      service: String(await fs.readFile(path.resolve(__dirname, 'public/WAService.js'))),
     });
-
-    server.listen(3000)
   });
 
-  return app;
+  router.get(`/uiwebview`, async context => {
+    const miniProgram = context.miniProgram;
+
+    context.type = 'application/javascript';
+    await context.render('uiwebview.hbs', {
+      config: JSON.stringify(miniProgram.config),
+      system: JSON.stringify(miniProgram.system),
+      device: JSON.stringify(miniProgram.device),
+      wxss: miniProgram.wxss,
+      webview: String(await fs.readFile(path.resolve(__dirname, 'public/WAWebview.js'))),
+    });
+  });
+
+  server.use(router.routes());
+  server.use(router.allowedMethods());
+  
+  server.use(async ({ req, res }) => {
+    await handle(req, res);
+  });
+
+  return app.prepare().then(() => Promise.resolve(server));
 }
 
-
-Server();
 
 
 

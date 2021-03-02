@@ -4,10 +4,12 @@ async function scriptLoader (src): Promise<any> {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     
-    script.type = 'module';
+    script.type = 'application/javascript';
     script.src = src;
 
-    script.onload = () => resolve(src);
+    script.onload = () => {
+      resolve(src);
+    }
     script.onerror = (error) => reject(error);
     script.src = src;
 
@@ -15,7 +17,7 @@ async function scriptLoader (src): Promise<any> {
   });
 }
 
-export function useScript (src: string | Function, deps = []) {
+export function useScript (src: string | Function) {
   const scripts: any[] = useMemo(() => [], []);
 
   scripts.push(src);
@@ -36,5 +38,5 @@ export function useScript (src: string | Function, deps = []) {
     }
 
     run();
-  }, deps);
+  }, []);
 }

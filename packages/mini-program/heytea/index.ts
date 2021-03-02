@@ -1,6 +1,6 @@
-import { MiniProgram } from '../src/vm';
+import { createMiniProgram } from '../src/vm';
 
-const miniProgram = MiniProgram({
+createMiniProgram({
 
 }, {
   accountInfo: {
@@ -26,5 +26,3 @@ const miniProgram = MiniProgram({
   debug: 0,
   entryPagePath: 'pages/index/index.html'
 });
-
-miniProgram.listen(3000);

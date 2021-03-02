@@ -4,6 +4,7 @@ import { useMessage } from '../../hooks/useMessage';
 
 
 export function Service (props) {
+  useScript(`/ServiceWeixinJSCore.js`);
   useScript(`/uiservice`);
   useScript(() => {
     const { onLoad } = props;

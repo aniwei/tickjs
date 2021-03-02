@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "lib": [
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "charset": "utf8",
+    "sourceMap": false,
+    "noEmit": false,
+    "jsx": "preserve",
+    "build": true,
+    "rootDir": "./server",
+    "outDir": "build",
+    "baseUrl": "./"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}

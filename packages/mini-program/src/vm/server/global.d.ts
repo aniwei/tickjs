@@ -14,4 +14,8 @@ declare global {
       subscribe: Function,
     }
   }
+
+  interface globalThis {
+    process: any
+  }
 }
