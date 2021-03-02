@@ -4,7 +4,6 @@ import { useMessage } from '../../hooks/useMessage';
 
 
 export function Service (props) {
-  useScript(`/context`);
   useScript(`/uiservice`);
   useScript(() => {
     const { onLoad } = props;

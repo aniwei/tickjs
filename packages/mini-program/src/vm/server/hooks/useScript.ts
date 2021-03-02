@@ -4,7 +4,7 @@ async function scriptLoader (src): Promise<any> {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     
-    script.type = 'application/javascript';
+    script.type = 'module';
     script.src = src;
 
     script.onload = () => resolve(src);
