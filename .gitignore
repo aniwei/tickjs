@@ -11,6 +11,7 @@ lerna-debug.log
 yarn-error.log
 _book
 .idea
+.next
 temp
 website/build
 website/package.json
