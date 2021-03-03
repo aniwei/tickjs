@@ -12,6 +12,7 @@
     "jsdom": "^16.4.0",
     "qrcode-terminal": "^0.12.0",
     "qs": "^6.9.4",
+    "styled-components": "^5.2.1",
     "unirest": "^0.6.0"
   }
 }

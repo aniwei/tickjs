@@ -33,6 +33,7 @@ export async function createServer () {
       config: JSON.stringify(miniProgram.config),
       system: JSON.stringify(miniProgram.system),
       device: JSON.stringify(miniProgram.device),
+      types: JSON.stringify(miniProgram.types),
       app: miniProgram.app,
       service: String(await fs.readFile(path.resolve(__dirname, 'public/WAService.js'))),
     });

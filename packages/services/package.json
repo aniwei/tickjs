@@ -9,6 +9,7 @@
   "author": "aniwei",
   "license": "ISC",
   "dependencies": {
-    "rpc-websockets": "^7.4.2"
+    "rpc-websockets": "^7.4.2",
+    "styled-components": "^5.2.1"
   }
 }

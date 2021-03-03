@@ -29,6 +29,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "reflect-metadata": "^0.1.13",
+    "styled-components": "^5.2.1",
     "styled-jsx": "^3.4.4",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0"

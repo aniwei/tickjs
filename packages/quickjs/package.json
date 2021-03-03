@@ -21,6 +21,7 @@
     "koa-static": "^5.0.0",
     "koa-views": "^7.0.0",
     "reflect-metadata": "^0.1.13",
+    "styled-components": "^5.2.1",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0"
   }

@@ -45,10 +45,17 @@ export function MiniProgram (options, config) {
     }
   }
 
+  const invokeTypes = {
+    ...shared.invokeTypes,
+    ...options.invokeTypes
+  }
+
   config = {
     ...shared.config,
     ...config,
   }
+
+
 
   isIllegalMiniProgramConfig(config);
 

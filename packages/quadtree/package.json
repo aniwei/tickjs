@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "js-quadtree": "^3.3.0",
-    "node-opencv": "^0.0.2-security"
+    "node-opencv": "^0.0.2-security",
+    "styled-components": "^5.2.1"
   }
 }

@@ -1,56 +1,27 @@
-import { Component } from 'react';
-import { useScript } from '../../hooks/useScript';
-import { useMessage } from '../../hooks/useMessage';
+import { useEffect } from 'react';
+import { useSubscribe } from '../../hooks/useSubscribe';
 
 
-export function Service (props) {
-  useScript(`/ServiceWeixinJSCore.js`);
-  useScript(`/uiservice`);
-  useScript(() => {
+export function UIService (props) {
+  
+
+  useEffect(() => {
     const { onLoad } = props;
-    onLoad();
-  });
+    onLoad({
+      invokeCallbackHandler (...args) {
+        window.WeixinJSBridge.invokeCallbackHandler(...args);
+      },
+      subscribeHandler (...args) {
+        window.WeixinJSBridge.subscribeHandler(...args);
+      },
+    });
+  }, []);
 
-  const subscribeMethod = (...args) => {
-    const { subscribeHandler } = props;
-    subscribeHandler(...args);
-  }
-
-  useMessage(`webview.custom_event_GenerateFuncReady`, subscribeMethod);
-  useMessage(`webview.custom_event_PAGE_EVENT`, subscribeMethod);
-  useMessage(`webview.custom_event_initReady_getPerformance`, subscribeMethod);
-  useMessage(`webview.custom_event_vdSync`, subscribeMethod);
-  useMessage(`webview.custom_event_tapAnyWhere`, subscribeMethod);
+  useSubscribe(`webview.custom_event_GenerateFuncReady`);
+  useSubscribe(`webview.custom_event_PAGE_EVENT`);
+  useSubscribe(`webview.custom_event_initReady_getPerformance`);
+  useSubscribe(`webview.custom_event_vdSync`);
+  useSubscribe(`webview.custom_event_tapAnyWhere`);
   
   return null;
-}
-
-export interface IProps {
-  onLoad: Function | null;
-}
-
-export class UIService extends Component<IProps, {}> {
-  static defaultProps = {
-    onLoad () {}
-  }
-
-  subscribeHandler = (...args) => {
-    WeixinJSBridge.invokeCallbackHandler(...args);
-  }
-
-  invokeCallbackHandler = (...args) => {
-    WeixinJSBridge.invokeCallbackHandler(...args);
-  }
-
-  onLoad = () => {
-    const { onLoad } = this.props;
-    onLoad();
-  }
-
-  render () {
-    return <Service 
-      onLoad={this.onLoad}
-      subscribeHandler={this.subscribeHandler} 
-    />
-  }
 }

@@ -25,13 +25,10 @@ export async function createMiniProgram (options, config) {
   const cwd = options.cwd || process.cwd();
   const appid = options.appid;
   const device = { ...shared.device, ...options.device }
+  const types = { ...shared.types, ...options.invokeTypes }
   const system = {
     ...shared.system,
     ...options.system,
-    model: {
-      ...shared.system.model,
-      ...options.system?.model
-    }
   }
 
   config = { 
@@ -50,6 +47,7 @@ export async function createMiniProgram (options, config) {
   server.context.miniProgram = {
     app: String(app),
     wxss: String(wxss),
+    types: types,
     config: config,
     device: device,
     system: system,

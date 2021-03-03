@@ -10,6 +10,7 @@
   "author": "aniwei",
   "license": "ISC",
   "dependencies": {
+    "styled-components": "^5.2.1",
     "xml-beautifier": "^0.4.3"
   }
 }

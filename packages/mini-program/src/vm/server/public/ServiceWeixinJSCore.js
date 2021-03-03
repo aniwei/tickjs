@@ -1,13 +1,3 @@
-const $$nextTick = window.setTimeout;
-const $$console = window.console;
-const $$document = window.document;
-const $$defineProperty = Object.defineProperty;
-const $$define = function (name, value) {
-  $$defineProperty(window, name, {
-    get: function () { return value }
-  });
-};
-
 const $$dispatchEvent = (name, detail) => {
   const event = new CustomEvent(`service.${name}`, { 
     detail: { 

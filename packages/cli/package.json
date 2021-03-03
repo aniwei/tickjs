@@ -39,6 +39,7 @@
 		"react-blessed": "^0.6.2",
 		"rpc-websockets": "^7.4.8",
 		"spinnies": "^0.5.1",
+		"styled-components": "^5.2.1",
 		"terminal-kit": "^1.46.1",
 		"user-home": "^2.0.0",
 		"uuid": "^8.3.2",

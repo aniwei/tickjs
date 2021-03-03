@@ -20,7 +20,11 @@ export function UINavigationScript (props) {
   return null;
 }
 
-export default class UINavigationController extends Component {
+export interface IProps {
+  route: string
+}
+
+export class UINavigationController extends Component <IProps> {
   public iframe: HTMLIFrameElement | null = null;
 
   onLoad = () => {
@@ -28,19 +32,31 @@ export default class UINavigationController extends Component {
   }
 
   render () {
+    const { route } = this.props;
+
     return (
-      <div>
-        <UINavigationScript onLoad={this.onLoad} />
+      <div className="navigation">
         <UINavigationHeader />
 
-        <iframe src="/pages" ref={ref => this.iframe = ref}>
-          <style jsx>{`
-            iframe {
-              margin: 0;
-              border: none;
-            }
-          `}</style>
-        </iframe>
+        <iframe 
+          className="iframe" 
+          src={`UIView?r=${route}`} 
+          ref={ref => this.iframe = ref} 
+        />
+
+        <style jsx>{`
+          .navigation {
+            height: 100%;
+            width: 100%;
+          }
+
+          .iframe {
+            margin: 0;
+            border: none;
+            height: 100%;
+            width: 100%;
+          }
+        `}</style>
       </div>
     )
   }

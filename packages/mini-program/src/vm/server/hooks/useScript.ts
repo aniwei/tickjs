@@ -20,9 +20,10 @@ async function scriptLoader (src): Promise<any> {
 export function useScript (src: string | Function) {
   const scripts: any[] = useMemo(() => [], []);
 
-  scripts.push(src);
-
+  
   useEffect(() => {
+    scripts.push(src);
+
     const run = async () => {
       let script = scripts.shift();
       

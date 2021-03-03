@@ -8,9 +8,6 @@ import { Provider } from '../context';
 export default function Index () {
   
   return (
-    <Provider value={{}}>
-      <MiniProgram />
-      
-    </Provider>
+    <MiniProgram />
   );
 }
