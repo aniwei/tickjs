@@ -1,5 +1,4 @@
 import { useState, useEffect, Component } from 'react';
-import { useScript } from '../../hooks/useScript';
 import { UINavigationController } from '../UINavigationController';
 
 
@@ -16,7 +15,6 @@ export function UIMobile (props) {
     ]);
 
     onLoad({
-      controller,
       navigate () {}
     });
   }, [])

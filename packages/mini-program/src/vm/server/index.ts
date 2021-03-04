@@ -9,7 +9,7 @@ import views from 'koa-views';
 import Router from 'koa-router';
 import debug from 'debug';
 
-export async function createServer () {
+export async function Server () {
   const app = next({ dev: true, dir: __dirname });
   const handle = app.getRequestHandler();
 
@@ -26,36 +26,23 @@ export async function createServer () {
   const router = new Router();
   
   router.get(`/uiservice`, async context => {
-    const miniProgram = context.miniProgram;
-
     context.type = 'application/javascript';
     await context.render('uiservice.hbs', {
-      config: JSON.stringify(miniProgram.config),
-      system: JSON.stringify(miniProgram.system),
-      device: JSON.stringify(miniProgram.device),
-      types: JSON.stringify(miniProgram.types),
-      app: miniProgram.app,
       service: String(await fs.readFile(path.resolve(__dirname, 'public/WAService.js'))),
     });
   });
 
   router.get(`/uiwebview`, async context => {
-    const miniProgram = context.miniProgram;
-
     context.type = 'application/javascript';
     await context.render('uiwebview.hbs', {
-      config: JSON.stringify(miniProgram.config),
-      system: JSON.stringify(miniProgram.system),
-      device: JSON.stringify(miniProgram.device),
-      wxss: miniProgram.wxss,
-      webview: String(await fs.readFile(path.resolve(__dirname, 'public/WAWebview.js'))),
     });
   });
 
   server.use(router.routes());
   server.use(router.allowedMethods());
   
-  server.use(async ({ req, res }) => {
+  server.use(async ({ req, res, __TICK_MINI_PROGRAM }) => {
+    req.__TICK_MINI_PROGRAM = __TICK_MINI_PROGRAM;
     await handle(req, res);
   });
 

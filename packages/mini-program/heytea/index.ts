@@ -1,3 +1,5 @@
+import fs from 'fs-extra';
+import path from 'path';
 import { createMiniProgram } from '../src/vm';
 
 createMiniProgram({
@@ -24,5 +26,6 @@ createMiniProgram({
     },
   },
   debug: 0,
-  entryPagePath: 'pages/index/index.html'
+  entryPagePath: 'pages/index/index.html',
+  ...fs.readJSONSync(path.resolve(__dirname, 'app-config.json'))
 });

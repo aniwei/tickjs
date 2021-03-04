@@ -1,13 +1,13 @@
-import { Component } from 'react';
-import fetch from 'isomorphic-fetch';
+import { TickApp } from '../componnets/TickApp';
 
-import { MiniProgram } from '../componnets/MiniProgram';
-import { Provider } from '../context';
+export default function Index (props) {
+  return <TickApp  {...props} />
+}
 
+Index.getInitialProps = (context) => {
+  const { __TICK_MINI_PROGRAM } = context.req;
 
-export default function Index () {
-  
-  return (
-    <MiniProgram />
-  );
+  return {
+    __TICK_MINI_PROGRAM
+  }
 }

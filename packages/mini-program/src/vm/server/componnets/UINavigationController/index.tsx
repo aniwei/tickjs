@@ -40,7 +40,7 @@ export class UINavigationController extends Component <IProps> {
 
         <iframe 
           className="iframe" 
-          src={`UIView?r=${route}`} 
+          src={`view?r=${route}`} 
           ref={ref => this.iframe = ref} 
         />
 
