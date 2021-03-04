@@ -14,7 +14,8 @@ export function UITabBar ({ __TICK_MINI_PROGRAM }) {
   const [tabbar] = useState({
     activeTintColor: tabBar.selectedColor,
     inactiveTintColor: tabBar.color,
-    backgroundColor: tabBar.backgroundColor,
+    inactiveBackgroundColor: tabBar.backgroundColor,
+    activeBackgroundColor: tabBar.backgroundColor,
     tabItems: tabBar.list.map(tabItem => {
       return {
         label: tabItem.text,
@@ -32,7 +33,10 @@ export function UITabBar ({ __TICK_MINI_PROGRAM }) {
       <Navigator
         initialRouteName="Home"
         tabBarOptions={{
-          activeTintColor: '#e91e63',
+          activeTintColor: tabbar.activeTintColor,
+          inactiveTintColor: tabbar.inactiveTintColor,
+          inactiveBackgroundColor: tabbar.inactiveBackgroundColor,
+          activeBackgroundColor: tabbar.activeBackgroundColor,
         }}
       >
         {
@@ -43,10 +47,14 @@ export function UITabBar ({ __TICK_MINI_PROGRAM }) {
               component={UINavigationController}
               options={{
                 tabBarLabel: tabItem.label,
-                tabBarIcon: ({ color, size }) => {
+                
+                tabBarIcon: (option) => {
+                  const icon = option.focused ? 
+                    tabItem.selectedIcon : tabItem.icon;
+
                   return <Image 
                     style={{ width: 24, height: 24 }}
-                    source={'data:image/png;base64,' + tabItem.icon} 
+                    source={'data:image/png;base64,' + icon} 
                   />
                 },
               }}
