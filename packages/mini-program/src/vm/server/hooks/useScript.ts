@@ -1,41 +1,36 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
-async function scriptLoader (src): Promise<any> {
+function scriptLoader (src) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    
+
     script.type = 'application/javascript';
     script.src = src;
 
     script.onload = () => {
       resolve(src);
     }
-    script.onerror = (error) => reject(error);
+    script.onerror = (error) => {
+      reject(error);
+    }
+
     script.src = src;
 
     document.head.appendChild(script);
-  });
+  })
 }
 
-export function useScript (src: string | Function) {
-  const scripts: any[] = useMemo(() => [], []);
-
-  
+export function useScript (scripts: string[], callback: Function) {  
   useEffect(() => {
-    scripts.push(src);
-
     const run = async () => {
-      let script = scripts.shift();
-      
-      while (script) {
-        if (typeof script === 'function') {
-          await script();
-        } else if (typeof script === 'string') {
-          await scriptLoader(script);
-        }
+      let script = scripts.shift(); 
 
-        script = scripts.shift();
+      for ( ;script; ) {
+        await scriptLoader(script);
+        script = scripts.shift(); 
       }
+
+      callback();
     }
 
     run();

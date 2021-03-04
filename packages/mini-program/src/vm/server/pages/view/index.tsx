@@ -1,15 +1,15 @@
-import { useScript } from '../../hooks/useScript';
+import { ViewScript } from 'vm/server/componnets/ViewScript';
 
 export default function View (props) {
-  useScript(`/uiwebview`);
-
-  return null;
+  return <ViewScript {...props} />
 }
 
 View.getInitialProps = (context) => {
-  const { __TICK_MINI_PROGRAM } = context.req;
+  const { __TICK_MINI_PROGRAM, __NEXT_INIT_QUERY } = context.req;
 
   return {
-    __TICK_MINI_PROGRAM
+    __TICK_MINI_PROGRAM,
+    route: __NEXT_INIT_QUERY.r,
+    webviewId: __NEXT_INIT_QUERY.i
   }
 }

@@ -1,18 +1,18 @@
-export function TickViewScript (props) {
+export function AppScript (props) {
   const { __TICK_MINI_PROGRAM } = props;
-  const { deive, config, system, webviewId, route } = __TICK_MINI_PROGRAM;
+  const { deive, config, system, types } = __TICK_MINI_PROGRAM;
 
   const html = `
     const __TICK_MINI_PROGRAM = {
-      route: ${route},
-      webviewId: ${webviewId},
       eval: window.eval,
       console: window.console,
       nextTick: window.setTimeout,
       deive: ${JSON.stringify(deive)},
       config: ${JSON.stringify(config)},
       system: ${JSON.stringify(system)},
-      document: window.parent.document,
+      types: ${JSON.stringify(types)},
+      document: window.parent === window ? 
+        window.document : window.parent.document,
       define: function (name, value) {
         try {
           Object.defineProperty(window, name, {
@@ -20,14 +20,9 @@ export function TickViewScript (props) {
           });
         } catch (error) {}
       },
-      ready: function () {
-        const __setCssStartTime__ = Date.now();			
-        __wxAppCode__['pages/code/code.wxss']();
-	      const __setCssEndTime__ = Date.now(); 
-      },
       inject: function (source) {
         this.define('WeixinJSCore', {
-          dispatch: function () {
+          dispatch: function (name, detail) {
             const event = new CustomEvent(\`\${source}.\${name}\`, { 
               detail: { 
                 ...detail, 
@@ -49,7 +44,7 @@ export function TickViewScript (props) {
             this.dispatch(name, { data, callbackId });
           },
 
-          publishHandler: function (name, data) {
+          publishHandler: function (name, data, webviewId) {
             __TICK_MINI_PROGRAM.console.info(
               \`【消息来源 - \${source}】\`, 
               \`「publishHandler」:\${name}\`,
@@ -60,22 +55,19 @@ export function TickViewScript (props) {
             const nativeTime = Date.now();
             const webviewIds = JSON.parse(webviewId);
 
-            if (name === 'custom_event_webviewCreated') {
-              this.dispatch('created', {});
+            for (const webviewId of webviewIds) {
+              this.dispatch(name, {
+                webviewId,
+                args: [ name, JSON.parse(data), 0, { nativeTime }]
+              });
             }
-
-            this.dispatch(name, {
-              args: [name, JSON.parse(data), ${webviewId}, { nativeTime }]
-            })
-
           }
         });
       }
     };
 
-    __TICK_MINI_PROGRAM.inject('webview');
+    __TICK_MINI_PROGRAM.inject('service');
     __TICK_MINI_PROGRAM.define('__wxConfig', __TICK_MINI_PROGRAM.config);
-    __TICK_MINI_PROGRAM.define('__deviceInfo', __TICK_MINI_PROGRAM.device);
   `;
 
   return <script dangerouslySetInnerHTML={{__html: html }}></script>

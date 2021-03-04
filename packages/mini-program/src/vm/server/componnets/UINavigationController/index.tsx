@@ -1,63 +1,41 @@
 import { Component } from 'react';
-import { useScript } from '../../hooks/useScript';
-
-function UINavigationHeader () {
-  return (
-    <div></div>
-  )
-}
-
-export function UINavigationScript (props) {
-  useScript(`/WebViewWeixinJSCore.js`);
-  useScript(`/uiwebview`);
-
-  useScript(() => {
-    const { onLoad } = props;
-
-    onLoad();
-  });
-
-  return null;
-}
+import { View } from 'react-native-web';
 
 export interface IProps {
-  route: string
+  route: string,
+  controllerId: string
 }
 
 export class UINavigationController extends Component <IProps> {
   public iframe: HTMLIFrameElement | null = null;
 
-  onLoad = () => {
+  getIFrameInstance = (ref) => {
+    this.iframe = ref;
+  }
 
+  invokeCallbackHandler (...args) {
+    const WeixinJSBridge = this.iframe.contentWindow.WeixinJSBridge;
+
+    WeixinJSBridge.invokeCallbackHandler(...args);
+  }
+  
+  subscribeHandler (...args) {
+    const WeixinJSBridge = this.iframe.contentWindow.WeixinJSBridge;
+    
+    WeixinJSBridge.subscribeHandler(...args);
   }
 
   render () {
-    const { route } = this.props;
+    const { route, controllerId } = this.props;
 
     return (
-      <div className="navigation">
-        <UINavigationHeader />
-
+      <View style={{ flex: 1, display: 'flex' }}>
         <iframe 
-          className="iframe" 
-          src={`view?r=${route}`} 
-          ref={ref => this.iframe = ref} 
+          style={{ flex: 1, border: 'none' }}
+          ref={this.getIFrameInstance} 
+          src={`view?r=${route}&i=${controllerId}`} 
         />
-
-        <style jsx>{`
-          .navigation {
-            height: 100%;
-            width: 100%;
-          }
-
-          .iframe {
-            margin: 0;
-            border: none;
-            height: 100%;
-            width: 100%;
-          }
-        `}</style>
-      </div>
+      </View>
     )
   }
 

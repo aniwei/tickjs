@@ -18,7 +18,7 @@ function isIllegalMiniProgramOptions (config) {
   }
 }
 
-export async function createMiniProgram (options, config) {
+export async function createMiniProgram (options, config, { appservice, appwxss }) {
   const port = options.port || process.env.PORT || shared.port;
   const cwd = options.cwd || process.cwd();
   const appid = options.appid;
@@ -37,6 +37,9 @@ export async function createMiniProgram (options, config) {
   isIllegalMiniProgramOptions(config);
 
   const server = await Server();
+
+  server.context.__TICK_APP_WXSS = appwxss;
+  server.context.__TICK_APP_SERVICE = appservice;
 
   server.context.__TICK_MINI_PROGRAM = {
     types: types,

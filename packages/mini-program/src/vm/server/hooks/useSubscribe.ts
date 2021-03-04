@@ -2,8 +2,12 @@ import { useMemo } from 'react';
 import { useMessage } from './useMessage';
 
 export function useSubscribe (name) {
-  const subscribeMethod = useMemo(() => (...args) => {
-    window.WeixinJSBridge && window.WeixinJSBridge.subscribeHandler(...args)
+  const subscribeMethod = useMemo(() => (event) => {
+    const { args } = event.detail;
+
+    if (typeof WeixinJSBridge === 'object') {
+      WeixinJSBridge.subscribeHandler(...args);
+    }
   }, []);
 
   useMessage(name, subscribeMethod);

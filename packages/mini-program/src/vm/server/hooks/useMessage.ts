@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export function useMessage (name, callback) {
   useEffect(() => {
-    $$document.addEventListener(name, callback, false);
-    return () => $$document.removeEventListener(name, callback, false)
+    __TICK_MINI_PROGRAM.document.addEventListener(name, callback, false);
+    return () => __TICK_MINI_PROGRAM.document.removeEventListener(name, callback, false)
   }, []);
 }

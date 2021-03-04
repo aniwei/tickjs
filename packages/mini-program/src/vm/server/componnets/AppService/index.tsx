@@ -1,21 +1,20 @@
-import { useEffect } from 'react';
+import { View, Text } from 'react-native-web'
+import { useScript } from 'vm/server/hooks/useScript';
 import { useSubscribe } from '../../hooks/useSubscribe';
 
-
-export function UIService (props) {
-  
-
-  useEffect(() => {
+export function AppService (props) {
+  useScript([`/WAService.js`, `/appservice`], () => {
     const { onLoad } = props;
+    
     onLoad({
       invokeCallbackHandler (...args) {
-        window.WeixinJSBridge.invokeCallbackHandler(...args);
+        WeixinJSBridge.invokeCallbackHandler(...args);
       },
       subscribeHandler (...args) {
-        window.WeixinJSBridge.subscribeHandler(...args);
+        WeixinJSBridge.subscribeHandler(...args);
       },
     });
-  }, []);
+  });
 
   useSubscribe(`webview.custom_event_GenerateFuncReady`);
   useSubscribe(`webview.custom_event_PAGE_EVENT`);
@@ -23,5 +22,7 @@ export function UIService (props) {
   useSubscribe(`webview.custom_event_vdSync`);
   useSubscribe(`webview.custom_event_tapAnyWhere`);
   
-  return null;
+  return <View style={{ display: 'none' }}>
+    <Text>AppService</Text>
+  </View>
 }

@@ -28,4 +28,7 @@ createMiniProgram({
   debug: 0,
   entryPagePath: 'pages/index/index.html',
   ...fs.readJSONSync(path.resolve(__dirname, 'app-config.json'))
+}, {
+  appservice: fs.readFileSync(path.resolve(__dirname, 'app-service.js')),
+  appwxss: fs.readFileSync(path.resolve(__dirname, 'app-wxss.js'))
 });
