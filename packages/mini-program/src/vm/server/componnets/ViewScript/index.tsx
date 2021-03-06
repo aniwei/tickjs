@@ -22,7 +22,7 @@ export function ViewScript (props) {
       eval: window.eval,
       console: window.console,
       nextTick: window.setTimeout,
-      deive: ${JSON.stringify(device)},
+      device: ${JSON.stringify(device)},
       config: ${JSON.stringify(config)},
       system: ${JSON.stringify(system)},
       document: window.parent.document,
@@ -66,27 +66,27 @@ export function ViewScript (props) {
             __TICK_MINI_PROGRAM.document.dispatchEvent(event);
           },
           invokeHandler: function (name, data, callbackId) {
-            __TICK_MINI_PROGRAM.console.info(
-              \`【消息来源 - \${source}】\`, 
-              \`「invokeHandler」:\${name}\`,
-              \`数据:\`, data,
-              \`回调函数:\`, callbackId
-            );
+            // __TICK_MINI_PROGRAM.console.info(
+            //   \`【消息来源 - \${source}】\`, 
+            //   \`「invokeHandler」:\${name}\`,
+            //   \`数据:\`, data,
+            //   \`回调函数:\`, callbackId
+            // );
 
             this.dispatch(name, { data, callbackId });
           },
 
           publishHandler: function (name, data) {
-            __TICK_MINI_PROGRAM.console.info(
-              \`【消息来源 - \${source}】\`, 
-              \`「publishHandler」:\${name}\`,
-              \`数据:\`, data,
-              \`WebViewId:\`, ${webviewId}
-            );
+            // __TICK_MINI_PROGRAM.console.info(
+            //   \`【消息来源 - \${source}】\`, 
+            //   \`「publishHandler」:\${name}\`,
+            //   \`数据:\`, data,
+            //   \`WebViewId:\`, ${webviewId}
+            // );
 
             const nativeTime = Date.now();
 
-            if (name === 'custom_event_webviewCreated') {
+            if (name === 'custom_event_webViewCreated') {
               this.dispatch('created', {});
             }
 

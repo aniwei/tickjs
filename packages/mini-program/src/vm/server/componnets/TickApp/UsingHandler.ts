@@ -1,4 +1,4 @@
-import { useInvoke } from '../../hooks/useInvoke';
+import { useInvoke } from '../../hooks/useInvokeHandlerRegistry';
 
 
 function invokeCallback (state, { name, callbackId }, data) {

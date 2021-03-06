@@ -1,14 +1,17 @@
-import { useMemo } from 'react';
 import { useMessage } from './useMessage';
 
-export function useSubscribe (name) {
-  const subscribeMethod = useMemo(() => (event) => {
-    const { args } = event.detail;
+export function useSubscribe (name, callback) {
+  const subscribeMethod = (event) => {
+    const { args, webviewId } = event.detail;
+    callback(...args, webviewId);
+  }
 
-    if (typeof WeixinJSBridge === 'object') {
-      WeixinJSBridge.subscribeHandler(...args);
-    }
-  }, []);
+  if (!Array.isArray(name)) {
+    name = [name];
+  }
 
-  useMessage(name, subscribeMethod);
+  for (const n of name) {
+    useMessage(n, subscribeMethod);
+  }
+
 }

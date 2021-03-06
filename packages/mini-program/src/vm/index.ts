@@ -2,6 +2,10 @@ import debug from 'debug';
 import * as shared from './shared';
 import { Server } from './server';
 
+import {
+  getDefaultNativeMethods
+} from './NativeMethods';
+
 class MiniProgramConfigError extends Error {}
 
 function isIllegalMiniProgramOptions (config) {
@@ -18,7 +22,8 @@ function isIllegalMiniProgramOptions (config) {
   }
 }
 
-export async function createMiniProgram (options, config, { appservice, appwxss }) {
+export async function createMiniProgram (options, config, impl = getDefaultNativeMethods().request) {
+  const { appservice, appwxss } = options;
   const port = options.port || process.env.PORT || shared.port;
   const cwd = options.cwd || process.cwd();
   const appid = options.appid;
@@ -36,7 +41,7 @@ export async function createMiniProgram (options, config, { appservice, appwxss 
 
   isIllegalMiniProgramOptions(config);
 
-  const server = await Server();
+  const server = await Server(impl);
 
   server.context.__TICK_APP_WXSS = appwxss;
   server.context.__TICK_APP_SERVICE = appservice;

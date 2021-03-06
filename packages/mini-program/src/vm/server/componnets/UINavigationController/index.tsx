@@ -1,42 +1,81 @@
-import { Component } from 'react';
+import { useMemo } from 'react';
+import { useEffect, useRef } from 'react';
 import { View } from 'react-native-web';
+import { useOnceMessage } from '../../hooks/useOnceMessage';
 
-export interface IProps {
-  route: string,
-  controllerId: string
+function getJSBridgeHandler (ref) {
+  return {
+    subscribeHandler (...args) {
+      const WeixinJSBridge = ref.current ? 
+        ref.current.contentWindow.WeixinJSBridge : null;
+      
+        if (WeixinJSBridge) {
+        WeixinJSBridge.subscribeHandler(...args);
+      }
+    },
+    invokeCallbackHandler (...args) {
+      const WeixinJSBridge = ref.current ? 
+        ref.current.contentWindow.WeixinJSBridge : null;
+      if (WeixinJSBridge) {
+        WeixinJSBridge.subscribeHandler(...args);
+      }
+    },
+  }
 }
 
-export class UINavigationController extends Component <IProps> {
-  public iframe: HTMLIFrameElement | null = null;
+export function UINavigationController (props) {
+  const { navigation, route, controllerId, onCreated, onFocus } = props;
+  const ref = useRef();
 
-  getIFrameInstance = (ref) => {
-    this.iframe = ref;
-  }
+  const navigator = useMemo(() => {
+    return {
+      navigation,
+      ...getJSBridgeHandler(ref)
+    }
+  }, [navigation])
 
-  invokeCallbackHandler (...args) {
-    const WeixinJSBridge = this.iframe.contentWindow.WeixinJSBridge;
-
-    WeixinJSBridge.invokeCallbackHandler(...args);
-  }
-  
-  subscribeHandler (...args) {
-    const WeixinJSBridge = this.iframe.contentWindow.WeixinJSBridge;
+  useOnceMessage('webview.created', () => {
     
-    WeixinJSBridge.subscribeHandler(...args);
-  }
+    const { __TRIGGER_FROM, __TYPE } = route.params || {};
 
-  render () {
-    const { route, controllerId } = this.props;
+    onCreated(controllerId, navigator, {
+      path: route.name,
+      query: {
+        ...route.params
+      },
+      openType: __TYPE || 'switchTab',
+    });
 
-    return (
-      <View style={{ flex: 1, display: 'flex' }}>
-        <iframe 
-          style={{ flex: 1, border: 'none' }}
-          ref={this.getIFrameInstance} 
-          src={`view?r=${route}&i=${controllerId}`} 
-        />
-      </View>
-    )
-  }
+    if (__TRIGGER_FROM) {
+      __TICK_MINI_PROGRAM.dispatch('onTabItemTap', {
+        ...route.params.__TRIGGER_FROM,
+        query: {
+          ...route.params
+        },
+        pagePath: __TRIGGER_FROM.route
+      });
+    }
+  }, navigation);
 
+  useEffect(() => navigation.addListener('blur', () => {
+    onFocus(controllerId, navigator);
+  }), [navigation]);
+
+  useEffect(() => {
+    return () => {
+      props;
+      debugger;
+    }
+  })
+
+  return (
+    <View style={{ flex: 1, display: 'flex' }}>
+      <iframe 
+        ref={ref} 
+        style={{ flex: 1, border: 'none' }}
+        src={`view?r=${route.name}&i=${controllerId}`} 
+      />
+    </View>
+  )
 }
+

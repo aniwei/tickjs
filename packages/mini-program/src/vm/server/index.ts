@@ -7,7 +7,7 @@ import bodyParser from 'koa-bodyparser';
 import Router from 'koa-router';
 import debug from 'debug';
 
-export async function Server () {
+export async function Server (implement) {
   const app = next({ dev: true, dir: __dirname });
   const handle = app.getRequestHandler();
 
@@ -18,6 +18,11 @@ export async function Server () {
   server.use(KoaSticic(path.resolve(__dirname, 'public')));
 
   const router = new Router();
+
+  router.post('/api/:name', async context => {
+    const { name } = context.params;
+    await implement(name, context);
+  });
   
   router.get(`/appservice`, async context => {
     const { __TICK_APP_SERVICE } = context;
