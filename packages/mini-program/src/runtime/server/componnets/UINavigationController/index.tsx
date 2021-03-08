@@ -42,15 +42,17 @@ export function UINavigationController (props) {
   useOnceMessage('webview.created', () => 
     appnavigator.onCreated(navigator, {
       path: route.name,
-      query: { ...route.params },
-      openType: __TYPE || 'switchTab',
+      query: { ...route.params }
     }), 
     navigation
   );
 
   useEffect(() => (
-    navigation.addListener('blur', () => 
-      appnavigator.onFocus(navigator))
+    navigation.addListener('focus', () => 
+      appnavigator.onFocus(navigator, {
+        path: route.name,
+        query: { ...route.params }
+      }))
   ), [navigation]);
 
   useEffect(() => () => {

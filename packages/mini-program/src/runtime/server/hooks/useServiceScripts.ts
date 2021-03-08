@@ -3,7 +3,7 @@ import { useScript } from './useScript';
 export function useServiceScripts (props) {
   useScript([
     `/WAService.js`, 
-    // `/appservice`
+    `/appservice`
   ], () => {    
     props.onLoad();
   });

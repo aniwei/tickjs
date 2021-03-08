@@ -142,5 +142,33 @@ export function useAppNativeMethods ({ __TICK_MINI_PROGRAM }) {
     }
   );
 
+  useAppNativeMethod(
+    `service.redirectTo`,
+    ({ callbackId, name, data }) => {
+      const url = new URL(data.url);
+      const query = qs.parse(url.query.slice(1));
+
+      appnavigator.push(url, query);
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  );
+
+  useAppNativeMethod(
+    `service.switchTab`,
+    ({ callbackId, name, data }) => {
+      const url = new URL(data.url);
+      const query = qs.parse(url.query.slice(1));
+
+      appnavigator.navigate(url, query);
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  );
+
   return nativeMethods;
 }

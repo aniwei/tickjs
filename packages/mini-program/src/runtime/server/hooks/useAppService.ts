@@ -44,7 +44,7 @@ class NativeMethodExecutor {
           'ok' : 'fail';
 
         this.appservice.invokeCallbackHandler(this.callbackId, {
-          errMsg: msg,
+          errMsg: `${this.name}:${msg}`,
           ...this.data
         });
       }

@@ -8,12 +8,8 @@ import { AppCapsule } from '../AppCapsule';
 import { Provider } from './AppContext';
 
 import { useAppNavigator } from '../../hooks/useAppNavigator';
-import { useAppService } from 'vm/server/hooks/useAppService';
-import { useAppConfig } from 'vm/server/hooks/useAppConfig';
-import { useAppNativeMethods } from 'vm/server/hooks/useAppNativeMethods';
-
-
-
+import { useAppService } from '../../hooks/useAppService';
+import { useAppConfig } from '../../hooks/useAppConfig';
 
 export default function App (props) {
   const [

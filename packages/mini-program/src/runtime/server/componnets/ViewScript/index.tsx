@@ -1,9 +1,3 @@
-import dynamic from 'next/dynamic';
-import { useScript } from '../../hooks/useScript';
-
-const AppView = dynamic(import('../AppView'), { ssr: false })
-
-
 export function ViewScript (props) {
   const { 
     __TICK_MINI_PROGRAM,
