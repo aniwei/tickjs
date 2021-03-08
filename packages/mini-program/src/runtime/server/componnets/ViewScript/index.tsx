@@ -2,13 +2,15 @@ export function ViewScript (props) {
   const { 
     __TICK_MINI_PROGRAM,
     webviewId, 
-    route 
+    route,
+    path
   } = props;
 
   const { 
     device, 
     config, 
     system, 
+    appconfig,
   } = __TICK_MINI_PROGRAM;
 
   const html = `
@@ -19,6 +21,7 @@ export function ViewScript (props) {
       eval: window.eval,
       console: window.console,
       nextTick: window.setTimeout,
+      appconfig: ${JSON.stringify(appconfig)},
       device: ${JSON.stringify(device)},
       config: ${JSON.stringify(config)},
       system: ${JSON.stringify(system)},
@@ -36,7 +39,7 @@ export function ViewScript (props) {
         } catch (error) {}
       },
       ready: function () {
-        const setCSS = __wxAppCode__['${route}'];
+        const setCSS = __wxAppCode__['${path}.wxss'];
 
         const __setCssStartTime__ = Date.now();			
         setCSS();

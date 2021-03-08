@@ -14,6 +14,7 @@ View.getInitialProps = (context) => {
   return {
     __TICK_MINI_PROGRAM,
     route: __NEXT_INIT_QUERY.r,
+    path: __NEXT_INIT_QUERY.r.replace(/\.html$/, ''),
     webviewId: __NEXT_INIT_QUERY.i
   }
 }

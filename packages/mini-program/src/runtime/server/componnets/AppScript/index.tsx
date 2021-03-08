@@ -1,6 +1,6 @@
 export function AppScript (props) {
   const { __TICK_MINI_PROGRAM } = props;
-  const { device, config, system, types } = __TICK_MINI_PROGRAM;
+  const { device, config, system, types, appconfig } = __TICK_MINI_PROGRAM;
 
   const html = `
     const __TICK_MINI_PROGRAM = {
@@ -8,6 +8,7 @@ export function AppScript (props) {
       eval: window.eval,
       console: window.console,
       storage: window.localStorage,
+      appconfig: ${JSON.stringify(appconfig)},
       device: ${JSON.stringify(device)},
       config: ${JSON.stringify(config)},
       system: ${JSON.stringify(system)},

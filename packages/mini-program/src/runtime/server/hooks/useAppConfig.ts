@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { getApplicationConfig } from './shared';
 
 export function useAppConfig (props) {
   const { __TICK_MINI_PROGRAM } = props;
