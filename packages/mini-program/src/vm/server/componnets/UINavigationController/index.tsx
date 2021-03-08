@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo, useContext } from 'react';
 import { View } from 'react-native-web';
 import { useOnceMessage } from '../../hooks/useOnceMessage';
+import { AppContext } from '../TickApp/AppContext';
 
 function getJSBridgeHandler (ref) {
   return {
@@ -24,56 +24,45 @@ function getJSBridgeHandler (ref) {
 }
 
 export function UINavigationController (props) {
-  const { navigation, route, controllerId, onCreated, onFocus } = props;
+  const { appnavigator } = useContext(AppContext);
+  const { navigation, route } = props;
+  const { __TYPE } = route.params || {};
   const ref = useRef();
 
   const navigator = useMemo(() => {
     return {
       navigation,
+      route: route,
+      type: __TYPE || 'switchTab',
+      id: appnavigator.create(),
       ...getJSBridgeHandler(ref)
     }
   }, [navigation])
 
-  useOnceMessage('webview.created', () => {
-    
-    const { __TRIGGER_FROM, __TYPE } = route.params || {};
-
-    onCreated(controllerId, navigator, {
+  useOnceMessage('webview.created', () => 
+    appnavigator.onCreated(navigator, {
       path: route.name,
-      query: {
-        ...route.params
-      },
+      query: { ...route.params },
       openType: __TYPE || 'switchTab',
-    });
+    }), 
+    navigation
+  );
 
-    if (__TRIGGER_FROM) {
-      __TICK_MINI_PROGRAM.dispatch('onTabItemTap', {
-        ...route.params.__TRIGGER_FROM,
-        query: {
-          ...route.params
-        },
-        pagePath: __TRIGGER_FROM.route
-      });
-    }
-  }, navigation);
+  useEffect(() => (
+    navigation.addListener('blur', () => 
+      appnavigator.onFocus(navigator))
+  ), [navigation]);
 
-  useEffect(() => navigation.addListener('blur', () => {
-    onFocus(controllerId, navigator);
-  }), [navigation]);
-
-  useEffect(() => {
-    return () => {
-      props;
-      debugger;
-    }
-  })
+  useEffect(() => () => {
+     appnavigator.onDistroy(navigator);
+  }, [])
 
   return (
     <View style={{ flex: 1, display: 'flex' }}>
       <iframe 
         ref={ref} 
         style={{ flex: 1, border: 'none' }}
-        src={`view?r=${route.name}&i=${controllerId}`} 
+        src={`view?r=${navigator.route.name}&i=${navigator.id}`} 
       />
     </View>
   )

@@ -1,72 +1,63 @@
-import URL from 'url-parse';
-import qs from 'qs';
-import { Component } from 'react';
+import { useState, useMemo } from 'react';
 import { View, Dimensions } from 'react-native-web';
 import { AppNavigator } from '../AppNavigator';
 import { AppService } from '../AppService';
+import { AppNativeMethods } from './AppNativeMethods';
+import { AppCapsule } from '../AppCapsule';
 
-export default class App extends Component {
-  state = {
-    isAppServiceLoaded: false,
-    appservice: null
+import { Provider } from './AppContext';
+
+import { useAppNavigator } from '../../hooks/useAppNavigator';
+import { useAppService } from 'vm/server/hooks/useAppService';
+import { useAppConfig } from 'vm/server/hooks/useAppConfig';
+import { useAppNativeMethods } from 'vm/server/hooks/useAppNativeMethods';
+
+
+
+
+export default function App (props) {
+  const [
+    isAppServiceReady,
+    setAppService
+  ] = useState(false);
+
+  const appconfig = useAppConfig(props);
+  const appservice = useAppService(props);
+  const appnavigator = useAppNavigator(appservice);
+  const context = {
+    appservice, 
+    appnavigator, 
+    appconfig, 
+    get __TICK_MINI_PROGRAM () {
+      return props.__TICK_MINI_PROGRAM;
+    } 
   }
 
-  isFirstLaunched = true;
-
-  navigator = null;
-
-  onAppServiceLoad = (appservice) => {
-    this.setState({
-      isAppServiceLoaded: true,
-      appservice
-    });
+  const onAppServiceLoad = () => {
+    setAppService(true);
   }
 
-  onNavigate = ({ url }) => {
-    const parsed = new URL(`tickjs://tickjs.io/${url}`);
-    const query = qs.parse(parsed.query.slice(1));
-    
-    this.navigator.navigation.push(parsed.pathname.slice(1), query);
-  }
-
-  onAppNavigatorCreated = (id, navigator, options) => {
-    const { appservice } = this.state;
-
-    if (this.isFirstLaunched) {
-      this.isFirstLaunched = false;
-      options = {
-        ...options,
-        ...__TICK_MINI_PROGRAM.config.appLaunchInfo
-      }
-    }
-
-    this.navigator = navigator;
-
-    appservice.subscribeHandler('onAppRoute', options, id);
-  }
-
-  onAppNavigatorFocus = (id, navigator) => {
-    this.navigator = navigator;
-  }
-
-  render () {
-    const { isAppServiceLoaded } = this.state;
-
-    return (
-      <View style={{ height: Dimensions.get('window').height }}>
-        <AppService 
-          onLoad={this.onAppServiceLoad} 
-          onNavigate={this.onNavigate}
+  return (
+    <View style={{ height: Dimensions.get('window').height }}>
+      <Provider value={context}>
+        <AppCapsule 
+          {...props} 
         />
+        <AppService 
+          {...props} 
+          onLoad={onAppServiceLoad} 
+        />
+        <AppNativeMethods 
+          {...props} 
+        />
+
         { 
-          isAppServiceLoaded ? 
+          isAppServiceReady ? 
             <AppNavigator 
-              {...this.props}
-              onNavigatorCreated={this.onAppNavigatorCreated}
-              onAppNavigatorFocus={this.onAppNavigatorFocus}
-            /> : null
+              {...props} 
+            /> : null 
         }
-      </View>
-    ); 
-  }
+      </Provider>
+    </View>
+  )
 }

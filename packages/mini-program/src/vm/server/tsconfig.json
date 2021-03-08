@@ -20,10 +20,10 @@
     "baseUrl": "../../",
     "typeRoots": [
       "./",
-      "../../node_modules/@types/", 
+      "./node_modules/@types/", 
     ],
     "paths": {
-      "react-native": ["../../node_modules/react-native-web"],
+      "react-native": ["./node_modules/react-native-web"],
       "@mini-program": ["./"]
     }
   },

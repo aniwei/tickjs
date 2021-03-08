@@ -4,7 +4,15 @@ export function getNavigationControllerId () {
   return navigationControllerId++;
 }
 
-export function getBottomTarBar (config) {
+export function getApplicationConfig (__TICK_MINI_PROGRAM) {
+  return {
+    pages: getApplicationPages(__TICK_MINI_PROGRAM),
+    bottomTabBar: getApplicationBottomTabBar(__TICK_MINI_PROGRAM),
+    launchOptions: getApplicationLaunchOptions(__TICK_MINI_PROGRAM)
+  }
+}
+
+export function getApplicationBottomTabBar ({ config }) {
   const { tabBar } = config;
   const { list } = tabBar;
 
@@ -25,7 +33,7 @@ export function getBottomTarBar (config) {
   }
 }
 
-export function getApplicationLaunchOptions (config) {
+export function getApplicationLaunchOptions ({ config }) {
   const { appLaunchInfo } = config;
   
   return {
@@ -33,7 +41,7 @@ export function getApplicationLaunchOptions (config) {
   }
 }
 
-export function getApplicationPages (config) {
+export function getApplicationPages ({ config }) {
   const { pages } = config;
   const pageConfig = getApplicationPageConfig(config);
 

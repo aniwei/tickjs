@@ -1,66 +1,36 @@
-import { Component, useRef, useEffect, useState, useMemo } from 'react';
-import { Image, View, Text } from 'react-native-web';
+import { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Image } from 'react-native-web';
 
+import { AppContext } from '../TickApp/AppContext'
+import { useAppNavigatorSubscribe } from '../../hooks/useAppNavigatorSubscribe';
 import { UINavigationController } from '../UINavigationController';
-import { AppCapsule } from '../AppCapsule';
-import { useSubscribe } from '../../hooks/useSubscribe';
-import { useMessage } from '../../hooks/useMessage';
-import { 
-  getApplicationLaunchOptions,
-  getNavigationControllerId,
-  getApplicationPages, 
-  getBottomTarBar,
-} from './shared';
+import { Component } from 'react';
 
 
 const BottomNavigator = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
 
 
-export function AppStack ({ pages, initialRouteName, onNavigatorCreated, onAppNavigatorFocus }) { 
-  
-  
+export function AppStack ({ pages, initialRouteName }) { 
   return (
-    <StackNavigator.Navigator
+    <StackNavigator.Navigator 
       initialRouteName={initialRouteName}
     >
       {
         pages.map((page) => {
-          const { route, config } = page;
-
+          const { route, config:  {window } } = page;
           return (
             <StackNavigator.Screen 
-              key={page.route}
-              name={page.route}
-
-              component={(props) => {
-                const controllerId = useMemo(() => getNavigationControllerId(), []);
-
-                useEffect(() => {
-                  return () => {
-                    debugger;
-                  }
-                }, []);
-                
-                return <UINavigationController 
-                  {...props}
-                  path={page.route}
-                  onCreated={onNavigatorCreated}
-                  onFocus={onAppNavigatorFocus}
-                  controllerId={controllerId}
-                />
-              }}
+              key={route}
+              name={route}
+              component={UINavigationController}
               options={{
                 animationEnabled: true,
-                headerTitle: config.window.navigationBarTitleText || '',
-                // headerBackground: config.window.navigationBarBackgroundColor,
+                headerTitle: window.navigationBarTitleText || '',
                 headerTransparent: true,
-                headerRight: () => {
-                  return <AppCapsule />
-                }
               }}
             />
           );
@@ -71,37 +41,24 @@ export function AppStack ({ pages, initialRouteName, onNavigatorCreated, onAppNa
 }
 
 export function AppNavigator (props) {
-  const { __TICK_MINI_PROGRAM, onNavigatorCreated, onAppNavigatorFocus } = props;
-  const { config } = __TICK_MINI_PROGRAM;
-  const [pages, setPages] = useState(getApplicationPages(config));
-  const [tabBar, setTabBar] = useState(getBottomTarBar(config));
-  const [launchOptions, setLaunchOptions] = useState(getApplicationLaunchOptions(config))
-  const controllers = useMemo(() => {
-    return new Map();
-  }, []);
-
-  useSubscribe([
-    `service.custom_event_onAppRoute`,
-    `service.custom_event_invokeWebviewMethod`,
-    `service.custom_event_checkWebviewAlive`,
-    `service.custom_event_vdSync`,
-    `service.custom_event_vdSyncBatch`,
-  ], (name, data, id, options, controllerId) => {
-    const controller = controllers.get(controllerId);
-
-    if (controller) {
-      controller.subscribeHandler(name, data, id, options);
+  const { 
+    appconfig: {
+      pages, 
+      bottomTabBar, 
+      launchOptions 
     }
-  });
+  } = useContext(AppContext);
+  
+  useAppNavigatorSubscribe();
 
   return (
     <NavigationContainer>
       <BottomNavigator.Navigator
         initialRouteName={launchOptions.path + '.html'}
-        tabBarOptions={tabBar}
+        tabBarOptions={bottomTabBar}
       >
         {
-          tabBar.tabItems.map((tabItem, index) => {
+          bottomTabBar.tabItems.map((tabItem, index) => {
             return <BottomNavigator.Screen 
               key={tabItem.route}
               name={tabItem.route}
@@ -109,31 +66,9 @@ export function AppNavigator (props) {
                 return <AppStack 
                   {...props} 
                   initialRouteName={tabItem.route}
-                  onNavigatorCreated={(id, navigator, options) => {
-                    if (navigator) {
-                      controllers.set(id, navigator);
-                    }
-                    
-                    onNavigatorCreated(id, navigator, options);
-                  }}
-                  onAppNavigatorFocus={onAppNavigatorFocus}
-                  onNavigatorDistroy={(id) => controllers.delete(id)}
                   pages={pages} 
                 />
               }}
-              listeners={({ navigation, route }) => ({
-                tabPress: (event) => {
-                  // event.preventDefault();
-
-                  // navigation.navigate(route.name, {
-                  //   __TYPE: 'switchTab',
-                  //   __TRIGGER_FROM: {
-                  //     index,
-                  //     ...tabItem,
-                  //   }
-                  // });
-                },
-              })}
               options={{
                 tabBarLabel: tabItem.label,
                 

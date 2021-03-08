@@ -1,7 +1,11 @@
-import { ViewScript } from 'vm/server/componnets/ViewScript';
+import { ViewScript } from '../../componnets/ViewScript';
+import AppView from '../../componnets/AppView'
 
 export default function View (props) {
-  return <ViewScript {...props} />
+  return <>
+    <ViewScript {...props} />
+    <AppView {...props} />
+  </>
 }
 
 View.getInitialProps = (context) => {

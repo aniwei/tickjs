@@ -1,18 +1,26 @@
 export function AppScript (props) {
   const { __TICK_MINI_PROGRAM } = props;
-  const { deive, config, system, types } = __TICK_MINI_PROGRAM;
+  const { device, config, system, types } = __TICK_MINI_PROGRAM;
 
   const html = `
     const __TICK_MINI_PROGRAM = {
+      mode: 'RELEASE',
       eval: window.eval,
       console: window.console,
-      nextTick: function (callback) { window.setTimeout(callback, 0) },
       storage: window.localStorage,
-      deive: ${JSON.stringify(deive)},
+      device: ${JSON.stringify(device)},
       config: ${JSON.stringify(config)},
       system: ${JSON.stringify(system)},
       types: ${JSON.stringify(types)},
       document: window.document,
+      nextTick: function (callback) { 
+        setTimeout(callback, 0) 
+      },
+      info: function (...args) {
+        if (this.mode === 'DEBUG') {
+          this.console.info(...args);
+        }
+      },
       define: function (name, value) {
         try {
           Object.defineProperty(window, name, {
@@ -37,6 +45,11 @@ export function AppScript (props) {
           return __TICK_MINI_PROGRAM.send('login', null);
         }
       },
+
+      get WeixinJSBridge () {
+        return window.WeixinJSBridge;
+      },
+
       inject: function (source) {
         this.define('WeixinJSCore', {
           dispatch: function (name, detail) {
@@ -51,25 +64,23 @@ export function AppScript (props) {
             __TICK_MINI_PROGRAM.document.dispatchEvent(event);
           },
           invokeHandler: function (name, data, callbackId) {
-            // if (name !== 'reportKeyValue') {
-            //   __TICK_MINI_PROGRAM.console.info(
-            //     \`【消息来源 - \${source}】\`, 
-            //     \`「invokeHandler」:\${name}\`,
-            //     \`数据:\`, data,
-            //     \`回调函数:\`, callbackId
-            //   );
-            // }
+            __TICK_MINI_PROGRAM.info(
+              \`【消息来源 - \${source}】\`, 
+              \`「invokeHandler」:\${name}\`,
+              \`数据:\`, data,
+              \`回调函数:\`, callbackId
+            );
 
             this.dispatch(name, { data: JSON.parse(data), callbackId });
           },
 
           publishHandler: function (name, data, webviewId) {
-            // __TICK_MINI_PROGRAM.console.info(
-            //   \`【消息来源 - \${source}】\`, 
-            //   \`「publishHandler」:\${name}\`,
-            //   \`数据:\`, data,
-            //   \`WebViewId:\`, webviewId
-            // );
+            __TICK_MINI_PROGRAM.info(
+              \`【消息来源 - \${source}】\`, 
+              \`「publishHandler」:\${name}\`,
+              \`数据:\`, data,
+              \`WebViewId:\`, webviewId
+            );
 
             const nativeTime = Date.now();
             const webviewIds = JSON.parse(webviewId);
@@ -96,6 +107,9 @@ export function AppScript (props) {
 
     __TICK_MINI_PROGRAM.inject('service');
     __TICK_MINI_PROGRAM.define('__wxConfig', __TICK_MINI_PROGRAM.config);
+    
+
+    window.__TICK_MINI_PROGRAM = __TICK_MINI_PROGRAM;
   `;
 
   return <script dangerouslySetInnerHTML={{__html: html }}></script>

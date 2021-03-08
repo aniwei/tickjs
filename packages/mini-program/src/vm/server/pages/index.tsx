@@ -1,7 +1,13 @@
-import { TickApp } from '../componnets/TickApp';
+import dynamic from 'next/dynamic';
+import { AppScript } from '../componnets/AppScript';
+
+const TickApp = dynamic(import('../componnets/TickApp'), { ssr: false })
 
 export default function Index (props) {
-  return <TickApp  {...props} />
+  return <>
+    <AppScript {...props} />
+    <TickApp {...props} />
+  </>
 }
 
 Index.getInitialProps = (context) => {

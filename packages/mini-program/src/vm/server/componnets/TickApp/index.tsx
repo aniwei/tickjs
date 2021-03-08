@@ -1,12 +1,14 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-import { AppScript } from '../AppScript';
+import App from './App';
 
-const App = dynamic(import('./App'), { ssr: false })
+export default function TickApp (props) {
+  const __TICK_MINI_PROGRAM = typeof window === 'object' ? 
+    window.__TICK_MINI_PROGRAM : null;
 
-export function TickApp (props) {
   return <div className="mini-program">
-    <AppScript {...props} />
-    <App {...props} />
+    <App 
+      {...props} 
+      __TICK_MINI_PROGRAM={__TICK_MINI_PROGRAM} 
+    />
   </div>
 }

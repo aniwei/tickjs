@@ -1,22 +1,25 @@
+import dynamic from 'next/dynamic';
 import { useScript } from '../../hooks/useScript';
 
-export function ViewScript (props) {
-  useScript([`/WAWebview.js`, `/appwxss`], () => {
-    __TICK_MINI_PROGRAM.ready();
-  });
+const AppView = dynamic(import('../AppView'), { ssr: false })
 
-  const {
+
+export function ViewScript (props) {
+  const { 
+    __TICK_MINI_PROGRAM,
     webviewId, 
     route 
   } = props;
+
   const { 
     device, 
     config, 
     system, 
-  } = props.__TICK_MINI_PROGRAM;
+  } = __TICK_MINI_PROGRAM;
 
   const html = `
     const __TICK_MINI_PROGRAM = {
+      mode: 'RELEASE',
       route: '${route}',
       webviewId: ${webviewId},
       eval: window.eval,
@@ -26,6 +29,11 @@ export function ViewScript (props) {
       config: ${JSON.stringify(config)},
       system: ${JSON.stringify(system)},
       document: window.parent.document,
+      info: function (...args) {
+        if (this.mode === 'DEBUG') {
+          this.console.info(...args);
+        }
+      },
       define: function (name, value) {
         try {
           Object.defineProperty(window, name, {
@@ -66,23 +74,23 @@ export function ViewScript (props) {
             __TICK_MINI_PROGRAM.document.dispatchEvent(event);
           },
           invokeHandler: function (name, data, callbackId) {
-            // __TICK_MINI_PROGRAM.console.info(
-            //   \`【消息来源 - \${source}】\`, 
-            //   \`「invokeHandler」:\${name}\`,
-            //   \`数据:\`, data,
-            //   \`回调函数:\`, callbackId
-            // );
+            __TICK_MINI_PROGRAM.info(
+              \`【消息来源 - \${source}】\`, 
+              \`「invokeHandler」:\${name}\`,
+              \`数据:\`, data,
+              \`回调函数:\`, callbackId
+            );
 
             this.dispatch(name, { data, callbackId });
           },
 
           publishHandler: function (name, data) {
-            // __TICK_MINI_PROGRAM.console.info(
-            //   \`【消息来源 - \${source}】\`, 
-            //   \`「publishHandler」:\${name}\`,
-            //   \`数据:\`, data,
-            //   \`WebViewId:\`, ${webviewId}
-            // );
+            __TICK_MINI_PROGRAM.info(
+              \`【消息来源 - \${source}】\`, 
+              \`「publishHandler」:\${name}\`,
+              \`数据:\`, data,
+              \`WebViewId:\`, ${webviewId}
+            );
 
             const nativeTime = Date.now();
 
@@ -102,6 +110,8 @@ export function ViewScript (props) {
     __TICK_MINI_PROGRAM.define('__webviewId', __TICK_MINI_PROGRAM.webviewId);
     __TICK_MINI_PROGRAM.define('__wxConfig', __TICK_MINI_PROGRAM.config);
     __TICK_MINI_PROGRAM.define('__deviceInfo', __TICK_MINI_PROGRAM.device);
+
+    window.__TICK_MINI_PROGRAM = __TICK_MINI_PROGRAM;
   `;
 
   return <script dangerouslySetInnerHTML={{__html: html }}></script>
