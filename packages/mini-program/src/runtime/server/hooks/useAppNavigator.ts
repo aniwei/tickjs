@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { AppPackageLoader } from '../componnets/AppPackageLoader';
 
 export function useAppNavigator (appservice, appconfig) {
   return useMemo(() => {
@@ -29,13 +30,15 @@ export function useAppNavigator (appservice, appconfig) {
         const pathname = url.pathname[0] === '/' ? 
           url.pathname.slice(1) : url.pathname;
 
-        if (appconfig.subPages.has(pathname)) {
-          const pkg = appconfig.subPages.get(pathname);
+        if (appconfig.subPages[pathname]) {
+          const pkg = appconfig.subPages[pathname];
+          const pakcageLoader = new AppPackageLoader(pkg);
 
-          
+
+          navigator.navigation.push(pathname, query);
+        } else {
+          navigator.navigation.push(pathname, query);
         }
-
-        navigator.navigation.push(pathname, query);
       },
       navigate (url, query) {
         const navigator = appnavigator.current;

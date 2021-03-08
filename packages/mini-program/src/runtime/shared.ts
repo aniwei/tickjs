@@ -92,11 +92,13 @@ export function getApplicationConfig (config) {
 }
 
 export function getApplicationSubPages (subPackages) {
-  const subPages = new Map();
+  const subPages = new Object();
 
-  for (const [name, pkg] of subPackages) {
+
+  for (const name in subPackages) {
+    const pkg = subPackages[name];
     for (const route of pkg.pages) {
-      subPages.set(route + '.html', pkg);
+      subPages[route + '.html'] = pkg;
     }
   }
 
@@ -105,10 +107,11 @@ export function getApplicationSubPages (subPackages) {
 
 export function getApplicationSubPackages (config) {
   const { subPackages } = config;
-  const packages = new Map();
+  const packages = new Object();
 
-  for (const pkg of subPackages) {
-    packages.set(pkg.root, pkg);
+  for (const name in subPackages) {
+    const pkg = subPackages[name];
+    packages[pkg.root as string] = pkg;
   }
 
   return packages;
@@ -149,7 +152,7 @@ export function getApplicationPages (config, subPages) {
 
   return pages.map(route => {
     return {
-      __MAIN_PACKAGE: !subPages.has(route),
+      __MAIN_PACKAGE: !subPages[route],
       route: route + '.html',
       config: pageConfig[route]
     }

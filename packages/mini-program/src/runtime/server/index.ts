@@ -31,6 +31,14 @@ export async function Server (implement) {
     context.body = __TICK_APP_SERVICE;
   });
 
+  router.get(`/subpage`, async context => {
+    debugger;
+    const { __TICK_APP_WXSS } = context;
+
+    context.type = 'application/javascript';
+    context.body = __TICK_APP_WXSS;
+  });
+
   router.get(`/appwxss`, async context => {
     const { __TICK_APP_WXSS } = context;
 
