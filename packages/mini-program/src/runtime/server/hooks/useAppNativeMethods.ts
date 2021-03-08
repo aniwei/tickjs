@@ -134,7 +134,10 @@ export function useAppNativeMethods ({ __TICK_MINI_PROGRAM }) {
       const url = new URL(data.url);
       const query = qs.parse(url.query.slice(1));
 
-      appnavigator.push(url, query);
+      appnavigator.push(url, {
+        ...query,
+        __TYPE: 'navigateTo'
+      });
       appservice
         .invoke(callbackId, name)
         .success()
@@ -162,7 +165,10 @@ export function useAppNativeMethods ({ __TICK_MINI_PROGRAM }) {
       const url = new URL(data.url);
       const query = qs.parse(url.query.slice(1));
 
-      appnavigator.navigate(url, query);
+      appnavigator.navigate(url, {
+        ...query,
+        __TYPE: 'switchTab'
+      });
       appservice
         .invoke(callbackId, name)
         .success()

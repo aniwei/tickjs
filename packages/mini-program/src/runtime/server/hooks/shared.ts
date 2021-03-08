@@ -1,15 +1,37 @@
-let navigationControllerId = 1;
-
-export function getNavigationControllerId () {
-  return navigationControllerId++;
-}
-
 export function getApplicationConfig (__TICK_MINI_PROGRAM) {
+  const subPackages = getApplicationSubPackages(__TICK_MINI_PROGRAM);
+  const subPages = getApplicationSubPages(subPackages);
+
   return {
-    pages: getApplicationPages(__TICK_MINI_PROGRAM),
+    subPages,
+    subPackages,
+    pages: getApplicationPages(__TICK_MINI_PROGRAM, subPages),
     bottomTabBar: getApplicationBottomTabBar(__TICK_MINI_PROGRAM),
     launchOptions: getApplicationLaunchOptions(__TICK_MINI_PROGRAM)
   }
+}
+
+export function getApplicationSubPages (subPackages) {
+  const subPages = new Map();
+
+  for (const [name, pkg] of subPackages) {
+    for (const route of pkg.pages) {
+      subPages.set(route + '.html', pkg);
+    }
+  }
+
+  return subPages;
+}
+
+export function getApplicationSubPackages ({ config }) {
+  const { subPackages } = config;
+  const packages = new Map();
+
+  for (const pkg of subPackages) {
+    packages.set(pkg.root, pkg);
+  }
+
+  return packages;
 }
 
 export function getApplicationBottomTabBar ({ config }) {
@@ -41,16 +63,17 @@ export function getApplicationLaunchOptions ({ config }) {
   }
 }
 
-export function getApplicationPages ({ config }) {
+export function getApplicationPages ({ config }, subPages) {
   const { pages } = config;
   const pageConfig = getApplicationPageConfig(config);
 
   return pages.map(route => {
     return {
+      __MAIN_PACKAGE: !subPages.has(route),
       route: route + '.html',
       config: pageConfig[route]
     }
-  })
+  });
 }
 
 export function getApplicationPageConfig (config) {
@@ -60,6 +83,7 @@ export function getApplicationPageConfig (config) {
   for (const route of pages) {
     const config = page[`${route}.html`]
     pageConfig[route] = {
+      __IS_SUB_PACKAGE: false,
       ...global,
       ...config,
       window: {

@@ -1,9 +1,6 @@
-import { useMemo, useContext } from 'react';
-import { AppContext } from '../componnets/TickApp/AppContext';
+import { useMemo } from 'react';
 
-export function useAppNavigator (appservice) {
-  const context = useContext(AppContext);
-
+export function useAppNavigator (appservice, appconfig) {
   return useMemo(() => {
     const appnavigator = {
       id: 0,
@@ -31,6 +28,12 @@ export function useAppNavigator (appservice) {
         const navigator = appnavigator.current;
         const pathname = url.pathname[0] === '/' ? 
           url.pathname.slice(1) : url.pathname;
+
+        if (appconfig.subPages.has(pathname)) {
+          const pkg = appconfig.subPages.get(pathname);
+
+          
+        }
 
         navigator.navigation.push(pathname, query);
       },
@@ -62,7 +65,7 @@ export function useAppNavigator (appservice) {
 
         if (appnavigator.isFrist) {
           appnavigator.isFrist = false;
-          options = {  ...options, ...context.appconfig?.launchOptions }
+          options = {  ...options, ...appconfig?.launchOptions }
         }
 
         options.openType = navigator.type;

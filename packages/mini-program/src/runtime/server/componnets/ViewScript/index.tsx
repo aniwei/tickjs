@@ -36,7 +36,7 @@ export function ViewScript (props) {
         } catch (error) {}
       },
       ready: function () {
-        const setCSS = __wxAppCode__['pages/code/code.wxss'];
+        const setCSS = __wxAppCode__['${route}'];
 
         const __setCssStartTime__ = Date.now();			
         setCSS();

@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { View, Dimensions } from 'react-native-web';
+import { useState } from 'react';
+import { View, Dimensions, Platform } from 'react-native-web';
 import { AppNavigator } from '../AppNavigator';
 import { AppService } from '../AppService';
 import { AppNativeMethods } from './AppNativeMethods';
@@ -19,7 +19,7 @@ export default function App (props) {
 
   const appconfig = useAppConfig(props);
   const appservice = useAppService(props);
-  const appnavigator = useAppNavigator(appservice);
+  const appnavigator = useAppNavigator(appservice, appconfig);
   const context = {
     appservice, 
     appnavigator, 

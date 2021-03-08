@@ -11,31 +11,31 @@ const nativeMethods = getDefaultNativeMethods({
   beforeRequest (name, context) {
     const { url } = context.request.body;
 
-    // if (name === 'createRequestTask') {
-    //   if (url.indexOf('/api/service-login/openapi/vip/user/login_v1') > -1) {
-    //     return NativeMethodsResponse.json({
-    //       statusCode: 200,
-    //       header: {
+    if (name === 'createRequestTask') {
+      if (url.indexOf('/api/service-login/openapi/vip/user/login_v1') > -1) {
+        return NativeMethodsResponse.json({
+          statusCode: 200,
+          header: {
 
-    //       },
-    //       data: {
-    //         "code": 0,
-    //         "message": "SUCCESS",
-    //         "requestId": null,
-    //         "data": {
-    //           "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MzU2MjU1IiwidXNlcl9tYWluX2lkIjoyMjg0MDI1NSwiY2hhbm5lbCI6IlciLCJzb3VyY2UiOiJhcGkiLCJpc19ndWVzdCI6ZmFsc2UsImxhYmVsIjoiY2xpZW50OndlYXBwIiwiaWF0IjoxNjE1MDQ5NDk2LCJuYmYiOjE2MTUwNDk0OTYsImV4cCI6MTYxNTA1NjY5NiwiaXNzIjoiaGV5dGVhIn0.2QRNp9otcKCmc_V6WJtgLwGwJNu4zlE5nk4zdhtiPjY",
-    //           "nickName": "Aniwei",
-    //           "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLribspDrHFPbbn9GuLnbwr2Xb8Sib7lFI5k9UVuxlqwjcaAQbEqoicRAlChxU08uxMMrAaPmIVVibU8g/132",
-    //           "authorized": true,
-    //           "bindPhone": true,
-    //           "bindEmail": false,
-    //           "guest": false,
-    //           "expired_at": "2021-03-07T02:51:36.788"
-    //         }
-    //       }
-    //     })
-    //   }
-    // }
+          },
+          data: {
+            "code": 0,
+            "message": "SUCCESS",
+            "requestId": null,
+            "data": {
+              "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MzU2MjU1IiwidXNlcl9tYWluX2lkIjoyMjg0MDI1NSwiY2hhbm5lbCI6IlciLCJzb3VyY2UiOiJhcGkiLCJpc19ndWVzdCI6ZmFsc2UsImxhYmVsIjoiY2xpZW50OndlYXBwIiwiaWF0IjoxNjE1MTk4NDQ3LCJuYmYiOjE2MTUxOTg0NDcsImV4cCI6MTYxNTIwNTY0NywiaXNzIjoiaGV5dGVhIn0.tSgiG-65MJmn8mQdzQN_IWm3HMdmjOUPYw6BfBY_w0o",
+              "nickName": "Aniwei",
+              "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLribspDrHFPbbn9GuLnbwr2Xb8Sib7lFI5k9UVuxlqwjcaAQbEqoicRAlChxU08uxMMrAaPmIVVibU8g/132",
+              "authorized": true,
+              "bindPhone": true,
+              "bindEmail": false,
+              "guest": false,
+              "expired_at": "2021-03-08T20:14:07.653"
+            }
+          }
+        })
+      }
+    }
   }
 });
 

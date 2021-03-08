@@ -5,6 +5,6 @@ export function useAppConfig (props) {
   const { __TICK_MINI_PROGRAM } = props;
 
   return useMemo(() => {
-    return getApplicationConfig(__TICK_MINI_PROGRAM)
+    return __TICK_MINI_PROGRAM.appconfig
   }, [__TICK_MINI_PROGRAM])
 }

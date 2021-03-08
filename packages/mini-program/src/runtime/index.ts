@@ -42,6 +42,7 @@ export async function createMiniProgram (options, config, impl = getDefaultNativ
   isIllegalMiniProgramOptions(config);
 
   const server = await Server(impl);
+  const appconfig = shared.getApplicationConfig(config)
 
   server.context.__TICK_APP_WXSS = appwxss;
   server.context.__TICK_APP_SERVICE = appservice;
@@ -53,6 +54,7 @@ export async function createMiniProgram (options, config, impl = getDefaultNativ
     system: system,
     appid: appid,
     project: cwd,
+    appconfig,
   }
   
   server.listen(port, () => {
