@@ -2,10 +2,12 @@
 import Koa from 'koa';
 import path from 'path';
 import next from 'next';
+import fs from 'fs';
 import KoaSticic from 'koa-static';
 import bodyParser from 'koa-bodyparser';
 import Router from 'koa-router';
 import debug from 'debug';
+import { fstat } from 'fs';
 
 export async function Server (implement) {
   const app = next({ dev: true, dir: __dirname });
@@ -32,8 +34,10 @@ export async function Server (implement) {
   });
 
   router.get(`/subpage`, async context => {
-    debugger;
+    const { p } = context.request.query;
     const { __TICK_APP_WXSS } = context;
+
+    fs.exists()
 
     context.type = 'application/javascript';
     context.body = __TICK_APP_WXSS;
