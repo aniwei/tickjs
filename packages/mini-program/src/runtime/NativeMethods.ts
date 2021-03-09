@@ -89,10 +89,11 @@ export function getDefaultNativeMethods (options?) {
 
   nativeMethods.registry('createRequestTask', {
     getRequestOptions (context) {
-      const { header, method, url, responseType, timeout } = context.request.body;
+      const { header, method, url, responseType, timeout, data } = context.request.body;
 
       return {
         url,
+        data,
         timeout,  
         responseType,
         method: method.toUpperCase(),

@@ -15,7 +15,7 @@ export function ViewScript (props) {
 
   const html = `
     const __TICK_MINI_PROGRAM = {
-      mode: 'RELEASE',
+      mode: 'DEBUG',
       route: '${route}',
       webviewId: ${webviewId},
       eval: window.eval,

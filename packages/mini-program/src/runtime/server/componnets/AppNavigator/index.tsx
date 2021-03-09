@@ -90,9 +90,6 @@ export function AppNavigator (props) {
                 component={UINavigationController}
                 options={{
                   animationEnabled: true,
-                  headerLeft: (props) => {
-                    return <AppHeaderBackButton {...props} />
-                  },
                   headerTitle: window.navigationBarTitleText || '',
                   headerTransparent: window.navigationStyle === 'custom',
                   headerShown: window.navigationStyle !== 'custom'
