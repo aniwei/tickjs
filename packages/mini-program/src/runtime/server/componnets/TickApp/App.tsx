@@ -10,6 +10,7 @@ import { Provider } from './AppContext';
 import { useAppNavigator } from '../../hooks/useAppNavigator';
 import { useAppService } from '../../hooks/useAppService';
 import { useAppConfig } from '../../hooks/useAppConfig';
+import { AppLaunchScreen } from '../AppLaunchScreen';
 
 export default function App (props) {
   const [
@@ -54,6 +55,8 @@ export default function App (props) {
             /> : null 
         }
       </Provider>
+
+      <AppLaunchScreen />
     </View>
   )
 }
