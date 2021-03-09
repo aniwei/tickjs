@@ -93,7 +93,7 @@ export function getDefaultNativeMethods (options?) {
 
       return {
         url,
-        data,
+        data: JSON.parse(data),
         timeout,  
         responseType,
         method: method.toUpperCase(),

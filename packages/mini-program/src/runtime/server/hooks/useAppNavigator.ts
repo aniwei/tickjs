@@ -65,6 +65,9 @@ export function useAppNavigator (appservice, appconfig) {
       setNavigationBarColor (data) {
         // appnavigator.current.navigation.setOptions({ title });
       },
+      showTabBar () {
+        
+      },
       subscribeHandler (id, ...args) {
         const navigator = appnavigator.get(id);
 
