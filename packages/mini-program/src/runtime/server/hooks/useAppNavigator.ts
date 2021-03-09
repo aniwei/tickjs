@@ -32,10 +32,16 @@ export function useAppNavigator (appservice, appconfig) {
 
         if (appconfig.subPages[pathname]) {
           const pkg = appconfig.subPages[pathname];
-          const pakcageLoader = new AppPackageLoader(pkg);
+          const pakcageLoader = new AppPackageLoader(pathname, pkg);
 
+          pakcageLoader
+            .injectAppServiceContext()
+            .then(() => {
+              navigator.navigation.push(pathname, query);
+            })
+            .catch(error => {
 
-          navigator.navigation.push(pathname, query);
+            });
         } else {
           navigator.navigation.push(pathname, query);
         }

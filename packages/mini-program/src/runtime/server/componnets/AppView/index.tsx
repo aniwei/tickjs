@@ -8,13 +8,11 @@ export default function AppView (props) {
   const { appconfig, route } = __TICK_MINI_PROGRAM;
   const { subPages } = appconfig;
 
-  const scripts = [`/WAWebview.js`];
+  const scripts = [`/WAWebview.js`, '/appwxss'];
   const pkg = subPages[route];
 
   if (pkg) {
-    scripts.push('/subpage?p=' + pkg.root + 'appwxss');
-  } else {
-    scripts.push('/appwxss');
+    scripts.push('/subpage/appwxss?p=' + pkg.root + '&r=' + route);
   }
 
   useScript(scripts, () => {

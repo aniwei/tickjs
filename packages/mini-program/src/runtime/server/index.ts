@@ -2,12 +2,11 @@
 import Koa from 'koa';
 import path from 'path';
 import next from 'next';
-import fs from 'fs';
+import fs from 'fs-extra';
 import KoaSticic from 'koa-static';
 import bodyParser from 'koa-bodyparser';
 import Router from 'koa-router';
 import debug from 'debug';
-import { fstat } from 'fs';
 
 export async function Server (implement) {
   const app = next({ dev: true, dir: __dirname });
@@ -33,15 +32,37 @@ export async function Server (implement) {
     context.body = __TICK_APP_SERVICE;
   });
 
-  router.get(`/subpage`, async context => {
-    const { p } = context.request.query;
-    const { __TICK_APP_WXSS } = context;
+  router.get(`/subpage/appwxss`, async context => {
+    const { p, r } = context.request.query;
+    const { __TICK_MINI_PROGRAM } = context;
+    const { project } = __TICK_MINI_PROGRAM;
 
-    fs.exists()
+    try {
+      await fs.access(path.resolve(project, p + 'page-frame.js'), fs.constants.R_OK);
 
-    context.type = 'application/javascript';
-    context.body = __TICK_APP_WXSS;
+      context.status = 200;
+      context.type = 'application/javascript';
+      context.body = await fs.readFile(path.resolve(project, p + 'page-frame.js'));
+    } catch (error) {
+      context.status = 400;
+    }
   });
+
+  router.get(`/subpage/appservice`, async context => {
+    const { p, r } = context.request.query;
+    const { __TICK_MINI_PROGRAM } = context;
+    const { project } = __TICK_MINI_PROGRAM;
+
+    try {
+      await fs.access(path.resolve(project, p + 'app-service.js'), fs.constants.R_OK);
+
+      context.status = 200;
+      context.type = 'application/javascript';
+      context.body = await fs.readFile(path.resolve(project, p + 'app-service.js'));
+    } catch (error) {
+      context.status = 400;
+    }
+  })
 
   router.get(`/appwxss`, async context => {
     const { __TICK_APP_WXSS } = context;
