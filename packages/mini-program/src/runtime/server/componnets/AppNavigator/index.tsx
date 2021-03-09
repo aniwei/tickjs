@@ -1,41 +1,17 @@
 import { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Image } from 'react-native-web';
 
 import { AppContext } from '../TickApp/AppContext'
 import { useAppNavigatorSubscribe } from '../../hooks/useAppNavigatorSubscribe';
 import { UINavigationController } from '../UINavigationController';
-import { useEffect } from 'react';
+import { AppHeaderBackButton } from '../AppHeaderBackButton';
 
 
 const BottomNavigator = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
-
-export function AppControllers (props) { 
-  const { 
-    appconfig: {
-      pages
-    }
-  } = useContext(AppContext);
-  return pages.map((page) => {
-    const { route, config: { window }} = page;
-
-    return (
-      <StackNavigator.Screen 
-        key={route}
-        name={route}
-        component={UINavigationController}
-        options={{
-          animationEnabled: true,
-          headerTitle: window.navigationBarTitleText || '',
-          headerTransparent: true,
-        }}
-      />
-    );
-  })
-}
 
 export function AppTabBar (props) {
   const { 
@@ -106,7 +82,7 @@ export function AppNavigator (props) {
         {
           screens.map((page) => {
             const { route, config: { window }} = page;
-        
+
             return (
               <StackNavigator.Screen 
                 key={route}
@@ -114,8 +90,12 @@ export function AppNavigator (props) {
                 component={UINavigationController}
                 options={{
                   animationEnabled: true,
+                  headerLeft: (props) => {
+                    return <AppHeaderBackButton {...props} />
+                  },
                   headerTitle: window.navigationBarTitleText || '',
-                  headerTransparent: true,
+                  headerTransparent: window.navigationStyle === 'custom',
+                  headerShown: window.navigationStyle !== 'custom'
                 }}
               />
             );

@@ -176,5 +176,18 @@ export function useAppNativeMethods ({ __TICK_MINI_PROGRAM }) {
     }
   );
 
+  useAppNativeMethod(
+    `service.navigateBack`,
+    ({ callbackId, name, data }) => {
+      const { delta } = data;
+
+      appnavigator.pop(delta)
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  )
+
   return nativeMethods;
 }

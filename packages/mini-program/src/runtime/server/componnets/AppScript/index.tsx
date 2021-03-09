@@ -4,7 +4,7 @@ export function AppScript (props) {
 
   const html = `
     const __TICK_MINI_PROGRAM = {
-      mode: 'DEBUG',
+      mode: 'RELEASE',
       eval: window.eval,
       console: window.console,
       storage: window.localStorage,

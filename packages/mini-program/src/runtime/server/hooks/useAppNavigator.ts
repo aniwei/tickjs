@@ -25,6 +25,12 @@ export function useAppNavigator (appservice, appconfig) {
           appnavigator.navigators.delete(navigator.id);
         }
       },
+      pop (delta) {
+        const navigator = appnavigator.current;
+        if (navigator) {
+          navigator.navigation.pop(delta);
+        }
+      },
       push (url, query) {
         const navigator = appnavigator.current;
         const pathname = url.pathname[0] === '/' ? 
