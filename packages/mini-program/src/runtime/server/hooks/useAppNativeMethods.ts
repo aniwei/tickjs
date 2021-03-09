@@ -213,5 +213,49 @@ export function useAppNativeMethods ({ __TICK_MINI_PROGRAM }) {
     }
   )
 
+  useAppNativeMethod(
+    `service.setBackgroundTextStyle`,
+    ({ callbackId, name, data }) => {
+      appnavigator.setBackgroundTextStyle(data)
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  )
+
+  useAppNativeMethod(
+    `service.setBackgroundColor`,
+    ({ callbackId, name, data }) => {
+      appnavigator.setBackgroundColor(data)
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  )
+
+  useAppNativeMethod(
+    `service.showTabBar`,
+    ({ callbackId, name, data }) => {
+      appnavigator.showTabBar(data)
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  )
+
+  useAppNativeMethod(
+    `service.hideTabBar`,
+    ({ callbackId, name, data }) => {
+      appnavigator.hideTabBar(data)
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  )
+
   return nativeMethods;
 }
