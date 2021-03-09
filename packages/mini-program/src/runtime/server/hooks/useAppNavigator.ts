@@ -59,6 +59,12 @@ export function useAppNavigator (appservice, appconfig) {
 
         navigator.navigation.navigate(pathname, query);
       },
+      setNavigationBarTitle (title) {
+        appnavigator.current.navigation.setOptions({ title });
+      },
+      setNavigationBarColor (data) {
+        // appnavigator.current.navigation.setOptions({ title });
+      },
       subscribeHandler (id, ...args) {
         const navigator = appnavigator.get(id);
 

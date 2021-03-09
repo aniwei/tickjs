@@ -189,5 +189,29 @@ export function useAppNativeMethods ({ __TICK_MINI_PROGRAM }) {
     }
   )
 
+  useAppNativeMethod(
+    `service.setNavigationBarTitle`,
+    ({ callbackId, name, data }) => {
+      const { title } = data;
+
+      appnavigator.setNavigationBarTitle(title)
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  )
+
+  useAppNativeMethod(
+    `service.setNavigationBarColor`,
+    ({ callbackId, name, data }) => {
+      appnavigator.setNavigationBarColor(data)
+      appservice
+        .invoke(callbackId, name)
+        .success()
+        .async()
+    }
+  )
+
   return nativeMethods;
 }

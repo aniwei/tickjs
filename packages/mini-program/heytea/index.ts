@@ -23,14 +23,14 @@ const nativeMethods = getDefaultNativeMethods({
             "message": "SUCCESS",
             "requestId": null,
             "data": {
-              "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MzU2MjU1IiwidXNlcl9tYWluX2lkIjoyMjg0MDI1NSwiY2hhbm5lbCI6IlciLCJzb3VyY2UiOiJhcGkiLCJpc19ndWVzdCI6ZmFsc2UsImxhYmVsIjoiY2xpZW50OndlYXBwIiwiaWF0IjoxNjE1MjU0NTg1LCJuYmYiOjE2MTUyNTQ1ODUsImV4cCI6MTYxNTI2MTc4NSwiaXNzIjoiaGV5dGVhIn0.97JxAT5A_NBh4_Q48UzTui_OEUGkphSwPgDVHvZRScQ",
+              "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MzU2MjU1IiwidXNlcl9tYWluX2lkIjoyMjg0MDI1NSwiY2hhbm5lbCI6IlciLCJzb3VyY2UiOiJhcGkiLCJpc19ndWVzdCI6ZmFsc2UsImxhYmVsIjoiY2xpZW50OndlYXBwIiwiaWF0IjoxNjE1MjU5NTQ1LCJuYmYiOjE2MTUyNTk1NDUsImV4cCI6MTYxNTI2Njc0NSwiaXNzIjoiaGV5dGVhIn0.FdmnG7b3tFsW1qA1aUWu-yK4LchmB2S-bB_FsjrIpqU",
               "nickName": "Aniwei",
               "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLribspDrHFPbbn9GuLnbwr2Xb8Sib7lFI5k9UVuxlqwjcaAQbEqoicRAlChxU08uxMMrAaPmIVVibU8g/132",
               "authorized": true,
               "bindPhone": true,
               "bindEmail": false,
               "guest": false,
-              "expired_at": "2021-03-09T11:49:45.117"
+              "expired_at": "2021-03-09T13:12:25.034"
             }
           }
         })
