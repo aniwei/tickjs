@@ -1,10 +1,10 @@
 export function AppScript (props) {
   const { __TICK_MINI_PROGRAM } = props;
-  const { device, config, system, types, appconfig } = __TICK_MINI_PROGRAM;
+  const { device, config, system, types, appconfig, mode } = __TICK_MINI_PROGRAM;
 
   const html = `
     const __TICK_MINI_PROGRAM = {
-      mode: 'RELEASE',
+      mode: 'DEBUG' || '${mode}',
       eval: window.eval,
       console: window.console,
       storage: window.localStorage,

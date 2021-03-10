@@ -11,11 +11,12 @@ export function ViewScript (props) {
     config, 
     system, 
     appconfig,
+    mode,
   } = __TICK_MINI_PROGRAM;
 
   const html = `
     const __TICK_MINI_PROGRAM = {
-      mode: 'DEBUG',
+      mode: '${mode}',
       route: '${route}',
       webviewId: ${webviewId},
       eval: window.eval,
@@ -45,7 +46,7 @@ export function ViewScript (props) {
         setCSS();
 	      const __setCssEndTime__ = Date.now(); 
 
-        this.generator = $gwx('./${route}.wxml');
+        this.generator = $gwx('./${path}.wxml');
 
         if (window.__wxAppCodeReadyCallback__) {
           window.__wxAppCodeReadyCallback__(this.generator);
@@ -106,7 +107,12 @@ export function ViewScript (props) {
     __TICK_MINI_PROGRAM.inject('webview');
     __TICK_MINI_PROGRAM.define('__webviewId', __TICK_MINI_PROGRAM.webviewId);
     __TICK_MINI_PROGRAM.define('__wxConfig', __TICK_MINI_PROGRAM.config);
-    __TICK_MINI_PROGRAM.define('__deviceInfo', __TICK_MINI_PROGRAM.device);
+    __TICK_MINI_PROGRAM.define('__deviceInfo', {
+      ...__TICK_MINI_PROGRAM.device,
+      getWidth () {
+        return __TICK_MINI_PROGRAM.device.width
+      },
+    });
 
     window.__TICK_MINI_PROGRAM = __TICK_MINI_PROGRAM;
   `;

@@ -88,12 +88,26 @@ export function getDefaultNativeMethods (options?) {
   const nativeMethods = new NativeMethods(options);
 
   nativeMethods.registry('createRequestTask', {
+    getRequestBody (context) {
+      const { header, data } = context.request.body;
+      const contentType = header['content-type'];
+
+      if (
+        data &&
+        contentType === 'application/json'
+      ) {
+        return JSON.parse(data);
+      }
+
+      return data;
+    },
+
     getRequestOptions (context) {
-      const { header, method, url, responseType, timeout, data } = context.request.body;
+      const { header, method, url, responseType, timeout } = context.request.body;
 
       return {
         url,
-        data: JSON.parse(data),
+        data: this.getRequestBody(context),
         timeout,  
         responseType,
         method: method.toUpperCase(),
