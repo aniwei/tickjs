@@ -45,7 +45,7 @@ export function ViewScript (props) {
         setCSS();
 	      const __setCssEndTime__ = Date.now(); 
 
-        this.generator = $gwx('./${route}.wxml');
+        this.generator = $gwx('./${path}.wxml');
 
         if (window.__wxAppCodeReadyCallback__) {
           window.__wxAppCodeReadyCallback__(this.generator);
@@ -103,10 +103,22 @@ export function ViewScript (props) {
       }
     };
 
+<<<<<<< HEAD
     __TICK_RUNTIME.inject('webview');
     __TICK_RUNTIME.define('__webviewId', __TICK_RUNTIME.webviewId);
     __TICK_RUNTIME.define('__wxConfig', __TICK_RUNTIME.config);
     __TICK_RUNTIME.define('__deviceInfo', __TICK_RUNTIME.device);
+=======
+    __TICK_MINI_PROGRAM.inject('webview');
+    __TICK_MINI_PROGRAM.define('__webviewId', __TICK_MINI_PROGRAM.webviewId);
+    __TICK_MINI_PROGRAM.define('__wxConfig', __TICK_MINI_PROGRAM.config);
+    __TICK_MINI_PROGRAM.define('__deviceInfo', {
+      ...__TICK_MINI_PROGRAM.device,
+      getWidth () {
+        return __TICK_MINI_PROGRAM.device.width
+      },
+    });
+>>>>>>> 728d9e2eaa5418fd6fa38117102cd1661bc25383
 
     window.__TICK_RUNTIME = __TICK_RUNTIME;
   `;

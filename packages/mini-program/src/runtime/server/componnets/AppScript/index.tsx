@@ -1,4 +1,5 @@
 export function AppScript (props) {
+
   const { __TICK_RUNTIME } = props;
   const { device, config, system, types, appconfig } = __TICK_RUNTIME;
 
