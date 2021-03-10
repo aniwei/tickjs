@@ -1,9 +1,9 @@
 export function AppScript (props) {
-  const { __TICK_MINI_PROGRAM } = props;
-  const { device, config, system, types, appconfig } = __TICK_MINI_PROGRAM;
+  const { __TICK_RUNTIME } = props;
+  const { device, config, system, types, appconfig } = __TICK_RUNTIME;
 
   const html = `
-    const __TICK_MINI_PROGRAM = {
+    const __TICK_RUNTIME = {
       mode: 'RELEASE',
       eval: window.eval,
       console: window.console,
@@ -40,15 +40,23 @@ export function AppScript (props) {
       },
       remote: {
         createRequestTask: function (data) {
-          return __TICK_MINI_PROGRAM.send('createRequestTask', data);
+          return __TICK_RUNTIME.send('createRequestTask', data);
         },
         login: function () {
-          return __TICK_MINI_PROGRAM.send('login', null);
+          return __TICK_RUNTIME.send('login', null);
         }
       },
 
       get WeixinJSBridge () {
         return window.WeixinJSBridge;
+      },
+
+      startWorker () {
+        window.addEventListener('DOMContentLoaded', () => {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/TickJSServiceWorker.js', { scope: '/' });
+          }
+        }, false);
       },
 
       inject: function (source) {
@@ -62,10 +70,10 @@ export function AppScript (props) {
               } 
             });
           
-            __TICK_MINI_PROGRAM.document.dispatchEvent(event);
+            __TICK_RUNTIME.document.dispatchEvent(event);
           },
           invokeHandler: function (name, data, callbackId) {
-            __TICK_MINI_PROGRAM.info(
+            __TICK_RUNTIME.info(
               \`【消息来源 - \${source}】\`, 
               \`「invokeHandler」:\${name}\`,
               \`数据:\`, data,
@@ -76,7 +84,7 @@ export function AppScript (props) {
           },
 
           publishHandler: function (name, data, webviewId) {
-            __TICK_MINI_PROGRAM.info(
+            __TICK_RUNTIME.info(
               \`【消息来源 - \${source}】\`, 
               \`「publishHandler」:\${name}\`,
               \`数据:\`, data,
@@ -106,11 +114,11 @@ export function AppScript (props) {
       }
     };
 
-    __TICK_MINI_PROGRAM.inject('service');
-    __TICK_MINI_PROGRAM.define('__wxConfig', __TICK_MINI_PROGRAM.config);
-    
+    __TICK_RUNTIME.inject('service');
+    __TICK_RUNTIME.define('__wxConfig', __TICK_RUNTIME.config);
+    // __TICK_RUNTIME.startWorker();
 
-    window.__TICK_MINI_PROGRAM = __TICK_MINI_PROGRAM;
+    window.__TICK_RUNTIME = __TICK_RUNTIME;
   `;
 
   return <script dangerouslySetInnerHTML={{__html: html }}></script>

@@ -1,6 +1,6 @@
 export function ViewScript (props) {
   const { 
-    __TICK_MINI_PROGRAM,
+    __TICK_RUNTIME,
     webviewId, 
     route,
     path
@@ -11,10 +11,10 @@ export function ViewScript (props) {
     config, 
     system, 
     appconfig,
-  } = __TICK_MINI_PROGRAM;
+  } = __TICK_RUNTIME;
 
   const html = `
-    const __TICK_MINI_PROGRAM = {
+    const __TICK_RUNTIME = {
       mode: 'DEBUG',
       route: '${route}',
       webviewId: ${webviewId},
@@ -68,10 +68,10 @@ export function ViewScript (props) {
               } 
             });
           
-            __TICK_MINI_PROGRAM.document.dispatchEvent(event);
+            __TICK_RUNTIME.document.dispatchEvent(event);
           },
           invokeHandler: function (name, data, callbackId) {
-            __TICK_MINI_PROGRAM.info(
+            __TICK_RUNTIME.info(
               \`【消息来源 - \${source}】\`, 
               \`「invokeHandler」:\${name}\`,
               \`数据:\`, data,
@@ -82,7 +82,7 @@ export function ViewScript (props) {
           },
 
           publishHandler: function (name, data) {
-            __TICK_MINI_PROGRAM.info(
+            __TICK_RUNTIME.info(
               \`【消息来源 - \${source}】\`, 
               \`「publishHandler」:\${name}\`,
               \`数据:\`, data,
@@ -103,12 +103,12 @@ export function ViewScript (props) {
       }
     };
 
-    __TICK_MINI_PROGRAM.inject('webview');
-    __TICK_MINI_PROGRAM.define('__webviewId', __TICK_MINI_PROGRAM.webviewId);
-    __TICK_MINI_PROGRAM.define('__wxConfig', __TICK_MINI_PROGRAM.config);
-    __TICK_MINI_PROGRAM.define('__deviceInfo', __TICK_MINI_PROGRAM.device);
+    __TICK_RUNTIME.inject('webview');
+    __TICK_RUNTIME.define('__webviewId', __TICK_RUNTIME.webviewId);
+    __TICK_RUNTIME.define('__wxConfig', __TICK_RUNTIME.config);
+    __TICK_RUNTIME.define('__deviceInfo', __TICK_RUNTIME.device);
 
-    window.__TICK_MINI_PROGRAM = __TICK_MINI_PROGRAM;
+    window.__TICK_RUNTIME = __TICK_RUNTIME;
   `;
 
   return <script dangerouslySetInnerHTML={{__html: html }}></script>

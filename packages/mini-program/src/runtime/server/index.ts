@@ -24,6 +24,58 @@ export async function Server (implement) {
     const { name } = context.params;
     await implement(name, context);
   });
+
+  router.get('/tickruntime', async context => {
+    const { __TICK_RUNTIME } = context;
+    const { r, m } = context.request.query;
+    const { 
+      appconfig, 
+      device, 
+      config, 
+      system, 
+      types 
+    } = __TICK_RUNTIME;
+
+    context.type = 'application/javascript';
+    context.body = `
+      const __TICK_RUNTIME = { mode: '${m || 'RELEASE'} '};
+      __TICK_RUNTIME.context = {
+        appconfig: ${JSON.stringify(appconfig)},
+        device: ${JSON.stringify(device)},
+        config: ${JSON.stringify(config)},
+        types: ${JSON.stringify(types)},
+      };
+      ${
+        r !== undefined ? 
+          `__TICK_RUNTIME.route = '${r}';` : ''
+      }
+
+      __TICK_RUNTIME.nextTick = (callback) => {
+        return new Promise((resolve, reject) => {
+          if (typeof callback === 'function') {
+            callback();
+            resolve();
+          } else {
+            reject(new TypeError('Callback must be function.'));
+          }
+        });
+      };
+      __TICK_RUNTIME.debug = (name) => {
+        return (...args) => {
+          __TICK_RUNTIME.console.info(\`【\${name}】\`, ...args);
+        }
+      }
+      __TICK_RUNTIME.request = (name, body) => {
+        return fetch(\`/api/\${name}\?`, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json
+          }
+        })
+      }
+
+    `
+  });
   
   router.get(`/appservice`, async context => {
     const { __TICK_APP_SERVICE } = context;
@@ -34,8 +86,8 @@ export async function Server (implement) {
 
   router.get(`/subpage/appwxss`, async context => {
     const { p, r } = context.request.query;
-    const { __TICK_MINI_PROGRAM } = context;
-    const { project } = __TICK_MINI_PROGRAM;
+    const { __TICK_RUNTIME } = context;
+    const { project } = __TICK_RUNTIME;
 
     try {
       await fs.access(path.resolve(project, p + 'page-frame.js'), fs.constants.R_OK);
@@ -50,8 +102,8 @@ export async function Server (implement) {
 
   router.get(`/subpage/appservice`, async context => {
     const { p, r } = context.request.query;
-    const { __TICK_MINI_PROGRAM } = context;
-    const { project } = __TICK_MINI_PROGRAM;
+    const { __TICK_RUNTIME } = context;
+    const { project } = __TICK_RUNTIME;
 
     try {
       await fs.access(path.resolve(project, p + 'app-service.js'), fs.constants.R_OK);
@@ -74,8 +126,8 @@ export async function Server (implement) {
   server.use(router.routes());
   server.use(router.allowedMethods());
   
-  server.use(async ({ req, res, __TICK_MINI_PROGRAM }) => {
-    req.__TICK_MINI_PROGRAM = __TICK_MINI_PROGRAM;
+  server.use(async ({ req, res, __TICK_RUNTIME }) => {
+    req.__TICK_RUNTIME = __TICK_RUNTIME;
     await handle(req, res);
   });
 

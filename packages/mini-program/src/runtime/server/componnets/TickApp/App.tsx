@@ -25,8 +25,8 @@ export default function App (props) {
     appservice, 
     appnavigator, 
     appconfig, 
-    get __TICK_MINI_PROGRAM () {
-      return props.__TICK_MINI_PROGRAM;
+    get __TICK_RUNTIME () {
+      return props.__TICK_RUNTIME;
     } 
   }
 

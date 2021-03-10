@@ -9,10 +9,10 @@ export default function View (props) {
 }
 
 View.getInitialProps = (context) => {
-  const { __TICK_MINI_PROGRAM, __NEXT_INIT_QUERY } = context.req;
+  const { __TICK_RUNTIME, __NEXT_INIT_QUERY } = context.req;
 
   return {
-    __TICK_MINI_PROGRAM,
+    __TICK_RUNTIME,
     route: __NEXT_INIT_QUERY.r,
     path: __NEXT_INIT_QUERY.r.replace(/\.html$/, ''),
     webviewId: __NEXT_INIT_QUERY.i

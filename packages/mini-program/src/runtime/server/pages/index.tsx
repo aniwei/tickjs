@@ -4,16 +4,13 @@ import { AppScript } from '../componnets/AppScript';
 const TickApp = dynamic(import('../componnets/TickApp'), { ssr: false })
 
 export default function Index (props) {
-  return <>
-    <AppScript {...props} />
-    <TickApp {...props} />
-  </>
+  return <TickApp {...props} />
 }
 
 Index.getInitialProps = (context) => {
-  const { __TICK_MINI_PROGRAM } = context.req;
+  const { __TICK_RUNTIME } = context.req;
 
   return {
-    __TICK_MINI_PROGRAM
+    __TICK_RUNTIME
   }
 }
