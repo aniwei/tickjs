@@ -9,6 +9,7 @@ declare global {
 
   interface globalThis {
     process: any
+    __dirname: any,
     __TICK_RUNTIME: any,
   }
 }

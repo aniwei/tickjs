@@ -20,11 +20,6 @@ export async function Server (implement) {
 
   const router = new Router();
 
-  router.post('/api/:name', async context => {
-    const { name } = context.params;
-    await implement(name, context);
-  });
-
   router.get('/tickruntime', async context => {
     const { __TICK_RUNTIME } = context;
     const { r, m } = context.request.query;
@@ -38,43 +33,108 @@ export async function Server (implement) {
 
     context.type = 'application/javascript';
     context.body = `
-      const __TICK_RUNTIME = { mode: '${m || 'RELEASE'} '};
-      __TICK_RUNTIME.context = {
-        appconfig: ${JSON.stringify(appconfig)},
-        device: ${JSON.stringify(device)},
-        config: ${JSON.stringify(config)},
-        types: ${JSON.stringify(types)},
-      };
-      ${
-        r !== undefined ? 
-          `__TICK_RUNTIME.route = '${r}';` : ''
-      }
-
-      __TICK_RUNTIME.nextTick = (callback) => {
-        return new Promise((resolve, reject) => {
-          if (typeof callback === 'function') {
-            callback();
-            resolve();
-          } else {
-            reject(new TypeError('Callback must be function.'));
+      const __TICK_RUNTIME = { 
+        mode: '${m || 'RELEASE'}',
+        route: '${r === undefined ? null : r}',
+        globalThis: this, 
+        context: {
+          appconfig: ${JSON.stringify(appconfig)},
+          device: ${JSON.stringify(device)},
+          config: ${JSON.stringify(config)},
+          types: ${JSON.stringify(types)},
+        },
+        nextTick = (callback) => {
+          return new Promise((resolve, reject) => {
+            if (typeof callback === 'function') {
+              callback();
+              resolve();
+            } else {
+              reject(new TypeError('Callback must be function.'));
+            }
+          });
+        },
+        debug: (name) => {
+          return (...args) => {
+            __TICK_RUNTIME.console.info(\`【\${name}】\`, ...args);
           }
-        });
+        },
+        request: (name, body) => {
+          return fetch(\`/api/\${name}\`, {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body
+          })
+        }
       };
-      __TICK_RUNTIME.debug = (name) => {
-        return (...args) => {
-          __TICK_RUNTIME.console.info(\`【\${name}】\`, ...args);
+
+      ${
+        r === undefined ? '' : `
+
+        `
+      }
+      
+
+      __TICK_RUNTIME.WeixinJSCore = {
+        dispatchEvent (name, argv) {
+          __TICK_RUNTIME.globalThis.dispatchEvent(name, ...argv);
+        },
+
+        invokeHandler (name, options, callbackId) {
+          __TICK_RUNTIME.debug(\`invokeHandler\`)(
+            \`数据:\`, data,
+            \`回调函数:\`, callbackId
+          );
+
+          this.dispatchEvent(name, [options, callbackId]);
+        },
+
+        publishHandler (name, data, webviewId) {
+          __TICK_RUNTIME.debug(\`publishHandler\`)(
+            \`数据:\`, data,
+            \`WebViewId:\`, webviewId
+          );
+
+          const options = { nativeTime: Date.now() };
+
+          ${
+            r !== undefined ? `if (name === 'custom_event_webViewCreated') {
+              this.dispatchEvent('created', {}, options);
+            }` : `
+              const json = JSON.parse(data);
+
+              const webviewIds = name === 'custom_event_onAppRoute' ? 
+                JSON.parse(webviewId) : [json.data.webviewid];
+
+              for (const webviewId of webviewIds) {
+                this.dispatchEvent(name, [
+                  name, 
+                  json,
+                  0,
+                  options,
+                  webviewId
+                ]);
+              }
+            `
+          }
         }
       }
-      __TICK_RUNTIME.request = (name, body) => {
-        return fetch(\`/api/\${name}\?`, {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json
-          }
-        })
-      }
+    }
 
+    __TICK_RUNTIME.init = () => {
+      __TICK_RUNTIME.globalThis.addEventListener('message', () => {
+
+      });
+    }
+
+    __TICK_RUNTIME.init = ()
     `
+  });
+
+  router.post('/api/:name', async context => {
+    const { name } = context.params;
+    await implement(name, context);
   });
   
   router.get(`/appservice`, async context => {

@@ -15,6 +15,6 @@ View.getInitialProps = (context) => {
     __TICK_RUNTIME,
     route: __NEXT_INIT_QUERY.r,
     path: __NEXT_INIT_QUERY.r.replace(/\.html$/, ''),
-    webviewId: __NEXT_INIT_QUERY.i
+    viewId: __NEXT_INIT_QUERY.i
   }
 }

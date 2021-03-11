@@ -3,7 +3,7 @@ export const device = {
   pixelRatio: 2
 }
 
-export const port = 3000;
+export const port = 7001;
 
 export const system = {
   networkType: 'wifi',

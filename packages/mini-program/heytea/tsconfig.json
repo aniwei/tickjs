@@ -17,7 +17,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "typeRoots": ["../../node_modules", "./"],
+    "typeRoots": ["../node_modules", "./"],
     "paths": {
       "react-native": ["./node_modules/react-native-web"]
     }
