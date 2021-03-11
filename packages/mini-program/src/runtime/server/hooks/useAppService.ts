@@ -88,6 +88,8 @@ class NativeMethodExecutor {
 }
 
 function getJSBridgeHandler (__TICK_RUNTIME) {
+  
+
   return {
     invoke (callbackId, name) {  
       return new NativeMethodExecutor(this, callbackId, name);

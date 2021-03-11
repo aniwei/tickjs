@@ -3,10 +3,14 @@ import { useServiceScripts } from '../../hooks/useServiceScripts';
 import { useAppServiceSubscribe } from '../../hooks/useAppServiceSubscribe';
 
 export function AppService (props) {
-  useServiceScripts(props);
-  useAppServiceSubscribe();
+  // useServiceScripts(props);
+  // useAppServiceSubscribe();
+
+  const html = `
+    
+  `;
   
   return <View style={{ display: 'none' }}>
-    <Text>AppService</Text>
+    <script dangerouslySetInnerHTML={{ __html: html }}></script>
   </View>
 }

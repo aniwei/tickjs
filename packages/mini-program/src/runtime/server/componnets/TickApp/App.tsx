@@ -11,6 +11,7 @@ import { useAppNavigator } from '../../hooks/useAppNavigator';
 import { useAppService } from '../../hooks/useAppService';
 import { useAppConfig } from '../../hooks/useAppConfig';
 import { AppLaunchScreen } from '../AppLaunchScreen';
+import { useAppRuntime } from 'runtime/server/hooks/useAppRuntime';
 
 export default function App (props) {
   const [
@@ -18,18 +19,23 @@ export default function App (props) {
     setAppService
   ] = useState(false);
 
-  const appconfig = useAppConfig(props);
-  const appservice = useAppService(props);
-  const appnavigator = useAppNavigator(appservice, appconfig);
-  const context = {
-    appservice, 
-    appnavigator, 
-    appconfig, 
-    get __TICK_RUNTIME () {
-      return props.__TICK_RUNTIME;
-    } 
-  }
 
+  const runtime = useAppRuntime();
+
+  // const appconfig = useAppConfig(props);
+  // const appservice = useAppService(props);
+  // const appnavigator = useAppNavigator(appservice, appconfig);
+  // const context = {
+  //   appservice, 
+  //   appnavigator, 
+  //   appconfig, 
+  //   get __TICK_RUNTIME () {
+  //     return props.__TICK_RUNTIME;
+  //   } 
+  // }
+
+  const context = {};
+  
   const onAppServiceLoad = () => {
     setAppService(true);
   }
@@ -40,20 +46,20 @@ export default function App (props) {
         <AppCapsule 
           {...props} 
         />
-        <AppService 
+        {/* <AppService 
           {...props} 
           onLoad={onAppServiceLoad} 
-        />
-        <AppNativeMethods 
+        /> */}
+        {/* <AppNativeMethods 
           {...props} 
-        />
+        /> */}
 
-        { 
+        {/* { 
           isAppServiceReady ? 
             <AppNavigator 
               {...props} 
             /> : null 
-        }
+        } */}
       </Provider>
 
       <AppLaunchScreen />

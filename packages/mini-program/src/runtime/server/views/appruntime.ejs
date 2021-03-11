@@ -1,0 +1,117 @@
+const __TICK_CONTEXT = <%- __TICK_CONTEXT %>;
+const __TICK_CONSOLE = globalThis.console;
+const __TICK_NEXTTICK = (callback) => {
+  return new Promise((resolve, reject) => {
+    if (typeof callback === 'function') {
+      callback();
+      resolve();
+    } else {
+      reject(new TypeError('Callback must be function.'));
+    }
+  });
+}
+
+const __TICK_LOG = (type) => {
+  return (...argv) => {
+    __TICK_CONSOLE.info(`【${type}】`, ...argv);
+  }
+}
+
+const __TICK_REQUEST = (name, body) => {
+  return fetch(`/api/${name}`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body
+  });
+}
+
+const __TICK_DISPATCH = (name, detail) => {
+  globalThis.dispatchEvent(new CustomEvent(`app.${name}`, { detail }));
+
+  globalThis.postMessage({
+    name: `app.${name}`,
+    detail
+  });
+}
+
+const __TICK_JSCORE = {
+  invokeHandler (name, options, callbackId) {
+    __TICK_LOG(`invokeHandler`)(
+      `接口:`, name,
+      `数据:`, options,
+      `回调函数:`, callbackId
+    );
+
+    __TICK_DISPATCH(name, {options, callbackId});
+  },
+
+  publishHandler (name, data, webviewId) {
+    __TICK_LOG(`publishHandler`)(
+      `事件:`, name,
+      `数据:`, data,
+      `WebViewId:`, webviewId
+    );
+
+    data = JSON.parse(data);
+    const options = { nativeTime: Date.now() };
+
+    const webviewIds = name === 'custom_event_onAppRoute' ? 
+      JSON.parse(webviewId) : [data.data.webviewid];
+
+    for (const webviewId of webviewIds) {
+      __TICK_DISPATCH(name, { 
+        args: [
+          name, 
+          data,
+          0,
+          options
+        ],
+        webviewId
+      });
+    }
+  }
+}
+
+const __TICK_USE_NATIVE = (name, ) => {
+
+}
+
+const __TICK_NATIVE_METHODS = () => {
+
+}
+
+const __TICK_MESSAGE_CENTER = {
+  onMessage () {},
+  on (name, callback) {
+    
+  },
+  off () {},
+  once () {}
+}
+
+const __TICK_INIT = () => {
+  globalThis.addEventListener('message', (event) => {
+    debugger;
+  });
+
+  globalThis.addEventListener('connect', () => {
+    debugger;
+  });
+
+  globalThis.WeixinJSCore = __TICK_JSCORE;
+  globalThis.__wxConfig = __TICK_CONTEXT.config;
+
+  importScripts('/WAService.js');
+  importScripts('/appservice');
+
+  globalThis.postMessage({
+    type: 'publishHandler',
+    detail: {
+      argv: ['appservice']
+    }
+  });
+}
+
+__TICK_INIT();

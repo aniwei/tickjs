@@ -44,8 +44,8 @@ export async function createMiniProgram (options, config, impl = getDefaultNativ
   const server = await Server(impl);
   const appconfig = shared.getApplicationConfig(config)
 
-  server.context.__TICK_APP_WXSS = appwxss;
-  server.context.__TICK_APP_SERVICE = appservice;
+  server.context.__TICK_WXSS = appwxss;
+  server.context.__TICK_SERVICE = appservice;
 
   server.context.__TICK_RUNTIME = {
     types: types,
