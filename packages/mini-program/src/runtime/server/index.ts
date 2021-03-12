@@ -31,7 +31,7 @@ export async function Server (implement) {
 
     context.type = 'application/javascript';
     await context.render('appruntime', {
-      __TICK_CONTEXT: JSON.stringify({
+      __TICK_RUNTIME: JSON.stringify({
         appconfig, config, device, system, types
       })
     })

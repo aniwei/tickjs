@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-export function useAppConfig (props) {
+export function useConfig (props) {
   const { __TICK_RUNTIME } = props;
 
   return useMemo(() => {

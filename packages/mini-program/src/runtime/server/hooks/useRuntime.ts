@@ -1,6 +1,34 @@
 import { useMemo, useEffect } from 'react';
 
-class AppRuntime extends Worker {
+class AppRuntimeEventEmitter extends Worker {
+  constructor (uri) {
+    super(uri);
+  }
+
+  emit (name, ...argv) {
+    this.dispatchEvent(new CustomEvent(name, ...argv));
+  }
+
+  on (name, callback) {
+    this.addEventListener(name, callback, false);
+    return this;
+  }
+
+  once (name, callback) {
+    const once = (...argv) => {
+      callback(...argv);
+      this.off(name, once);
+    }
+    return this.on(name, callback);
+  }
+
+  off (name, callback) {
+    this.addEventListener(name, callback, false);
+    return this;
+  }
+}
+
+class AppRuntime extends AppRuntimeEventEmitter {
   public callbackId = 0;
 
   constructor (uri) {
@@ -11,17 +39,21 @@ class AppRuntime extends Worker {
   }
 
   onMessage = (event) => {
-    const { data } = event;
-    const { type, name, options, callbackId } = data;
+    const { type, name, data, options, callbackId } = event.data;
 
     switch (type) {
       case 'invokeCallbackHandler': {
-        this.invokeCallbackHandler(callbackId, options);
+        this.emit(callbackId, options);
         break;
       }
 
       case 'subscribeHandler': {
-        this.subscribeHandler(name, options);
+        this.emit(name, data, options);
+        break;
+      }
+
+      case 'invokeHandler': {
+        this.emit(name, options, callbackId);
         break;
       }
     }
@@ -48,15 +80,23 @@ class AppRuntime extends Worker {
   }
 
   invokeCallbackHandler = (callbackId, options) => {
-    this.emit(callbackId, options);
+    this.send({
+      type: 'invokeCallbackHandler',
+      options,
+      callbackId
+    });
   }
 
-  subscribeHandler = (callbackId, options) => {
-    this.emit(callbackId, options);
+  subscribeHandler = (name, data, options) => {
+    this.send({
+      type: 'subscribeHandler',
+      name,
+      data,
+      options
+    });
   }
 
   publishHandler = (name, options) => {
-    this.emit(name, options);
     this.send({
       type: 'publishHandler',
       name,
@@ -64,34 +104,12 @@ class AppRuntime extends Worker {
     });
   }
 
-  emit (name, ...argv) {
-    this.dispatchEvent(new CustomEvent(name, ...argv));
-  }
-
-  on (name, callback) {
-    this.addEventListener(name, callback, false);
-    return this;
-  }
-
-  once (name, callback) {
-    const once = (...argv) => {
-      callback(...argv);
-      this.off(name, once);
-    }
-    return this.on(name, callback);
-  }
-
-  off (name, callback) {
-    this.addEventListener(name, callback, false);
-    return this;
-  }
-
   ready (callback) {
     this.on('appserviceready', callback);
   }
 }
 
-export function useAppRuntime (onReady) {
+export function useRuntime (onReady) {
   const appruntime = useMemo(() => {
     const appruntime = new AppRuntime('/appruntime');
     return appruntime;
