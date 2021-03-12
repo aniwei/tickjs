@@ -2,8 +2,7 @@ import { createContext } from 'react';
 
 export const AppContext = createContext({
   appnavigator: null,
-  appservice: null,
-  appconfig: null,
+  runtime: null,
   __TICK_RUNTIME: null,
 });
 

@@ -27,10 +27,11 @@ const __TICK_REQUEST = (name, body) => {
   });
 }
 
-const __TICK_DISPATCH = (name, detail) => {
+const __TICK_DISPATCH = (type, name, detail) => {
   globalThis.dispatchEvent(new CustomEvent(`app.${name}`, { detail }));
 
   globalThis.postMessage({
+    type,
     name: `app.${name}`,
     detail
   });
@@ -93,7 +94,20 @@ const __TICK_MESSAGE_CENTER = {
 
 const __TICK_INIT = () => {
   globalThis.addEventListener('message', (event) => {
-    debugger;
+    const { data } = event;
+    const { type, name, options, callbackId } = data;
+
+    switch (type) {
+      case 'invokeCallbackHandler': {
+        this.invokeCallbackHandler(callbackId, options);
+        break;
+      }
+
+      case 'subscribeHandler': {
+        this.subscribeHandler(name, options);
+        break;
+      }
+    }
   });
 
   globalThis.addEventListener('connect', () => {

@@ -15,16 +15,18 @@ import { useAppRuntime } from 'runtime/server/hooks/useAppRuntime';
 
 export default function App (props) {
   const [
-    isAppServiceReady,
-    setAppService
+    isRuntimeReady,
+    setRuntime
   ] = useState(false);
 
 
-  const runtime = useAppRuntime();
+  const runtime = useAppRuntime(() => {
+    setRuntime(true)
+  });
 
   // const appconfig = useAppConfig(props);
   // const appservice = useAppService(props);
-  // const appnavigator = useAppNavigator(appservice, appconfig);
+  const appnavigator = useAppNavigator(runtime);
   // const context = {
   //   appservice, 
   //   appnavigator, 
@@ -33,16 +35,11 @@ export default function App (props) {
   //     return props.__TICK_RUNTIME;
   //   } 
   // }
-
   const context = {};
-  
-  const onAppServiceLoad = () => {
-    setAppService(true);
-  }
 
   return (
     <View style={{ height: Dimensions.get('window').height }}>
-      <Provider value={context}>
+      <Provider value={{ runtime }}>
         <AppCapsule 
           {...props} 
         />
@@ -54,12 +51,12 @@ export default function App (props) {
           {...props} 
         /> */}
 
-        {/* { 
-          isAppServiceReady ? 
+        { 
+          isRuntimeReady ? 
             <AppNavigator 
               {...props} 
             /> : null 
-        } */}
+        }
       </Provider>
 
       <AppLaunchScreen />

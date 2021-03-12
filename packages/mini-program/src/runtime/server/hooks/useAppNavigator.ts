@@ -1,36 +1,89 @@
 import { useMemo } from 'react';
 import { AppPackageLoader } from '../componnets/AppPackageLoader';
 
-export function useAppNavigator (appservice, appconfig) {
+
+
+export function useAppNavigator (appruntime, appconfig) {
+  const packageLoader = usePackageLoader(appruntime, appconfig);
+
   return useMemo(() => {
-    const appnavigator = {
-      id: 0,
-      isFrist: true,
-      navigators: new Map(),
-      current: null,
-      create () {
-        return appnavigator.id++;
-      },
-      has (navigator) {
-        return appnavigator.navigators.get(navigator.id);
-      },
-      set (navigator) {
-        return appnavigator.navigators.set(navigator.id, navigator);
-      },
-      get (id) {
-        return appnavigator.navigators.get(id);
-      },
-      delete (navigator) {
-        if (this.get(navigator.id) === navigator) {
-          appnavigator.navigators.delete(navigator.id);
+    class Navigator {
+      public id: number | null = null;
+      public navigation: any | null = null;
+    
+      constructor (id, navigation) {
+        this.id = id;
+        this.navigation = navigation;
+      }
+    
+      push (uri, query) {
+        const pathname = uri.pathname[0] === '/' ? 
+          uri.pathname.slice(1) : uri.pathname;
+
+        packageLoader(pathname).then(() => {
+
+        }).catch(error => {
+
+        }).final(() => {
+          this.navigation.push(pathname, query);
+        });
+      }
+    }
+
+    class AppNavigator extends Map {
+      public id: number = 0;
+      public isLaunch: boolean = true;
+      public current: Navigator | null = null;
+      public subPages: object = appconfig.subPages;
+
+      create = (navigation) => {
+        return new Navigator(this.id++, navigation);
+      }
+
+      has = (navigator: Navigator): boolean => {
+        return super.has(navigator.id);
+      }
+
+      set = (navigator: Navigator) => {
+        super.set(navigator.id, navigator);
+        return this;
+      }
+
+      get = (navigator: Navigator | number) => {
+        if (navigator instanceof Navigator) {
+          return super.get(navigator.id);
         }
-      },
+
+        return super.get(navigator);
+      }
+
+      delete = (navigator) => {
+        if (navigator instanceof Navigator) {
+          return super.delete(navigator.id);
+        }
+
+        return super.delete(navigator);
+      }
+
+      push = (url, query) => {
+        const nav = this.current;
+        if (nav) {
+          navigator.push(url, query);
+        }
+      }
+    }
+
+    const appnavigator = new AppNavigator();
+
+    const appnavigator = {
+      
       pop (delta) {
         const navigator = appnavigator.current;
         if (navigator) {
           navigator.navigation.pop(delta);
         }
       },
+
       push (url, query) {
         const navigator = appnavigator.current;
         const pathname = url.pathname[0] === '/' ? 

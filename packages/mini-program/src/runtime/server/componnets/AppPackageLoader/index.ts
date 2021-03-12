@@ -7,7 +7,7 @@ export class AppPackageLoader {
     this.subPackage = subPackage;
   }
 
-  appServiceLoader () {
+  serviceLoader () {
     const src = `/subpage/appservice?p=${this.subPackage.root}&r=${this.route}`;
 
     return new Promise((resolve, reject) => {
