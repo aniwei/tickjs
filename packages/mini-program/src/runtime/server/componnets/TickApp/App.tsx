@@ -7,11 +7,10 @@ import { AppCapsule } from '../AppCapsule';
 
 import { Provider } from './AppContext';
 
-import { useAppNavigator } from '../../hooks/useAppNavigator';
-import { useAppService } from '../../hooks/useAppService';
-import { useAppConfig } from '../../hooks/useAppConfig';
+import { useConfig } from '../../hooks/useConfig';
+import { useNavigator } from '../../hooks/useNavigator';
 import { AppLaunchScreen } from '../AppLaunchScreen';
-import { useAppRuntime } from 'runtime/server/hooks/useAppRuntime';
+import { useRuntime } from 'runtime/server/hooks/useRuntime';
 
 export default function App (props) {
   const [
@@ -20,26 +19,16 @@ export default function App (props) {
   ] = useState(false);
 
 
-  const runtime = useAppRuntime(() => {
+  const runtime = useRuntime(() => {
     setRuntime(true)
   });
 
-  // const appconfig = useAppConfig(props);
-  // const appservice = useAppService(props);
-  const appnavigator = useAppNavigator(runtime);
-  // const context = {
-  //   appservice, 
-  //   appnavigator, 
-  //   appconfig, 
-  //   get __TICK_RUNTIME () {
-  //     return props.__TICK_RUNTIME;
-  //   } 
-  // }
-  const context = {};
+  const appconfig = useConfig(props);
+  const navigator = useNavigator(runtime, appconfig);
 
   return (
     <View style={{ height: Dimensions.get('window').height }}>
-      <Provider value={{ runtime }}>
+      <Provider value={{ runtime, navigator, __TICK_RUNTIME: props.__TICK_RUNTIME }}>
         <AppCapsule 
           {...props} 
         />

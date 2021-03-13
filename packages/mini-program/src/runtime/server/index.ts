@@ -29,6 +29,7 @@ export async function Server (implement) {
   const router = new Router();
 
 
+
   router.post('/api/:name', async context => {
     const { name } = context.params;
     await implement(name, context);
