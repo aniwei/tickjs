@@ -10,6 +10,8 @@ import Router from 'koa-router';
 import debug from 'debug';
 
 
+import runtime from './runtime'
+
 
 export async function Server (implement) {
   const app = next({ dev: true, dir: __dirname });
@@ -18,24 +20,14 @@ export async function Server (implement) {
   debug('mini-program:server')(`开始创建服务`);
   
   const server = new Koa();
+
+  server.use(runtime());
   server.use(KoaBodyParser());
   server.use(KoaViews(path.join(__dirname, 'views'), { extension: 'ejs' }));
   server.use(KoaSticic(path.resolve(__dirname, 'public')));
 
   const router = new Router();
 
-
-  router.get('/appruntime', async context => {
-    const { __TICK_RUNTIME } = context;
-    const { appconfig, config, device, system, types } = __TICK_RUNTIME;
-
-    context.type = 'application/javascript';
-    await context.render('appruntime', {
-      __TICK_CONTEXT: JSON.stringify({
-        appconfig, config, device, system, types
-      })
-    })
-  })
 
   router.post('/api/:name', async context => {
     const { name } = context.params;
@@ -55,11 +47,13 @@ export async function Server (implement) {
     const { project } = __TICK_RUNTIME;
 
     try {
-      await fs.access(path.resolve(project, p + 'page-frame.js'), fs.constants.R_OK);
+      const filepath = path.resolve(project, p + 'page-frame.js'); 
+      await fs.access(filepath, fs.constants.R_OK);
 
       context.status = 200;
       context.type = 'application/javascript';
-      context.body = await fs.readFile(path.resolve(project, p + 'page-frame.js'));
+      context.body = await fs.readFile(filepath);
+
     } catch (error) {
       context.status = 400;
     }
@@ -71,11 +65,12 @@ export async function Server (implement) {
     const { project } = __TICK_RUNTIME;
 
     try {
-      await fs.access(path.resolve(project, p + 'app-service.js'), fs.constants.R_OK);
+      const filepath = path.resolve(project, p + 'app-service.js');
+      await fs.access(filepath, fs.constants.R_OK);
 
       context.status = 200;
       context.type = 'application/javascript';
-      context.body = await fs.readFile(path.resolve(project, p + 'app-service.js'));
+      context.body = await fs.readFile(filepath);
     } catch (error) {
       context.status = 400;
     }
