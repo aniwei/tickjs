@@ -1,5 +1,5 @@
-import KoaCompose from 'koa-compose';
 import webpack from 'webpack';
+import KoaCompose from 'koa-compose';
 import hotMiddleware from 'webpack-hot-middleware';
 import devMiddleware from 'webpack-dev-middleware';
 

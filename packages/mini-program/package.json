@@ -10,6 +10,9 @@
   },
   "author": "",
   "license": "ISC",
+	"resolutions": {
+    "webpack": "5.25.0"
+  },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^5.11.8",
     "@react-navigation/native": "^5.9.3",

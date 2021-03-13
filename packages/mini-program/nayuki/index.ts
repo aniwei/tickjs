@@ -1,11 +1,11 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { createMiniProgram } from '../src/runtime';
+import { createMiniProgram } from '../src/libs';
 
 import {
   NativeMethodsResponse,
   getDefaultNativeMethods
-} from '../src/runtime/NativeMethods';
+} from '../src/libs/NativeMethods';
 
 const nativeMethods = getDefaultNativeMethods({
   beforeRequest (name, context) {

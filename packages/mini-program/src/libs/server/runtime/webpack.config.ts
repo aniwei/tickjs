@@ -1,5 +1,4 @@
 import path from 'path';
-import webpack from 'webpack';
 
 export const config = {
   entry: {
@@ -18,9 +17,8 @@ export const config = {
       {
         test: /\.ts$/,
         use: [
-          'ts-loader',
           {
-
+            loader: 'ts-loader',
           }
         ]
       }
