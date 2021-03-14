@@ -1,13 +1,13 @@
-export function getApplicationConfig (__TICK_RUNTIME) {
-  const subPackages = getApplicationSubPackages(__TICK_RUNTIME);
+export function getApplicationConfig (__TICK_CONTEXT) {
+  const subPackages = getApplicationSubPackages(__TICK_CONTEXT);
   const subPages = getApplicationSubPages(subPackages);
 
   return {
     subPages,
     subPackages,
-    pages: getApplicationPages(__TICK_RUNTIME, subPages),
-    bottomTabBar: getApplicationBottomTabBar(__TICK_RUNTIME),
-    launchOptions: getApplicationLaunchOptions(__TICK_RUNTIME)
+    pages: getApplicationPages(__TICK_CONTEXT, subPages),
+    bottomTabBar: getApplicationBottomTabBar(__TICK_CONTEXT),
+    launchOptions: getApplicationLaunchOptions(__TICK_CONTEXT)
   }
 }
 

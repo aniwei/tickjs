@@ -6,7 +6,7 @@ import { AppContext } from '../componnets/TickApp/AppContext';
 
 const { stringify } = JSON;
 
-export function useAppNativeMethods ({ __TICK_RUNTIME }) {
+export function useAppNativeMethods ({ __TICK_CONTEXT }) {
   const { appservice, appnavigator } = useContext(AppContext);
 
   const nativeMethods = useAppNativeMethod(
@@ -14,7 +14,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
     ({ callbackId, name }) => {
       appservice
         .invoke(callbackId, name)
-        .success(__TICK_RUNTIME.system)
+        .success(__TICK_CONTEXT.system)
         .sync()
     }
   );
@@ -24,7 +24,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
     ({ callbackId, name }) => 
       appservice.invoke(callbackId, name)
         .success({
-          networkType: __TICK_RUNTIME.system.networkType
+          networkType: __TICK_CONTEXT.system.networkType
         })
         .sync()
   );
@@ -33,7 +33,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
     `service.getStorage`,
     ({ callbackId, name, data: { key } }) => {
       const exec = appservice.invoke(callbackId, name).async();
-      const result = __TICK_RUNTIME.storage.getItem(key);
+      const result = __TICK_CONTEXT.storage.getItem(key);
 
       if (result) {
         exec.success({ data: result });
@@ -47,7 +47,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
     `service.getStorageSync`,
     ({ callbackId, name, data: { key } }) => {
       const exec = appservice.invoke(callbackId, name).sync();
-      const result = __TICK_RUNTIME.storage.getItem(key);
+      const result = __TICK_CONTEXT.storage.getItem(key);
 
       if (result) {
         exec.success({ data: result });
@@ -61,7 +61,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
     `service.setStorage`,
     ({ callbackId, name, data: { key, data } }) => {
       appservice.invoke(callbackId, name).async().success();
-       __TICK_RUNTIME.storage.setItem(key, data);
+       __TICK_CONTEXT.storage.setItem(key, data);
     }
   );
 
@@ -69,7 +69,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
     `service.setStorageSync`,
     ({ callbackId, name, data: { key, data } }) => {
       appservice.invoke(callbackId, name).sync().success();
-       __TICK_RUNTIME.storage.setItem(key, data);
+       __TICK_CONTEXT.storage.setItem(key, data);
     }
   );
 
@@ -83,7 +83,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
           .success({ requestTaskId: id })
           .sync();
 
-        __TICK_RUNTIME
+        __TICK_CONTEXT
           .remote
           .createRequestTask(stringify(data))
           .then(res => res.json())
@@ -110,7 +110,7 @@ export function useAppNativeMethods ({ __TICK_RUNTIME }) {
   useAppNativeMethod(
     `service.login`,
     ({ callbackId, name, data }) => {
-      __TICK_RUNTIME
+      __TICK_CONTEXT
       .remote
       .login(stringify(data))
       .then(res => res.json())

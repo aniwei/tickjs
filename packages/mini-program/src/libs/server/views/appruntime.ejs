@@ -1,4 +1,4 @@
-const __TICK_RUNTIME = <%- __TICK_RUNTIME %>;
+const __TICK_CONTEXT = <%- __TICK_CONTEXT %>;
 const __TICK_CONSOLE = globalThis.console;
 
 const useRuntime = () => {
@@ -107,7 +107,7 @@ const __TICK_INIT = () => {
   });
 
   globalThis.WeixinJSCore = __TICK_JSCORE;
-  globalThis.__wxConfig = __TICK_RUNTIME.config;
+  globalThis.__wxConfig = __TICK_CONTEXT.config;
 
   importScripts('/WAService.js');
   importScripts('/appservice');

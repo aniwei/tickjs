@@ -1,6 +1,6 @@
 export function ViewScript (props) {
   const { 
-    __TICK_RUNTIME,
+    __TICK_CONTEXT,
     viewId, 
     route,
     path
@@ -11,7 +11,7 @@ export function ViewScript (props) {
     config, 
     system, 
     appconfig,
-  } = __TICK_RUNTIME;
+  } = __TICK_CONTEXT;
 
   const html = `
     import '/AppViewRuntime.js';

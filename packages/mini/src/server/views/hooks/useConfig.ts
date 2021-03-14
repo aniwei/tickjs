@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 
 export function useConfig (props) {
-  const { __TICK_RUNTIME } = props;
+  const { __TICK_CONTEXT } = props;
 
   return useMemo(() => {
-    return __TICK_RUNTIME.appconfig
-  }, [__TICK_RUNTIME])
+    return __TICK_CONTEXT.appconfig
+  }, [__TICK_CONTEXT])
 }

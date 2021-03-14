@@ -47,7 +47,7 @@ export async function createMiniProgram (options, config, impl = getDefaultNativ
   server.context.__TICK_WXSS = appwxss;
   server.context.__TICK_SERVICE = appservice;
 
-  server.context.__TICK_RUNTIME = {
+  server.context.__TICK_CONTEXT = {
     types: types,
     config: config,
     device: device,

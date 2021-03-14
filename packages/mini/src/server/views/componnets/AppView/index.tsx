@@ -2,10 +2,10 @@ import { View } from 'react-native-web'
 import { useScript } from '../../hooks/useScript';
 
 export default function AppView (props) {
-  const __TICK_RUNTIME = typeof window === 'object' ? 
-    window.__TICK_RUNTIME : props.__TICK_RUNTIME;
+  const __TICK_CONTEXT = typeof window === 'object' ? 
+    window.__TICK_CONTEXT : props.__TICK_CONTEXT;
 
-  const { appconfig, route } = __TICK_RUNTIME;
+  const { appconfig, route } = __TICK_CONTEXT;
   const { subPages } = appconfig;
 
   const scripts = [`/WAWebview.js`, '/appwxss'];
@@ -16,7 +16,7 @@ export default function AppView (props) {
   }
 
   useScript(scripts, () => {
-    __TICK_RUNTIME.ready();
+    __TICK_CONTEXT.ready();
   });
 
   return <View>

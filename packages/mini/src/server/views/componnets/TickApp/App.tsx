@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View, Dimensions, Platform } from 'react-native-web';
 import { AppNavigator } from '../AppNavigator';
 import { AppService } from '../AppService';
@@ -28,7 +28,7 @@ export default function App (props) {
 
   return (
     <View style={{ height: Dimensions.get('window').height }}>
-      <Provider value={{ runtime, navigator, __TICK_RUNTIME: props.__TICK_RUNTIME }}>
+      <Provider value={{ runtime, navigator, __TICK_CONTEXT: props.__TICK_CONTEXT }}>
         <AppCapsule 
           {...props} 
         />

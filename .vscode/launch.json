@@ -19,14 +19,14 @@
       "name": "test-program",
       "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
       "sourceMaps": true,
-      "cwd": "${workspaceFolder}/packages/mini-program/luckin",
+      "cwd": "${workspaceFolder}/packages/mini",
       "env": {
         "DEBUG": "*"
       },
       "args": [
         "-r",
         "ts-node/register",
-        "index.ts"
+        "src/server/index.ts"
       ]
     },
 

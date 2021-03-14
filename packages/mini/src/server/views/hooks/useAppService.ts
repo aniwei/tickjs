@@ -87,7 +87,7 @@ class NativeMethodExecutor {
   }
 }
 
-function getJSBridgeHandler (__TICK_RUNTIME) {
+function getJSBridgeHandler (__TICK_CONTEXT) {
   
 
   return {
@@ -95,18 +95,18 @@ function getJSBridgeHandler (__TICK_RUNTIME) {
       return new NativeMethodExecutor(this, callbackId, name);
     },
     invokeCallbackHandler (...args) {
-      const { WeixinJSBridge } = __TICK_RUNTIME;
+      const { WeixinJSBridge } = __TICK_CONTEXT;
       WeixinJSBridge.invokeCallbackHandler(...args);
     },
     subscribeHandler (...args) {
-      const { WeixinJSBridge } = __TICK_RUNTIME;
+      const { WeixinJSBridge } = __TICK_CONTEXT;
       WeixinJSBridge.subscribeHandler(...args);
     },
   }
 }
 
-export function useAppService ({ __TICK_RUNTIME }) {  
+export function useAppService ({ __TICK_CONTEXT }) {  
   return useMemo(() => (
-    getJSBridgeHandler(__TICK_RUNTIME)
-  ), [__TICK_RUNTIME]);
+    getJSBridgeHandler(__TICK_CONTEXT)
+  ), [__TICK_CONTEXT]);
 }

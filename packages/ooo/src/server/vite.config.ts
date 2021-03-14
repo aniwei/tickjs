@@ -1,7 +1,8 @@
 
 import path from 'path';
-import reactRefresh from '@vitejs/plugin-react-refresh'
-import { defineConfig } from 'vite'
+import reactRefresh from '@vitejs/plugin-react-refresh';
+import tickService from './tickService';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,7 +12,6 @@ export default defineConfig({
       'react-native': 'react-native-web'
     }
   },
-  plugins: [reactRefresh()],
+  plugins: [tickService(), reactRefresh()],
   assetsInclude: /\.png/g,
-  esbuild: {}
 })

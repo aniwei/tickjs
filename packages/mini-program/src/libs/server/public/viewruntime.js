@@ -1,20 +1,20 @@
-const __TICK_RUNTIME = { 
+const __TICK_CONTEXT = { 
   get gwx () {
     return $gwx(`./${this.path}.wxml`)
   },
 
   context: {
     get appconfig () {
-      return __TICK_RUNTIME_APPCONFIG;
+      return __TICK_CONTEXT_APPCONFIG;
     },
     get device  () {
-      return __TICK_RUNTIME_DEVICE;
+      return __TICK_CONTEXT_DEVICE;
     },
     get system () {
-      return __TICK_RUNTIME_SYSTEM
+      return __TICK_CONTEXT_SYSTEM
     },
     get types () {
-      return __TICK_RUNTIME_TYPES
+      return __TICK_CONTEXT_TYPES
     }
   },
   globalThis: this, 
@@ -32,7 +32,7 @@ const __TICK_RUNTIME = {
 
   debug: (name) => {
     return (...args) => {
-      __TICK_RUNTIME.console.info(`【${name}】`, ...args);
+      __TICK_CONTEXT.console.info(`【${name}】`, ...args);
     }
   },
 
@@ -46,11 +46,11 @@ const __TICK_RUNTIME = {
         } 
       });
 
-      __TICK_RUNTIME.globalThis.dispatchEvent(event);
+      __TICK_CONTEXT.globalThis.dispatchEvent(event);
     },
 
     invokeHandler (name, options, callbackId) {
-      __TICK_RUNTIME.debug(`invokeHandler`)(
+      __TICK_CONTEXT.debug(`invokeHandler`)(
         `数据:`, data,
         `回调函数:`, callbackId
       );
@@ -59,7 +59,7 @@ const __TICK_RUNTIME = {
     },
 
     publishHandler (name, data, webviewId) {
-      __TICK_RUNTIME.debug(`publishHandler`)(
+      __TICK_CONTEXT.debug(`publishHandler`)(
         `数据:`, data,
         `WebViewId:`, webviewId
       );

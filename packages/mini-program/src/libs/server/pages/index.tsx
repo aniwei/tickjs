@@ -6,9 +6,9 @@ export default function Index (props) {
 }
 
 Index.getInitialProps = (context) => {
-  const { __TICK_RUNTIME } = context.req;
+  const { __TICK_CONTEXT } = context.req;
 
   return {
-    __TICK_RUNTIME
+    __TICK_CONTEXT
   }
 }

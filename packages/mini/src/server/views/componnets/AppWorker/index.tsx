@@ -1,10 +1,10 @@
 export function AppWorker (props) {
-  const { __TICK_RUNTIME } = props;
-  const { device, config, system, types, appconfig } = __TICK_RUNTIME;
+  const { __TICK_CONTEXT } = props;
+  const { device, config, system, types, appconfig } = __TICK_CONTEXT;
 
   const html = `
     const script = \`
-      const __TICK_RUNTIME = {
+      const __TICK_CONTEXT = {
         mode: 'RELEASE',
         eval: this.eval,
         console: this.console,
@@ -44,10 +44,10 @@ export function AppWorker (props) {
         },
         remote: {
           createRequestTask: function (data) {
-            return __TICK_RUNTIME.send('createRequestTask', data);
+            return __TICK_CONTEXT.send('createRequestTask', data);
           },
           login: function () {
-            return __TICK_RUNTIME.send('login', null);
+            return __TICK_CONTEXT.send('login', null);
           }
         },
 
@@ -66,10 +66,10 @@ export function AppWorker (props) {
                 } 
               });
             
-              __TICK_RUNTIME.document.dispatchEvent(event);
+              __TICK_CONTEXT.document.dispatchEvent(event);
             },
             invokeHandler: function (name, data, callbackId) {
-              __TICK_RUNTIME.info(
+              __TICK_CONTEXT.info(
                 \`【消息来源 - \${source}】\`, 
                 \`「invokeHandler」:\${name}\`,
                 \`数据:\`, data,
@@ -80,7 +80,7 @@ export function AppWorker (props) {
             },
 
             publishHandler: function (name, data, webviewId) {
-              __TICK_RUNTIME.info(
+              __TICK_CONTEXT.info(
                 \`【消息来源 - \${source}】\`, 
                 \`「publishHandler」:\${name}\`,
                 \`数据:\`, data,
@@ -110,8 +110,8 @@ export function AppWorker (props) {
         }
       };
 
-      __TICK_RUNTIME.inject('service');
-      __TICK_RUNTIME.define('__wxConfig', __TICK_RUNTIME.config);
+      __TICK_CONTEXT.inject('service');
+      __TICK_CONTEXT.define('__wxConfig', __TICK_CONTEXT.config);
     \`;
   
     cosnt worker = new Worker(URL.createObjectURL( new Blob([script], 'application/javascript' )));

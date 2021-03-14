@@ -1,22 +1,24 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import Index from './pages';
-import View from './pages/View';
+import TickApp from './componnets/TickApp';
 
 function App() {
-  return (
-    <Router>
-      <Route path="/" component={Index} />
-      <Route path="/view" component={View} />
-    </Router>
-  )
+  const [__TICK_CONTEXT, setTickContext] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get('/__TICK/CONTEXT')
+      .then(res => {
+        setTickContext(res.data);
+      }).catch(error => {
+
+      })
+  }, []);
+
+  return __TICK_CONTEXT ? <TickApp 
+    __TICK_CONTEXT={__TICK_CONTEXT} 
+  /> : null;
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+export default App

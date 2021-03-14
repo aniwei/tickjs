@@ -1,36 +1,24 @@
-import Koa from 'koa';
-import KoaSticic from 'koa-static';
-import KoaBody from 'koa-body';
-import Router from 'koa-router';
-import { createServer } from 'vite';
+import express from 'express';
+import { ViteDevServer } from 'vite';
 
-import { resolve } from 'path';
+import vite from './vite';
 
-import config from './config';
+export default async function app (options?: any) {
+  const app: express.Express = await vite(options);
 
-export async function Server () {
-  const server = new Koa();
-  server.use(KoaBody());
-  server.use(KoaSticic(resolve(__dirname, 'views')));
+  const router: express.Router = express.Router();
 
-  const vite = await createServer({
-    ...config,
-    server: { middlewareMode: true }
-  })
-
-  const router = new Router();
-
-  server.use(router.routes());
-  server.use(router.allowedMethods());
-  server.use((context, next) => {
-    vite.middlewares(context.req, context.res, next);
+  router.use('/__TICK/CONTEXT', (req, res) => {
+    res.json({
+      appconfig: {},
+      device: {},
+      system: {},
+      types: []
+    })
   });
 
-  server.listen(3000)
-
-  return server;
+  app.use(router);
+  app.listen(options.port);
 }
 
-
-Server();
-
+app({ port: 3000 });
