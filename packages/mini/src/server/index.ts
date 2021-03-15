@@ -14,11 +14,14 @@ import {
 
 
 export default async function App (config: TickConfig) {  
-  const proj: TickProj = await TickProj.sharedProj(config.mini);
+  const proj: TickProj = TickProj.sharedProj(config.mini);
+
   const app: express.Express = await vite(config);
   const router: express.Router = express.Router();
+
+  await proj.importConfig();
   
-  isMiniConfigIllegal(proj.config as TickMiniConfig);
+  isMiniConfigIllegal(proj.mini as TickMiniConfig);
 
   router.get('/@tickjs/WAService', async (req, res) => {
     res.type('application/script');
@@ -31,7 +34,13 @@ export default async function App (config: TickConfig) {
   });
 
   router.use('/@tickjs/context', (req, res) => {
-    res.json(proj.config);
+    res.type('application/script');
+    res.send(`export default ${JSON.stringify(proj.mini)}`);
+  });
+
+  router.use('/@tickjs/context.ts', (req, res) => {
+    res.type('application/script');
+    res.send(`export default ${JSON.stringify(proj.mini)}`);
   });
 
   router.use('/@tickjs/service', async (req, res) => {

@@ -1,3 +1,4 @@
+
 export type TickAppSubPackage = {
   root: string,
   pages: string[]
@@ -10,9 +11,7 @@ export type TickAppGlobal = {
 }
 
 export type TickAppPage = {
-  [key: string]: {
-    window: any
-  }
+  [key: string]: any
 }
 
 export type TickAppPermission = {

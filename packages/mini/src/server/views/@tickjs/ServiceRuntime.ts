@@ -1,7 +1,11 @@
 import { Runtime } from './Runtime';
 import { WeixinJSCore } from './WeixinJSCore';
+import TickAppContext from '/@tickjs/context.ts';
+
+console.log(TickAppContext)
 
 import axios from 'axios';
+
 
 type TickContext = {
   config: any,
@@ -46,9 +50,11 @@ ServiceRuntime
   .sharedServiceRuntime()
   .imports('/@tickjs/context')
   .then((context: TickContext) => {
-    const service = ServiceRuntime
-      .sharedServiceRuntime()
+    const service = ServiceRuntime.sharedServiceRuntime()
     
     service.define('__wxConfig', context.config);
-    service.define('WeixinJSCore', new WeixinJSCore())
+    service.define('WeixinJSCore', new WeixinJSCore());
+
+    return service.imports(`/@tickjs/service`)
+      
   });

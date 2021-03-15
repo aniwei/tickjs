@@ -28,21 +28,19 @@ export class TickProj {
     } 
   }
 
-  public config: TickMiniConfig;
+  public mini: TickMiniConfig;
     
-  constructor (config: TickMiniConfig) {
-    this.config = config;
+  constructor (mini: TickMiniConfig) {
+    this.mini = mini;
   }
 
   async importConfig () {
-    const { root, files, cache } = this.config;
+    const { root, files, cache } = this.mini;
 
     const filepath = resolve(<string>root, (<TickAppProjFiles>files).config);
     const config = await TickProj.import(filepath);
 
-    defineConfig(this.config, config);
-
-    return this.config;
+    defineConfig(this.mini.config, config);
   }
 
   async libs () {
@@ -64,7 +62,7 @@ export class TickProj {
   }
 
   async wxss (route?: string) {
-    const { root, cache, files } = this.config;
+    const { root, cache, files } = this.mini;
     const prefix = route ? `${root}/${route}` : root;
 
     const filepath = resolve(
@@ -80,7 +78,7 @@ export class TickProj {
   }
 
   async service (route?: string) {
-    const { root, cache, files } = this.config;
+    const { root, cache, files } = this.mini;
     const prefix = route ? `${root}/${route}` : root;
 
     const filepath = resolve(
