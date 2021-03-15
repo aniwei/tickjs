@@ -155,15 +155,14 @@ export function defineConfig (
 
   for (const key of keys) {
     const src = (<any>source)[key];
-    const tar = (<any>target)[key];
 
-    if (configType(source) === DefineTypes.REF) {
+    if (configType(src) === DefineTypes.REF) {
       if (source === null) {
         (<any>target)[key] = Array.isArray(src) ? [] : {};
       }
 
-      defineConfig((<any>tar)[key], src);
-    } else if (configType(source) === DefineTypes.PRIMITIVE) {
+      defineConfig((<any>target)[key], src);
+    } else if (configType(src) === DefineTypes.PRIMITIVE) {
       (<any>target)[key] = src;
     }    
   }
