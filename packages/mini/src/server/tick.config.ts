@@ -1,31 +1,39 @@
-export type TickMini = {
-  root?: string,
-  files?: {
-    service: string,
-    config: string,
-    wxss: string,
-    frame: string
-  },
-  config: {
-    accountInfo: any,
-    appLaunchInfo: any,
-    pages?: string[],
-    page?: object,
-    subPackages?: object[],
-    entryPagePath?: string,
-    permission?: object,
-    global?: object,
-    tabBar?: {
-      color: string,
-      selectedColor: string,
-      backgroundColor: string,
-      borderStyle: string,
-      list: object[]
-    }
+
+
+export type SubPackage = {
+  root: string,
+  pages: string[]
+}
+
+export type Page = {
+  [key: string]: any
+}
+
+export type TickMiniAppConfig = {
+  accountInfo: any,
+  appLaunchInfo: any,
+  pages?: string[],
+  page?: Page,
+  subPackages?: SubPackage[],
+  entryPagePath?: string,
+  permission?: any,
+  global?: any,
+  tabBar: {
+    color?: string,
+    selectedColor?: string,
+    backgroundColor?: string,
+    borderStyle?: string,
+    list?: any[]
   }
 }
 
-export type TickSystem = {
+export type TickMiniConfig = {
+  root?: string,
+  files?: any,
+  config: TickMiniAppConfig
+}
+
+export type TickSystemConfig = {
   networkType: string,
   safeArea: {
     width: number,
@@ -74,8 +82,8 @@ export type TickConfig = {
   },
   debug: boolean,
   envVersion: string
-  system: TickSystem,
-  mini: TickMini
+  system: TickSystemConfig,
+  mini: TickMiniConfig,
   platform: string
 }
 
@@ -89,8 +97,8 @@ export type TickUserConfig = {
   extAppid?: string,
   debug?: boolean,
   envVersion?: string,
-  system?: TickSystem,
-  mini: TickMini,
+  system?: TickSystemConfig,
+  mini: TickMiniConfig,
 }
 
 const defaultMini = {
@@ -104,6 +112,7 @@ const defaultMini = {
   config: {
     accountInfo: null,
     appLaunchInfo: null,
+    tabBar: {}
   }
 }
 

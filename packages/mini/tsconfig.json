@@ -3,6 +3,7 @@
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": ["vite/client"],
+    "typeRoots": ["./src"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": true,

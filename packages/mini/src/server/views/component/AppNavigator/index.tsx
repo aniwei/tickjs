@@ -8,22 +8,25 @@ import { AppContext } from '../TickApp/AppContext'
 import { useAppNavigatorSubscribe } from '../../hooks/useAppNavigatorSubscribe';
 import { UINavigationController } from '../UINavigationController';
 import { AppHeaderBackButton } from '../AppHeaderBackButton';
-
+import { BottomTabBar, BottomTabBarItem } from '../../hooks/shared';
+import { IAppProps } from '../TickApp/App'
+import { Page } from '../../../tick.config';
 
 const BottomNavigator = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
 
-export function AppTabBar (props) {
+
+export function AppTabBar (props: IAppProps) {
   const { 
-    appconfig: {
+    config: {
       bottomTabBar, 
-      launchOptions 
+      launchConfig
     }
   } = useContext(AppContext);
 
   return (
     <BottomNavigator.Navigator
-      initialRouteName={launchOptions.path + '.html'}
+      initialRouteName={launchConfig.path + '.html'}
       tabBarOptions={bottomTabBar}
     >
       {
@@ -52,19 +55,17 @@ export function AppTabBar (props) {
   )
 }
 
-export function AppNavigator (props) {
-  useAppNavigatorSubscribe();
-
+export function AppNavigator (props: IAppProps) {
   const { 
-    appconfig: {
+    config: {
       pages,
       bottomTabBar,
-      launchOptions 
+      launchConfig 
     }
   } = useContext(AppContext);
 
-  const tabItems = bottomTabBar.tabItems.map(tab => tab.route);
-  const screens = pages.filter(page => {
+  const tabItems = bottomTabBar.tabItems.map((tabItem: BottomTabBarItem) => tabItem.route);
+  const screens = pages.filter((page: any) => {
     return !tabItems.includes(page.route);
   });
 

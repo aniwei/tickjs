@@ -1,40 +1,38 @@
 import URL from 'url-parse';
 import qs from 'qs';
 import { useMemo } from 'react';
-import { usePackageLoader } from './usePackageLoader'
 
-export function useNavigator (appruntime, appconfig) {
-  const packageLoader = usePackageLoader(appruntime, appconfig);
+import AppRuntime from '../@tickjs/AppRuntime'
+import { usePackageLoader } from './usePackageLoader';
+
+export function useNavigator (runtime: AppRuntime, config: any) {
+  const packageLoader = usePackageLoader(runtime, config);
 
   return useMemo(() => {
     class Navigator {
       public id: number | null = null;
       public navigation: any | null = null;
     
-      constructor (id, navigation) {
+      constructor (id: number, navigation: any) {
         this.id = id;
         this.navigation = navigation;
       }
     
-      push (uri, query) {
+      push (uri: URL, query: object) {
         const pathname = uri.pathname[0] === '/' ? 
           uri.pathname.slice(1) : uri.pathname;
 
         packageLoader(pathname).then(() => {
           this.navigation.push(pathname, query);
-        }).catch(error => {
-          ///
         })
       }
 
-      navigate (uri, query) {
+      navigate (uri: URL, query: object) {
         const pathname = uri.pathname[0] === '/' ? 
           uri.pathname.slice(1) : uri.pathname;
 
         packageLoader(pathname).then(() => {
           this.navigation.navigate(pathname, query);
-        }).catch(error => {
-          ///
         })
       }
 
@@ -47,9 +45,9 @@ export function useNavigator (appruntime, appconfig) {
       public id: number = 0;
       public isLaunch: boolean = true;
       public current: Navigator | null = null;
-      public subPages: object = appconfig.subPages;
+      public subPages: object = config.subPages;
 
-      create = (navigation) => {
+      create = (navigation: any) => {
         return new Navigator(this.id++, navigation);
       }
 
@@ -70,7 +68,7 @@ export function useNavigator (appruntime, appconfig) {
         return super.get(navigator);
       }
 
-      delete = (navigator) => {
+      delete = (navigator: Navigator) => {
         if (navigator instanceof Navigator) {
           return super.delete(navigator.id);
         }
@@ -78,51 +76,44 @@ export function useNavigator (appruntime, appconfig) {
         return super.delete(navigator);
       }
 
-      push = (url, query) => {
+      push = (uri: URL, query: object) => {
         const nav = this.current;
         if (nav) {
-          nav.push(url, query);
+          nav.push(uri, query);
         }
       }
 
-      pop = (delta) => {
+      pop = (delta: number) => {
         const nav = this.current;
         if (nav) {
           nav.pop(delta);
         }
       }
 
-      navigate (url, query) {
+      navigate (uri: URL, query: object) {
         const nav = this.current;
 
         if (nav) {
-          nav.navigate(url, query);
+          nav.navigate(uri, query);
         }
       }
     }
 
-    const appnavigator = new AppNavigator();
+    const navigator = new AppNavigator();
 
-    appruntime.on('navigateTo', (data, callbackId) => {
-      const url = new URL(data.url);
-      const query = qs.parse(url.query.slice(1));
+    runtime.on('navigateTo', (data: any, callbackId: number) => {
+      const uri = new URL(data.url) as any;
+      const query = qs.parse(uri.query.slice(1));
 
-      appnavigator.push(url, query);
-      appruntime.invokeCallbackHandler(callbackId, {
-        errMsg: `navigateTo:ok`
+      navigator.push(uri, query);
+
+      runtime.callback({
+        callbackId,
+        errMsg: `navigateTo:ok`,
+        options: {}
       });
     });
 
-    appruntime.on('reLaunch', (name, data, callbackId) => {
-      const url = new URL(data.url);
-      const query = qs.parse(url.query.slice(1));
-
-      // appnavigator.reLaunch(url, query);
-      appruntime.invokeCallbackHandler(callbackId, {
-        errMsg: `reLaunch:ok`
-      });
-    });
-
-    return appnavigator;
-  }, [appruntime]);
+    return navigator;
+  }, [runtime]);
 }

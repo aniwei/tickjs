@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-import { AppContext } from '../componnets/TickApp/AppContext';
+import { AppContext } from '../component/TickApp/AppContext';
 import { useSubscribe } from './useSubscribe';
 
 export function useAppNavigatorSubscribe () {

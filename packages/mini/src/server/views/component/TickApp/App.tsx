@@ -11,24 +11,33 @@ import { useConfig } from '../../hooks/useConfig';
 import { useNavigator } from '../../hooks/useNavigator';
 import { AppLaunchScreen } from '../AppLaunchScreen';
 import { useRuntime } from '../../hooks/useRuntime';
+import { IAppContext } from './AppContext';
 
-export default function App (props) {
+export type IAppProps = {
+  __TICK_CONTEXT: any
+}
+
+export default function App (props: IAppProps) {
   const [
-    isRuntimeReady,
+    isRuntimeLoaded,
     setRuntime
   ] = useState(false);
 
+  const runtime = useRuntime(() => setRuntime(true));
 
-  const runtime = useRuntime(() => {
-    setRuntime(true)
-  });
+  const config = useConfig(props);
+  const navigator = useNavigator(runtime, config);
 
-  const appconfig = useConfig(props);
-  const navigator = useNavigator(runtime, appconfig);
+  const context = {
+    config,
+    runtime,
+    navigator,
+    __TICK_CONTEXT: props.__TICK_CONTEXT,
+  }
 
   return (
     <View style={{ height: Dimensions.get('window').height }}>
-      <Provider value={{ runtime, navigator, __TICK_CONTEXT: props.__TICK_CONTEXT }}>
+      <Provider value={context}>
         <AppCapsule 
           {...props} 
         />
@@ -41,7 +50,7 @@ export default function App (props) {
         /> */}
 
         { 
-          isRuntimeReady ? 
+          isRuntimeLoaded ? 
             <AppNavigator 
               {...props} 
             /> : null 

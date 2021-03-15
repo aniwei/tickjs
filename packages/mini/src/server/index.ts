@@ -3,12 +3,12 @@ import { resolve } from 'path';
 
 import vite from './vite';
 import { TickProj } from './TickProj';
-import { TickConfig, TickMini, defineUserConfig } from './tick.config';
+import { TickConfig, TickMiniConfig, defineUserConfig } from './tick.config';
 
 
 class TickMiniConfigError extends Error {}
 
-function isMiniConfigIllegal (mini: TickMini) {
+function isMiniConfigIllegal (mini: TickMiniConfig) {
   if (
     mini.config.accountInfo === undefined ||
     mini.config.accountInfo === null
@@ -28,12 +28,12 @@ function isMiniConfigIllegal (mini: TickMini) {
   }
 }
 
-export default async function App (config: TickConfig) {
-  isMiniConfigIllegal(config.mini);
-
+export default async function App (config: TickConfig) {  
   const proj: TickProj = await TickProj.sharedProj(config.mini);
   const app: express.Express = await vite(config);
   const router: express.Router = express.Router();
+  
+  isMiniConfigIllegal(proj.config as TickMiniConfig);
 
   router.get('/@tickjs/WAService', async (req, res) => {
     res.type('application/script');
@@ -45,10 +45,21 @@ export default async function App (config: TickConfig) {
     res.send(await TickProj.import(resolve(__dirname, 'libs/WAWebview.js')));
   });
 
-
   router.get('/@tickjs/proj/appservice', async (req, res) => {
     res.type('application/script');
     res.send(await TickProj.import(resolve(__dirname, 'libs/WAWebview.js')));
+  });
+
+  router.use('/@tickjs/context', (req, res) => {
+    res.json(proj.config);
+  });
+
+  router.use('/@tickjs/service', async (req, res) => {
+    res.json(await proj.import('service'));
+  });
+
+  router.use('/@tickjs/wxss', async (req, res) => {
+    res.json(await proj.import('wxss'));
   });
 
   app.use(router);

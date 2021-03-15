@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import TickApp from './componnets/TickApp';
+import TickApp from './component/TickApp';
 
 function App() {
   const [__TICK_CONTEXT, setTickContext] = useState(null);
 
   useEffect(() => {
     axios
-      .get('/__TICK/CONTEXT')
+      .get('/@tickjs/context')
       .then(res => {
         setTickContext(res.data);
       }).catch(error => {

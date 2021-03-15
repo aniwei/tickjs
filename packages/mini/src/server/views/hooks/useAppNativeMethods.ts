@@ -2,7 +2,7 @@ import qs from 'qs';
 import URL from 'url-parse';
 import { useContext } from 'react';
 import { useAppNativeMethod } from './useAppNativeMethod';
-import { AppContext } from '../componnets/TickApp/AppContext';
+import { AppContext } from '../component/TickApp/AppContext';
 
 const { stringify } = JSON;
 
