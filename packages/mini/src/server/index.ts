@@ -8,7 +8,7 @@ export default async function app (options?: any) {
 
   const router: express.Router = express.Router();
 
-  router.use('/__TICK/CONTEXT', (req, res) => {
+  router.use('/@tickjs/context', (req, res) => {
     res.json({
       appconfig: {},
       device: {},

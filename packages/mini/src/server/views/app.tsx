@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('/__TICK/CONTEXT')
+      .get('/@tickjs/context')
       .then(res => {
         setTickContext(res.data);
       }).catch(error => {

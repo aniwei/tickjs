@@ -17,12 +17,14 @@
     "koa-router": "^10.0.0",
     "koa-static": "^5.0.0",
     "qs": "^6.9.6",
+    "randomcolor": "^0.6.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.18.1",
     "react-native-web": "^0.15.0",
     "react-router-dom": "^5.2.0",
+    "tiny-emitter": "^2.1.0",
     "url-parse": "^1.5.1"
   },
   "devDependencies": {
