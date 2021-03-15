@@ -32,32 +32,6 @@ export const system = {
   fontSizeSetting: 16
 }
 
-export const config = {
-  platform: 'mac',
-  appType: 0,
-  networkTimeout: {
-    request: 60000,
-    uploadFile: 60000,
-    connectSocket: 60000,
-    downloadFile: 60000,
-  },
-  extAppid: '',
-  deprecated: false,
-  env: {
-    USER_DATA_PATH: '/Users/weiyanhai/.tick/program'
-  },
-  ext: {},
-  wxAppInfo: {
-    maxRequestConcurrent: 10,
-    maxUploadConcurrent: 10,
-    maxDownloadConcurrent: 10,
-    maxWorkerConcurrent: 1,
-    maxWebsocketConnect: 2,
-  },
-  debug: 0,
-  entryPagePath: 'pages/index/index.html',
-  envVersion: 'release',
-}
 
 export const REMOTE = 'remote';
 export const LOCALE = 'locale';
