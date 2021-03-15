@@ -158,7 +158,7 @@ export function defineConfig (
       const tar = (<any>target)[key];
   
       if (configType(src) === DefineTypes.REF) {
-        if (tar === null) {
+        if (tar === null || tar === undefined) {
           (<any>target)[key] = Array.isArray(src) ? [] : {};
         }
   
