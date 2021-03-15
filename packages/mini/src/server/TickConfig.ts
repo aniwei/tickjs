@@ -151,13 +151,13 @@ export function defineConfig (
   source: DefineSource,
 ): DefineTarget {
   const keys: string[] = Object.keys(source);
-  debugger;
 
   for (const key of keys) {
     const src = (<any>source)[key];
+    const tar = (<any>target)[key];
 
     if (configType(src) === DefineTypes.REF) {
-      if (source === null) {
+      if (tar === null) {
         (<any>target)[key] = Array.isArray(src) ? [] : {};
       }
 
