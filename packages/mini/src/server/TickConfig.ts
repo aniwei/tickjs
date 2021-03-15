@@ -116,17 +116,17 @@ export const defaultConfig: TickConfig = {
 }
 
 type DefineTarget = (
-  TickConfig | 
-  TickSystemConfig |
-  TickMiniConfig |
-  TickNetworkTimeoutConfig |
-  TickAppConfig |
+  TickConfig & 
+  TickSystemConfig &
+  TickMiniConfig &
+  TickNetworkTimeoutConfig &
+  TickAppConfig &
   TickAppProjFiles
 );
 
 type DefineSource = (
   TickUserConfig | 
-  TickSystemConfig | 
+  TickSystemConfig |
   TickMiniConfig | 
   TickNetworkTimeoutConfig |
   TickAppConfig |
@@ -147,10 +147,11 @@ function configType (object: any) {
 }
 
 export function defineConfig (
-  target: DefineTarget,
+  target: any,
   source: DefineSource,
 ): DefineTarget {
   const keys: string[] = Object.keys(source);
+  debugger;
 
   for (const key of keys) {
     const src = (<any>source)[key];
@@ -161,7 +162,7 @@ export function defineConfig (
         (<any>target)[key] = Array.isArray(src) ? [] : {};
       }
 
-      defineConfig((<any>target)[key], src);
+      defineConfig((<any>tar)[key], src);
     } else if (configType(source) === DefineTypes.PRIMITIVE) {
       (<any>target)[key] = src;
     }    
@@ -174,5 +175,30 @@ export function defineConfig (
 export function defineUserConfig (
   source: DefineSource
 ): TickConfig {
-  return defineConfig(defaultConfig, source);
+  defineConfig(defaultConfig, source);
+
+  return defaultConfig;
+}
+
+
+export class TickMiniConfigError extends Error {}
+
+export function isMiniConfigIllegal (mini: TickMiniConfig) {
+  if (
+    mini.config.accountInfo === undefined ||
+    mini.config.accountInfo === null
+  ) {
+    throw new TickMiniConfigError(`Missing account information`);
+  } else if (
+    mini.config.appLaunchInfo === undefined ||
+    mini.config.appLaunchInfo === null
+  ) {
+    throw new TickMiniConfigError(`Missing app luanch information`);
+  } else if (
+    mini.config.entryPagePath === undefined ||
+    mini.config.entryPagePath === null ||
+    mini.config.entryPagePath === ''
+  ) {
+    throw new TickMiniConfigError(`Missing entry page path`);
+  }
 }

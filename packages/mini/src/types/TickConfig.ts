@@ -37,13 +37,13 @@ export type TickAppTabBar = {
 export type TickAppConfig = {
   accountInfo: any,
   appLaunchInfo: any,
-  pages: string[] | null,
-  page: TickAppPage | null,
-  subPackages: TickAppSubPackage[] | null,
-  entryPagePath: string | null,
-  permission: TickAppPermission | null,
+  pages?: string[] | null,
+  page?: TickAppPage | null,
+  subPackages?: TickAppSubPackage[] | null,
+  entryPagePath?: string | null,
+  permission?: TickAppPermission | null,
   global?: TickAppGlobal | null,
-  tabBar: TickAppTabBar | null
+  tabBar?: TickAppTabBar | null
 }
 
 export type TickAppProjFiles = {
@@ -54,9 +54,9 @@ export type TickAppProjFiles = {
 }
 
 export type TickMiniConfig = {
-  root: string,
-  cache: boolean,
-  files: TickAppProjFiles,
+  root: string | null,
+  cache: boolean | null,
+  files: TickAppProjFiles | null,
   config: TickAppConfig
 }
 
@@ -123,11 +123,18 @@ export type TickConfig = {
   platform: string
 }
 
+export type TickUserMiniConfig = {
+  root?: string | null,
+  cache?: boolean | null,
+  files?: TickAppProjFiles | null,
+  config: TickAppConfig
+}
+
 export type TickUserConfig = {
   networkTimeout?: TickNetworkTimeoutConfig,
   extAppid?: string,
   debug?: boolean,
   envVersion?: string,
   system?: TickSystemConfig,
-  mini: TickMiniConfig,
+  mini: TickUserMiniConfig,
 }

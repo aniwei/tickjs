@@ -2,7 +2,7 @@
 import { resolve, parse } from 'path';
 import fs from 'fs-extra';
 
-import { TickMiniConfig, TickAppConfig } from '../types/TickConfig';
+import { TickMiniConfig, TickAppConfig, TickAppProjFiles } from '../types/TickConfig';
 import { defineConfig } from './TickConfig';
 
 export class TickProj {
@@ -37,11 +37,8 @@ export class TickProj {
   async importConfig () {
     const { root, files, cache } = this.config;
 
-    if (cache) {
-
-    }
-
-    const config = (await TickProj.import(resolve(root, files.config))) as TickAppConfig;
+    const filepath = resolve(<string>root, (<TickAppProjFiles>files).config);
+    const config = await TickProj.import(filepath);
 
     defineConfig(this.config, config);
 
@@ -66,29 +63,32 @@ export class TickProj {
     return libs;
   }
 
-  async frame (route?: string) {
-    const { root, files } = this.config;
-    const filepath = route ? `${root}/${route}` : root;
-
-    const frame = (await TickProj.import(resolve(filepath, files.frame)));
-
-    return frame;
-  }
-
   async wxss (route?: string) {
     const { root, cache, files } = this.config;
-    const filepath = route ? `${root}/${route}` : root;
+    const prefix = route ? `${root}/${route}` : root;
 
-    const wxss = (await TickProj.import(resolve(filepath, files.wxss)));
+    const filepath = resolve(
+      <string>prefix, 
+      route ? 
+        (<TickAppProjFiles>files).frame : 
+        (<TickAppProjFiles>files).wxss
+    )
+
+    const wxss = await TickProj.import(filepath);
 
     return wxss;
   }
 
   async service (route?: string) {
     const { root, cache, files } = this.config;
-    const filepath = route ? `${root}/${route}` : root;
+    const prefix = route ? `${root}/${route}` : root;
 
-    const service = (await TickProj.import(resolve(filepath, files.service)));
+    const filepath = resolve(
+      <string>prefix, 
+      (<TickAppProjFiles>files).service
+    );
+
+    const service = await TickProj.import(filepath);
 
     return service;
   }
