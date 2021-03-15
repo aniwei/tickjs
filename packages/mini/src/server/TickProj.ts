@@ -29,9 +29,6 @@ export class TickProj {
   }
 
   public config: TickMiniConfig;
-  public service: Buffer | null = null;
-  public wxss: Buffer | null = null;
-  public frame: Map<string, Buffer> = new Map();
     
   constructor (config: TickMiniConfig) {
     this.config = config;
@@ -51,20 +48,48 @@ export class TickProj {
     return this.config;
   }
 
-  async importLibs () {
+  async libs () {
+    const files = ['WAService.js', 'WAWebview.js'];
+    const libs = new Map();
 
-  }
-
-  async import () {
-    const proxy = new Proxy({}, {
-      get (target, p) {
-        return proxy;
+    const buffers = await Promise.all(files.map(filename => {
+      return {
+        filename,
+        data: TickProj.import(resolve(`${__dirname}/libs`, filename))
       }
-    });
+    }));
+
+    for (const buffer of buffers) {
+      libs.set(buffer.filename, buffer.data)
+    }
+
+    return libs;
   }
 
-  async importService () {
+  async frame (route?: string) {
+    const { root, files } = this.config;
+    const filepath = route ? `${root}/${route}` : root;
+
+    const frame = (await TickProj.import(resolve(filepath, files.frame)));
+
+    return frame;
+  }
+
+  async wxss (route?: string) {
     const { root, cache, files } = this.config;
-    const service = (await TickProj.import(resolve(root, files.service)));
+    const filepath = route ? `${root}/${route}` : root;
+
+    const wxss = (await TickProj.import(resolve(filepath, files.wxss)));
+
+    return wxss;
+  }
+
+  async service (route?: string) {
+    const { root, cache, files } = this.config;
+    const filepath = route ? `${root}/${route}` : root;
+
+    const service = (await TickProj.import(resolve(filepath, files.service)));
+
+    return service;
   }
 }
