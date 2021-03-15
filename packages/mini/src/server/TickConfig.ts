@@ -139,7 +139,7 @@ enum DefineTypes {
 }
 
 function configType (object: any) {
-  if (Array.isArray(object) || typeof object === 'object') {
+  if (object && (Array.isArray(object) || typeof object === 'object')) {
     return DefineTypes.REF;
   }
 
@@ -150,21 +150,23 @@ export function defineConfig (
   target: any,
   source: DefineSource,
 ): DefineTarget {
-  const keys: string[] = Object.keys(source);
-
-  for (const key of keys) {
-    const src = (<any>source)[key];
-    const tar = (<any>target)[key];
-
-    if (configType(src) === DefineTypes.REF) {
-      if (tar === null) {
-        (<any>target)[key] = Array.isArray(src) ? [] : {};
-      }
-
-      defineConfig((<any>target)[key], src);
-    } else if (configType(src) === DefineTypes.PRIMITIVE) {
-      (<any>target)[key] = src;
-    }    
+  if (source) {
+    const keys: string[] = Object.keys(source);
+  
+    for (const key of keys) {
+      const src = (<any>source)[key];
+      const tar = (<any>target)[key];
+  
+      if (configType(src) === DefineTypes.REF) {
+        if (tar === null) {
+          (<any>target)[key] = Array.isArray(src) ? [] : {};
+        }
+  
+        defineConfig((<any>target)[key], src);
+      } else if (configType(src) === DefineTypes.PRIMITIVE) {
+        (<any>target)[key] = src;
+      }    
+    }
   }
 
   return target;
