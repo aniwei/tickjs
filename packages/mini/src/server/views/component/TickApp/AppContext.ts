@@ -8,7 +8,7 @@ export interface IAppContext {
   __TICK_CONTEXT: any
 }
 
-export const AppContext = createContext(<IAppContext>{
+export const AppContext = createContext({
   navigator: null,
   runtime: null,
   config: null,

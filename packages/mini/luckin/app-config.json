@@ -1,1 +1,1404 @@
-{"subPackages":[{"root":"pages/order/","name":"order","pages":["pages/order/confirm/confirm","pages/order/detail/detail","pages/order/qrcode/qrcode","pages/order/mycomment/mycomment","pages/order/selectcoffeewallet/selectcoffeewallet","pages/order/usecoffeewallet/usecoffeewallet","pages/order/customerservice/customerservice","pages/order/detailremark/detailremark","pages/order/minipayh5","pages/order/paycenter/paycenter","pages/order/wxvoucher/wxvoucher","pages/order/dispatchcoupon/dispatchcoupon","pages/order/confirmh5/confirmh5"]},{"root":"pages/giftcard/","pages":["pages/giftcard/record/record","pages/giftcard/cashList/cashList","pages/giftcard/cashDetail/cashDetail","pages/giftcard/recordDetail/recordDetail","pages/giftcard/giftcardmain/giftcardmain","pages/giftcard/pickgiftcard/pickgiftcard","pages/giftcard/pickcoffee/pickcoffee","pages/giftcard/receivecard","pages/giftcard/trade/tradecard/tradecard","pages/giftcard/trade/cardsuccess/cardsuccess","pages/giftcard/trade/cardfail/cardfail"]},{"root":"pages/member/","pages":["pages/member/info/info","pages/member/supplement/supplement","pages/member/addresslist/addresslist","pages/member/addressedit/addressedit","pages/member/addresssearch/addresssearch","pages/member/balancelist/balancelist","pages/member/balance/balance","pages/member/personqr/personqr","pages/member/noticeManage/noticeManage","pages/member/subscribeDetail/subscribeDetail","pages/member/invitationpeople/invitationpeople"]},{"root":"pages/agreement/","pages":["pages/agreement/pay/pay","pages/agreement/member/member"]},{"root":"pages/share/","pages":["pages/share/pmallPicture/pmallPicture","pages/share/UVAH5/UVAH5","pages/share/beautifulpic/beautifulpic","pages/share/introduce/introduce","pages/share/ladder/ladder","pages/share/inviter/inviter","pages/share/inviterReg/inviterReg","pages/share/saveImage/saveImage","pages/share/limited/limited","pages/share/inviteReward/inviteReward","pages/share/fission/fission","pages/share/redPacket/redPacket"]},{"root":"pages/invoice/","pages":["pages/invoice/invoicemanage/invoicemanage","pages/invoice/invoicelist/invoicelist","pages/invoice/invoicedetail/invoicedetail","pages/invoice/createinvoice/createinvoice","pages/invoice/invoicerecord/invoicerecord","pages/invoice/invoicehead/invoicehead","pages/invoice/headedit/headedit","pages/invoice/invoiceimg/invoiceimg"]},{"root":"pages/address/","pages":["pages/address/selectMachine/selectMachine","pages/address/storedetail/storedetail","pages/address/select/select","pages/address/city/city"]},{"root":"pages/coupon/","pages":["pages/coupon/list/list","pages/coupon/choseCoupon/choseCoupon","pages/coupon/wallet/wallet","pages/coupon/walletbuy/walletbuy","pages/coupon/walletdetail/walletdetail","pages/coupon/walletorderresult/walletorderresult","pages/coupon/switchOpen/switchOpen","pages/coupon/receive","pages/coupon/sendCoupon/sendCoupon","pages/coupon/weChatCoupon/weChatCoupon","pages/coupon/couponSuccess/couponSuccess","pages/coupon/couponCenter/couponCenter"]},{"root":"pages/living/","plugins":{"live-player-plugin":{"version":"1.2.8","provider":"wx2b03c6e691cd7370","subpackage":"/pages/living/"}},"pages":["pages/living/index/index","pages/living/room/room","pages/living/__plugin__/wx2b03c6e691cd7370/pages/live-player-plugin","pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/address-preview/address-preview","pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-comment/complaint-comment","pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-room/complaint-room"]}],"entryPagePath":"pages/index/home.html","pages":["pages/index/home","pages/index/menu","pages/index/cart/cart","pages/index/order/list","pages/index/member/center","pages/index/login/login","pages/index/wxlogin/wxlogin","pages/index/qrtransfer","pages/index/pageTransfer","pages/index/productDetail/productDetail","pages/index/productPlan/productPlan","pages/index/reduction/reduction","pages/index/sendcoffee/sendcoffee","pages/index/wxacode","pages/index/selfMenu/selfMenu","pages/webview/common","pages/index/imgwebview","pages/webview/tripartite","pages/index/luckySend/luckySend","pages/order/confirm/confirm","pages/order/detail/detail","pages/order/qrcode/qrcode","pages/order/mycomment/mycomment","pages/order/selectcoffeewallet/selectcoffeewallet","pages/order/usecoffeewallet/usecoffeewallet","pages/order/customerservice/customerservice","pages/order/detailremark/detailremark","pages/order/minipayh5","pages/order/paycenter/paycenter","pages/order/wxvoucher/wxvoucher","pages/order/dispatchcoupon/dispatchcoupon","pages/order/confirmh5/confirmh5","pages/giftcard/record/record","pages/giftcard/cashList/cashList","pages/giftcard/cashDetail/cashDetail","pages/giftcard/recordDetail/recordDetail","pages/giftcard/giftcardmain/giftcardmain","pages/giftcard/pickgiftcard/pickgiftcard","pages/giftcard/pickcoffee/pickcoffee","pages/giftcard/receivecard","pages/giftcard/trade/tradecard/tradecard","pages/giftcard/trade/cardsuccess/cardsuccess","pages/giftcard/trade/cardfail/cardfail","pages/member/info/info","pages/member/supplement/supplement","pages/member/addresslist/addresslist","pages/member/addressedit/addressedit","pages/member/addresssearch/addresssearch","pages/member/balancelist/balancelist","pages/member/balance/balance","pages/member/personqr/personqr","pages/member/noticeManage/noticeManage","pages/member/subscribeDetail/subscribeDetail","pages/member/invitationpeople/invitationpeople","pages/agreement/pay/pay","pages/agreement/member/member","pages/share/pmallPicture/pmallPicture","pages/share/UVAH5/UVAH5","pages/share/beautifulpic/beautifulpic","pages/share/introduce/introduce","pages/share/ladder/ladder","pages/share/inviter/inviter","pages/share/inviterReg/inviterReg","pages/share/saveImage/saveImage","pages/share/limited/limited","pages/share/inviteReward/inviteReward","pages/share/fission/fission","pages/share/redPacket/redPacket","pages/invoice/invoicemanage/invoicemanage","pages/invoice/invoicelist/invoicelist","pages/invoice/invoicedetail/invoicedetail","pages/invoice/createinvoice/createinvoice","pages/invoice/invoicerecord/invoicerecord","pages/invoice/invoicehead/invoicehead","pages/invoice/headedit/headedit","pages/invoice/invoiceimg/invoiceimg","pages/address/selectMachine/selectMachine","pages/address/storedetail/storedetail","pages/address/select/select","pages/address/city/city","pages/coupon/list/list","pages/coupon/choseCoupon/choseCoupon","pages/coupon/wallet/wallet","pages/coupon/walletbuy/walletbuy","pages/coupon/walletdetail/walletdetail","pages/coupon/walletorderresult/walletorderresult","pages/coupon/switchOpen/switchOpen","pages/coupon/receive","pages/coupon/sendCoupon/sendCoupon","pages/coupon/weChatCoupon/weChatCoupon","pages/coupon/couponSuccess/couponSuccess","pages/coupon/couponCenter/couponCenter","pages/living/index/index","pages/living/room/room","pages/living/__plugin__/wx2b03c6e691cd7370/pages/live-player-plugin","pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/address-preview/address-preview","pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-comment/complaint-comment","pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-room/complaint-room"],"page":{"pages/index/home.html":{"window":{"usingComponents":{"custom-dialog":"./../../components/pages/home/dialog/dialog","count-timer":"./../../components/common/count-timer/count-timer","reward-dialog":"./../../components/pages/order/reward-dialog/reward-dialog","new-tag":"./../../components/pages/home/new-tag/new-tag","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate","new-guest-test":"./../../components/pages/index/new-guest-test/new-guest-test","week-recommend":"./../../components/pages/index/weekRecommend/weekRecommend","new-thing-test":"./../../components/pages/index/new-thing-test/new-thing-test","pop-test":"./../../components/pages/index/pop-test/pop-test","sleepZone":"./../../components/pages/index/sleepZone/sleepZone","navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","send-coupon":"plugin://wxf3f436ba9bd4be7b/send-coupon"},"navigationStyle":"custom"}},"pages/index/menu.html":{"window":{"usingComponents":{"menu-swiper":"./../../components/pages/selfMneu/menu-swiper/menu-swiper","menu-address":"./../../components/pages/selfMneu/menu-address/menu-address","menu-list":"./../../components/pages/selfMneu/menu-list/menu-list","my-toast":"./../../components/common/custon-toast/custon-toast","count-timer":"./../../components/common/count-timer/count-timer","confirm":"./../../components/common/confirm/confirm","reward-dialog":"./../../components/pages/order/reward-dialog/reward-dialog","navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationStyle":"custom"}},"pages/index/cart/cart.html":{"window":{"navigationStyle":"custom","enablePullDownRefresh":false,"disableScroll":false,"navigationBarTitleText":"购物车","usingComponents":{"guess-like":"./../../../components/pages/cart/guess-like/guess-like","cart-title":"./../../../components/pages/cart/cart-title/cart-title","cart-list":"./../../../components/pages/cart/cart-list/cart-list","eCart-list":"./../../../components/pages/cart/eCart-list/eCart-list","mCart-list":"./../../../components/pages/cart/mCart-list/mCart-list","count-timer":"./../../../components/common/count-timer/count-timer","reward-dialog":"./../../../components/pages/order/reward-dialog/reward-dialog","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/order/list.html":{"window":{"navigationBarTitleText":"订单列表","enablePullDownRefresh":true,"navigationBarBackgroundColor":"#f4f4f4","usingComponents":{"list-switch":"./../../../components/common/list-switch/list-switch","order-item":"./../../../components/pages/list/order-item/order-item","pserson-orderList-item":"./../../../components/pages/list/pserson-orderList-item/pserson-orderList-item","meal-code":"./../../../components/pages/order/meal-code/meal-code","evaluate":"./../../../components/pages/order/evaluate/evaluate","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/member/center.html":{"window":{"navigationBarTitleText":"个人中心","navigationStyle":"custom","usingComponents":{"guideModal":"/components/common/guide-modal/index","luckin-guide-bar":"/components/common/luckin-guide-bar/luckin-guide-bar","exchange-dialog":"/components/pages/menber/exchange-dialog/exchange-dialog","banner-list":"/components/pages/center/banner-list/banner-list","guess-like":"/components/pages/cart/guess-like/guess-like","pop-test":"/components/pages/index/pop-test/pop-test","pay-member":"/components/pages/center/pay-member/pay-member","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/login/login.html":{"window":{"navigationBarTitleText":"账户登录","navigationStyle":"custom","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/wxlogin/wxlogin.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"账户登录"}},"pages/index/qrtransfer.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/pageTransfer.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/productDetail/productDetail.html":{"window":{"usingComponents":{"banner":"./../../../components/pages/menu/banner/banner","header":"./../../../components/pages/menu/header/header","body":"./../../../components/pages/menu/body/body","footer":"./../../../components/pages/menu/footer/footer","plan-dialog":"./../../../components/pages/product/plan-dialog/plan-dialog","price-desc":"./../../../components/pages/menu/price-desc/price-desc","share-dialog":"./../../../components/pages/menu/share-dialog/share-dialog","ab-addition":"./../../../components/pages/menu/ab-addition/ab-addition","product-pictrue":"./../../../components/common/product-pictrue/product-pictrue","product-detail-recommend":"./../../../components/pages/menu/product-detail-recommend/product-detail-recommend","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationStyle":"custom","navigationBarTextStyle":"black","navigationBarBackgroundColor":"#333333"}},"pages/index/productPlan/productPlan.html":{"window":{"usingComponents":{"banner":"./../../../components/pages/menu/banner/banner","header":"./../../../components/pages/menu/header/header","drink-selector":"./../../../components/pages/menu/drink-selector/drink-selector","decrease-add-btn":"./../../../components/common/decrease-add-btn/decrease-add-btn","price-desc":"./../../../components/pages/menu/price-desc/price-desc","footer":"./../../../components/pages/menu/footer/footer","count-timer":"./../../../components/common/count-timer/count-timer","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationStyle":"custom"}},"pages/index/reduction/reduction.html":{"window":{"navigationBarTitleText":"满减优惠","usingComponents":{"menu-swiper":"./../../../components/pages/selfMneu/menu-swiper/menu-swiper","menu-address":"./../../../components/pages/selfMneu/menu-address/menu-address","menu-list":"./../../../components/pages/selfMneu/menu-list/menu-list","reduction-cart":"./../../../components/pages/menu/reduction-cart/reduction-cart","reduction-cart-list":"./../../../components/pages/menu/reduction-cart-list/reduction-cart-list","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/sendcoffee/sendcoffee.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationStyle":"custom","navigationBarTitleText":"送Ta咖啡"}},"pages/index/wxacode.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/selfMenu/selfMenu.html":{"window":{"navigationBarTitleText":"瑞划算","navigationStyle":"custom","usingComponents":{"menu-swiper":"./../../../components/pages/selfMneu/menu-swiper/menu-swiper","menu-address":"./../../../components/pages/selfMneu/menu-address/menu-address","menu-list":"./../../../components/pages/selfMneu/menu-list/menu-list","dialog":"./../../../components/common/dialog/dialog","count-timer":"./../../../components/common/count-timer/count-timer","reward-dialog":"./../../../components/pages/order/reward-dialog/reward-dialog","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/webview/common.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/imgwebview.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/webview/tripartite.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/index/luckySend/luckySend.html":{"window":{"navigationStyle":"custom","navigationBarTitleText":"幸运送","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/confirm/confirm.html":{"window":{"navigationBarTitleText":"确认订单","navigationStyle":"custom","usingComponents":{"confirm-preset":"./../../../components/pages/confirm/confirm-preset/confirm-preset","menu-address":"./../../../components/pages/selfMneu/menu-address/menu-address","product-item":"./../../../components/common/product-item/product-item","border-dash":"./../../../components/common/border-dash/border-dash","pay-list":"./../../../components/pages/order/pay-list/pay-list","recommend":"./../../../components/pages/confirm/recommend/recommend","distance-dialog":"./../../../components/pages/confirm/distance-dialog/distance-dialog","pay-card-check":"./../../../components/pages/confirm/pay-card-check/pay-card-check","pay-rule":"/components/pages/center/pay-rule/pay-rule","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/detail/detail.html":{"window":{"navigationStyle":"custom","usingComponents":{"guideModal":"../../../components/common/guide-modal/index","order-detail-title":"./../../../components/pages/order/order-detail-title/order-detail-title","order-detail-address":"./../../../components/pages/order/order-detail-address/order-detail-address","order-detail-item":"./../../../components/pages/order/order-detail-item/order-detail-item","recommend":"./../../../components/pages/confirm/recommend/recommend","meal-code":"./../../../components/pages/order/meal-code/meal-code","order-banner":"./../../../components/pages/order/order-banner/order-banner","reward-dialog":"./../../../components/pages/order/reward-dialog/reward-dialog","luckin-guide-bar":"../../../components/common/luckin-guide-bar/luckin-guide-bar","count-timer":"./../../../components/common/count-timer/count-timer","evaluate":"./../../../components/pages/order/evaluate/evaluate","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/qrcode/qrcode.html":{"window":{"navigationBarTitleText":"取餐码","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/mycomment/mycomment.html":{"window":{"navigationBarTitleText":"我的评价","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/selectcoffeewallet/selectcoffeewallet.html":{"window":{"usingComponents":{"list-switch":"./../../../components/common/list-switch/list-switch","coupon":"/components/common/coupon/coupon","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/usecoffeewallet/usecoffeewallet.html":{"window":{"navigationBarTitleText":"使用咖啡钱包","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/customerservice/customerservice.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/detailremark/detailremark.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/minipayh5.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/paycenter/paycenter.html":{"window":{"navigationBarTitleText":"支付中心","usingComponents":{"mini-checkbox":"./../../../components/common/checkbox/checkbox","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/wxvoucher/wxvoucher.html":{"window":{"navigationBarTitleText":"微信卡券","usingComponents":{"coupon-item":"./../../../components/common/coupon-item/coupon-item","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/dispatchcoupon/dispatchcoupon.html":{"window":{"navigationBarTitleText":"选择配送券","usingComponents":{"chose-coupon-item":"/components//common/chose-coupon-item/chose-coupon-item","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/order/confirmh5/confirmh5.html":{"window":{"navigationBarTitleText":"确认订单","usingComponents":{"pay-list":"./../../../components/pages/order/pay-list/pay-list","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/record/record.html":{"window":{"usingComponents":{"list-switch":"./../../../components/common/list-switch/list-switch","gift-nav":"./../../../components/pages/giftCard/gift-nav/gift-nav","record-item":"./../../../components/pages/giftCard/list-item/record/record","sendwrap":"./../../../components/pages/giftCard/sendwrap/sendwrap","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"enablePullDownRefresh":true,"navigationBarTitleText":"历史记录"}},"pages/giftcard/cashList/cashList.html":{"window":{"navigationBarTitleText":"我的礼品卡","usingComponents":{"tab-bar":"./../../../components/pages/giftCard/tab-bar/tab-bar","card-item":"./../../../components/pages/giftCard/list-item/card-item/card-item","loading-tips":"./../../../components/pages/giftCard/loading-tips/loading-tips","sendwrap":"./../../../components/pages/giftCard/sendwrap/sendwrap","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/cashDetail/cashDetail.html":{"window":{"navigationBarTitleText":"礼品卡详情","usingComponents":{"card-item":"./../../../components/pages/giftCard/list-item/card-item/card-item","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/recordDetail/recordDetail.html":{"window":{"usingComponents":{"coupon":"/components/common/coupon/coupon","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"幸运送详情"}},"pages/giftcard/giftcardmain/giftcardmain.html":{"window":{"enablePullDownRefresh":true,"navigationBarTitleText":"选择礼品卡","usingComponents":{"list-switch":"./../../../components/common/list-switch/list-switch","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/pickgiftcard/pickgiftcard.html":{"window":{"navigationBarTitleText":"选择祝福语","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/pickcoffee/pickcoffee.html":{"window":{"navigationBarTitleText":"定制礼品卡","enablePullDownRefresh":true,"usingComponents":{"list-switch":"./../../../components/common/list-switch/list-switch","coupon":"/components/common/coupon/coupon","agreement":"./../../../components/pages/giftCard/agreement/agreement","decrease-add-btn":"./../../../components/common/decrease-add-btn/decrease-add-btn","recharge-panel":"./../../../components/pages/giftCard/recharge-panel/recharge-panel","pay-bar":"./../../../components/pages/giftCard/pay-bar/pay-bar","pay-list":"./../../../components/pages/order/pay-list/pay-list","custon-toast":"./../../../components/common/custon-toast/custon-toast","sendwrap":"./../../../components/pages/giftCard/sendwrap/sendwrap","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/receivecard.html":{"window":{"usingComponents":{"navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/trade/tradecard/tradecard.html":{"window":{"navigationBarTitleText":"购买礼品卡","usingComponents":{"agreement":"./../../../../components/pages/giftCard/agreement/agreement","decrease-add-btn":"./../../../../components/common/decrease-add-btn/decrease-add-btn","swiper-card":"./../../../../components/pages/giftCard/swiper-card/swiper-card","recharge-panel":"./../../../../components/pages/giftCard/recharge-panel/recharge-panel","pay-bar":"./../../../../components/pages/giftCard/pay-bar/pay-bar","pay-list":"./../../../../components/pages/order/pay-list/pay-list","custon-toast":"./../../../../components/common/custon-toast/custon-toast","navbar":"../../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/trade/cardsuccess/cardsuccess.html":{"window":{"navigationBarTitleText":"购买成功","usingComponents":{"sendwrap":"./../../../../components/pages/giftCard/sendwrap/sendwrap","navbar":"../../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/giftcard/trade/cardfail/cardfail.html":{"window":{"usingComponents":{"navbar":"../../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/info/info.html":{"window":{"navigationBarTitleText":"个人资料","navigationBarBackgroundColor":"#f4f4f4","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/supplement/supplement.html":{"window":{"navigationBarTitleText":"完善资料","backgroundColor":"#dddddd","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/addresslist/addresslist.html":{"window":{"navigationBarTitleText":"收货地址","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/addressedit/addressedit.html":{"window":{"navigationBarTitleText":"添加地址","usingComponents":{"ds":"./../../../components/common/switch/switch","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/addresssearch/addresssearch.html":{"window":{"navigationBarTitleText":"选择地址","navigationBarBackgroundColor":"#F5F5F5","usingComponents":{"select-query":"/components/pages/address/select-query/select-query","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/balancelist/balancelist.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"余额明细","enablePullDownRefresh":true}},"pages/member/balance/balance.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"账户余额"}},"pages/member/personqr/personqr.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"个人二维码"}},"pages/member/noticeManage/noticeManage.html":{"window":{"navigationBarTitleText":"通知管理","navigationStyle":"custom","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/subscribeDetail/subscribeDetail.html":{"window":{"navigationBarTitleText":"通知管理","navigationStyle":"custom","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/member/invitationpeople/invitationpeople.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/agreement/pay/pay.html":{"window":{"navigationBarTitleText":"支付协议","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/agreement/member/member.html":{"window":{"navigationBarTitleText":"用户协议","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/pmallPicture/pmallPicture.html":{"window":{"navigationBarTitleText":"生成美图","usingComponents":{"product-pictrue":"./../../../components/common/product-pictrue/product-pictrue","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/UVAH5/UVAH5.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/beautifulpic/beautifulpic.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"生成美图"}},"pages/share/introduce/introduce.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/ladder/ladder.html":{"window":{"navigationBarTitleText":"送好友100元抵用金","navigationStyle":"custom","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/inviter/inviter.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/inviterReg/inviterReg.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/saveImage/saveImage.html":{"window":{"navigationBarTitleText":"保存图片","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/limited/limited.html":{"window":{"usingComponents":{"limited-coupon":"/components/common/limited-coupon/limited-coupon","count-timer":"/components/common/count-timer/count-timer","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/inviteReward/inviteReward.html":{"window":{"navigationBarTitleText":"","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/fission/fission.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/share/redPacket/redPacket.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/invoice/invoicemanage/invoicemanage.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"发票管理"}},"pages/invoice/invoicelist/invoicelist.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"enablePullDownRefresh":true}},"pages/invoice/invoicedetail/invoicedetail.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"发票详情"}},"pages/invoice/createinvoice/createinvoice.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"开票信息"}},"pages/invoice/invoicerecord/invoicerecord.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"发票记录","enablePullDownRefresh":true}},"pages/invoice/invoicehead/invoicehead.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"发票抬头"}},"pages/invoice/headedit/headedit.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"添加发票抬头"}},"pages/invoice/invoiceimg/invoiceimg.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"发票预览"}},"pages/address/selectMachine/selectMachine.html":{"window":{"navigationBarTitleText":"瑞划算","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/address/storedetail/storedetail.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"},"navigationBarTitleText":"门店详情"}},"pages/address/select/select.html":{"window":{"navigationBarTitleText":"配送方式","navigationBarBackgroundColor":"#F5F5F5","usingComponents":{"list-switch":"/components/common/list-switch/list-switch","select-query":"/components/pages/address/select-query/select-query","select-item":"/components/pages/address/select-item/select-item","address-item":"/components/pages/address/address-item/address-item","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/address/city/city.html":{"window":{"navigationBarTitleText":"选择城市","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/list/list.html":{"window":{"navigationBarTitleText":"我的优惠券","enablePullDownRefresh":true,"usingComponents":{"guideModal":"./../../../components/common/guide-modal/index","count-timer":"./../../../components/common/count-timer/count-timer","list-switch":"./../../../components/common/list-switch/list-switch","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/choseCoupon/choseCoupon.html":{"window":{"enablePullDownRefresh":true,"usingComponents":{"chose-coupon-item":"/components//common/chose-coupon-item/chose-coupon-item","list-switch":"./../../../components/common/list-switch/list-switch","page-wrap":"/components/common/page-wrap/page-wrap","pay-rule":"/components/pages/center/pay-rule/pay-rule","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/wallet/wallet.html":{"window":{"navigationBarTitleText":"咖啡钱包","usingComponents":{"wallet-explain":"./../../../components/pages/wallet/wallet-explain/wallet-explain","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/walletbuy/walletbuy.html":{"window":{"usingComponents":{"wallet-explain":"./../../../components/pages/wallet/wallet-explain/wallet-explain","pay-list":"./../../../components/pages/order/pay-list/pay-list","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/walletdetail/walletdetail.html":{"window":{"navigationBarTitleText":"咖啡钱包","usingComponents":{"wallet-explain":"./../../../components/pages/wallet/wallet-explain/wallet-explain","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/walletorderresult/walletorderresult.html":{"window":{"navigationBarTitleText":"","usingComponents":{"sendwrap":"./../../../components/pages/giftCard/sendwrap/sendwrap","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/switchOpen/switchOpen.html":{"window":{"navigationBarTitleText":"券过期提醒","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/receive.html":{"window":{"navigationBarBackgroundColor":"#fff","usingComponents":{"subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate","navbar":"../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","send-coupon":"plugin://wxf3f436ba9bd4be7b/send-coupon"}}},"pages/coupon/sendCoupon/sendCoupon.html":{"window":{"navigationStyle":"custom","usingComponents":{"send-coupon-list":"./../../../components/pages/coupon/send-coupon-list/send-coupon-list","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","send-coupon":"plugin://wxf3f436ba9bd4be7b/send-coupon"}}},"pages/coupon/weChatCoupon/weChatCoupon.html":{"window":{"usingComponents":{"subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","send-coupon":"plugin://wxf3f436ba9bd4be7b/send-coupon"}}},"pages/coupon/couponSuccess/couponSuccess.html":{"window":{"navigationBarTitleText":"购买成功","navigationStyle":"custom","usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/coupon/couponCenter/couponCenter.html":{"window":{"navigationStyle":"custom","usingComponents":{"subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate","navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","send-coupon":"plugin://wxf3f436ba9bd4be7b/send-coupon"}}},"pages/living/index/index.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/living/room/room.html":{"window":{"usingComponents":{"navbar":"../../../components/common/navbar/index","empty-page":"/components/common/empty-page/empty-page","page-wrap":"/components/common/page-wrap/page-wrap","subscriptionTemplate":"/components/common/subscriptionTemplate/subscriptionTemplate"}}},"pages/living/__plugin__/wx2b03c6e691cd7370/pages/live-player-plugin.html":{"window":{"usingComponents":{"page-live-player":"../wxlive-components/page-live-player/page-live-player","page-live-replay":"../wxlive-components/page-live-replay/page-live-replay","page-live-record":"../wxlive-components/page-live-record/page-live-record","component-profile-card":"../wxlive-components/profile-card/profile-card","component-person-operation":"../wxlive-components/person-operation/person-operation","component-comments":"../wxlive-components/comments/comments","component-store-list":"../wxlive-components/store-list/store-list","component-profile-modal":"../wxlive-components/profile-modal/profile-modal","component-barrage-list":"../wxlive-components/barrage-list/barrage-list","component-goods-push":"../wxlive-components/goods-push/goods-push","component-coupon-push":"../wxlive-components/coupon-push/coupon-push","component-push-comment":"../wxlive-components/push-comment/push-comment","component-end-block":"../wxlive-components/end-block/end-block","component-subscribe-card":"../wxlive-components/subscribe-card/subscribe-card","component-forbid-user-list":"../wxlive-components/forbid-user-list/forbid-user-list","component-lottery":"../wxlive-components/lottery/lottery","component-lottery-oper":"../wxlive-components/lottery-oper/lottery-oper","component-lottery-fill-phone":"../wxlive-components/lottery-fill-phone/lottery-fill-phone","component-comment-action-sheet":"../wxlive-components/comment-action-sheet/comment-action-sheet","component-top-player":"../wxlive-components/top-player/top-player","component-operate-paster":"../wxlive-components/operate-paster/operate-paster","component-attention-guide":"../wxlive-components/attention-guide/attention-guide","component-setting-more":"../wxlive-components/setting-more/setting-more","component-mic-tag":"../wxlive-components/mic-tag/mic-tag","component-mic-panel":"../wxlive-components/mic-panel/mic-panel","component-mic-system-msg":"../wxlive-components/mic-system-msg/mic-system-msg","component-activity-nudge":"../wxlive-components/activity-nudge/activity-nudge","component-share-panel":"../wxlive-components/share-panel/share-panel","component-notice-toptips":"../wxlive-components/notice-toptips/notice-toptips","component-advance-detail":"../wxlive-components/advance-detail/advance-detail","component-advance":"../wxlive-components/advance/advance","mp-icon":"../miniprogram_dist/icon/icon"},"navigationStyle":"custom","backgroundColor":"#333","disableScroll":true,"style":"v2","navigationBarTextStyle":"white","singlePage":{"navigationBarBackgroundColor":"#000000","navigationBarBackgroundAlpha":0,"navigationBarTextStyle":"white"},"pageOrientation":"portrait","handleWebviewPreload":"manual","__warning__":"无效的 page.json singlePage[\"navigationBarBackgroundColor\"]、page.json singlePage[\"navigationBarBackgroundAlpha\"]、page.json singlePage[\"navigationBarTextStyle\"]、page.json [\"handleWebviewPreload\"]"}},"pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/address-preview/address-preview.html":{"window":{"usingComponents":{"mp-msg":"../../../miniprogram_dist/msg/msg","mp-navigation-bar":"../../../miniprogram_dist/navigation-bar/navigation-bar"},"navigationStyle":"custom","disableScroll":true,"style":"v2"}},"pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-comment/complaint-comment.html":{"window":{"usingComponents":{"mp-msg":"../../../miniprogram_dist/msg/msg","mp-checkbox-group":"../../../miniprogram_dist/checkbox-group/checkbox-group","mp-checkbox":"../../../miniprogram_dist/checkbox/checkbox","mp-cells":"../../../miniprogram_dist/cells/cells","mp-navigation-bar":"../../../miniprogram_dist/navigation-bar/navigation-bar"},"navigationStyle":"custom","disableScroll":true,"style":"v2"}},"pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-room/complaint-room.html":{"window":{"usingComponents":{"mp-msg":"../../../miniprogram_dist/msg/msg","mp-checkbox-group":"../../../miniprogram_dist/checkbox-group/checkbox-group","mp-checkbox":"../../../miniprogram_dist/checkbox/checkbox","mp-cells":"../../../miniprogram_dist/cells/cells","mp-navigation-bar":"../../../miniprogram_dist/navigation-bar/navigation-bar"},"navigationStyle":"custom","disableScroll":true,"style":"v2"}}},"permission":{"scope.userLocation":{"desc":"你的位置信息将用于为您找到服务门店"}},"global":{"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#f5f5f5","navigationBarTitleText":"luckin coffee","navigationBarTextStyle":"black","enablePullDownRefresh":false,"backgroundColor":"#fff","navigationStyle":"default"}},"networkTimeout":{"request":15000},"plugins":{"sendCoupon":{"version":"1.1.7","provider":"wxf3f436ba9bd4be7b","subpackage":"__APP__"},"live-player-plugin":{"version":"1.2.8","provider":"wx2b03c6e691cd7370","subpackage":"/pages/living/"}},"tabBar":{"color":"#666","selectedColor":"#333999","backgroundColor":"#fff","list":[{"text":"首页","iconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAh1BMVEUAAABmZmZmZmZmZmZvb291dXVmZmZubm5mZmZnZ2dnZ2dqampnZ2dnZ2dnZ2dpaWlmZmZnZ2dmZmZoaGhra2tnZ2dnZ2dmZmZnZ2dpaWlnZ2dqampnZ2dnZ2doaGhnZ2dmZmZnZ2dmZmZnZ2dnZ2dnZ2dpaWlmZmZnZ2doaGhnZ2dpaWlmZmZ4FhTFAAAALHRSTlMAVaroFwX7C6PSfRnJX7Up9+7jNBOHc/LCPywf2btM34+NbVNImiLclVhFPdjIQkgAAAIISURBVFjD7ZbbboMwDIYzOggFAqVAWwql5dAz7/98s0Eq0hYOodE0aflvQLHyKbEd20RJSUlJ6Y/JDmypuMiv69qPpEE3q7rVaiOF5zkIWzgL/Dje2zzdMgC0fMDvYwl/hqW/BwxelI4evHPAyHjdtPOAEc0+5jNtovEzSulzFo/eatDh8m35csDlGxUHVmvYuGUcC9uCZV0J8kKzBrk2P+FdNJqhCLBcYAree+33xl5Of3Rae4bRO2gTnyXz0U8ZGVaGfvbZBF7SxPI8Hkt6bnIhISMqMJDXmExRfMV0KIarwg7fRE6npmyOb2rnjZStZSD07oeKnG52VUGwNpn8TRFWhT0R1R6rR8S1GJBg+pwKpcHVeCc5gY8BOAcJ8Txx1sHHMZmnGOLJWYZEpDOJFNKSswz+FWd1e3+L6LimeFtKNtG5j4j6ECZ+wC4+0ZBOJPRymEl0siDhG7V+YhiE/UQNPoLEeIlFKZZHrOpWlSyiDi3Fd3xoProk4h5YIQmBu5dELGFPay1lELs9aFVERVTECcQMJnL4wPSdSSLaMIUwj0HbsOUQ8XStXCKLaKcNMLWFiTBAMq6BWm7qWpRrYzA+9gFxPMuJqPJuMONe4EgFgfQ41JKp3zsAk4FR2x84RYFNlHmfU+UxbLsFGZBZi8skg7JWgryVNTq8WbvjYqqOOyshSv9WX6ymZQ+yBGwJAAAAAElFTkSuQmCC","pagePath":"pages/index/home.html","selectedIconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAbFBMVEUAAAAzOZk0OZozOZozOZkzOZozOZozOZkzOZk0OZo0Opo4O502PZwzOpo8QKQzOZo0OZozOZo0Opo0O5s1O5o5R5w2XqEzOpk0O500Opo0OpozOpo0Opk0O5s1PJw2O5s1O5o3PZ5AQJ8zOZki6yHAAAAAI3RSTlMAquj67sai9OKHbR8ZUwzSrY99XzQSBLon2bWVgHVIPSsqCLOHNi8AAAEvSURBVFjD7dfHbsQgFIVhbIrBvY49vdz3f8dYSqRECYzhwmKU4d8ivg3SkSCxWCwWe7HKsQzKKQYATAVD8ww+y/Ig3p3Dd/zu7e16Cj+j/c4PHBv4XTN6eA9F4W9UPbDgdQ/69leUVx/B3LF2By8SniUvjt4kYCsxuYBVCtullbVXtmBXW9qBAwPb2GDhFTO4NBcWq2CZ3XosHNzjixk8U8BEz6aZEYBN6AdJAT6lA2/g000jdl5ipxEbL7HRiJmXmGlE8CuKX9HgIqmLGanxajSMWoIUk/XuvxQZZ2FFOZFJBhXb9bRFiuY7SRSjGEVr8bCeHoKKdFgG+ur7iBQFUhRGsUOKnVGskGJlFGuGAllNjOUo8en/Q2DfxVxPHT3ak42KE5epbZKfChJ72z4AOBFuMVmSugwAAAAASUVORK5CYII="},{"text":"菜单","iconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAApVBMVEUAAABoaGhnZ2dmZmZmZmZnZ2dnZ2dmZmZmZmZubm5nZ2dnZ2dnZ2dnZ2dnZ2dpaWlsbGyYmJhmZmZnZ2dnZ2dmZmZnZ2dnZ2dqampmZmZmZmZoaGhoaGhoaGhnZ2dmZmZnZ2dmZmZqampnZ2doaGj///9mZmakpKTy8vJoaGiMjIxtbW2bm5t9fX37+/vh4eG7u7uysrKlpaWHh4d3d3fr6+vq6upJMFwgAAAAJXRSTlMATLj4827t59oJrcyOfWUVEQOvOS2SXEQe4oVgUBuqob++KVcg9Lqd0wAAAjRJREFUWMPtl2eP2kAQht1tMBiDKUc5uLQXrwvtuPz/n5bZtRKkyG3xSlFOfr54Pz2a8WyZ0Xp6enpU8zIcvqg1DoGhWuMaMJQKXwEslBoXZFyqFK5I6E4VFjdyyGhrHTEexd1ZJDRU5DkrljajtRd2FH51yaKL5QiEP+kaofMnzzH4ctDNNxVhrUVYOxCLjmWefAHhfRfyNS03WjcGvsiz+HEBnjnPeAr1xpW92exClUaBE1QZ86MU+cO5rTAef0hxfBjNiTIj8/dil9nKjDy2A99myoy/D5Sn1Bjxcis16sqNNn19pcYFv5aVGvnFNFZpjEDMVRoPZZuHYwKZnDEDTHqLWFnSHAdI5IyJ2DR7ElphmdEDcjljzrPVQWyq3vpUzpgCRujyEMsfXf7yfcgIfwIYzUAEpUIR/kXGeAGwR03nMrCARLIwJgirso+mBFjcXhgzFKy0KrYAru2NVxD17V9Iaadx6xBTEA1NNO+Wbm2NNwhG9Y2JC7BzO+GZgTPW6uHtzT1ulfMdhBk09ne8e3o/NQtP7yC8eYt5hZ+p7NQozEAcWvWnkcmjjBtSFhF+09qxBHE/1xblDqlBacmjZLe4MsAb4zUhYWsiF0R6jUt91xSEG8mNkz44LLn8dbl9XBIGjv8qOyQELgrSPMmOgizJUxS4wVSTZjC2UIE1fnKoCbczq0Q324Zd5g99ZHiOCYHpeMZIH2g9n4y5XstcWmijAVvW+IYG3v59jM3/sed/5Bd8hDwc/GruogAAAABJRU5ErkJggg==","pagePath":"pages/index/menu.html","selectedIconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAe1BMVEUAAAA2OZo0OZozOZo4Pp4zOZkzOpkzOpo1OpszOZkzOpozOZozOZk3Pp07QKIzOZozOZozOpkzOZk0O5o0Ops0PZpAVao0OpozOZkzOZo1Ops0O5ozOZk0OZozOpkzO5o1Ops7Sp00Opk0Ops0Opk4PptERKEzOZkzOZleNvhNAAAAKHRSTlMATLj3He3nfl6PbPrMFRHy3K+uT0YtCKvivmY3oZOIZD0K2HJVKQzVoef4MQAAAZZJREFUWMPt1lmOm1AQheFqZgNmMBg8ddvuKf/+VxiaB+fFDPdSUpSIbwFHVZwrUbJarVbavN3OE1U72ImqAzi6SwOvomkDRKKoTiBoFpfbPso9+8CHLOT8KbdyUeilBkrpxXTeM1nmKwDqRymk26UT+o89QzrOtyzzRufQj1Wh8BK3RzpF33RzAN5kmSal42zlxxVoxRRW9BNvH2FYZZqJPf+qmtiL1BPdrV5i2h7pxGqJP7NdAEf19XwCv1QTb4CvmlirJ8ZAqpr4CpSqiQcg1Ey80dlrJl6AQp5IsJCIfDGwtPhY8EVaIM/kiQILhbww+MNwsOBkAZBvB64kC5uSzlWeqrDQMnK5NC7GXDq5JwNKrCS1DImwEsugLLfqRkaE2oFyDzAVyrgTZtyTTEkx8b6XSZ7J3pdvmeHsMlPyKfNE1pfOcKTLDG4k850DJgVnMeGlTEg9MXQKGBGcxNw9zBmQh3exkkWl+6SQMsrEXlNtnMJP6CV+4WyqRlb/mf3LqL2YipkQi6EjE45/f8bp77j6F/0GEFdO8tyDOlIAAAAASUVORK5CYII="},{"text":"订单","iconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAWlBMVEX///9mZmakpKTr6+u4uLjw8PCzs7N1dXXR0dHLy8u7u7uenp6NjY1ubm5qamr5+fnz8/Pa2trX19etra2UlJSMjIyGhoZ+fn5xcXH29vbh4eHCwsKnp6eKiootBHZeAAAA/klEQVRYw+3USZaDMAxF0f9pynQmQOjS7X+bRWY1wIqVTKgT3QW8YxkjGGOMiZWX1U+cqswjev2DGo8eL9ypdYeopl4NQcXNfLvmca63mZsKQZ0nmUEjI+k78Yg1dGrxkA3ZXqBzackGIY6coTWTDiHC0PLYUjGBVmJFK1rxjzLbUX5QPHPX+f1iw13N+8Wi5Y62+OAeT+mO07G+tRWteKAXHvoLj7QpQtvsSBv3X7weK1oxsujJEVoj6RGykA5ajlzEAQroFOJVDSRdB43OkRwQND2TheaEz+CEsHTlxo1JnNFxs6YQ9Cu11h6idKLOlOKVIVk84/glGWDMd/kFCmcMxqlRVXAAAAAASUVORK5CYII=","pagePath":"pages/index/order/list.html","selectedIconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAQlBMVEX///8zOZmSlchOU6aZnMzLzOU8Qp5larOjptJ5fbxDSaH4+Pvi4/Ggo8+EiMJzd7lTWKnv8Pfq6/XOz+e5u9yKjcUBVvhTAAAAxElEQVRYw+3XiQ3DIAxAUdPW5ggh5Np/1S6ACbitRBX/AZ6QMJYATdM0rbXtcK+23LE1eGhNTxavwNP0dtZBb/rzNdAZSY4HVxKJtAqOKD2kFYqWFYNQDKxopKmoooq/E/2jkP9AnKHYLBcRiqFcXCYoNC1y0dCzEI111yqqONCEc69wpE3BbbORNu5fTI+KKjaKJASJFbNQzKyYhGJiRRSKCF/+GFrgi0EAhgiV9tAP7lAt2k7QRrgKU6ZGjXJC0LR79QZZAw+o/A74nQAAAABJRU5ErkJggg=="},{"text":"购物车","iconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAn1BMVEX///9mZmby8vKzs7Ovr6/9/f3Z2dmrq6uGhoZvb29qamrf39/Ozs7FxcW9vb35+fnJycmioqJ5eXnu7u7h4eGBgYFxcXFsbGz29vb09PSwsLCenp6ZmZmWlpb7+/vc3Nympqafn5+bm5uTk5OJiYl1dXXq6urp6enU1NTAwMC5ubm2trZ9fX10dHSPj4+Dg4Pn5+fl5eXCwsLBwcGNjY02XLJ2AAACOklEQVRYw+2X246qQBBFu0DkJiAoeEEUBe869///tlMET2Imk+5N0k8zrBdeVnZLUV3dip6enp5fh+0S0T4/aAscUYs70pUY0gNvqilxcqcHqaUp0gjCMKyIGQqdbDnR1pq44URHa+KcE2dNIQ/FjNR4t0rZGwl7R37GhBIrEgt2mmVNgvmQJy5ZMflpDS+mmpyYvbzdxqysOvSGut3e2bjhieuM/VCqWB4rER6ZsH6RKykrfqduo0Du5K0C7wj1D7h02odnUhfpxMoLnFiynajGGjt3OLFmu1BJzX6eo4luuyHkvLKEzvEDMcpZsWJpDJ9O7WBBdjbGtR1+CgK2cjCxeR9H6xi/qecjY7CVgXOCmBDriAWUOAWPTgeeFQFhi+/g9rGbCQ54ePu8gDNgzN4OSryDc8pH28cgsD4L9lwkcUjoCMhYNMAP462FwNpnA1THY+9VIsBHTTSZnsbhYOURM4ASTTaX386842YUXO28cpIZPZE8VQe6VwzPZrn7Svce/Uz2JiD8//XZkpx40uFYd9t++xE3caqtHZ7aN4b3Ai8fPZUsu9VFvAzHp+lkLbpTP4aUX+5K8zwavhuWhvt9IHRyBRsNZ9S2j0aOnOhOtEYmTWQxQPiIwELi1FCi9UU4ByzynHoE4cYCxTIQFuJX4VdpvJDU5OLU3TbqW/NhHEt6TaDPLok2NfjS85LSLoklSe9d1oye/3fAp/s+kl63yBZd+MwonUouHgV5cSS6MRdSorXo+cv8A/iZHZ7wtAd3AAAAAElFTkSuQmCC","pagePath":"pages/index/cart/cart.html","selectedIconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAn1BMVEX///8zOZmUl8rs7fb8/P6nqtSEh8Ly8/nLzea9v96Rlcl+gr9wdLheY69XXKs+Q586QJ03PZubns5iZ7FOU6fv8Pjq6vXk5fLe3+/X2OvU1uq0t9qtsNZ0eLpbYK5KT6VGTKNARqD+/v/5+fz39/vQ0ui4utyxs9iipdGKjcVscLZTWKlCR6HZ2u3HyePGyOOrrtV6fr14fLyNkMZnbLNeC77VAAABqUlEQVRYw+3X2XKCQBCF4R5ZosgqyKKg4L5rTN7/2QKV5C4106dqrgz/A3xVSs/QUF9fX9/L9REIIepxpg0cie+akS7REj9FhSbRqH9J39RETueWZbkdOSSdjVvR0SpuW9HTKr6JtuV5EZ9OoVAXnl3lbCQCzVaIroAr5eIAF5fycduBnHrccoFnSUUzwsUDSfNxca86NXAzuXjAxY1cvMNgQvJSWKxIUYCKE5W4QMWRSnyiYkak92SHK5U4B0WPcY1j2UrRgO8JZQF8l2ken6lafIfAWqHh43NSaPj4OAxxBolz1haAdCVGDQBGJkf0AHHBXND4DVjiBNgn5PON7xWXnFgVTC+yU2CJlBUknjt2rJtB7Oo/ft85ruyBtbsV6Zrw4u503a/G9vg8Th6jYW6YGvb7Pelswhg0/JOu0ipmrdikWsmkmxF3wKnc6D6HImaJ5idAZjzy4Yc8L7CJ28rg9EYv1cz17ankPzl4MXZQ8+7BeKZ8TSgR0VF8qVxEm4+IR/neZYaiLUHEoWhbbuTrlkNIZSP8QvLmqKLIXhOWYnjXJvX9574A7iIZfxjPt4QAAAAASUVORK5CYII="},{"text":"我的","iconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAA/FBMVEUAAABmZmZnZ2doaGhoaGhtbW1xcXFwcHBmZmZnZ2dnZ2dmZmZnZ2dnZ2dnZ2doaGhnZ2dnZ2dmZmZnZ2dnZ2dnZ2doaGhra2tnZ2dmZmZmZmZnZ2dmZmZmZmZnZ2dnZ2dmZmZoaGhmZmZqampra2tnZ2dnZ2dmZmZnZ2dnZ2dmZmZnZ2dmZmZnZ2f///9mZmbz8/NycnLq6urg4OBvb2/Jycm0tLSIiIienp7n5+fa2trS0tK4uLilpaWRkZGDg4N9fX3s7Oz7+/v39/fk5OTb29vMzMzCwsKtra2NjY13d3doaGjw8PDo6OjX19e/v7+8vLyrq6uZmZmTk5OZYSV2AAAALnRSTlMA6Y+EQxEMBfb75siZdVpJPi7u37hhUh95+taTiHBmVUw7MyUZzr+xramioWtoveCIKAAAAt9JREFUWMPt19d24jAQBmCDgVAMmN7LAumJxrjSS+ikJ+//LjuOT3LIIpqcvdnlu5TO/GdsCclwR0dHR/+Nk+RVIOaNBa6SJz+S53ZG4VPU6bYfGHLAKkfIbqATPgx6jd4APjjtvcFrQHV9SExDvQ7o2s7bzANqSOST1ACUZw90AeqQVR1ALtZAj8MKXIt0eBgTg1j8Tv70jqNB9hZVaS1RUpmbTADAK1n3iuMJpsRLgPsHSuLDPcAlU2IUwCA0BkCUJTACADo1UceZCENiGOva1MQ2zoQZF0ahJiqMS5PGuiE1cYgzaYbEAtY1qYlNnCmwHIxY16ImtnAmxHhMaNREjfGwqGFdl5rYxZkaxyALsKQmLgGyzBdCi/Yama8GESt7lMQejosckwCWPq0FPuFogEOMv8OlRL6Tlh+/QUZxLF6MyKrRAsfiHKuaH8sNabVDA0f8NRuXYca8rjXySTMv7IyLsyHsBTTQFYlIij4A5A1ztvxygOUeLI5ftj/NBFgluDn7KkIULFGh8lOfpK5bXuBvXSfc0b/spBoOFYO8U3DywWIoXLW13u4Sf5HNwHeZ7AVfcrO0JvIBH2ziC/DiYc2m8g7YxZFP7Z1Xjn91pxoNfToZy9KIjCR5PJnqDUP96jRe3isvcgaW+ttMJjTy7K0OlrPIzjyP02fFzRWyjTK3Qn1Oz44GY2AytDuyy51mgCm2tU2XF1B/QvYz6QPyurYc2GagOiP7m6lm5MZj3e0375RHcojHgXk5btrxOfOJJXIYyXzy3IZlxmdWZXIoWcXnpi940tw03al8WN60a26j5MY/liZ10X1pN+92bZ5m+6W7UMESpCZWT2FVvd9rzDvPWrulKOOmPJSbY0VptbXnzrzR69dh1WmVoxNzMThcLCduPXWSfNwP+/LH+eReJ5CnUkoL5wG/D+h8/sC5kC5VPAyneCoilkOJ4k0hmA4WboqJUFmMpNzc0dHf8RsbhjNYA6AUJgAAAABJRU5ErkJggg==","pagePath":"pages/index/member/center.html","selectedIconData":"iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAhFBMVEUAAAA0OZo7QaEzOZk0OZo0Opk0O5o8V6gzOZk0OZo0Opo1Ops1Opw1O503QKEzOZozOZkzOpozOZo0Ops0Opo1OpszOpo0Opk0OZozOZo0OZo0Opo0OZo0Opo0OZo1OpszOpo1PJs1O500PJs3Pps4PJw2P500OZo0Opk0OZo0O5szOZlkpkcfAAAAK3RSTlMA6A76j4ZKBvR1VEM9LhPs5Likbmdhmnne1srGr5OCW1lPOjMlIByXzr9F3MtQtAAAAZhJREFUWMPt11dyrDAQBdAWQuQ4MDA5B9t3//t7X65ykGRo8X5szgK6uupeUDXNZrPZnxGeF9tKVtvFOaQpeH6Ed5HvkbOjwEfiSI58fOWTkwW+W5ADBR1FbG/Qe2OnLKAnuInHMImZxRYwEbyqL2G2dGvOZA0qYVYSQw6bnDExgE3AC2biaHrY9IyJDWwaxsQTbE6MiSlsUsbEB2wexLCG2dr1QZjoachglhHLFiZb4gks3yBTDb2auAoBHVEQWyrxnUzJQRDhqyggJ5cSn5UXclR0+KgryN21K9/36640jTBtVafaNKTZbxbeglMbH/ynf4jbU3BzyrtI1G4t8Zlc71RScFbLDhuYbQ7ZuGXvSuAnQt1pqKDGMHVAQ+SvGO41H3AFSowhf7oU8xXGWlnXTCOMF6WWH3YEjuhibHQFnsrU+D249oaYJbikPvAEfInhsOSLSef2Aq6XG+ll+xXGW+0zsngkqhYYStQqedAA3jXpn7tNJaEnq83u2SdXj0bz7nl2Pi7bpon7uGna5fGc5XePZrP/4x+U7hQhAmBayQAAAABJRU5ErkJggg=="}]},"preloadRule":{"pages/index/order/list":{"network":"all","packages":["pages/order"]},"pages/index/sendcoffee/sendcoffee":{"network":"all","packages":["pages/giftcard","pages/share"]},"pages/index/member/center":{"network":"all","packages":["pages/giftcard","pages/member","pages/share","pages/coupon","pages/invoice"]},"pages/index/menu":{"network":"all","packages":["pages/coupon","pages/address"]},"pages/index/cart/cart":{"network":"all","packages":["pages/coupon","pages/order"]},"pages/index/productDetail/productDetail":{"network":"all","packages":["pages/coupon","pages/order"]},"pages/index/productPlan/productPlan":{"network":"all","packages":["pages/coupon","pages/order"]}}}
+{
+  "subPackages": [{
+    "root": "pages/order/",
+    "name": "order",
+    "pages": ["pages/order/confirm/confirm", "pages/order/detail/detail", "pages/order/qrcode/qrcode", "pages/order/mycomment/mycomment", "pages/order/selectcoffeewallet/selectcoffeewallet", "pages/order/usecoffeewallet/usecoffeewallet", "pages/order/customerservice/customerservice", "pages/order/detailremark/detailremark", "pages/order/minipayh5", "pages/order/paycenter/paycenter", "pages/order/wxvoucher/wxvoucher", "pages/order/dispatchcoupon/dispatchcoupon", "pages/order/confirmh5/confirmh5"]
+  }, {
+    "root": "pages/giftcard/",
+    "pages": ["pages/giftcard/record/record", "pages/giftcard/cashList/cashList", "pages/giftcard/cashDetail/cashDetail", "pages/giftcard/recordDetail/recordDetail", "pages/giftcard/giftcardmain/giftcardmain", "pages/giftcard/pickgiftcard/pickgiftcard", "pages/giftcard/pickcoffee/pickcoffee", "pages/giftcard/receivecard", "pages/giftcard/trade/tradecard/tradecard", "pages/giftcard/trade/cardsuccess/cardsuccess", "pages/giftcard/trade/cardfail/cardfail"]
+  }, {
+    "root": "pages/member/",
+    "pages": ["pages/member/info/info", "pages/member/supplement/supplement", "pages/member/addresslist/addresslist", "pages/member/addressedit/addressedit", "pages/member/addresssearch/addresssearch", "pages/member/balancelist/balancelist", "pages/member/balance/balance", "pages/member/personqr/personqr", "pages/member/noticeManage/noticeManage", "pages/member/subscribeDetail/subscribeDetail", "pages/member/invitationpeople/invitationpeople"]
+  }, {
+    "root": "pages/agreement/",
+    "pages": ["pages/agreement/pay/pay", "pages/agreement/member/member"]
+  }, {
+    "root": "pages/share/",
+    "pages": ["pages/share/pmallPicture/pmallPicture", "pages/share/UVAH5/UVAH5", "pages/share/beautifulpic/beautifulpic", "pages/share/introduce/introduce", "pages/share/ladder/ladder", "pages/share/inviter/inviter", "pages/share/inviterReg/inviterReg", "pages/share/saveImage/saveImage", "pages/share/limited/limited", "pages/share/inviteReward/inviteReward", "pages/share/fission/fission", "pages/share/redPacket/redPacket"]
+  }, {
+    "root": "pages/invoice/",
+    "pages": ["pages/invoice/invoicemanage/invoicemanage", "pages/invoice/invoicelist/invoicelist", "pages/invoice/invoicedetail/invoicedetail", "pages/invoice/createinvoice/createinvoice", "pages/invoice/invoicerecord/invoicerecord", "pages/invoice/invoicehead/invoicehead", "pages/invoice/headedit/headedit", "pages/invoice/invoiceimg/invoiceimg"]
+  }, {
+    "root": "pages/address/",
+    "pages": ["pages/address/selectMachine/selectMachine", "pages/address/storedetail/storedetail", "pages/address/select/select", "pages/address/city/city"]
+  }, {
+    "root": "pages/coupon/",
+    "pages": ["pages/coupon/list/list", "pages/coupon/choseCoupon/choseCoupon", "pages/coupon/wallet/wallet", "pages/coupon/walletbuy/walletbuy", "pages/coupon/walletdetail/walletdetail", "pages/coupon/walletorderresult/walletorderresult", "pages/coupon/switchOpen/switchOpen", "pages/coupon/receive", "pages/coupon/sendCoupon/sendCoupon", "pages/coupon/weChatCoupon/weChatCoupon", "pages/coupon/couponSuccess/couponSuccess", "pages/coupon/couponCenter/couponCenter"]
+  }, {
+    "root": "pages/living/",
+    "plugins": {
+      "live-player-plugin": {
+        "version": "1.2.8",
+        "provider": "wx2b03c6e691cd7370",
+        "subpackage": "/pages/living/"
+      }
+    },
+    "pages": ["pages/living/index/index", "pages/living/room/room", "pages/living/__plugin__/wx2b03c6e691cd7370/pages/live-player-plugin", "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/address-preview/address-preview", "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-comment/complaint-comment", "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-room/complaint-room"]
+  }],
+  "entryPagePath": "pages/index/home.html",
+  "pages": ["pages/index/home", "pages/index/menu", "pages/index/cart/cart", "pages/index/order/list", "pages/index/member/center", "pages/index/login/login", "pages/index/wxlogin/wxlogin", "pages/index/qrtransfer", "pages/index/pageTransfer", "pages/index/productDetail/productDetail", "pages/index/productPlan/productPlan", "pages/index/reduction/reduction", "pages/index/sendcoffee/sendcoffee", "pages/index/wxacode", "pages/index/selfMenu/selfMenu", "pages/webview/common", "pages/index/imgwebview", "pages/webview/tripartite", "pages/index/luckySend/luckySend", "pages/order/confirm/confirm", "pages/order/detail/detail", "pages/order/qrcode/qrcode", "pages/order/mycomment/mycomment", "pages/order/selectcoffeewallet/selectcoffeewallet", "pages/order/usecoffeewallet/usecoffeewallet", "pages/order/customerservice/customerservice", "pages/order/detailremark/detailremark", "pages/order/minipayh5", "pages/order/paycenter/paycenter", "pages/order/wxvoucher/wxvoucher", "pages/order/dispatchcoupon/dispatchcoupon", "pages/order/confirmh5/confirmh5", "pages/giftcard/record/record", "pages/giftcard/cashList/cashList", "pages/giftcard/cashDetail/cashDetail", "pages/giftcard/recordDetail/recordDetail", "pages/giftcard/giftcardmain/giftcardmain", "pages/giftcard/pickgiftcard/pickgiftcard", "pages/giftcard/pickcoffee/pickcoffee", "pages/giftcard/receivecard", "pages/giftcard/trade/tradecard/tradecard", "pages/giftcard/trade/cardsuccess/cardsuccess", "pages/giftcard/trade/cardfail/cardfail", "pages/member/info/info", "pages/member/supplement/supplement", "pages/member/addresslist/addresslist", "pages/member/addressedit/addressedit", "pages/member/addresssearch/addresssearch", "pages/member/balancelist/balancelist", "pages/member/balance/balance", "pages/member/personqr/personqr", "pages/member/noticeManage/noticeManage", "pages/member/subscribeDetail/subscribeDetail", "pages/member/invitationpeople/invitationpeople", "pages/agreement/pay/pay", "pages/agreement/member/member", "pages/share/pmallPicture/pmallPicture", "pages/share/UVAH5/UVAH5", "pages/share/beautifulpic/beautifulpic", "pages/share/introduce/introduce", "pages/share/ladder/ladder", "pages/share/inviter/inviter", "pages/share/inviterReg/inviterReg", "pages/share/saveImage/saveImage", "pages/share/limited/limited", "pages/share/inviteReward/inviteReward", "pages/share/fission/fission", "pages/share/redPacket/redPacket", "pages/invoice/invoicemanage/invoicemanage", "pages/invoice/invoicelist/invoicelist", "pages/invoice/invoicedetail/invoicedetail", "pages/invoice/createinvoice/createinvoice", "pages/invoice/invoicerecord/invoicerecord", "pages/invoice/invoicehead/invoicehead", "pages/invoice/headedit/headedit", "pages/invoice/invoiceimg/invoiceimg", "pages/address/selectMachine/selectMachine", "pages/address/storedetail/storedetail", "pages/address/select/select", "pages/address/city/city", "pages/coupon/list/list", "pages/coupon/choseCoupon/choseCoupon", "pages/coupon/wallet/wallet", "pages/coupon/walletbuy/walletbuy", "pages/coupon/walletdetail/walletdetail", "pages/coupon/walletorderresult/walletorderresult", "pages/coupon/switchOpen/switchOpen", "pages/coupon/receive", "pages/coupon/sendCoupon/sendCoupon", "pages/coupon/weChatCoupon/weChatCoupon", "pages/coupon/couponSuccess/couponSuccess", "pages/coupon/couponCenter/couponCenter", "pages/living/index/index", "pages/living/room/room", "pages/living/__plugin__/wx2b03c6e691cd7370/pages/live-player-plugin", "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/address-preview/address-preview", "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-comment/complaint-comment", "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-room/complaint-room"],
+  "page": {
+    "pages/index/home.html": {
+      "window": {
+        "usingComponents": {
+          "custom-dialog": "./../../components/pages/home/dialog/dialog",
+          "count-timer": "./../../components/common/count-timer/count-timer",
+          "reward-dialog": "./../../components/pages/order/reward-dialog/reward-dialog",
+          "new-tag": "./../../components/pages/home/new-tag/new-tag",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate",
+          "new-guest-test": "./../../components/pages/index/new-guest-test/new-guest-test",
+          "week-recommend": "./../../components/pages/index/weekRecommend/weekRecommend",
+          "new-thing-test": "./../../components/pages/index/new-thing-test/new-thing-test",
+          "pop-test": "./../../components/pages/index/pop-test/pop-test",
+          "sleepZone": "./../../components/pages/index/sleepZone/sleepZone",
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "send-coupon": "plugin://wxf3f436ba9bd4be7b/send-coupon"
+        },
+        "navigationStyle": "custom"
+      }
+    },
+    "pages/index/menu.html": {
+      "window": {
+        "usingComponents": {
+          "menu-swiper": "./../../components/pages/selfMneu/menu-swiper/menu-swiper",
+          "menu-address": "./../../components/pages/selfMneu/menu-address/menu-address",
+          "menu-list": "./../../components/pages/selfMneu/menu-list/menu-list",
+          "my-toast": "./../../components/common/custon-toast/custon-toast",
+          "count-timer": "./../../components/common/count-timer/count-timer",
+          "confirm": "./../../components/common/confirm/confirm",
+          "reward-dialog": "./../../components/pages/order/reward-dialog/reward-dialog",
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationStyle": "custom"
+      }
+    },
+    "pages/index/cart/cart.html": {
+      "window": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false,
+        "disableScroll": false,
+        "navigationBarTitleText": "购物车",
+        "usingComponents": {
+          "guess-like": "./../../../components/pages/cart/guess-like/guess-like",
+          "cart-title": "./../../../components/pages/cart/cart-title/cart-title",
+          "cart-list": "./../../../components/pages/cart/cart-list/cart-list",
+          "eCart-list": "./../../../components/pages/cart/eCart-list/eCart-list",
+          "mCart-list": "./../../../components/pages/cart/mCart-list/mCart-list",
+          "count-timer": "./../../../components/common/count-timer/count-timer",
+          "reward-dialog": "./../../../components/pages/order/reward-dialog/reward-dialog",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/order/list.html": {
+      "window": {
+        "navigationBarTitleText": "订单列表",
+        "enablePullDownRefresh": true,
+        "navigationBarBackgroundColor": "#f4f4f4",
+        "usingComponents": {
+          "list-switch": "./../../../components/common/list-switch/list-switch",
+          "order-item": "./../../../components/pages/list/order-item/order-item",
+          "pserson-orderList-item": "./../../../components/pages/list/pserson-orderList-item/pserson-orderList-item",
+          "meal-code": "./../../../components/pages/order/meal-code/meal-code",
+          "evaluate": "./../../../components/pages/order/evaluate/evaluate",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/member/center.html": {
+      "window": {
+        "navigationBarTitleText": "个人中心",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "guideModal": "/components/common/guide-modal/index",
+          "luckin-guide-bar": "/components/common/luckin-guide-bar/luckin-guide-bar",
+          "exchange-dialog": "/components/pages/menber/exchange-dialog/exchange-dialog",
+          "banner-list": "/components/pages/center/banner-list/banner-list",
+          "guess-like": "/components/pages/cart/guess-like/guess-like",
+          "pop-test": "/components/pages/index/pop-test/pop-test",
+          "pay-member": "/components/pages/center/pay-member/pay-member",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/login/login.html": {
+      "window": {
+        "navigationBarTitleText": "账户登录",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/wxlogin/wxlogin.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "账户登录"
+      }
+    },
+    "pages/index/qrtransfer.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/pageTransfer.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/productDetail/productDetail.html": {
+      "window": {
+        "usingComponents": {
+          "banner": "./../../../components/pages/menu/banner/banner",
+          "header": "./../../../components/pages/menu/header/header",
+          "body": "./../../../components/pages/menu/body/body",
+          "footer": "./../../../components/pages/menu/footer/footer",
+          "plan-dialog": "./../../../components/pages/product/plan-dialog/plan-dialog",
+          "price-desc": "./../../../components/pages/menu/price-desc/price-desc",
+          "share-dialog": "./../../../components/pages/menu/share-dialog/share-dialog",
+          "ab-addition": "./../../../components/pages/menu/ab-addition/ab-addition",
+          "product-pictrue": "./../../../components/common/product-pictrue/product-pictrue",
+          "product-detail-recommend": "./../../../components/pages/menu/product-detail-recommend/product-detail-recommend",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#333333"
+      }
+    },
+    "pages/index/productPlan/productPlan.html": {
+      "window": {
+        "usingComponents": {
+          "banner": "./../../../components/pages/menu/banner/banner",
+          "header": "./../../../components/pages/menu/header/header",
+          "drink-selector": "./../../../components/pages/menu/drink-selector/drink-selector",
+          "decrease-add-btn": "./../../../components/common/decrease-add-btn/decrease-add-btn",
+          "price-desc": "./../../../components/pages/menu/price-desc/price-desc",
+          "footer": "./../../../components/pages/menu/footer/footer",
+          "count-timer": "./../../../components/common/count-timer/count-timer",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationStyle": "custom"
+      }
+    },
+    "pages/index/reduction/reduction.html": {
+      "window": {
+        "navigationBarTitleText": "满减优惠",
+        "usingComponents": {
+          "menu-swiper": "./../../../components/pages/selfMneu/menu-swiper/menu-swiper",
+          "menu-address": "./../../../components/pages/selfMneu/menu-address/menu-address",
+          "menu-list": "./../../../components/pages/selfMneu/menu-list/menu-list",
+          "reduction-cart": "./../../../components/pages/menu/reduction-cart/reduction-cart",
+          "reduction-cart-list": "./../../../components/pages/menu/reduction-cart-list/reduction-cart-list",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/sendcoffee/sendcoffee.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "送Ta咖啡"
+      }
+    },
+    "pages/index/wxacode.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/selfMenu/selfMenu.html": {
+      "window": {
+        "navigationBarTitleText": "瑞划算",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "menu-swiper": "./../../../components/pages/selfMneu/menu-swiper/menu-swiper",
+          "menu-address": "./../../../components/pages/selfMneu/menu-address/menu-address",
+          "menu-list": "./../../../components/pages/selfMneu/menu-list/menu-list",
+          "dialog": "./../../../components/common/dialog/dialog",
+          "count-timer": "./../../../components/common/count-timer/count-timer",
+          "reward-dialog": "./../../../components/pages/order/reward-dialog/reward-dialog",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/webview/common.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/imgwebview.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/webview/tripartite.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/index/luckySend/luckySend.html": {
+      "window": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "幸运送",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/confirm/confirm.html": {
+      "window": {
+        "navigationBarTitleText": "确认订单",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "confirm-preset": "./../../../components/pages/confirm/confirm-preset/confirm-preset",
+          "menu-address": "./../../../components/pages/selfMneu/menu-address/menu-address",
+          "product-item": "./../../../components/common/product-item/product-item",
+          "border-dash": "./../../../components/common/border-dash/border-dash",
+          "pay-list": "./../../../components/pages/order/pay-list/pay-list",
+          "recommend": "./../../../components/pages/confirm/recommend/recommend",
+          "distance-dialog": "./../../../components/pages/confirm/distance-dialog/distance-dialog",
+          "pay-card-check": "./../../../components/pages/confirm/pay-card-check/pay-card-check",
+          "pay-rule": "/components/pages/center/pay-rule/pay-rule",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/detail/detail.html": {
+      "window": {
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "guideModal": "../../../components/common/guide-modal/index",
+          "order-detail-title": "./../../../components/pages/order/order-detail-title/order-detail-title",
+          "order-detail-address": "./../../../components/pages/order/order-detail-address/order-detail-address",
+          "order-detail-item": "./../../../components/pages/order/order-detail-item/order-detail-item",
+          "recommend": "./../../../components/pages/confirm/recommend/recommend",
+          "meal-code": "./../../../components/pages/order/meal-code/meal-code",
+          "order-banner": "./../../../components/pages/order/order-banner/order-banner",
+          "reward-dialog": "./../../../components/pages/order/reward-dialog/reward-dialog",
+          "luckin-guide-bar": "../../../components/common/luckin-guide-bar/luckin-guide-bar",
+          "count-timer": "./../../../components/common/count-timer/count-timer",
+          "evaluate": "./../../../components/pages/order/evaluate/evaluate",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/qrcode/qrcode.html": {
+      "window": {
+        "navigationBarTitleText": "取餐码",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/mycomment/mycomment.html": {
+      "window": {
+        "navigationBarTitleText": "我的评价",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/selectcoffeewallet/selectcoffeewallet.html": {
+      "window": {
+        "usingComponents": {
+          "list-switch": "./../../../components/common/list-switch/list-switch",
+          "coupon": "/components/common/coupon/coupon",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/usecoffeewallet/usecoffeewallet.html": {
+      "window": {
+        "navigationBarTitleText": "使用咖啡钱包",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/customerservice/customerservice.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/detailremark/detailremark.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/minipayh5.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/paycenter/paycenter.html": {
+      "window": {
+        "navigationBarTitleText": "支付中心",
+        "usingComponents": {
+          "mini-checkbox": "./../../../components/common/checkbox/checkbox",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/wxvoucher/wxvoucher.html": {
+      "window": {
+        "navigationBarTitleText": "微信卡券",
+        "usingComponents": {
+          "coupon-item": "./../../../components/common/coupon-item/coupon-item",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/dispatchcoupon/dispatchcoupon.html": {
+      "window": {
+        "navigationBarTitleText": "选择配送券",
+        "usingComponents": {
+          "chose-coupon-item": "/components//common/chose-coupon-item/chose-coupon-item",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/order/confirmh5/confirmh5.html": {
+      "window": {
+        "navigationBarTitleText": "确认订单",
+        "usingComponents": {
+          "pay-list": "./../../../components/pages/order/pay-list/pay-list",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/record/record.html": {
+      "window": {
+        "usingComponents": {
+          "list-switch": "./../../../components/common/list-switch/list-switch",
+          "gift-nav": "./../../../components/pages/giftCard/gift-nav/gift-nav",
+          "record-item": "./../../../components/pages/giftCard/list-item/record/record",
+          "sendwrap": "./../../../components/pages/giftCard/sendwrap/sendwrap",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "历史记录"
+      }
+    },
+    "pages/giftcard/cashList/cashList.html": {
+      "window": {
+        "navigationBarTitleText": "我的礼品卡",
+        "usingComponents": {
+          "tab-bar": "./../../../components/pages/giftCard/tab-bar/tab-bar",
+          "card-item": "./../../../components/pages/giftCard/list-item/card-item/card-item",
+          "loading-tips": "./../../../components/pages/giftCard/loading-tips/loading-tips",
+          "sendwrap": "./../../../components/pages/giftCard/sendwrap/sendwrap",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/cashDetail/cashDetail.html": {
+      "window": {
+        "navigationBarTitleText": "礼品卡详情",
+        "usingComponents": {
+          "card-item": "./../../../components/pages/giftCard/list-item/card-item/card-item",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/recordDetail/recordDetail.html": {
+      "window": {
+        "usingComponents": {
+          "coupon": "/components/common/coupon/coupon",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "幸运送详情"
+      }
+    },
+    "pages/giftcard/giftcardmain/giftcardmain.html": {
+      "window": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "选择礼品卡",
+        "usingComponents": {
+          "list-switch": "./../../../components/common/list-switch/list-switch",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/pickgiftcard/pickgiftcard.html": {
+      "window": {
+        "navigationBarTitleText": "选择祝福语",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/pickcoffee/pickcoffee.html": {
+      "window": {
+        "navigationBarTitleText": "定制礼品卡",
+        "enablePullDownRefresh": true,
+        "usingComponents": {
+          "list-switch": "./../../../components/common/list-switch/list-switch",
+          "coupon": "/components/common/coupon/coupon",
+          "agreement": "./../../../components/pages/giftCard/agreement/agreement",
+          "decrease-add-btn": "./../../../components/common/decrease-add-btn/decrease-add-btn",
+          "recharge-panel": "./../../../components/pages/giftCard/recharge-panel/recharge-panel",
+          "pay-bar": "./../../../components/pages/giftCard/pay-bar/pay-bar",
+          "pay-list": "./../../../components/pages/order/pay-list/pay-list",
+          "custon-toast": "./../../../components/common/custon-toast/custon-toast",
+          "sendwrap": "./../../../components/pages/giftCard/sendwrap/sendwrap",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/receivecard.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/trade/tradecard/tradecard.html": {
+      "window": {
+        "navigationBarTitleText": "购买礼品卡",
+        "usingComponents": {
+          "agreement": "./../../../../components/pages/giftCard/agreement/agreement",
+          "decrease-add-btn": "./../../../../components/common/decrease-add-btn/decrease-add-btn",
+          "swiper-card": "./../../../../components/pages/giftCard/swiper-card/swiper-card",
+          "recharge-panel": "./../../../../components/pages/giftCard/recharge-panel/recharge-panel",
+          "pay-bar": "./../../../../components/pages/giftCard/pay-bar/pay-bar",
+          "pay-list": "./../../../../components/pages/order/pay-list/pay-list",
+          "custon-toast": "./../../../../components/common/custon-toast/custon-toast",
+          "navbar": "../../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/trade/cardsuccess/cardsuccess.html": {
+      "window": {
+        "navigationBarTitleText": "购买成功",
+        "usingComponents": {
+          "sendwrap": "./../../../../components/pages/giftCard/sendwrap/sendwrap",
+          "navbar": "../../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/giftcard/trade/cardfail/cardfail.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/info/info.html": {
+      "window": {
+        "navigationBarTitleText": "个人资料",
+        "navigationBarBackgroundColor": "#f4f4f4",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/supplement/supplement.html": {
+      "window": {
+        "navigationBarTitleText": "完善资料",
+        "backgroundColor": "#dddddd",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/addresslist/addresslist.html": {
+      "window": {
+        "navigationBarTitleText": "收货地址",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/addressedit/addressedit.html": {
+      "window": {
+        "navigationBarTitleText": "添加地址",
+        "usingComponents": {
+          "ds": "./../../../components/common/switch/switch",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/addresssearch/addresssearch.html": {
+      "window": {
+        "navigationBarTitleText": "选择地址",
+        "navigationBarBackgroundColor": "#F5F5F5",
+        "usingComponents": {
+          "select-query": "/components/pages/address/select-query/select-query",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/balancelist/balancelist.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "余额明细",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/member/balance/balance.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "账户余额"
+      }
+    },
+    "pages/member/personqr/personqr.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "个人二维码"
+      }
+    },
+    "pages/member/noticeManage/noticeManage.html": {
+      "window": {
+        "navigationBarTitleText": "通知管理",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/subscribeDetail/subscribeDetail.html": {
+      "window": {
+        "navigationBarTitleText": "通知管理",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/member/invitationpeople/invitationpeople.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/agreement/pay/pay.html": {
+      "window": {
+        "navigationBarTitleText": "支付协议",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/agreement/member/member.html": {
+      "window": {
+        "navigationBarTitleText": "用户协议",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/pmallPicture/pmallPicture.html": {
+      "window": {
+        "navigationBarTitleText": "生成美图",
+        "usingComponents": {
+          "product-pictrue": "./../../../components/common/product-pictrue/product-pictrue",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/UVAH5/UVAH5.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/beautifulpic/beautifulpic.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "生成美图"
+      }
+    },
+    "pages/share/introduce/introduce.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/ladder/ladder.html": {
+      "window": {
+        "navigationBarTitleText": "送好友100元抵用金",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/inviter/inviter.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/inviterReg/inviterReg.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/saveImage/saveImage.html": {
+      "window": {
+        "navigationBarTitleText": "保存图片",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/limited/limited.html": {
+      "window": {
+        "usingComponents": {
+          "limited-coupon": "/components/common/limited-coupon/limited-coupon",
+          "count-timer": "/components/common/count-timer/count-timer",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/inviteReward/inviteReward.html": {
+      "window": {
+        "navigationBarTitleText": "",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/fission/fission.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/share/redPacket/redPacket.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/invoice/invoicemanage/invoicemanage.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "发票管理"
+      }
+    },
+    "pages/invoice/invoicelist/invoicelist.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/invoice/invoicedetail/invoicedetail.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "发票详情"
+      }
+    },
+    "pages/invoice/createinvoice/createinvoice.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "开票信息"
+      }
+    },
+    "pages/invoice/invoicerecord/invoicerecord.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "发票记录",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/invoice/invoicehead/invoicehead.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "发票抬头"
+      }
+    },
+    "pages/invoice/headedit/headedit.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "添加发票抬头"
+      }
+    },
+    "pages/invoice/invoiceimg/invoiceimg.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "发票预览"
+      }
+    },
+    "pages/address/selectMachine/selectMachine.html": {
+      "window": {
+        "navigationBarTitleText": "瑞划算",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/address/storedetail/storedetail.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        },
+        "navigationBarTitleText": "门店详情"
+      }
+    },
+    "pages/address/select/select.html": {
+      "window": {
+        "navigationBarTitleText": "配送方式",
+        "navigationBarBackgroundColor": "#F5F5F5",
+        "usingComponents": {
+          "list-switch": "/components/common/list-switch/list-switch",
+          "select-query": "/components/pages/address/select-query/select-query",
+          "select-item": "/components/pages/address/select-item/select-item",
+          "address-item": "/components/pages/address/address-item/address-item",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/address/city/city.html": {
+      "window": {
+        "navigationBarTitleText": "选择城市",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/list/list.html": {
+      "window": {
+        "navigationBarTitleText": "我的优惠券",
+        "enablePullDownRefresh": true,
+        "usingComponents": {
+          "guideModal": "./../../../components/common/guide-modal/index",
+          "count-timer": "./../../../components/common/count-timer/count-timer",
+          "list-switch": "./../../../components/common/list-switch/list-switch",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/choseCoupon/choseCoupon.html": {
+      "window": {
+        "enablePullDownRefresh": true,
+        "usingComponents": {
+          "chose-coupon-item": "/components//common/chose-coupon-item/chose-coupon-item",
+          "list-switch": "./../../../components/common/list-switch/list-switch",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "pay-rule": "/components/pages/center/pay-rule/pay-rule",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/wallet/wallet.html": {
+      "window": {
+        "navigationBarTitleText": "咖啡钱包",
+        "usingComponents": {
+          "wallet-explain": "./../../../components/pages/wallet/wallet-explain/wallet-explain",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/walletbuy/walletbuy.html": {
+      "window": {
+        "usingComponents": {
+          "wallet-explain": "./../../../components/pages/wallet/wallet-explain/wallet-explain",
+          "pay-list": "./../../../components/pages/order/pay-list/pay-list",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/walletdetail/walletdetail.html": {
+      "window": {
+        "navigationBarTitleText": "咖啡钱包",
+        "usingComponents": {
+          "wallet-explain": "./../../../components/pages/wallet/wallet-explain/wallet-explain",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/walletorderresult/walletorderresult.html": {
+      "window": {
+        "navigationBarTitleText": "",
+        "usingComponents": {
+          "sendwrap": "./../../../components/pages/giftCard/sendwrap/sendwrap",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/switchOpen/switchOpen.html": {
+      "window": {
+        "navigationBarTitleText": "券过期提醒",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/receive.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#fff",
+        "usingComponents": {
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate",
+          "navbar": "../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "send-coupon": "plugin://wxf3f436ba9bd4be7b/send-coupon"
+        }
+      }
+    },
+    "pages/coupon/sendCoupon/sendCoupon.html": {
+      "window": {
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "send-coupon-list": "./../../../components/pages/coupon/send-coupon-list/send-coupon-list",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "send-coupon": "plugin://wxf3f436ba9bd4be7b/send-coupon"
+        }
+      }
+    },
+    "pages/coupon/weChatCoupon/weChatCoupon.html": {
+      "window": {
+        "usingComponents": {
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "send-coupon": "plugin://wxf3f436ba9bd4be7b/send-coupon"
+        }
+      }
+    },
+    "pages/coupon/couponSuccess/couponSuccess.html": {
+      "window": {
+        "navigationBarTitleText": "购买成功",
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/coupon/couponCenter/couponCenter.html": {
+      "window": {
+        "navigationStyle": "custom",
+        "usingComponents": {
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate",
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "send-coupon": "plugin://wxf3f436ba9bd4be7b/send-coupon"
+        }
+      }
+    },
+    "pages/living/index/index.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/living/room/room.html": {
+      "window": {
+        "usingComponents": {
+          "navbar": "../../../components/common/navbar/index",
+          "empty-page": "/components/common/empty-page/empty-page",
+          "page-wrap": "/components/common/page-wrap/page-wrap",
+          "subscriptionTemplate": "/components/common/subscriptionTemplate/subscriptionTemplate"
+        }
+      }
+    },
+    "pages/living/__plugin__/wx2b03c6e691cd7370/pages/live-player-plugin.html": {
+      "window": {
+        "usingComponents": {
+          "page-live-player": "../wxlive-components/page-live-player/page-live-player",
+          "page-live-replay": "../wxlive-components/page-live-replay/page-live-replay",
+          "page-live-record": "../wxlive-components/page-live-record/page-live-record",
+          "component-profile-card": "../wxlive-components/profile-card/profile-card",
+          "component-person-operation": "../wxlive-components/person-operation/person-operation",
+          "component-comments": "../wxlive-components/comments/comments",
+          "component-store-list": "../wxlive-components/store-list/store-list",
+          "component-profile-modal": "../wxlive-components/profile-modal/profile-modal",
+          "component-barrage-list": "../wxlive-components/barrage-list/barrage-list",
+          "component-goods-push": "../wxlive-components/goods-push/goods-push",
+          "component-coupon-push": "../wxlive-components/coupon-push/coupon-push",
+          "component-push-comment": "../wxlive-components/push-comment/push-comment",
+          "component-end-block": "../wxlive-components/end-block/end-block",
+          "component-subscribe-card": "../wxlive-components/subscribe-card/subscribe-card",
+          "component-forbid-user-list": "../wxlive-components/forbid-user-list/forbid-user-list",
+          "component-lottery": "../wxlive-components/lottery/lottery",
+          "component-lottery-oper": "../wxlive-components/lottery-oper/lottery-oper",
+          "component-lottery-fill-phone": "../wxlive-components/lottery-fill-phone/lottery-fill-phone",
+          "component-comment-action-sheet": "../wxlive-components/comment-action-sheet/comment-action-sheet",
+          "component-top-player": "../wxlive-components/top-player/top-player",
+          "component-operate-paster": "../wxlive-components/operate-paster/operate-paster",
+          "component-attention-guide": "../wxlive-components/attention-guide/attention-guide",
+          "component-setting-more": "../wxlive-components/setting-more/setting-more",
+          "component-mic-tag": "../wxlive-components/mic-tag/mic-tag",
+          "component-mic-panel": "../wxlive-components/mic-panel/mic-panel",
+          "component-mic-system-msg": "../wxlive-components/mic-system-msg/mic-system-msg",
+          "component-activity-nudge": "../wxlive-components/activity-nudge/activity-nudge",
+          "component-share-panel": "../wxlive-components/share-panel/share-panel",
+          "component-notice-toptips": "../wxlive-components/notice-toptips/notice-toptips",
+          "component-advance-detail": "../wxlive-components/advance-detail/advance-detail",
+          "component-advance": "../wxlive-components/advance/advance",
+          "mp-icon": "../miniprogram_dist/icon/icon"
+        },
+        "navigationStyle": "custom",
+        "backgroundColor": "#333",
+        "disableScroll": true,
+        "style": "v2",
+        "navigationBarTextStyle": "white",
+        "singlePage": {
+          "navigationBarBackgroundColor": "#000000",
+          "navigationBarBackgroundAlpha": 0,
+          "navigationBarTextStyle": "white"
+        },
+        "pageOrientation": "portrait",
+        "handleWebviewPreload": "manual",
+        "__warning__": "无效的 page.json singlePage[\"navigationBarBackgroundColor\"]、page.json singlePage[\"navigationBarBackgroundAlpha\"]、page.json singlePage[\"navigationBarTextStyle\"]、page.json [\"handleWebviewPreload\"]"
+      }
+    },
+    "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/address-preview/address-preview.html": {
+      "window": {
+        "usingComponents": {
+          "mp-msg": "../../../miniprogram_dist/msg/msg",
+          "mp-navigation-bar": "../../../miniprogram_dist/navigation-bar/navigation-bar"
+        },
+        "navigationStyle": "custom",
+        "disableScroll": true,
+        "style": "v2"
+      }
+    },
+    "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-comment/complaint-comment.html": {
+      "window": {
+        "usingComponents": {
+          "mp-msg": "../../../miniprogram_dist/msg/msg",
+          "mp-checkbox-group": "../../../miniprogram_dist/checkbox-group/checkbox-group",
+          "mp-checkbox": "../../../miniprogram_dist/checkbox/checkbox",
+          "mp-cells": "../../../miniprogram_dist/cells/cells",
+          "mp-navigation-bar": "../../../miniprogram_dist/navigation-bar/navigation-bar"
+        },
+        "navigationStyle": "custom",
+        "disableScroll": true,
+        "style": "v2"
+      }
+    },
+    "pages/living/__plugin__/wx2b03c6e691cd7370/wxlive-components/ext-player/complaint-room/complaint-room.html": {
+      "window": {
+        "usingComponents": {
+          "mp-msg": "../../../miniprogram_dist/msg/msg",
+          "mp-checkbox-group": "../../../miniprogram_dist/checkbox-group/checkbox-group",
+          "mp-checkbox": "../../../miniprogram_dist/checkbox/checkbox",
+          "mp-cells": "../../../miniprogram_dist/cells/cells",
+          "mp-navigation-bar": "../../../miniprogram_dist/navigation-bar/navigation-bar"
+        },
+        "navigationStyle": "custom",
+        "disableScroll": true,
+        "style": "v2"
+      }
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于为您找到服务门店"
+    }
+  },
+  "global": {
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#f5f5f5",
+      "navigationBarTitleText": "luckin coffee",
+      "navigationBarTextStyle": "black",
+      "enablePullDownRefresh": false,
+      "backgroundColor": "#fff",
+      "navigationStyle": "default"
+    }
+  },
+  "networkTimeout": {
+    "request": 15000
+  },
+  "plugins": {
+    "sendCoupon": {
+      "version": "1.1.7",
+      "provider": "wxf3f436ba9bd4be7b",
+      "subpackage": "__APP__"
+    },
+    "live-player-plugin": {
+      "version": "1.2.8",
+      "provider": "wx2b03c6e691cd7370",
+      "subpackage": "/pages/living/"
+    }
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#333999",
+    "backgroundColor": "#fff",
+    "list": [{
+      "text": "首页",
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAh1BMVEUAAABmZmZmZmZmZmZvb291dXVmZmZubm5mZmZnZ2dnZ2dqampnZ2dnZ2dnZ2dpaWlmZmZnZ2dmZmZoaGhra2tnZ2dnZ2dmZmZnZ2dpaWlnZ2dqampnZ2dnZ2doaGhnZ2dmZmZnZ2dmZmZnZ2dnZ2dnZ2dpaWlmZmZnZ2doaGhnZ2dpaWlmZmZ4FhTFAAAALHRSTlMAVaroFwX7C6PSfRnJX7Up9+7jNBOHc/LCPywf2btM34+NbVNImiLclVhFPdjIQkgAAAIISURBVFjD7ZbbboMwDIYzOggFAqVAWwql5dAz7/98s0Eq0hYOodE0aflvQLHyKbEd20RJSUlJ6Y/JDmypuMiv69qPpEE3q7rVaiOF5zkIWzgL/Dje2zzdMgC0fMDvYwl/hqW/BwxelI4evHPAyHjdtPOAEc0+5jNtovEzSulzFo/eatDh8m35csDlGxUHVmvYuGUcC9uCZV0J8kKzBrk2P+FdNJqhCLBcYAree+33xl5Of3Rae4bRO2gTnyXz0U8ZGVaGfvbZBF7SxPI8Hkt6bnIhISMqMJDXmExRfMV0KIarwg7fRE6npmyOb2rnjZStZSD07oeKnG52VUGwNpn8TRFWhT0R1R6rR8S1GJBg+pwKpcHVeCc5gY8BOAcJ8Txx1sHHMZmnGOLJWYZEpDOJFNKSswz+FWd1e3+L6LimeFtKNtG5j4j6ECZ+wC4+0ZBOJPRymEl0siDhG7V+YhiE/UQNPoLEeIlFKZZHrOpWlSyiDi3Fd3xoProk4h5YIQmBu5dELGFPay1lELs9aFVERVTECcQMJnL4wPSdSSLaMIUwj0HbsOUQ8XStXCKLaKcNMLWFiTBAMq6BWm7qWpRrYzA+9gFxPMuJqPJuMONe4EgFgfQ41JKp3zsAk4FR2x84RYFNlHmfU+UxbLsFGZBZi8skg7JWgryVNTq8WbvjYqqOOyshSv9WX6ymZQ+yBGwJAAAAAElFTkSuQmCC",
+      "pagePath": "pages/index/home.html",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAbFBMVEUAAAAzOZk0OZozOZozOZkzOZozOZozOZkzOZk0OZo0Opo4O502PZwzOpo8QKQzOZo0OZozOZo0Opo0O5s1O5o5R5w2XqEzOpk0O500Opo0OpozOpo0Opk0O5s1PJw2O5s1O5o3PZ5AQJ8zOZki6yHAAAAAI3RSTlMAquj67sai9OKHbR8ZUwzSrY99XzQSBLon2bWVgHVIPSsqCLOHNi8AAAEvSURBVFjD7dfHbsQgFIVhbIrBvY49vdz3f8dYSqRECYzhwmKU4d8ivg3SkSCxWCwWe7HKsQzKKQYATAVD8ww+y/Ig3p3Dd/zu7e16Cj+j/c4PHBv4XTN6eA9F4W9UPbDgdQ/69leUVx/B3LF2By8SniUvjt4kYCsxuYBVCtullbVXtmBXW9qBAwPb2GDhFTO4NBcWq2CZ3XosHNzjixk8U8BEz6aZEYBN6AdJAT6lA2/g000jdl5ipxEbL7HRiJmXmGlE8CuKX9HgIqmLGanxajSMWoIUk/XuvxQZZ2FFOZFJBhXb9bRFiuY7SRSjGEVr8bCeHoKKdFgG+ur7iBQFUhRGsUOKnVGskGJlFGuGAllNjOUo8en/Q2DfxVxPHT3ak42KE5epbZKfChJ72z4AOBFuMVmSugwAAAAASUVORK5CYII="
+    }, {
+      "text": "菜单",
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAApVBMVEUAAABoaGhnZ2dmZmZmZmZnZ2dnZ2dmZmZmZmZubm5nZ2dnZ2dnZ2dnZ2dnZ2dpaWlsbGyYmJhmZmZnZ2dnZ2dmZmZnZ2dnZ2dqampmZmZmZmZoaGhoaGhoaGhnZ2dmZmZnZ2dmZmZqampnZ2doaGj///9mZmakpKTy8vJoaGiMjIxtbW2bm5t9fX37+/vh4eG7u7uysrKlpaWHh4d3d3fr6+vq6upJMFwgAAAAJXRSTlMATLj4827t59oJrcyOfWUVEQOvOS2SXEQe4oVgUBuqob++KVcg9Lqd0wAAAjRJREFUWMPtl2eP2kAQht1tMBiDKUc5uLQXrwvtuPz/n5bZtRKkyG3xSlFOfr54Pz2a8WyZ0Xp6enpU8zIcvqg1DoGhWuMaMJQKXwEslBoXZFyqFK5I6E4VFjdyyGhrHTEexd1ZJDRU5DkrljajtRd2FH51yaKL5QiEP+kaofMnzzH4ctDNNxVhrUVYOxCLjmWefAHhfRfyNS03WjcGvsiz+HEBnjnPeAr1xpW92exClUaBE1QZ86MU+cO5rTAef0hxfBjNiTIj8/dil9nKjDy2A99myoy/D5Sn1Bjxcis16sqNNn19pcYFv5aVGvnFNFZpjEDMVRoPZZuHYwKZnDEDTHqLWFnSHAdI5IyJ2DR7ElphmdEDcjljzrPVQWyq3vpUzpgCRujyEMsfXf7yfcgIfwIYzUAEpUIR/kXGeAGwR03nMrCARLIwJgirso+mBFjcXhgzFKy0KrYAru2NVxD17V9Iaadx6xBTEA1NNO+Wbm2NNwhG9Y2JC7BzO+GZgTPW6uHtzT1ulfMdhBk09ne8e3o/NQtP7yC8eYt5hZ+p7NQozEAcWvWnkcmjjBtSFhF+09qxBHE/1xblDqlBacmjZLe4MsAb4zUhYWsiF0R6jUt91xSEG8mNkz44LLn8dbl9XBIGjv8qOyQELgrSPMmOgizJUxS4wVSTZjC2UIE1fnKoCbczq0Q324Zd5g99ZHiOCYHpeMZIH2g9n4y5XstcWmijAVvW+IYG3v59jM3/sed/5Bd8hDwc/GruogAAAABJRU5ErkJggg==",
+      "pagePath": "pages/index/menu.html",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAe1BMVEUAAAA2OZo0OZozOZo4Pp4zOZkzOpkzOpo1OpszOZkzOpozOZozOZk3Pp07QKIzOZozOZozOpkzOZk0O5o0Ops0PZpAVao0OpozOZkzOZo1Ops0O5ozOZk0OZozOpkzO5o1Ops7Sp00Opk0Ops0Opk4PptERKEzOZkzOZleNvhNAAAAKHRSTlMATLj3He3nfl6PbPrMFRHy3K+uT0YtCKvivmY3oZOIZD0K2HJVKQzVoef4MQAAAZZJREFUWMPt1lmOm1AQheFqZgNmMBg8ddvuKf/+VxiaB+fFDPdSUpSIbwFHVZwrUbJarVbavN3OE1U72ImqAzi6SwOvomkDRKKoTiBoFpfbPso9+8CHLOT8KbdyUeilBkrpxXTeM1nmKwDqRymk26UT+o89QzrOtyzzRufQj1Wh8BK3RzpF33RzAN5kmSal42zlxxVoxRRW9BNvH2FYZZqJPf+qmtiL1BPdrV5i2h7pxGqJP7NdAEf19XwCv1QTb4CvmlirJ8ZAqpr4CpSqiQcg1Ey80dlrJl6AQp5IsJCIfDGwtPhY8EVaIM/kiQILhbww+MNwsOBkAZBvB64kC5uSzlWeqrDQMnK5NC7GXDq5JwNKrCS1DImwEsugLLfqRkaE2oFyDzAVyrgTZtyTTEkx8b6XSZ7J3pdvmeHsMlPyKfNE1pfOcKTLDG4k850DJgVnMeGlTEg9MXQKGBGcxNw9zBmQh3exkkWl+6SQMsrEXlNtnMJP6CV+4WyqRlb/mf3LqL2YipkQi6EjE45/f8bp77j6F/0GEFdO8tyDOlIAAAAASUVORK5CYII="
+    }, {
+      "text": "订单",
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAWlBMVEX///9mZmakpKTr6+u4uLjw8PCzs7N1dXXR0dHLy8u7u7uenp6NjY1ubm5qamr5+fnz8/Pa2trX19etra2UlJSMjIyGhoZ+fn5xcXH29vbh4eHCwsKnp6eKiootBHZeAAAA/klEQVRYw+3USZaDMAxF0f9pynQmQOjS7X+bRWY1wIqVTKgT3QW8YxkjGGOMiZWX1U+cqswjev2DGo8eL9ypdYeopl4NQcXNfLvmca63mZsKQZ0nmUEjI+k78Yg1dGrxkA3ZXqBzackGIY6coTWTDiHC0PLYUjGBVmJFK1rxjzLbUX5QPHPX+f1iw13N+8Wi5Y62+OAeT+mO07G+tRWteKAXHvoLj7QpQtvsSBv3X7weK1oxsujJEVoj6RGykA5ajlzEAQroFOJVDSRdB43OkRwQND2TheaEz+CEsHTlxo1JnNFxs6YQ9Cu11h6idKLOlOKVIVk84/glGWDMd/kFCmcMxqlRVXAAAAAASUVORK5CYII=",
+      "pagePath": "pages/index/order/list.html",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAQlBMVEX///8zOZmSlchOU6aZnMzLzOU8Qp5larOjptJ5fbxDSaH4+Pvi4/Ggo8+EiMJzd7lTWKnv8Pfq6/XOz+e5u9yKjcUBVvhTAAAAxElEQVRYw+3XiQ3DIAxAUdPW5ggh5Np/1S6ACbitRBX/AZ6QMJYATdM0rbXtcK+23LE1eGhNTxavwNP0dtZBb/rzNdAZSY4HVxKJtAqOKD2kFYqWFYNQDKxopKmoooq/E/2jkP9AnKHYLBcRiqFcXCYoNC1y0dCzEI111yqqONCEc69wpE3BbbORNu5fTI+KKjaKJASJFbNQzKyYhGJiRRSKCF/+GFrgi0EAhgiV9tAP7lAt2k7QRrgKU6ZGjXJC0LR79QZZAw+o/A74nQAAAABJRU5ErkJggg=="
+    }, {
+      "text": "购物车",
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAn1BMVEX///9mZmby8vKzs7Ovr6/9/f3Z2dmrq6uGhoZvb29qamrf39/Ozs7FxcW9vb35+fnJycmioqJ5eXnu7u7h4eGBgYFxcXFsbGz29vb09PSwsLCenp6ZmZmWlpb7+/vc3Nympqafn5+bm5uTk5OJiYl1dXXq6urp6enU1NTAwMC5ubm2trZ9fX10dHSPj4+Dg4Pn5+fl5eXCwsLBwcGNjY02XLJ2AAACOklEQVRYw+2X246qQBBFu0DkJiAoeEEUBe869///tlMET2Imk+5N0k8zrBdeVnZLUV3dip6enp5fh+0S0T4/aAscUYs70pUY0gNvqilxcqcHqaUp0gjCMKyIGQqdbDnR1pq44URHa+KcE2dNIQ/FjNR4t0rZGwl7R37GhBIrEgt2mmVNgvmQJy5ZMflpDS+mmpyYvbzdxqysOvSGut3e2bjhieuM/VCqWB4rER6ZsH6RKykrfqduo0Du5K0C7wj1D7h02odnUhfpxMoLnFiynajGGjt3OLFmu1BJzX6eo4luuyHkvLKEzvEDMcpZsWJpDJ9O7WBBdjbGtR1+CgK2cjCxeR9H6xi/qecjY7CVgXOCmBDriAWUOAWPTgeeFQFhi+/g9rGbCQ54ePu8gDNgzN4OSryDc8pH28cgsD4L9lwkcUjoCMhYNMAP462FwNpnA1THY+9VIsBHTTSZnsbhYOURM4ASTTaX386842YUXO28cpIZPZE8VQe6VwzPZrn7Svce/Uz2JiD8//XZkpx40uFYd9t++xE3caqtHZ7aN4b3Ai8fPZUsu9VFvAzHp+lkLbpTP4aUX+5K8zwavhuWhvt9IHRyBRsNZ9S2j0aOnOhOtEYmTWQxQPiIwELi1FCi9UU4ByzynHoE4cYCxTIQFuJX4VdpvJDU5OLU3TbqW/NhHEt6TaDPLok2NfjS85LSLoklSe9d1oye/3fAp/s+kl63yBZd+MwonUouHgV5cSS6MRdSorXo+cv8A/iZHZ7wtAd3AAAAAElFTkSuQmCC",
+      "pagePath": "pages/index/cart/cart.html",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAn1BMVEX///8zOZmUl8rs7fb8/P6nqtSEh8Ly8/nLzea9v96Rlcl+gr9wdLheY69XXKs+Q586QJ03PZubns5iZ7FOU6fv8Pjq6vXk5fLe3+/X2OvU1uq0t9qtsNZ0eLpbYK5KT6VGTKNARqD+/v/5+fz39/vQ0ui4utyxs9iipdGKjcVscLZTWKlCR6HZ2u3HyePGyOOrrtV6fr14fLyNkMZnbLNeC77VAAABqUlEQVRYw+3X2XKCQBCF4R5ZosgqyKKg4L5rTN7/2QKV5C4106dqrgz/A3xVSs/QUF9fX9/L9REIIepxpg0cie+akS7REj9FhSbRqH9J39RETueWZbkdOSSdjVvR0SpuW9HTKr6JtuV5EZ9OoVAXnl3lbCQCzVaIroAr5eIAF5fycduBnHrccoFnSUUzwsUDSfNxca86NXAzuXjAxY1cvMNgQvJSWKxIUYCKE5W4QMWRSnyiYkak92SHK5U4B0WPcY1j2UrRgO8JZQF8l2ken6lafIfAWqHh43NSaPj4OAxxBolz1haAdCVGDQBGJkf0AHHBXND4DVjiBNgn5PON7xWXnFgVTC+yU2CJlBUknjt2rJtB7Oo/ft85ruyBtbsV6Zrw4u503a/G9vg8Th6jYW6YGvb7Pelswhg0/JOu0ipmrdikWsmkmxF3wKnc6D6HImaJ5idAZjzy4Yc8L7CJ28rg9EYv1cz17ankPzl4MXZQ8+7BeKZ8TSgR0VF8qVxEm4+IR/neZYaiLUHEoWhbbuTrlkNIZSP8QvLmqKLIXhOWYnjXJvX9574A7iIZfxjPt4QAAAAASUVORK5CYII="
+    }, {
+      "text": "我的",
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAA/FBMVEUAAABmZmZnZ2doaGhoaGhtbW1xcXFwcHBmZmZnZ2dnZ2dmZmZnZ2dnZ2dnZ2doaGhnZ2dnZ2dmZmZnZ2dnZ2dnZ2doaGhra2tnZ2dmZmZmZmZnZ2dmZmZmZmZnZ2dnZ2dmZmZoaGhmZmZqampra2tnZ2dnZ2dmZmZnZ2dnZ2dmZmZnZ2dmZmZnZ2f///9mZmbz8/NycnLq6urg4OBvb2/Jycm0tLSIiIienp7n5+fa2trS0tK4uLilpaWRkZGDg4N9fX3s7Oz7+/v39/fk5OTb29vMzMzCwsKtra2NjY13d3doaGjw8PDo6OjX19e/v7+8vLyrq6uZmZmTk5OZYSV2AAAALnRSTlMA6Y+EQxEMBfb75siZdVpJPi7u37hhUh95+taTiHBmVUw7MyUZzr+xramioWtoveCIKAAAAt9JREFUWMPt19d24jAQBmCDgVAMmN7LAumJxrjSS+ikJ+//LjuOT3LIIpqcvdnlu5TO/GdsCclwR0dHR/+Nk+RVIOaNBa6SJz+S53ZG4VPU6bYfGHLAKkfIbqATPgx6jd4APjjtvcFrQHV9SExDvQ7o2s7bzANqSOST1ACUZw90AeqQVR1ALtZAj8MKXIt0eBgTg1j8Tv70jqNB9hZVaS1RUpmbTADAK1n3iuMJpsRLgPsHSuLDPcAlU2IUwCA0BkCUJTACADo1UceZCENiGOva1MQ2zoQZF0ahJiqMS5PGuiE1cYgzaYbEAtY1qYlNnCmwHIxY16ImtnAmxHhMaNREjfGwqGFdl5rYxZkaxyALsKQmLgGyzBdCi/Yama8GESt7lMQejosckwCWPq0FPuFogEOMv8OlRL6Tlh+/QUZxLF6MyKrRAsfiHKuaH8sNabVDA0f8NRuXYca8rjXySTMv7IyLsyHsBTTQFYlIij4A5A1ztvxygOUeLI5ftj/NBFgluDn7KkIULFGh8lOfpK5bXuBvXSfc0b/spBoOFYO8U3DywWIoXLW13u4Sf5HNwHeZ7AVfcrO0JvIBH2ziC/DiYc2m8g7YxZFP7Z1Xjn91pxoNfToZy9KIjCR5PJnqDUP96jRe3isvcgaW+ttMJjTy7K0OlrPIzjyP02fFzRWyjTK3Qn1Oz44GY2AytDuyy51mgCm2tU2XF1B/QvYz6QPyurYc2GagOiP7m6lm5MZj3e0375RHcojHgXk5btrxOfOJJXIYyXzy3IZlxmdWZXIoWcXnpi940tw03al8WN60a26j5MY/liZ10X1pN+92bZ5m+6W7UMESpCZWT2FVvd9rzDvPWrulKOOmPJSbY0VptbXnzrzR69dh1WmVoxNzMThcLCduPXWSfNwP+/LH+eReJ5CnUkoL5wG/D+h8/sC5kC5VPAyneCoilkOJ4k0hmA4WboqJUFmMpNzc0dHf8RsbhjNYA6AUJgAAAABJRU5ErkJggg==",
+      "pagePath": "pages/index/member/center.html",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAMAAACdUboEAAAAhFBMVEUAAAA0OZo7QaEzOZk0OZo0Opk0O5o8V6gzOZk0OZo0Opo1Ops1Opw1O503QKEzOZozOZkzOpozOZo0Ops0Opo1OpszOpo0Opk0OZozOZo0OZo0Opo0OZo0Opo0OZo1OpszOpo1PJs1O500PJs3Pps4PJw2P500OZo0Opk0OZo0O5szOZlkpkcfAAAAK3RSTlMA6A76j4ZKBvR1VEM9LhPs5Likbmdhmnne1srGr5OCW1lPOjMlIByXzr9F3MtQtAAAAZhJREFUWMPt11dyrDAQBdAWQuQ4MDA5B9t3//t7X65ykGRo8X5szgK6uupeUDXNZrPZnxGeF9tKVtvFOaQpeH6Ed5HvkbOjwEfiSI58fOWTkwW+W5ADBR1FbG/Qe2OnLKAnuInHMImZxRYwEbyqL2G2dGvOZA0qYVYSQw6bnDExgE3AC2biaHrY9IyJDWwaxsQTbE6MiSlsUsbEB2wexLCG2dr1QZjoachglhHLFiZb4gks3yBTDb2auAoBHVEQWyrxnUzJQRDhqyggJ5cSn5UXclR0+KgryN21K9/36640jTBtVafaNKTZbxbeglMbH/ynf4jbU3BzyrtI1G4t8Zlc71RScFbLDhuYbQ7ZuGXvSuAnQt1pqKDGMHVAQ+SvGO41H3AFSowhf7oU8xXGWlnXTCOMF6WWH3YEjuhibHQFnsrU+D249oaYJbikPvAEfInhsOSLSef2Aq6XG+ll+xXGW+0zsngkqhYYStQqedAA3jXpn7tNJaEnq83u2SdXj0bz7nl2Pi7bpon7uGna5fGc5XePZrP/4x+U7hQhAmBayQAAAABJRU5ErkJggg=="
+    }]
+  },
+  "preloadRule": {
+    "pages/index/order/list": {
+      "network": "all",
+      "packages": ["pages/order"]
+    },
+    "pages/index/sendcoffee/sendcoffee": {
+      "network": "all",
+      "packages": ["pages/giftcard", "pages/share"]
+    },
+    "pages/index/member/center": {
+      "network": "all",
+      "packages": ["pages/giftcard", "pages/member", "pages/share", "pages/coupon", "pages/invoice"]
+    },
+    "pages/index/menu": {
+      "network": "all",
+      "packages": ["pages/coupon", "pages/address"]
+    },
+    "pages/index/cart/cart": {
+      "network": "all",
+      "packages": ["pages/coupon", "pages/order"]
+    },
+    "pages/index/productDetail/productDetail": {
+      "network": "all",
+      "packages": ["pages/coupon", "pages/order"]
+    },
+    "pages/index/productPlan/productPlan": {
+      "network": "all",
+      "packages": ["pages/coupon", "pages/order"]
+    }
+  }
+}
