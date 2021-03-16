@@ -60,11 +60,11 @@ const service = ServiceRuntime.sharedServiceRuntime()
 service.WeixinJSCore.on('getSystemInfo', (data: any) => {
   WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
     errMsg: 'getSystemInfo:ok',
+    ...service.context.config.system
   })
 });
 
 service.run(() => {
-  debugger;
   service.publish({
     name: 'appserviceready'
   })

@@ -1405,17 +1405,19 @@
       this.onMessage = (message) => {
         switch (message.type) {
           case MessageType.CALLBACK: {
+            this.emit(message.name, message);
             break;
           }
           case MessageType.INVOKE: {
+            this.emit(message.name, message);
             break;
           }
           case MessageType.PUBLISH: {
+            this.emit(message.name, message);
             break;
           }
           case MessageType.SUBSCRIBE: {
-            const {name} = message;
-            debugger;
+            this.emit(message.name, message);
             break;
           }
         }
@@ -1536,11 +1538,11 @@
   var service = ServiceRuntime.sharedServiceRuntime();
   service.WeixinJSCore.on("getSystemInfo", (data) => {
     WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
-      errMsg: "getSystemInfo:ok"
+      errMsg: "getSystemInfo:ok",
+      ...service.context.config.system
     });
   });
   service.run(() => {
-    debugger;
     service.publish({
       name: "appserviceready"
     });

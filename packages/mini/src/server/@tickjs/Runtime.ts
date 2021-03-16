@@ -47,25 +47,30 @@ export class Runtime extends TinyEmitter {
   }
 
   onMessage = (
-    message: SubscribeMessage | 
+    message: SubscribeMessage |
       InvokeCallbackMessage | 
       InvokeMessage | 
       PublishMessage
   ) => {
+    
     switch (message.type) {
       case MessageType.CALLBACK: {
+        this.emit(message.name, message);
         break;
       }
 
       case MessageType.INVOKE: {
+        this.emit(message.name, message);
         break;
       }
 
       case MessageType.PUBLISH: {
+        this.emit(message.name, message);
         break;
       }
 
       case MessageType.SUBSCRIBE: {
+        this.emit(message.name, message);
         break;
       }
     }
