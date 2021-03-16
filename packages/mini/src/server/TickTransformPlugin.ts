@@ -1,18 +1,24 @@
+import webpack from 'webpack';
+
 
 import { TickProj } from './TickProj';
 
 class TransformFiles extends Map {
   async resolve (id: string) {
     if (this.has(id)) {
-      return this.get(`${id}_cached`) || 
-        (await this.wait(id));
+      return this.get(`${id}_transformed`) || 
+        (await this.transform(id));
     }
   }
 
-  async wait (id: string) {
+  async transform (id: string) {
     const source = await this.get(id);
+
+    webpack({
+      entry: []
+    })
     
-    this.set(`${id}_cached`, source);
+    this.set(`${id}_transformed`, source);
 
     return source;
   }

@@ -22,7 +22,7 @@ export default async function App (config: TickConfig) {
   const app: express.Express = await vite(config as ViteOptions);
   const router: express.Router = express.Router();
 
-  await proj.importConfig();
+  await proj.config();
   
   isMiniConfigIllegal(proj.mini as TickMiniConfig);
 

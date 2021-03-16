@@ -34,7 +34,7 @@ export class TickProj {
     this.mini = mini;
   }
 
-  async importConfig () {
+  async config () {
     const { root, files, cache } = this.mini;
 
     const filepath = resolve(<string>root, (<TickAppProjFiles>files).config);
