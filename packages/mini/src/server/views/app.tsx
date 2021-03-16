@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 import TickApp from './component/TickApp';
-import AppView from './component/AppView';
+import AppView from './component/AppView/View';
 
 function App() {
   return (
     <Router>
-      <Route path="/" component={TickApp} />
+      <Route path="/" exact component={TickApp} />
       <Route path="/view" component={AppView} />
     </Router>
   )

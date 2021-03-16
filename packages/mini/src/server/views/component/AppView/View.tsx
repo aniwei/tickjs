@@ -1,9 +1,9 @@
+import React from 'react';
 import { View } from 'react-native-web'
 import { useScript } from '../../hooks/useScript';
 import { useConfig } from '../../hooks/useConfig';
 
 export default function AppView (props) {
-  debugger;
   const { context, route } = props;
   const config = useConfig(context.config);
 

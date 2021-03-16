@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useMemo, useContext } from 'react';
+import React, { useRef } from 'react';
 import { View } from 'react-native-web';
-import { useOnceMessage } from '../../hooks/useOnceMessage';
-import { AppContext } from '../TickApp/AppContext';
 
-import { useFocus, useDistory, useInit, useCreate } from '../../hooks/useNavigator';
+import { useFocus, useDistroy, useInit, useReady } from '../../hooks/useNavigator';
 
 
 export function UINavigationController (props) {
-  const { navigator } = useContext(AppContext);
   const { navigation, route } = props;
   const { __TYPE } = route.params || {};
   const ref = useRef();
@@ -19,9 +16,9 @@ export function UINavigationController (props) {
     __TYPE
   });
 
-  useCreate(nav);
+  useReady(nav);
   useFocus(nav);
-  useDistory(nav);
+  useDistroy(nav);
 
   return (
     <View style={{ flex: 1, display: 'flex' }}>

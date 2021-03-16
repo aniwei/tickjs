@@ -1,13 +1,15 @@
 import URL from 'url-parse';
 import qs from 'qs';
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, useContext } from 'react';
 
-import AppRuntime from '../../@tickjs/AppRuntime'
+import AppRuntime from '/@tickjs/AppRuntime'
 import { usePackageLoader } from './usePackageLoader';
+
+import { AppContext } from '../component/TickApp/AppContext'
 
 function getJSBridgeHandler (ref) {
   return {
-    subscribeHandler (...args) {
+    subscribeHandler (...args: any) {
       const WeixinJSBridge = ref.current ? 
         ref.current.contentWindow.WeixinJSBridge : null;
       
@@ -15,7 +17,7 @@ function getJSBridgeHandler (ref) {
         WeixinJSBridge.subscribeHandler(...args);
       }
     },
-    invokeCallbackHandler (...args) {
+    invokeCallbackHandler (...args: any) {
       const WeixinJSBridge = ref.current ? 
         ref.current.contentWindow.WeixinJSBridge : null;
       if (WeixinJSBridge) {
@@ -68,6 +70,10 @@ export function useNavigator (runtime: AppRuntime, config: any) {
         navigator.focus(nav);
       }
 
+      ready (nav: Navigator) {
+        navigator.ready(nav);
+      }
+
       distroy (nav: Navigator) {
         navigator.distroy(nav);
       }
@@ -83,26 +89,26 @@ export function useNavigator (runtime: AppRuntime, config: any) {
         return new Navigator(this.id++, nav);
       }
 
-      has = (navigator: Navigator): boolean => {
-        return super.has(navigator.id);
+      has = (nav: Navigator): boolean => {
+        return super.has(nav.id);
       }
 
-      set = (navigator: Navigator) => {
-        super.set(navigator.id, navigator);
+      set = (nav: Navigator) => {
+        super.set(nav.id, nav);
         return this;
       }
 
-      get = (navigator: Navigator | number) => {
-        if (navigator instanceof Navigator) {
-          return super.get(navigator.id);
+      get = (nav: Navigator | number) => {
+        if (nav instanceof Navigator) {
+          return super.get(nav.id);
         }
 
         return super.get(navigator);
       }
 
-      delete = (navigator: Navigator) => {
-        if (navigator instanceof Navigator) {
-          return super.delete(navigator.id);
+      delete = (nav: Navigator) => {
+        if (nav instanceof Navigator) {
+          return super.delete(nav.id);
         }
 
         return super.delete(navigator);
@@ -122,7 +128,7 @@ export function useNavigator (runtime: AppRuntime, config: any) {
         }
       }
 
-      create (nav: Navigator, { path, query }) {
+      ready (nav: Navigator) {
         
       }
 
@@ -177,9 +183,9 @@ export function useInit ({ navigation, route, ref, __TYPE }) {
   }, [navigation]);
 }
 
-export function useCreate (nav) {
+export function useReady (nav) {
   useEffect(() => {
-    nav.create();
+    nav.ready();
   }, [nav])
 }
 
@@ -189,8 +195,8 @@ export function useFocus (nav) {
   }, [nav])
 }
 
-export function useDistory (nav) {
+export function useDistroy (nav) {
   useEffect(() => {
-    nav.distory();
+    nav.distroy();
   }, [nav])
 }
