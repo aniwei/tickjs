@@ -1,25 +1,13 @@
-import { View } from 'react-native-web'
-import { useScript } from '../../hooks/useScript';
+import React from 'react';
+import { useContextLoader } from '../../hooks/useContextLoader';
 
-export default function AppView (props) {
-  const __TICK_CONTEXT = typeof window === 'object' ? 
-    window.__TICK_CONTEXT : props.__TICK_CONTEXT;
+import AppView from './View'
 
-  const { appconfig, route } = __TICK_CONTEXT;
-  const { subPages } = appconfig;
+export default function AppContext (props) {
+  const { isContextLoaded, context } = useContextLoader();
 
-  const scripts = [`/WAWebview.js`, '/appwxss'];
-  const pkg = subPages[route];
 
-  if (pkg) {
-    scripts.push('/subpage/appwxss?p=' + pkg.root + '&r=' + route);
-  }
-
-  useScript(scripts, () => {
-    __TICK_CONTEXT.ready();
-  });
-
-  return <View>
-    
-  </View>
+  return <div className="mini-view">
+    {isContextLoaded && <AppView {...props} context={context}  />}
+  </div>
 }

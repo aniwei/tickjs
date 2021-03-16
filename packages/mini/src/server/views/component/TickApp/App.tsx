@@ -24,14 +24,6 @@ export default function App (props: any) {
     <View style={{ height: Dimensions.get('window').height }}>
       <Provider value={{ config, navigator, runtime }}>
         <AppCapsule />
-        {/* <AppService 
-          {...props} 
-          onLoad={onAppServiceLoad} 
-        /> */}
-        {/* <AppNativeMethods 
-          {...props} 
-        /> */}
-
         { 
           isRuntimeLoaded ? 
             <AppNavigator 

@@ -1,26 +1,23 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Image } from 'react-native-web';
 
 import { AppContext } from '../TickApp/AppContext'
-import { useAppNavigatorSubscribe } from '../../hooks/useAppNavigatorSubscribe';
 import { UINavigationController } from '../UINavigationController';
-import { IAppProps } from '../TickApp/App'
 
 const BottomNavigator = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
 
 
-export function AppTabBar (props: IAppProps) {
-  const { 
-    config: {
-      bottomTabBar, 
-      launchConfig
-    }
-  } = useContext(AppContext);
-
+export function AppTabBar () {
+  const { config } = useContext(AppContext);
+  const {
+    bottomTabBar, 
+    launchConfig
+  } = config;
+  
   return (
     <BottomNavigator.Navigator
       initialRouteName={launchConfig.path + '.html'}
@@ -70,7 +67,7 @@ export function AppNavigator (props: IAppProps) {
     <NavigationContainer>
       <StackNavigator.Navigator>
         <StackNavigator.Screen 
-          name={launchOptions.path + '.html'}
+          name={launchConfig.path + '.html'}
           component={AppTabBar}
           options={{
             headerShown: false

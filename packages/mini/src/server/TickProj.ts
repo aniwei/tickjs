@@ -35,7 +35,7 @@ export class TickProj {
   }
 
   async config () {
-    const { root, files, cache } = this.mini;
+    const { root, files } = this.mini;
 
     const filepath = resolve(<string>root, (<TickAppProjFiles>files).config);
     const config = await TickProj.import(filepath);
@@ -43,40 +43,39 @@ export class TickProj {
     defineConfig(this.mini.config, config);
   }
 
-  async wx (filename: string) {
-    const filepath = resolve(`${__dirname}/wx`, filename);
-    const libs = await TickProj.import(filepath);
+  resolve (prefix:string, filename?: string) {
+    if (filename === undefined) {
+      const { root } = this.mini;
+      filename === prefix;
+      prefix = root || '';
+    } 
 
-    return String(libs);
+    switch (prefix) {
+      case '@tickjs':
+      case '@weixin': {
+        return resolve(`${__dirname}/${prefix}`, filename || '');
+      }
+
+      default: {
+        return resolve(`${prefix}`, filename || '');
+      }
+    }
   }
 
-  async wxss (route?: string) {
-    const { root, cache, files } = this.mini;
-    const prefix = route ? `${root}/${route}` : root;
+  wxss (route?: string) {
+    const { root, files } = this.mini;
+    const prefix = (route ? `${root}/${route}` : root) || '';
+    const filename = route ? 
+      (<TickAppProjFiles>files).frame : 
+      (<TickAppProjFiles>files).wxss
 
-    const filepath = resolve(
-      <string>prefix, 
-      route ? 
-        (<TickAppProjFiles>files).frame : 
-        (<TickAppProjFiles>files).wxss
-    )
-
-    const wxss = await TickProj.import(filepath);
-
-    return wxss;
+    return this.resolve(prefix, filename);
   }
 
-  async service (route?: string) {
-    const { root, cache, files } = this.mini;
-    const prefix = route ? `${root}/${route}` : root;
-
-    const filepath = resolve(
-      <string>prefix, 
-      (<TickAppProjFiles>files).service
-    );
-
-    const service = await TickProj.import(filepath);
-
-    return String(service);
+  service (route?: string) {
+    const { root, files } = this.mini;
+    const prefix = (route ? `${root}/${route}` : root) || '';
+ 
+    return this.resolve(prefix, (<TickAppProjFiles>files).service);
   }
 }

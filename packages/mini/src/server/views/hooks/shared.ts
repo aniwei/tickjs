@@ -17,7 +17,7 @@ export function getApplicationConfig (config: TickAppConfig) {
     subPackages,
     pages: getApplicationPages(config, subPages),
     bottomTabBar: getApplicationTabBar(config),
-    launchOptions: getApplicationLaunchOptions(config)
+    launchConfig: getApplicationLaunchOptions(config)
   }
 }
 
@@ -82,7 +82,7 @@ export function getApplicationPages (config: TickAppConfig, subPages: Map<string
     return {
       __MAIN_PACKAGE: !subPages.has(route),
       route: route + '.html',
-      config: pageConfig.get(route)
+      config: pageConfig.get(route + '.html')
     }
   });
 }

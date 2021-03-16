@@ -1,9 +1,29 @@
 import URL from 'url-parse';
 import qs from 'qs';
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 
-import AppRuntime from '../@tickjs/AppRuntime'
+import AppRuntime from '../../@tickjs/AppRuntime'
 import { usePackageLoader } from './usePackageLoader';
+
+function getJSBridgeHandler (ref) {
+  return {
+    subscribeHandler (...args) {
+      const WeixinJSBridge = ref.current ? 
+        ref.current.contentWindow.WeixinJSBridge : null;
+      
+        if (WeixinJSBridge) {
+        WeixinJSBridge.subscribeHandler(...args);
+      }
+    },
+    invokeCallbackHandler (...args) {
+      const WeixinJSBridge = ref.current ? 
+        ref.current.contentWindow.WeixinJSBridge : null;
+      if (WeixinJSBridge) {
+        WeixinJSBridge.subscribeHandler(...args);
+      }
+    },
+  }
+}
 
 export function useNavigator (runtime: AppRuntime, config: any) {
   const packageLoader = usePackageLoader(runtime, config);
@@ -12,10 +32,14 @@ export function useNavigator (runtime: AppRuntime, config: any) {
     class Navigator {
       public id: number | null = null;
       public navigation: any | null = null;
+      public route: string | null = null;
+      public bridge: any | null = null;
     
-      constructor (id: number, navigation: any) {
+      constructor (id: number, { navigation, route, bridge }) {
         this.id = id;
         this.navigation = navigation;
+        this.route = route;
+        this.bridge = bridge;
       }
     
       push (uri: URL, query: object) {
@@ -39,6 +63,14 @@ export function useNavigator (runtime: AppRuntime, config: any) {
       pop (delta: number = 1) {
         this.navigation.pop(delta);
       }
+
+      focus (nav: Navigator) {
+        navigator.focus(nav);
+      }
+
+      distroy (nav: Navigator) {
+        navigator.distroy(nav);
+      }
     }
 
     class AppNavigator extends Map {
@@ -47,8 +79,8 @@ export function useNavigator (runtime: AppRuntime, config: any) {
       public current: Navigator | null = null;
       public subPages: object = config.subPages;
 
-      create = (navigation: any) => {
-        return new Navigator(this.id++, navigation);
+      init = (nav) => {
+        return new Navigator(this.id++, nav);
       }
 
       has = (navigator: Navigator): boolean => {
@@ -90,12 +122,24 @@ export function useNavigator (runtime: AppRuntime, config: any) {
         }
       }
 
+      create (nav: Navigator, { path, query }) {
+        
+      }
+
       navigate (uri: URL, query: object) {
         const nav = this.current;
 
         if (nav) {
           nav.navigate(uri, query);
         }
+      }
+
+      focus (nav: Navigator) {
+        this.current = nav;
+      }
+
+      distroy (nav: Navigator) {
+        this.delete(nav);
       }
     }
 
@@ -116,4 +160,37 @@ export function useNavigator (runtime: AppRuntime, config: any) {
 
     return navigator;
   }, [runtime]);
+}
+
+export function useInit ({ navigation, route, ref, __TYPE }) {
+  const { navigator } = useContext(AppContext);
+
+  return useMemo(() => {
+    const nav = navigator.init({
+      navigation,
+      route,
+      type: __TYPE || 'switchTab',
+      bridge: getJSBridgeHandler(ref)
+    })
+
+    return nav
+  }, [navigation]);
+}
+
+export function useCreate (nav) {
+  useEffect(() => {
+    nav.create();
+  }, [nav])
+}
+
+export function useFocus (nav) {
+  useEffect(() => {
+    nav.focus();
+  }, [nav])
+}
+
+export function useDistory (nav) {
+  useEffect(() => {
+    nav.distory();
+  }, [nav])
 }

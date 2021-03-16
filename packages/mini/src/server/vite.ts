@@ -21,7 +21,7 @@ export default async function vite (options: ViteOptions): Promise<express.Expre
   }
 
   const config = defineConfig({
-    root: resolve(__dirname, 'views'),
+    root: resolve(__dirname, '.'),
     plugins,
     resolve: {
       alias

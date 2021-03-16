@@ -11,13 +11,13 @@ import {
   TickMiniConfig, 
   ViteOptions,
 } from '../types';
-import { TickTransform } from './TickTransformPlugin';
+import { TickApp } from './TickApp';
 
 
 export default async function App (config: TickConfig) {  
   const proj: TickProj = TickProj.sharedProj(config.mini);
 
-  config.plugins = [TickTransform(proj)];
+  config.plugins = [TickApp(proj)];
 
   const app: express.Express = await vite(config as ViteOptions);
   const router: express.Router = express.Router();
@@ -25,21 +25,6 @@ export default async function App (config: TickConfig) {
   await proj.config();
   
   isMiniConfigIllegal(proj.mini as TickMiniConfig);
-
-  router.get('/@tickjs/wxservice', async (req, res) => {
-    res.type('application/json');
-    res.send(await proj.wx(`wxservice.js`));
-  });
-
-  router.get('/@tickjs/wxview', async (req, res) => {
-    res.type('application/json');
-    res.send(await proj.wx(`wxview.js`));
-  });
-
-  router.use('/@tickjs/service', async (req, res) => {
-    const { r } = req.query;
-    res.send(await proj.service(r as string));
-  });
 
   router.use('/@tickjs/context', async (req, res) => {
     res.json({
@@ -50,12 +35,6 @@ export default async function App (config: TickConfig) {
       }
     });
   });
-
-  router.use('/@tickjs/wxss', async (req, res) => {
-    const { r } = req.query;
-    res.send(await proj.wxss(r as string));
-  });
-
   // router.post('/@tickjs/api/')
 
   app.use(router);

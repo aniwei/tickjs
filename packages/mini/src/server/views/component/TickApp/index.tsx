@@ -1,27 +1,12 @@
 import React from 'react';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-
+import { useContextLoader } from '../../hooks/useContextLoader'
 import App from './App';
 
 
-export default function TickApp () {
-  const [
-    { isAppLaunched, context }, 
-    setContext
-  ] = useState({ isAppLaunched: false, context: null });
+export default function AppContext () {
+  const { isContextLoaded, context } = useContextLoader();
 
-  useEffect(() => {
-    axios.get('/@tickjs/context')
-      .then(ctx => {
-        setContext({
-          isAppLaunched: true,
-          context: ctx.data
-        });
-      })
-  }, []);
-
-  return <div className="mini-program">
-    {isAppLaunched && <App context={context}  />}
+  return <div className="mini">
+    {isContextLoaded && <App context={context}  />}
   </div>
 }
