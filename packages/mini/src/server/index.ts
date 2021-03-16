@@ -39,6 +39,7 @@ export default async function App (config: TickConfig) {
   });
 
   router.use('/@tickjs/context.ts', (req, res) => {
+    debugger;
     res.type('application/script');
     res.send(`export default ${JSON.stringify(proj.mini)}`);
   });
