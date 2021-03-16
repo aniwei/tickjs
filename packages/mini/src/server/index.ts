@@ -14,7 +14,8 @@ import {
 
 
 export default async function App (config: TickConfig) {  
-  const proj: TickProj = await TickProj.sharedProj(config.mini);
+  const proj: TickProj = TickProj.sharedProj(config.mini);
+
   const app: express.Express = await vite(config);
   const router: express.Router = express.Router();
   
