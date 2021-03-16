@@ -59,9 +59,23 @@ export function TickApp (proj: TickProj) {
   );
 
   files.intercept(
-    '/@weixin/app/service',
+    '/@weixin/wxview',
+    async () => {
+      return fs.readFile(proj.resolve('@weixin', 'wxview.js'));
+    }
+  );
+
+  files.intercept(
+    '/@tickjs/app/service',
     async () => {
       return fs.readFile(proj.service());
+    }
+  );
+
+  files.intercept(
+    '/@tickjs/app/wxss',
+    async () => {
+      return fs.readFile(proj.wxss());
     }
   );
 

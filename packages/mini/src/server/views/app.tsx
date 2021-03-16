@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 import TickApp from './component/TickApp';
-import AppView from './component/AppView/View';
+import AppView from './component/AppView';
 
 function App() {
   return (
