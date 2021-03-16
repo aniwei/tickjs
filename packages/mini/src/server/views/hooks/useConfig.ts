@@ -1,13 +1,9 @@
-import { useMemo } from 'react';
-import { IAppProps } from '../component/TickApp/App';
-
+import { useEffect, useMemo, useState } from 'react';
+import { TickAppConfig } from '../../../types';
 import { getApplicationConfig } from './shared'
 
-
-export function useConfig (props: IAppProps) {
-  const { __TICK_CONTEXT } = props;
-
+export function useConfig (config: TickAppConfig) {
   return useMemo(() => {
-    return getApplicationConfig(__TICK_CONTEXT.config)
-  }, [__TICK_CONTEXT])
+    return getApplicationConfig(config)
+  }, [])
 }

@@ -3,14 +3,14 @@ import { useMemo, useEffect } from 'react';
 import AppRuntime from '/@tickjs/AppRuntime';
 
 export function useRuntime (onServiceReady: Function) {
-  const appruntime = useMemo(() => {
-    const appruntime = AppRuntime.shareAppRuntime(`/@tickjs/ServiceRuntime.ts`);
-    return appruntime;
+  const runtime = useMemo(() => {
+    const runtime = AppRuntime.shareAppRuntime(`/@tickjs/ServiceRuntime`);
+    return runtime;
   }, []);
 
   useEffect(() => {
-    appruntime.run(onServiceReady);
-  }, [appruntime]);
+    runtime.run(onServiceReady);
+  }, [runtime]);
 
-  return appruntime;
+  return runtime;
 }

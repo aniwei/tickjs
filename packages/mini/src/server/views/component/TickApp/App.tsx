@@ -1,46 +1,29 @@
 import React, { useState } from 'react';
-import { View, Dimensions, Platform } from 'react-native-web';
+import { View, Dimensions } from 'react-native-web';
 import { AppNavigator } from '../AppNavigator';
-import { AppService } from '../AppService';
-import { AppNativeMethods } from './AppNativeMethods';
 import { AppCapsule } from '../AppCapsule';
 
 import { Provider } from './AppContext';
-
 import { useConfig } from '../../hooks/useConfig';
 import { useNavigator } from '../../hooks/useNavigator';
-import { AppLaunchScreen } from '../AppLaunchScreen';
 import { useRuntime } from '../../hooks/useRuntime';
-import { IAppContext } from './AppContext';
 
-export type IAppProps = {
-  __TICK_CONTEXT: any
-}
-
-export default function App (props: IAppProps) {
+export default function App (props: any) {
   const [
     isRuntimeLoaded,
     setRuntime
   ] = useState(false);
 
+  const context = props.context;
+
   const runtime = useRuntime(() => setRuntime(true));
-
-  const config = useConfig(props);
+  const config = useConfig(context.config);
   const navigator = useNavigator(runtime, config);
-
-  const context = {
-    config,
-    runtime,
-    navigator,
-    __TICK_CONTEXT: props.__TICK_CONTEXT,
-  }
 
   return (
     <View style={{ height: Dimensions.get('window').height }}>
-      <Provider value={context}>
-        <AppCapsule 
-          {...props} 
-        />
+      <Provider value={{ config, navigator, runtime }}>
+        <AppCapsule />
         {/* <AppService 
           {...props} 
           onLoad={onAppServiceLoad} 
@@ -56,8 +39,6 @@ export default function App (props: IAppProps) {
             /> : null 
         }
       </Provider>
-
-      <AppLaunchScreen />
     </View>
   )
 }

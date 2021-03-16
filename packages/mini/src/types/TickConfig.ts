@@ -119,7 +119,11 @@ export type TickConfig = {
   envVersion: string
   system: TickSystemConfig,
   mini: TickMiniConfig,
-  platform: string
+  platform: string,
+  plugins: any[],
+  alias: {
+    [key: string]: string
+  }
 }
 
 export type TickUserMiniConfig = {

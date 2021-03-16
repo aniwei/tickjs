@@ -7,10 +7,7 @@ import { Image } from 'react-native-web';
 import { AppContext } from '../TickApp/AppContext'
 import { useAppNavigatorSubscribe } from '../../hooks/useAppNavigatorSubscribe';
 import { UINavigationController } from '../UINavigationController';
-import { AppHeaderBackButton } from '../AppHeaderBackButton';
-import { BottomTabBar, BottomTabBarItem } from '../../hooks/shared';
 import { IAppProps } from '../TickApp/App'
-import { Page } from '../../../tick.config';
 
 const BottomNavigator = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();

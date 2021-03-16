@@ -7,7 +7,7 @@ export default class AppRuntime extends Runtime {
       return this.runtime;
     }
 
-    const worker: Worker = new Worker(uri, { type: 'module' });
+    const worker: Worker = new Worker(uri, { type: 'classic' });
 
     return this.runtime = new AppRuntime(worker, worker);
   }

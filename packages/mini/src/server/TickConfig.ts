@@ -67,8 +67,8 @@ export const defaultMini = {
   files: {
     config: 'app-config.json',
     frame: 'app-frame.js',
-    service: 'appservice.js',
-    wxss: 'appwxss.js',
+    service: 'app-service.js',
+    wxss: 'app-wxss.js',
   },
   config: {
     accountInfo: null,
@@ -89,6 +89,8 @@ export const defaultConfig: TickConfig = {
   deprecated: false,
   debug: false,
   envVersion: 'release',
+  plugins: [],
+  alias: {},
 
   get wxAppInfo () {
     return defaultWXInfo

@@ -1,22 +1,47 @@
 import express from 'express';
-import { createServer, ViteDevServer } from 'vite';
+import ReactRefresh from '@vitejs/plugin-react-refresh';
+import { resolve } from 'path';
+import { 
+  createServer, 
+  ViteDevServer, 
+  defineConfig,
+  Plugin
+} from 'vite';
+import { ViteOptions } from '../types';
 
-import config from './vite.config';
+export default async function vite (options: ViteOptions): Promise<express.Express> {
+  const plugins: Plugin[] = [
+    ReactRefresh(),
+    ...(options.plugins || []),
+  ];
 
-export default async function vite (options?: any): Promise<express.Express> {
+  const alias = {
+    'react-native': 'react-native-web',
+    ...options.alias
+  }
+
+  const config = defineConfig({
+    root: resolve(__dirname, 'views'),
+    plugins,
+    resolve: {
+      alias
+    }
+  })
+
   const app: express.Express | any = express(); 
   
-  const vite: ViteDevServer | any = await createServer({ 
-    ...config, 
-    server: {
-      port: options.port
-    }
-  });
+  app.listen = async (port: number) => {
+    const vite: ViteDevServer | any = await createServer({ 
+      ...config, 
+      server: { port: options.port }
+    });
 
-  const viteMiddlewaresHandle = vite.middlewares.handle.bind(vite.middlewares);
-  vite.middlewares.handle = app.handle.bind(app);
-  
-  app.listen = (port: number) => {
+    app.vite = vite;
+
+    const viteMiddlewaresHandle = vite.middlewares.handle.bind(vite.middlewares);
+    vite.middlewares.handle = app.handle.bind(app);
+
+
     app.use((
       req: express.Request, 
       res: express.Response, 

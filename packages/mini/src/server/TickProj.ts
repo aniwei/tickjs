@@ -2,7 +2,7 @@
 import { resolve, parse } from 'path';
 import fs from 'fs-extra';
 
-import { TickMiniConfig, TickAppConfig, TickAppProjFiles } from '../types/TickConfig';
+import { TickMiniConfig, TickAppProjFiles } from '../types/TickConfig';
 import { defineConfig } from './TickConfig';
 
 export class TickProj {
@@ -43,22 +43,11 @@ export class TickProj {
     defineConfig(this.mini.config, config);
   }
 
-  async libs () {
-    const files = ['WAService.js', 'WAWebview.js'];
-    const libs = new Map();
+  async wx (filename: string) {
+    const filepath = resolve(`${__dirname}/wx`, filename);
+    const libs = await TickProj.import(filepath);
 
-    const buffers = await Promise.all(files.map(filename => {
-      return {
-        filename,
-        data: TickProj.import(resolve(`${__dirname}/libs`, filename))
-      }
-    }));
-
-    for (const buffer of buffers) {
-      libs.set(buffer.filename, buffer.data)
-    }
-
-    return libs;
+    return String(libs);
   }
 
   async wxss (route?: string) {
@@ -88,6 +77,6 @@ export class TickProj {
 
     const service = await TickProj.import(filepath);
 
-    return service;
+    return String(service);
   }
 }
