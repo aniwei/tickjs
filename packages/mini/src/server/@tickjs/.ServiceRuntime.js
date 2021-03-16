@@ -1526,7 +1526,7 @@
         this.context = context;
         this.define("__wxConfig", context.config).define("WeixinJSCore", this.WeixinJSCore);
         this.script(`/@weixin/wxservice`);
-        this.script(`/@weixin/app/service`);
+        this.script(`/@tickjs/app/service`);
         callback(context);
       });
     }

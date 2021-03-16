@@ -46,7 +46,7 @@ export class ServiceRuntime extends Runtime {
           .define('WeixinJSCore', this.WeixinJSCore)
         
         this.script(`/@weixin/wxservice`);
-        this.script(`/@weixin/app/service`);
+        this.script(`/@tickjs/app/service`);
 
         callback(context);
       });
