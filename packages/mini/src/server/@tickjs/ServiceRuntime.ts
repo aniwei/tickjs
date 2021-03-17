@@ -55,12 +55,24 @@ export class ServiceRuntime extends Runtime {
 
 
 
-const service = ServiceRuntime.sharedServiceRuntime()
+const service = ServiceRuntime.sharedServiceRuntime();
+const JSCore = service.WeixinJSCore;
 
-service.WeixinJSCore.on('getSystemInfo', (data: any) => {
+JSCore.on('getSystemInfo', (data: any) => {
   WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
     errMsg: 'getSystemInfo:ok',
     ...service.context.config.system
+  })
+});
+
+JSCore.on('getStorage', (data: any) => {
+  const { options } = data;
+  const { key } = options;
+  const value = localStorage.getItem(key);
+
+  WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
+    errMsg: value ? 'getStorage:fail' : 'getStorage:ok',
+    data: value
   })
 });
 
