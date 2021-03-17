@@ -1,43 +1,33 @@
 import URL from 'url-parse';
-import qs from 'qs';
-import { useMemo, useEffect, useContext } from 'react';
+import { 
+  useMemo, 
+  useEffect, 
+  useContext 
+} from 'react';
 
-import AppRuntime from '/@tickjs/AppRuntime'
+import AppRuntime from '@tickjs/AppRuntime';
+
 import { usePackageLoader } from './usePackageLoader';
 
+import { 
+  ITickNavigator, 
+  TickNavigatorConfig,
+  ITickNavigatorManager,
+} from '../../../types';
 import { AppContext } from '../component/TickApp/AppContext'
-
-function getJSBridgeHandler (ref) {
-  return {
-    subscribeHandler (...args: any) {
-      const WeixinJSBridge = ref.current ? 
-        ref.current.contentWindow.WeixinJSBridge : null;
-      
-        if (WeixinJSBridge) {
-        WeixinJSBridge.subscribeHandler(...args);
-      }
-    },
-    invokeCallbackHandler (...args: any) {
-      const WeixinJSBridge = ref.current ? 
-        ref.current.contentWindow.WeixinJSBridge : null;
-      if (WeixinJSBridge) {
-        WeixinJSBridge.subscribeHandler(...args);
-      }
-    },
-  }
-}
+import { TickJSBridge } from '../../TickJSBridge';
+import URLParse from 'url-parse';
 
 export function useNavigator (runtime: AppRuntime, config: any) {
-  const packageLoader = usePackageLoader(runtime, config);
-
   return useMemo(() => {
-    class Navigator {
+    class TickNavigator implements ITickNavigator {
       public id: number | null = null;
       public navigation: any | null = null;
       public route: string | null = null;
       public bridge: any | null = null;
     
-      constructor (id: number, { navigation, route, bridge }) {
+      constructor (config: TickNavigatorConfig) {
+        const { id, navigation, route, bridge } = config;
         this.id = id;
         this.navigation = navigation;
         this.route = route;
@@ -66,20 +56,20 @@ export function useNavigator (runtime: AppRuntime, config: any) {
         this.navigation.pop(delta);
       }
 
-      focus (nav: Navigator) {
-        navigator.focus(nav);
+      focus () {
+        navigator.focus(this);
       }
 
-      ready (nav: Navigator) {
-        navigator.ready(nav);
+      ready () {
+        navigator.ready(this);
       }
 
-      distroy (nav: Navigator) {
-        navigator.distroy(nav);
+      distroy () {
+        navigator.distroy(this);
       }
     }
 
-    class AppNavigator extends Map {
+    class TickNavigatorManager extends Map implements ITickNavigatorManager {
       public id: number = 0;
       public isLaunch: boolean = true;
       public current: Navigator | null = null;
@@ -149,13 +139,13 @@ export function useNavigator (runtime: AppRuntime, config: any) {
       }
     }
 
-    const navigator = new AppNavigator();
+    const navigatorManager = new TickNavigatorManager();
 
     runtime.on('navigateTo', (data: any, callbackId: number) => {
-      const uri = new URL(data.url) as any;
-      const query = qs.parse(uri.query.slice(1));
+      const uri = new URLParse(data.url) as any; 
+      const query = URLParse.qs.parse(uri.query.slice(1));
 
-      navigator.push(uri, query);
+      navigatorManager.push(uri, query);
 
       runtime.callback({
         callbackId,
@@ -164,7 +154,7 @@ export function useNavigator (runtime: AppRuntime, config: any) {
       });
     });
 
-    return navigator;
+    return navigatorManager;
   }, [runtime]);
 }
 
@@ -176,26 +166,26 @@ export function useInit ({ navigation, route, ref, __TYPE }) {
       navigation,
       route,
       type: __TYPE || 'switchTab',
-      bridge: getJSBridgeHandler(ref)
+      bridge: new TickJSBridge(ref)
     })
 
     return nav
   }, [navigation]);
 }
 
-export function useReady (nav) {
+export function useReady (nav: ITickNavigator) {
   useEffect(() => {
     nav.ready();
   }, [nav])
 }
 
-export function useFocus (nav) {
+export function useFocus (nav: ITickNavigator) {
   useEffect(() => {
     nav.focus();
   }, [nav])
 }
 
-export function useDistroy (nav) {
+export function useDistroy (nav: ITickNavigator) {
   useEffect(() => {
     nav.distroy();
   }, [nav])

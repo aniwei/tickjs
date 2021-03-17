@@ -1,3 +1,7 @@
+import AppRuntime from "../server/@tickjs/AppRuntime"
+import { TickAppConfig } from "./TickConfig"
+import { ITickNavigatorManager, TickNavigatorConfig } from "./TickNavigator"
+
 export type TickViewSubPackage = {
   root: string,
   pages: string[]
@@ -35,3 +39,8 @@ export type TickViewTabBar = {
 }
 
 
+export type TickAppContext = {
+  navigator: ITickNavigatorManager | null,
+  runtime: AppRuntime | null,
+  config: TickAppConfig | null
+}

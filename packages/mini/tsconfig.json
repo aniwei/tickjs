@@ -15,7 +15,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "@tickjs/*": ["src/server/@tickjs/*"],
+      "@hooks/*": ["src/server/views/hooks/*"],
+    }
   },
   "include": ["./src"]
 }

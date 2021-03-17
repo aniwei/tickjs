@@ -4,9 +4,9 @@ import { AppNavigator } from '../AppNavigator';
 import { AppCapsule } from '../AppCapsule';
 
 import { Provider } from './AppContext';
-import { useConfig } from '../../hooks/useConfig';
-import { useNavigator } from '../../hooks/useNavigator';
-import { useRuntime } from '../../hooks/useRuntime';
+import { useConfig } from '@hooks/useConfig';
+import { useNavigator } from '@hooks/useNavigator';
+import { useRuntime } from '@hooks/useRuntime';
 
 export default function App (props: any) {
   const [
