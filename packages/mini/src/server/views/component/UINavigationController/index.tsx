@@ -1,7 +1,12 @@
 import React, { useRef } from 'react';
 import { View } from 'react-native-web';
 
-import { useFocus, useDistroy, useInit, useReady } from '../../hooks/useNavigator';
+import { 
+  useFocus, 
+  useDistroy, 
+  useInit, 
+  useReady 
+} from '../../hooks/useNavigator';
 
 
 export function UINavigationController (props) {

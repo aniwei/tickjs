@@ -7,16 +7,14 @@ import {
 
 import AppRuntime from '@tickjs/AppRuntime';
 
-import { usePackageLoader } from './usePackageLoader';
-
+import { AppContext } from '../component/TickApp/AppContext'
+import { TickJSBridge } from '../../TickJSBridge';
 import { 
   ITickNavigator, 
   TickNavigatorConfig,
   ITickNavigatorManager,
 } from '../../../types';
-import { AppContext } from '../component/TickApp/AppContext'
-import { TickJSBridge } from '../../TickJSBridge';
-import URLParse from 'url-parse';
+
 
 export function useNavigator (runtime: AppRuntime, config: any) {
   return useMemo(() => {
@@ -37,19 +35,11 @@ export function useNavigator (runtime: AppRuntime, config: any) {
       push (uri: URL, query: object) {
         const pathname = uri.pathname[0] === '/' ? 
           uri.pathname.slice(1) : uri.pathname;
-
-        packageLoader(pathname).then(() => {
-          this.navigation.push(pathname, query);
-        })
       }
 
       navigate (uri: URL, query: object) {
         const pathname = uri.pathname[0] === '/' ? 
           uri.pathname.slice(1) : uri.pathname;
-
-        packageLoader(pathname).then(() => {
-          this.navigation.navigate(pathname, query);
-        })
       }
 
       pop (delta: number = 1) {
@@ -75,12 +65,12 @@ export function useNavigator (runtime: AppRuntime, config: any) {
       public current: Navigator | null = null;
       public subPages: object = config.subPages;
 
-      init = (nav) => {
-        return new Navigator(this.id++, nav);
+      init = (nav: TickNavigatorConfig) => {
+        return new TickNavigator(this.id++, nav);
       }
 
       has = (nav: Navigator): boolean => {
-        return super.has(nav.id);
+        return super.has(nav.id as number);
       }
 
       set = (nav: Navigator) => {

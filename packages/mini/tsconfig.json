@@ -18,8 +18,9 @@
     "jsx": "react",
     "baseUrl": "./src",
     "paths": {
-      "@tickjs/*": ["src/server/@tickjs/*"],
       "@hooks/*": ["src/server/views/hooks/*"],
+      "@tickjs/*": ["src/server/@tickjs/*"],
+      "@component/*": ["src/server/views/component/*"],
     }
   },
   "include": ["./src"]
