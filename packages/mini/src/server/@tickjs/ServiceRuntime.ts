@@ -76,6 +76,17 @@ JSCore.on('getStorage', (data: any) => {
   })
 });
 
+JSCore.on('getStorageSync', (data: any) => {
+  const { options } = data;
+  const { key } = options;
+  const value = localStorage.getItem(key);
+
+  WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
+    errMsg: value ? 'getStorageSync:fail' : 'getStorageSync:ok',
+    data: value
+  })
+});
+
 service.run(() => {
   service.publish({
     name: 'appserviceready'
