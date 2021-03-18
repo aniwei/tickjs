@@ -1,31 +1,30 @@
-
-export type TickAppSubPackage = {
+declare type TickAppSubPackage = {
   root: string,
   pages: string[]
 }
 
-export type TickAppGlobal = {
+declare type TickAppGlobal = {
   [key: string]: {
     window: any
   }
 }
 
-export type TickAppPage = {
+declare type TickAppPage = {
   [key: string]: any
 }
 
-export type TickAppPermission = {
+declare type TickAppPermission = {
   [key: string]: any
 }
 
-export type TickAppTabBarItem = {
+declare type TickAppTabBarItem = {
   text: string,
   pagePath: string,
   iconData: string,
   selectedIconData: string,
 }
 
-export type TickAppTabBar = {
+declare type TickAppTabBar = {
   color?: string,
   selectedColor?: string,
   backgroundColor?: string,
@@ -33,7 +32,7 @@ export type TickAppTabBar = {
   list: TickAppTabBarItem[] | null
 }
 
-export type TickAppConfig = {
+declare type TickAppConfig = {
   accountInfo: any,
   appLaunchInfo: any,
   pages?: string[] | null,
@@ -45,28 +44,28 @@ export type TickAppConfig = {
   tabBar?: TickAppTabBar | null
 }
 
-export type TickAppProjFiles = {
+declare type TickAppProjFiles = {
   service: string
   config: string,
   frame: string,
   wxss: string
 }
 
-export type TickMiniConfig = {
+declare type TickMiniConfig = {
   root: string | null,
   cache: boolean | null,
   files: TickAppProjFiles | null,
   config: TickAppConfig
 }
 
-export type TickNetworkTimeoutConfig = {
+declare type TickNetworkTimeoutConfig = {
   request: number,
   uploadFile: number,
   connectSocket: number,
   downloadFile: number,
 }
 
-export type TickSystemSafeArea = {
+declare type TickSystemSafeArea = {
   width: number,
   height: number,
   top: number,
@@ -75,7 +74,7 @@ export type TickSystemSafeArea = {
   right: number,
 }
 
-export type TickSystemConfig = {
+declare type TickSystemConfig = {
   networkType: string,
   safeArea: TickSystemSafeArea,
   system: string,
@@ -95,7 +94,7 @@ export type TickSystemConfig = {
   windowHeight: number,
 }
 
-export type TickWXInfo = {
+declare type TickWXInfo = {
   maxRequestConcurrent: number,
   maxUploadConcurrent: number,
   maxDownloadConcurrent: number,
@@ -103,11 +102,11 @@ export type TickWXInfo = {
   maxWebsocketConnect: number,
 }
 
-export type TickEnvConfig = {
+declare type TickEnvConfig = {
   USER_DATA_PATH: string
 }
 
-export type TickConfig = {
+declare type TickConfig = {
   port: number,
   appType: number,
   networkTimeout: TickNetworkTimeoutConfig,
@@ -126,14 +125,14 @@ export type TickConfig = {
   }
 }
 
-export type TickUserMiniConfig = {
+declare type TickUserMiniConfig = {
   root?: string | null,
   cache?: boolean | null,
   files?: TickAppProjFiles | null,
   config: TickAppConfig
 }
 
-export type TickUserConfig = {
+declare type TickUserConfig = {
   networkTimeout?: TickNetworkTimeoutConfig,
   extAppid?: string,
   debug?: boolean,

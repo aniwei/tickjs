@@ -1,6 +1,4 @@
-import { ITickJSBridge } from '../types'
-
-export class TickJSBridge implements ITickJSBridge {
+export class WeixinJSBridgeOwner implements IWeixinJSBridgeHolder {
   public owner: any | null = null;
   public WeixinJSBridge: any | null = null
 

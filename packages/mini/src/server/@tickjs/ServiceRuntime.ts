@@ -1,17 +1,15 @@
 import axios from 'axios';
 import { Runtime } from './Runtime';
 import { WeixinJSCore } from './WeixinJSCore';
-import { TickAppConfig } from '../../types';
 
-export class ServiceRuntime extends Runtime {
+export class ServiceRuntime extends Runtime implements IRuntime {
   static runtime: ServiceRuntime | null = null;
-  static sharedServiceRuntime () {
+  static sharedRuntime () {
     return this.runtime = new ServiceRuntime(globalThis, globalThis);
   }
 
-  static Function = Function;
-  static eval = eval;
-  
+  static evalute = eval;
+
   public WeixinJSCore: WeixinJSCore | null = null;
   public context: TickAppConfig | null = null;
   
@@ -55,37 +53,7 @@ export class ServiceRuntime extends Runtime {
 
 
 
-const service = ServiceRuntime.sharedServiceRuntime();
-const JSCore = service.WeixinJSCore;
-
-JSCore.on('getSystemInfo', (data: any) => {
-  WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
-    errMsg: 'getSystemInfo:ok',
-    ...service.context.config.system
-  })
-});
-
-JSCore.on('getStorage', (data: any) => {
-  const { options } = data;
-  const { key } = options;
-  const value = localStorage.getItem(key);
-
-  WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
-    errMsg: value ? 'getStorage:fail' : 'getStorage:ok',
-    data: value
-  })
-});
-
-JSCore.on('getStorageSync', (data: any) => {
-  const { options } = data;
-  const { key } = options;
-  const value = localStorage.getItem(key);
-
-  WeixinJSBridge.invokeCallbackHandler(data.callbackId, {
-    errMsg: value ? 'getStorageSync:fail' : 'getStorageSync:ok',
-    data: value
-  })
-});
+const service = ServiceRuntime.sharedRuntime();
 
 service.run(() => {
   service.publish({

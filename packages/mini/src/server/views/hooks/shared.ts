@@ -1,13 +1,3 @@
-import { 
-  TickAppGlobal, 
-  TickAppPage, 
-  TickAppTabBar, 
-  TickViewTabBar,
-  TickAppTabBarItem, 
-  TickViewSubPackage,
-  TickAppConfig
-} from '../../../types';
-
 export function getApplicationConfig (config: TickAppConfig) {
   const subPackages = mapSubPackages(config);
   const subPages = mapSubPackagesToSubPage(subPackages);

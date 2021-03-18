@@ -9,30 +9,26 @@ import AppRuntime from '@tickjs/AppRuntime';
 
 import { AppContext } from '../component/TickApp/AppContext'
 import { TickJSBridge } from '../../TickJSBridge';
-import { 
-  ITickNavigator, 
-  TickNavigatorConfig,
-  ITickNavigatorManager,
-} from '../../../types';
+
 
 
 export function useNavigator (runtime: AppRuntime, config: any) {
   return useMemo(() => {
-    class TickNavigator implements ITickNavigator {
+    class Navigator implements INavigator {
       public id: number | null = null;
       public navigation: any | null = null;
       public route: string | null = null;
       public bridge: any | null = null;
     
-      constructor (config: TickNavigatorConfig) {
-        const { id, navigation, route, bridge } = config;
+      constructor (id: number, config: NavigatorConfig) {
+        const { navigation, route, bridge } = config;
         this.id = id;
         this.navigation = navigation;
         this.route = route;
         this.bridge = bridge;
       }
     
-      push (uri: URL, query: object) {
+      push (uri: URL): void {
         const pathname = uri.pathname[0] === '/' ? 
           uri.pathname.slice(1) : uri.pathname;
       }
@@ -59,13 +55,13 @@ export function useNavigator (runtime: AppRuntime, config: any) {
       }
     }
 
-    class TickNavigatorManager extends Map implements ITickNavigatorManager {
+    class TickNavigatorManager extends Map implements INavigatorManager {
       public id: number = 0;
       public isLaunch: boolean = true;
-      public current: Navigator | null = null;
+      public current: INavigator | null = null;
       public subPages: object = config.subPages;
 
-      init = (nav: TickNavigatorConfig) => {
+      init = (nav: NavigatorConfig) => {
         return new TickNavigator(this.id++, nav);
       }
 
@@ -80,7 +76,7 @@ export function useNavigator (runtime: AppRuntime, config: any) {
 
       get = (nav: Navigator | number) => {
         if (nav instanceof Navigator) {
-          return super.get(nav.id);
+          return super.get((nav as INavigator).id);
         }
 
         return super.get(navigator);
@@ -94,30 +90,8 @@ export function useNavigator (runtime: AppRuntime, config: any) {
         return super.delete(navigator);
       }
 
-      push = (uri: URL, query: object) => {
-        const nav = this.current;
-        if (nav) {
-          nav.push(uri, query);
-        }
-      }
-
-      pop = (delta: number) => {
-        const nav = this.current;
-        if (nav) {
-          nav.pop(delta);
-        }
-      }
-
       ready (nav: Navigator) {
         
-      }
-
-      navigate (uri: URL, query: object) {
-        const nav = this.current;
-
-        if (nav) {
-          nav.navigate(uri, query);
-        }
       }
 
       focus (nav: Navigator) {
@@ -152,6 +126,7 @@ export function useInit ({ navigation, route, ref, __TYPE }) {
   const { navigator } = useContext(AppContext);
 
   return useMemo(() => {
+    (<)
     const nav = navigator.init({
       navigation,
       route,
@@ -163,19 +138,19 @@ export function useInit ({ navigation, route, ref, __TYPE }) {
   }, [navigation]);
 }
 
-export function useReady (nav: ITickNavigator) {
+export function useReady (nav: Navigator) {
   useEffect(() => {
     nav.ready();
   }, [nav])
 }
 
-export function useFocus (nav: ITickNavigator) {
+export function useFocus (nav: Navigator) {
   useEffect(() => {
     nav.focus();
   }, [nav])
 }
 
-export function useDistroy (nav: ITickNavigator) {
+export function useDistroy (nav: Navigator) {
   useEffect(() => {
     nav.distroy();
   }, [nav])

@@ -1,15 +1,3 @@
-import { 
-  TickNetworkTimeoutConfig, 
-  TickSystemConfig, 
-  TickSystemSafeArea, 
-  TickUserConfig,
-  TickMiniConfig,
-  TickWXInfo,
-  TickConfig,
-  TickAppConfig,
-  TickAppProjFiles,
-} from '../types';
-
 export const defaultNetworkConfig: TickNetworkTimeoutConfig = {
   request: 6000,
   uploadFile: 6000,
@@ -82,8 +70,10 @@ export const defaultMini = {
   }
 }
 
-export const defaultConfig: TickConfig = {
+export const defaultTickMiniConfig: TickMiniConfig = {
+  root: process.cwd(),
   port: 3000,
+  proj: 
   appType: 0,
   extAppid: '',
   deprecated: false,

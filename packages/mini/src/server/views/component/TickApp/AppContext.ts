@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-import { TickAppContext } from '../../../../types';
 
 const defaultContextValue: TickAppContext = {
   navigator: null,

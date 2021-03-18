@@ -7,9 +7,18 @@ import {
   defineConfig,
   Plugin
 } from 'vite';
-import { ViteOptions } from '../types';
 
-export default async function vite (options: ViteOptions): Promise<express.Express> {
+export type ViteServerOptions = {
+  port: number,
+  plugins?: Plugin[],
+  alias?: {
+    [key: string]: string
+  }
+}
+
+export default async function vite (
+  options: ViteServerOptions
+): Promise<express.Express> {
   const plugins: Plugin[] = [
     ReactRefresh(),
     ...(options.plugins || []),
@@ -38,7 +47,7 @@ export default async function vite (options: ViteOptions): Promise<express.Expre
 
     app.vite = vite;
 
-    const viteMiddlewaresHandle = vite.middlewares.handle.bind(vite.middlewares);
+    const viteHandle = vite.middlewares.handle.bind(vite.middlewares);
     vite.middlewares.handle = app.handle.bind(app);
 
 
@@ -47,7 +56,7 @@ export default async function vite (options: ViteOptions): Promise<express.Expre
       res: express.Response, 
       next: express.NextFunction
     ) => {
-      viteMiddlewaresHandle(req, res, next)
+      viteHandle(req, res, next)
     });
 
     vite.listen(port);

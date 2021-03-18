@@ -1,37 +1,13 @@
 import { TinyEmitter } from 'tiny-emitter';
 
-export enum MessageType {
+export enum MessageTypes {
   PUBLISH = 'publishHandler',
   SUBSCRIBE = 'subscribeHandler',
   INVOKE = 'invokeHandler',
   CALLBACK = 'invokeCallbackHandler'
 }
 
-export type DefaultMessage = {
-  type?: MessageType,
-  options: object
-}
-
-export type PublishMessage = DefaultMessage & {
-  name: string
-}
-
-export type InvokeMessage = DefaultMessage & {
-  name: string
-  callbackId: string | number
-}
-
-export type SubscribeMessage = DefaultMessage & {
-  data: any,
-  name: string
-}
-
-export type InvokeCallbackMessage = DefaultMessage & {
-  callbackId: string | number,
-  errMsg: string
-}
-
-export class Runtime extends TinyEmitter {
+export class Runtime extends TinyEmitter implements IRuntime {
   public sender: any = null;
   public receiver: any = null;
 
@@ -42,65 +18,62 @@ export class Runtime extends TinyEmitter {
     this.receiver = receiver;
 
     this.receiver.addEventListener('message', (event: any) => {
-      this.onMessage(event.data);
+      this.onMessage(event.data as DefaultMessage);
     });
   }
 
   onMessage = (
-    message: SubscribeMessage |
-      InvokeCallbackMessage | 
-      InvokeMessage | 
-      PublishMessage
-  ) => {
-    
+    message: DefaultMessage): void => {
     switch (message.type) {
-      case MessageType.CALLBACK: {
+      case MessageTypes.CALLBACK: {
+        const { callbackId } = message;
+
+        this.emit(callbackId as string, message);
+        break;
+      }
+
+      case MessageTypes.INVOKE: {
         this.emit(message.name, message);
         break;
       }
 
-      case MessageType.INVOKE: {
+      case MessageTypes.PUBLISH: {
         this.emit(message.name, message);
         break;
       }
 
-      case MessageType.PUBLISH: {
-        this.emit(message.name, message);
-        break;
-      }
-
-      case MessageType.SUBSCRIBE: {
+      case MessageTypes.SUBSCRIBE: {
         this.emit(message.name, message);
         break;
       }
     }
   }
 
-  subscribe (message: SubscribeMessage) {
+  subscribe (message: DefaultMessage) {
     this.sender({ 
       ...message,
-      type: MessageType.SUBSCRIBE,
+      type: MessageTypes.SUBSCRIBE,
     });
   }
 
-  callback (message: InvokeCallbackMessage) {
+  callback (message: DefaultMessage) {
     this.sender({ 
       ...message, 
-      type: MessageType.CALLBACK 
+      type: MessageTypes.CALLBACK 
     });
   }
 
-  invoke (message: InvokeMessage) {
+  invoke (message: DefaultMessage) {
     this.sender.postMessage({
       ...message,
-      type: MessageType.INVOKE,
+      type: MessageTypes.INVOKE,
     });
   }
 
-  publish (message: PublishMessage) {
+  publish (message: DefaultMessage) {
     this.sender.postMessage({
       ...message,
-      type: MessageType.PUBLISH
+      type: MessageTypes.PUBLISH
     });
   }
 }

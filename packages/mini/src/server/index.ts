@@ -1,16 +1,12 @@
 import express from 'express';
 
 import vite from './vite';
+import { ViteServerOptions } from './vite';
 import { TickProj } from './TickProj';
 import { 
   defineUserConfig,
   isMiniConfigIllegal,
 } from './TickConfig';
-import { 
-  TickConfig, 
-  TickMiniConfig, 
-  ViteOptions,
-} from '../types';
 import { TickApp } from './TickApp';
 
 
@@ -19,7 +15,7 @@ export default async function App (config: TickConfig) {
 
   config.plugins = [TickApp(proj)];
 
-  const app: express.Express = await vite(config as ViteOptions);
+  const app: express.Express = await vite(config as ViteServerOptions);
   const router: express.Router = express.Router();
 
   await proj.config();

@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client"],
-    "typeRoots": ["./src"],
+    "types": ["vite/client", "node"],
+    "typeRoots": ["./src/types", "./node_modules/@types"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": true,
@@ -16,12 +16,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "baseUrl": "./src",
+    "baseUrl": "./",
+    "rootDir": "./",
     "paths": {
       "@hooks/*": ["src/server/views/hooks/*"],
-      "@tickjs/*": ["src/server/@tickjs/*"],
       "@component/*": ["src/server/views/component/*"],
+      "*": ["*", "./src/types/*"]
     }
   },
-  "include": ["./src"]
+  "include": ["./src/**/**"]
 }
