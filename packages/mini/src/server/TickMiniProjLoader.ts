@@ -22,15 +22,20 @@ export class TickMiniProjLoader {
     } 
   }
 
+  resolve (filename: string) {
+    return path.resolve(this.root, filename);
+  }
+
   config () {
-
+    return this.import(this.resolve('app-config.json'));
   }
 
-  view () {
-
+  view (r?: string) {
+    const filename = r ? this.resolve(r + 'app-frame.js') : 'app-wxss.js'
+    return this.import(filename).then(res => res.toString());
   }
 
-  logic () {
-    
+  service () {
+    return this.import(this.resolve('app-config.json'));
   } 
 }

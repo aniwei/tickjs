@@ -10,7 +10,7 @@ import {
 
 export type ViteServerOptions = {
   port: number,
-  plugins?: Plugin[],
+  plugins?: any[],
   alias?: {
     [key: string]: string
   }

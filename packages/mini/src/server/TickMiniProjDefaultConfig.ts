@@ -42,15 +42,18 @@ export const TickMiniProjDefaultConfig = {
     maxWorkerConcurrent: 1,
     maxWebsocketConnect: 2,
   },
+  
   env: {
     USER_DATA_PATH: '/'
   },
+  
   networkTimeout: {
     request: 6000,
     uploadFile: 6000,
     connectSocket: 6000,
     downloadFile: 6000,
   },
+
   get platform () {
     return TickMiniDefaultSystemConfig.platform;
   },

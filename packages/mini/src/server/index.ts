@@ -1,40 +1,58 @@
 import express from 'express';
+import debug from 'debug';
 
-import vite from './vite';
-import { ViteServerOptions } from './vite';
-import { TickProj } from './TickProj';
-import { 
-  defineUserConfig,
-  isMiniConfigIllegal,
-} from './TickConfig';
-import { TickApp } from './TickApp';
+import { TickMini, Config } from './TickMini';
 
 
-export default async function App (config: TickConfig) {  
-  const proj: TickProj = TickProj.sharedProj(config.mini);
+class TickMiniConfigError extends Error {}
 
-  config.plugins = [TickApp(proj)];
+function isMiniConfigIllegal (config: Config) {
+  const { proj } = config;
 
-  const app: express.Express = await vite(config as ViteServerOptions);
-  const router: express.Router = express.Router();
+  if (
+    proj.accountInfo === undefined ||
+    proj.accountInfo === null
+  ) {
+    throw new TickMiniConfigError(`Missing account information`);
+  } else if (
+    proj.appLaunchInfo === undefined ||
+    proj.appLaunchInfo === null
+  ) {
+    throw new TickMiniConfigError(`Missing app luanch information`);
+  } else if (
+    proj.entryPagePath === undefined ||
+    proj.entryPagePath === null ||
+    proj.entryPagePath === ''
+  ) {
+    throw new TickMiniConfigError(`Missing entry page path`);
+  }
+}
 
-  await proj.config();
+export default async function App (config: Config) {  
+  debug('app')(`正在检测配置是否正确`)
+  isMiniConfigIllegal(config);
+
+  const mini: TickMini = TickMini.sharedTickMini(config);
   
-  isMiniConfigIllegal(proj.mini as TickMiniConfig);
 
-  router.use('/@tickjs/context', async (req, res) => {
-    res.json({
-      ...proj.mini,
-      config: {
-        ...config,
-        ...proj.mini.config
-      }
+  debug('app')(`准备启动服务`)
+  mini.prepare((app: express.Express) => {
+    debug('app')(`已经启动服务，并注册主要中间件`)
+    const router: express.Router = express.Router();
+
+    router.use('/@tickjs/context', async (req, res) => {
+      res.json(mini.proj);
     });
-  });
-  // router.post('/@tickjs/api/')
+    // router.post('/@tickjs/api/')
 
-  app.use(router);
-  app.listen(config.port);
+    app.use(router);
+  }).start(() => {
+    debug('app')(`启动服务成功`)
+  })
+
+  
+
+  
 }
 
 export {

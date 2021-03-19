@@ -51,12 +51,3 @@ export class ServiceRuntime extends Runtime implements IRuntime {
   }
 }    
 
-
-
-const service = ServiceRuntime.sharedRuntime();
-
-service.run(() => {
-  service.publish({
-    name: 'appserviceready'
-  })
-});

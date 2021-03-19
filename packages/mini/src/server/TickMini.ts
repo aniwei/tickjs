@@ -1,28 +1,37 @@
 
 import fs from 'fs-extra';
-import globy from 'globy';
-import { resolve, parse } from 'path';
-
+import express from 'express';
+import crypto from 'crypto';
+import * as esbuild from 'esbuild';
+import { resolve, parse, join } from 'path';
 import { EventEmitter } from 'events';
+import homedir from 'home-dir';
+
 import vite from './vite';
-import { defineConfig } from './TickConfig';
+
 import { ViteServerOptions } from './vite';
 import { TickMiniProjLoader } from './TickMiniProjLoader';
-
 import { TickMiniProjDefaultConfig } from './TickMiniProjDefaultConfig'
 
-export type ProjConfig = {
-  
-}
 
 export type Config = {
   root: string,
   port: number,
-  proj: ProjConfig
+  cache: string,
+  proj: {
+    [key: string]: any
+  }
 }
 
 type DefineConfigObject = {
   [key: string]: any
+}
+
+type TickInterceptor = {
+  path: RegExp | string,
+  handle: Function,
+  hash?: string | null,
+  cache?: string | Buffer | null
 }
 
 function defineConfig (
@@ -33,8 +42,8 @@ function defineConfig (
     const sourceKeys: string[] = Object.keys(source);
   
     for (const key of sourceKeys) {
-      const src = (<any>source)[key];
-      const tar = (<any>target)[key];
+      const src = source[key];
+      const tar = target[key];
   
       if (src && typeof src === 'object') {
         if (tar === null || tar === undefined) {
@@ -61,11 +70,13 @@ export function defineUserConfig (
 
 export class TickMini extends EventEmitter {
   static mini: TickMini | null = null;
-  static config: {
+  static config: Config = {
     port: 3000,
     root: process.cwd(),
+    cache: join(homedir(), '.tickjs'),
     proj: TickMiniProjDefaultConfig
   };
+
   static sharedTickMini (config: Config): TickMini {
     if (this.mini) {
       return this.mini;
@@ -76,6 +87,9 @@ export class TickMini extends EventEmitter {
 
   public config: Config;
   public proj: TickMiniProjLoader
+  public intercepts: TickInterceptor[] = [];
+  
+  public app: express.Express | null = null;
     
   constructor (config: Config) {
     super();
@@ -84,69 +98,98 @@ export class TickMini extends EventEmitter {
     this.proj = new TickMiniProjLoader(config.root);
   }
 
-  async prepare () {
-    const { root } = this.config;
-    await this.proj.config();
-
-    this.emit(`projprepared`)
-  }
-
-  start () {
-    this.once(`projprepared`, async () => {
-      const { port } = this.config;
-      const viteOptions: ViteOptions = {
-        port,
-        plugins: [{
-          name: 'tick-service-runtime-plugin',
-          resolveId (id: string) {
-
-          },
-
-          load (id: string) {
-
-          }
-        }]
-      }
-
-      const app = vite(viteOptions);
-    })
+  intercept (path: RegExp | string, handle: Function) {
+    this.intercepts.push({
+      path,
+      handle,
+     });
 
     return this;
   }
 
-  resolve (prefix:string, filename?: string) {
-    if (filename === undefined) {
-      const { root } = this.mini;
-      filename === prefix;
-      prefix = root || '';
-    } 
+  prepare (prepareHandler: Function) {
+    const { cache, root } = this.config;
 
-    switch (prefix) {
-      case '@tickjs':
-      case '@weixin': {
-        return resolve(`${__dirname}/${prefix}`, filename || '');
+    this.intercept(/\/@tickjs\/service/g, async () => {
+      try {
+        await fs.access(cache);
+      } catch (error) {
+        await fs.mkdir(cache);
       }
 
-      default: {
-        return resolve(`${prefix}`, filename || '');
+      await esbuild.build({
+        bundle: true,
+        sourcemap: true,
+        entryPoints: [
+          join('@tickjs', 'service.ts')
+        ],
+        outfile: join(cache, `service.js`)
+      });
+
+      return await fs.readFile(join(cache, `service.js`));
+    });
+
+    this.intercept(/\/@weixin\/wxservice/g, async () => {
+      return await fs.readFile(join(__dirname, '@weixin/wxwervice.js'));
+    });
+
+    this.intercept(/\/@weixin\/wxview/g, async () => {
+      return await fs.readFile(join(__dirname, '@weixin/wxview.js'));
+    });
+
+    this.intercept(/\/@app\/service/g, async () => {
+      return await fs.readFile(join(root, 'app-service.js'));
+    });
+
+    this.intercept(/\/@app\/wxss/g, async () => {
+      return await fs.readFile(join(root, 'app-wxss.js'));
+    });
+
+    process.nextTick(async () => {
+      await this.proj.config();
+
+      const { port } = this.config;
+      const viteOptions: ViteServerOptions = {
+        port,
+        plugins: [{
+          name: 'tick-service-runtime-plugin',
+          load: this.service
+        }]
       }
+
+      const app = await vite(viteOptions);
+
+      prepareHandler(app);
+
+      this.emit(`projprepared`);
+    });
+
+    
+    return this;
+  }
+
+  start (callback: Function) {
+    this.once(`projprepared`, async () => {
+      callback();
+    });
+
+    return this;
+  }
+
+  service (code: string, id: string) {
+    for (const intercept of this.intercepts) {
+      const { path, handle } = intercept;
+
+      if (typeof path === 'string') {
+        if (id === path) {
+          return handle(code, id);
+        }
+      } else if (typeof path === 'object' && path instanceof RegExp) {
+        if (path.test(id)) {
+          return handle(code, id);
+        }
+      }
+
     }
-  }
-
-  wxss (route?: string) {
-    const { root, files } = this.mini;
-    const prefix = (route ? `${root}/${route}` : root) || '';
-    const filename = route ? 
-      (<TickAppProjFiles>files).frame : 
-      (<TickAppProjFiles>files).wxss
-
-    return this.resolve(prefix, filename);
-  }
-
-  service (route?: string) {
-    const { root, files } = this.mini;
-    const prefix = (route ? `${root}/${route}` : root) || '';
- 
-    return this.resolve(prefix, (<TickAppProjFiles>files).service);
   }
 }

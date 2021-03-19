@@ -1,15 +1,15 @@
 import { Runtime } from './Runtime';
 
-export default class AppRuntime extends Runtime {
-  static runtime: AppRuntime | null = null;
-  static shareAppRuntime (uri: string): AppRuntime {
+export class ClientRuntime extends Runtime {
+  static runtime: ClientRuntime | null = null;
+  static sharedRuntime (uri: string): ClientRuntime {
     if (this.runtime) {
       return this.runtime;
     }
 
     const worker: Worker = new Worker(uri);
 
-    return this.runtime = new AppRuntime(worker, worker);
+    return this.runtime = new ClientRuntime(worker, worker);
   }
 
   constructor (sender: Worker, receiver: Worker) {
