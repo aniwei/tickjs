@@ -1,9 +1,9 @@
 
 import fs from 'fs-extra';
 import express from 'express';
-import crypto from 'crypto';
+import debug from 'debug';
 import * as esbuild from 'esbuild';
-import { resolve, parse, join } from 'path';
+import { join } from 'path';
 import { EventEmitter } from 'events';
 import homedir from 'home-dir';
 
@@ -59,6 +59,7 @@ function defineConfig (
 
   return target;
 }
+
 
 export function defineUserConfig (
   source: DefineConfigObject
@@ -130,23 +131,29 @@ export class TickMini extends EventEmitter {
     });
 
     this.intercept(/\/@weixin\/wxservice/g, async () => {
-      return await fs.readFile(join(__dirname, '@weixin/wxwervice.js'));
+      return await this.proj.wx(`wxservice.js`)
     });
 
     this.intercept(/\/@weixin\/wxview/g, async () => {
-      return await fs.readFile(join(__dirname, '@weixin/wxview.js'));
+      return await this.proj.wx(`wxview.js`)
     });
 
     this.intercept(/\/@app\/service/g, async () => {
-      return await fs.readFile(join(root, 'app-service.js'));
+      return await this.proj.code()
     });
 
     this.intercept(/\/@app\/wxss/g, async () => {
-      return await fs.readFile(join(root, 'app-wxss.js'));
+      return await this.proj.view();
     });
 
     process.nextTick(async () => {
-      await this.proj.config();
+      const config = await this.proj.config();
+
+      console.log(config)
+
+      defineUserConfig({
+        proj: config
+      });
 
       const { port } = this.config;
       const viteOptions: ViteServerOptions = {
@@ -161,7 +168,7 @@ export class TickMini extends EventEmitter {
 
       prepareHandler(app);
 
-      this.emit(`projprepared`);
+      this.emit(`projprepared`, app);
     });
 
     
@@ -169,8 +176,8 @@ export class TickMini extends EventEmitter {
   }
 
   start (callback: Function) {
-    this.once(`projprepared`, async () => {
-      callback();
+    this.once(`projprepared`, async (app) => {
+      callback(app);
     });
 
     return this;
@@ -189,7 +196,6 @@ export class TickMini extends EventEmitter {
           return handle(code, id);
         }
       }
-
     }
   }
 }

@@ -1,6 +1,5 @@
 import fs from 'fs-extra';
 import path from 'path';
-import globby from 'globby';
 
 export class TickMiniProjLoader {
   public root: string;
@@ -22,6 +21,11 @@ export class TickMiniProjLoader {
     } 
   }
 
+  wx (filename: string) {
+    return this.import(path.resolve(__dirname, `@weixin/${filename}`))
+      .then(res => res.toString())
+  }
+
   resolve (filename: string) {
     return path.resolve(this.root, filename);
   }
@@ -31,11 +35,14 @@ export class TickMiniProjLoader {
   }
 
   view (r?: string) {
-    const filename = r ? this.resolve(r + 'app-frame.js') : 'app-wxss.js'
-    return this.import(filename).then(res => res.toString());
+    const filename = r ? this.resolve(r + 'app-frame.js') : 'app-wxss.js';
+    return this.import(filename)
+      .then(res => res.toString());
   }
 
-  service () {
-    return this.import(this.resolve('app-config.json'));
+  code (r?: string) {
+    const filename = r ? this.resolve(r + 'app-service.js') : 'app-service.js'
+    return this.import(filename)
+      .then(res => res.toString());
   } 
 }
