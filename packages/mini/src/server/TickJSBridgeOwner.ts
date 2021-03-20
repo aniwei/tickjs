@@ -1,4 +1,4 @@
-export class WeixinJSBridgeOwner implements IWeixinJSBridgeHolder {
+export class TickJSBridgeOwner {
   public owner: any | null = null;
   public WeixinJSBridge: any | null = null
 

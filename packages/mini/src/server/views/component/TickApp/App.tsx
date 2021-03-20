@@ -4,9 +4,9 @@ import { AppNavigator } from '../AppNavigator';
 import { AppCapsule } from '../AppCapsule';
 
 import { Provider } from './AppContext';
-import { useConfig } from '@hooks/useConfig';
-import { useNavigator } from '@hooks/useNavigator';
-import { useRuntime } from '@hooks/useRuntime';
+import { useConfig } from '../../hooks/useConfig';
+import { useNavigator } from '../../hooks/useNavigator';
+import { useRuntime } from '../../hooks/useRuntime';
 
 export default function App (props: any) {
   const [
@@ -14,7 +14,7 @@ export default function App (props: any) {
     setRuntime
   ] = useState(false);
 
-  const context = props.context;
+  const context = props.config;
 
   const runtime = useRuntime(() => setRuntime(true));
   const config = useConfig(context.config);
@@ -22,7 +22,7 @@ export default function App (props: any) {
 
   return (
     <View style={{ height: Dimensions.get('window').height }}>
-      <Provider value={{ config, navigator, runtime }}>
+      <Provider value={{ config, manager, runtime }}>
         <AppCapsule />
         { 
           isRuntimeLoaded ? 

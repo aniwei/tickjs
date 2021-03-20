@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
-const defaultContextValue: TickAppContext = {
-  navigator: null,
+const defaultContextValue = {
+  manager: null,
   runtime: null,
   config: null,
 }

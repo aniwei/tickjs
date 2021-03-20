@@ -7,6 +7,6 @@ export default function AppContext () {
   const { isContextLoaded, context } = useContextLoader();
 
   return <div className="mini">
-    {isContextLoaded && <App context={context}  />}
+    {isContextLoaded && <App config={context}  />}
   </div>
 }

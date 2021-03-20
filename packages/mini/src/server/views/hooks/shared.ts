@@ -1,19 +1,54 @@
-export function getApplicationConfig (config: TickAppConfig) {
-  const subPackages = mapSubPackages(config);
-  const subPages = mapSubPackagesToSubPage(subPackages);
+import { Config } from 'src/server/TickMini';
+
+export type SubPackage = {
+  root: string,
+  pages: string[]
+}
+
+export type SubPage = Map<string, SubPackage>
+export type Package = Map<string, SubPackage>
+
+
+export type TabBarItem = {
+  label: string,
+  path: string,
+  icon: string,
+  selectedIcon: string
+}
+
+export type TabBar = {
+  activeTintColor: string,
+  inactiveTintColor: string,
+  inactiveBackgroundColor: string,
+  activeBackgroundColor: string,
+  tabItems: TabBarItem[]
+}
+
+
+export type AppConfig = {
+  subPages: SubPage,
+  subPackages: SubPackage,
+  pages: any[],
+  bottomTabBar: TabBar,
+  launchOptions: any
+}
+
+export function getApplicationConfig (config: Config) {
+  const subPackages = mapSubPackagesForSubPackage(config);
+  const subPages = mapSubPackagesForSubPage(subPackages);
 
   return {
     subPages,
     subPackages,
     pages: getApplicationPages(config, subPages),
     bottomTabBar: getApplicationTabBar(config),
-    launchConfig: getApplicationLaunchOptions(config)
+    launchOptions: getApplicationLaunchOptions(config)
   }
 }
 
-export function mapSubPackages (config: TickAppConfig) {
-  const { subPackages } = config;
-  const packages: Map<string, TickViewSubPackage> = new Map();
+export function mapSubPackagesForSubPackage (config: Config) {
+  const { subPackages } = config.proj;
+  const packages: Package = new Map();
 
   if (subPackages) {
     for (const subPackage of subPackages) {
@@ -25,8 +60,8 @@ export function mapSubPackages (config: TickAppConfig) {
   return packages;
 }
 
-export function mapSubPackagesToSubPage (subPackages: Map<string, TickViewSubPackage>) {
-  const subPages: Map<string, TickViewSubPackage> = new Map();
+export function mapSubPackagesForSubPage (subPackages: Package) {
+  const subPages: SubPage = new Map();
 
   for (const [name, subPackage] of subPackages) {
     for (const route of subPackage.pages) {
@@ -37,9 +72,9 @@ export function mapSubPackagesToSubPage (subPackages: Map<string, TickViewSubPac
   return subPages;
 }
 
-export function getApplicationTabBar (config: TickAppConfig) : TickViewTabBar {
-  const tabBar = config.tabBar as TickAppTabBar;
-  const list: TickAppTabBarItem[] = tabBar.list || [];
+export function getApplicationTabBar (config: Config) : TabBar {
+  const tabBar = config.proj.tabBar;
+  const list = tabBar.list;
 
   return {
     activeTintColor: tabBar.selectedColor || null,
@@ -48,9 +83,8 @@ export function getApplicationTabBar (config: TickAppConfig) : TickViewTabBar {
     activeBackgroundColor: tabBar.backgroundColor || null,
     tabItems: list.map((tabItem: any) => {
       return {
-        route: tabItem.pagePath,
-        label: tabItem.text,
         path: tabItem.pagePath,
+        label: tabItem.text,
         icon: tabItem.iconData,
         selectedIcon: tabItem.selectedIconData
       }
@@ -58,17 +92,17 @@ export function getApplicationTabBar (config: TickAppConfig) : TickViewTabBar {
   }
 }
 
-export function getApplicationLaunchOptions (config: TickAppConfig) {
-  const { appLaunchInfo } = config;
+export function getApplicationLaunchOptions (config: Config) {
+  const { appLaunchInfo } = config.proj;
   
   return { ...appLaunchInfo }
 }
 
-export function getApplicationPages (config: TickAppConfig, subPages: Map<string, TickViewSubPackage>) {
-  const pages = config.pages || [];
+export function getApplicationPages (config: Config, subPages: SubPage) {
+  const pages = config.proj.pages || [];
   const pageConfig = getApplicationPageConfig(config);
 
-  return pages.map(route => {
+  return pages.map((route: string) => {
     return {
       __MAIN_PACKAGE: !subPages.has(route),
       route: route + '.html',
@@ -77,18 +111,21 @@ export function getApplicationPages (config: TickAppConfig, subPages: Map<string
   });
 }
 
-export function getApplicationPageConfig (config: TickAppConfig) {
-  const global: TickAppGlobal = config.global || {};
-  const pages: string[] = config.pages || [];
-  const page: TickAppPage = config.page || {};
 
-  const configMap: Map<string, TickAppPage> = new Map();
+export type PageConfig = Map<string, any>;
+
+export function getApplicationPageConfig (config: Config) {
+  const global = config.proj.global;
+  const pages: string[] = config.proj.pages;
+  const page = config.proj.page;
+
+  const pageConfig: PageConfig = new Map();
 
   for (const r of pages) {
     const key = r + '.html';
-    const cfg = page[key] as TickAppPage;
+    const cfg = page[key];
 
-    configMap.set(key, {
+    pageConfig.set(key, {
       ...global,
       ...cfg,
       window: {
@@ -101,5 +138,5 @@ export function getApplicationPageConfig (config: TickAppConfig) {
     })
   }
 
-  return configMap;
+  return pageConfig;
 }

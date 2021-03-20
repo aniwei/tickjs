@@ -7,131 +7,136 @@ import {
 
 import AppRuntime from '@tickjs/AppRuntime';
 
-import { AppContext } from '../component/TickApp/AppContext'
-import { TickJSBridge } from '../../TickJSBridge';
+import { AppContext } from '../component/TickApp/AppContext';
+import { TickJSBridgeOwner } from '../../TickJSBridgeOwner';
+import { AppConfig } from './useConfig';
 
+export type InitOptions = {
+  navigation: any,
+  ref: any,
+  route: any,
+  type: any
+}
 
+class Navigator {
+  public id: number | null = null;
+  public navigation: any | null = null;
+  public route: string | null = null;
+  public bridge: any | null = null;
+  public manager: NavigatorManager | null = null;
 
-export function useNavigator (runtime: AppRuntime, config: any) {
+  constructor (id: number, manager: NavigatorManager, config: NavigatorConfig) {
+    const { navigation, route, bridge } = config;
+    this.id = id;
+    this.navigation = navigation;
+    this.route = route;
+    this.bridge = bridge;
+    this.manager = manager;
+  }
+
+  push (uri: URL): void {
+    const pathname = uri.pathname[0] === '/' ? 
+      uri.pathname.slice(1) : uri.pathname;
+  }
+
+  navigate (uri: URL, query: object) {
+    const pathname = uri.pathname[0] === '/' ? 
+      uri.pathname.slice(1) : uri.pathname;
+  }
+
+  pop (delta: number = 1) {
+    this.navigation.pop(delta);
+  }
+
+  focus () {
+    this.manager?.focus(this);
+  }
+
+  ready () {
+    this.manager?.ready(this);
+  }
+
+  distroy () {
+    this.manager?.distroy(this);
+  }
+}
+
+class NavigatorManager extends Map {
+  public id: number = 0;
+  public isLaunch: boolean = true;
+  public runtime: AppRuntime | null = null;
+  public config: any | null = null;
+  public current: Navigator | null = null;
+  public subPages: any[] = [];
+
+  constructor (runtime: AppendMode, config: any) {
+    super();
+
+    this.runtime = runtime;
+    this.config = config;
+  }
+
+  init = (nav: NavigatorConfig): Navigator => {
+    return new Navigator(this.id++, this, nav);
+  }
+
+  has = (nav: Navigator): boolean => {
+    return super.has(nav.id as number);
+  }
+
+  set = (nav: Navigator) => {
+    super.set(nav.id, nav);
+    return this;
+  }
+
+  get = (nav: Navigator | number) => {
+    if (nav instanceof Navigator) {
+      return super.get((nav as Navigator).id);
+    }
+
+    return super.get(navigator);
+  }
+
+  delete = (nav: Navigator) => {
+    if (nav instanceof Navigator) {
+      return super.delete(nav.id);
+    }
+
+    return super.delete(navigator);
+  }
+
+  ready (nav: Navigator) {
+    
+  }
+
+  focus (nav: Navigator) {
+    this.current = nav;
+  }
+
+  distroy (nav: Navigator) {
+    this.delete(nav);
+  }
+}
+
+export function useNavigator (runtime: AppRuntime, config: AppConfig) {
   return useMemo(() => {
-    class Navigator implements INavigator {
-      public id: number | null = null;
-      public navigation: any | null = null;
-      public route: string | null = null;
-      public bridge: any | null = null;
-    
-      constructor (id: number, config: NavigatorConfig) {
-        const { navigation, route, bridge } = config;
-        this.id = id;
-        this.navigation = navigation;
-        this.route = route;
-        this.bridge = bridge;
-      }
-    
-      push (uri: URL): void {
-        const pathname = uri.pathname[0] === '/' ? 
-          uri.pathname.slice(1) : uri.pathname;
-      }
+    const manager = new NavigatorManager(runtime, config);
 
-      navigate (uri: URL, query: object) {
-        const pathname = uri.pathname[0] === '/' ? 
-          uri.pathname.slice(1) : uri.pathname;
-      }
-
-      pop (delta: number = 1) {
-        this.navigation.pop(delta);
-      }
-
-      focus () {
-        navigator.focus(this);
-      }
-
-      ready () {
-        navigator.ready(this);
-      }
-
-      distroy () {
-        navigator.distroy(this);
-      }
-    }
-
-    class TickNavigatorManager extends Map implements INavigatorManager {
-      public id: number = 0;
-      public isLaunch: boolean = true;
-      public current: INavigator | null = null;
-      public subPages: object = config.subPages;
-
-      init = (nav: NavigatorConfig) => {
-        return new TickNavigator(this.id++, nav);
-      }
-
-      has = (nav: Navigator): boolean => {
-        return super.has(nav.id as number);
-      }
-
-      set = (nav: Navigator) => {
-        super.set(nav.id, nav);
-        return this;
-      }
-
-      get = (nav: Navigator | number) => {
-        if (nav instanceof Navigator) {
-          return super.get((nav as INavigator).id);
-        }
-
-        return super.get(navigator);
-      }
-
-      delete = (nav: Navigator) => {
-        if (nav instanceof Navigator) {
-          return super.delete(nav.id);
-        }
-
-        return super.delete(navigator);
-      }
-
-      ready (nav: Navigator) {
-        
-      }
-
-      focus (nav: Navigator) {
-        this.current = nav;
-      }
-
-      distroy (nav: Navigator) {
-        this.delete(nav);
-      }
-    }
-
-    const navigatorManager = new TickNavigatorManager();
-
-    runtime.on('navigateTo', (data: any, callbackId: number) => {
-      const uri = new URLParse(data.url) as any; 
-      const query = URLParse.qs.parse(uri.query.slice(1));
-
-      navigatorManager.push(uri, query);
-
-      runtime.callback({
-        callbackId,
-        errMsg: `navigateTo:ok`,
-        options: {}
-      });
-    });
-
-    return navigatorManager;
+    return manager;
   }, [runtime]);
 }
 
-export function useInit ({ navigation, route, ref, __TYPE }) {
-  const { navigator } = useContext(AppContext);
+export function useInit (initOptions: InitOptions) {
+  const { navigation, route, ref, type } = initOptions;
+  const { manager } = useContext(AppContext);
 
   return useMemo(() => {
-    (<)
-    const nav = navigator.init({
+    
+    const nav = manager.init({
       navigation,
       route,
-      type: __TYPE || 'switchTab',
-      bridge: new TickJSBridge(ref)
+      type: type || 'switchTab',
+      bridge: new TickJSBridgeOwner(ref)
     })
 
     return nav

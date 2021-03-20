@@ -149,11 +149,7 @@ export class TickMini extends EventEmitter {
     process.nextTick(async () => {
       const config = await this.proj.config();
 
-      console.log(config)
-
-      defineUserConfig({
-        proj: config
-      });
+      defineUserConfig({ proj: config });
 
       const { port } = this.config;
       const viteOptions: ViteServerOptions = {
@@ -177,13 +173,13 @@ export class TickMini extends EventEmitter {
 
   start (callback: Function) {
     this.once(`projprepared`, async (app) => {
-      callback(app);
+      app.listen(this.config.port, callback);
     });
 
     return this;
   }
 
-  service (code: string, id: string) {
+  service = (code: string, id: string) => {
     for (const intercept of this.intercepts) {
       const { path, handle } = intercept;
 
