@@ -37,10 +37,10 @@ export default async function App (config: Config, callback?: Function) {
     const router: express.Router = express.Router();
 
     router.use('/@tickjs/context', async (req, res) => {
-      res.json(mini.proj);
+      res.json(mini.config.proj);
     });
     router.post('/@tickjs/api/', async () => {
-      
+
     })
 
     app.use(router);

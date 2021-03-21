@@ -14,15 +14,17 @@ export default function App (props: any) {
     setRuntime
   ] = useState(false);
 
-  const context = props.config;
-
   const runtime = useRuntime(() => setRuntime(true));
-  const config = useConfig(context.config);
+  const config = useConfig(props.config);
   const navigator = useNavigator(runtime, config);
+
+  const context = {
+    config, navigator, runtime
+  }
 
   return (
     <View style={{ height: Dimensions.get('window').height }}>
-      <Provider value={{ config, manager, runtime }}>
+      <Provider value={context}>
         <AppCapsule />
         { 
           isRuntimeLoaded ? 

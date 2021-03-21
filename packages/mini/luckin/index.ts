@@ -1,5 +1,6 @@
 import App, { defineUserConfig } from '../src/server';
 
+
 const config = defineUserConfig({
   proj: {
     accountInfo: {

@@ -34,7 +34,7 @@ export type AppConfig = {
   launchOptions: any
 }
 
-export function getApplicationConfig (config: Config) {
+export function getApplicationConfig (config: any) {
   const subPackages = mapSubPackagesForSubPackage(config);
   const subPages = mapSubPackagesForSubPage(subPackages);
 
@@ -47,8 +47,8 @@ export function getApplicationConfig (config: Config) {
   }
 }
 
-export function mapSubPackagesForSubPackage (config: Config) {
-  const { subPackages } = config.proj;
+export function mapSubPackagesForSubPackage (config: any) {
+  const { subPackages } = config;
   const packages: Packages = new Map();
 
   if (subPackages) {
@@ -73,8 +73,8 @@ export function mapSubPackagesForSubPage (subPackages: Packages) {
   return subPages;
 }
 
-export function getApplicationTabBar (config: Config) : TabBar {
-  const tabBar = config.proj.tabBar;
+export function getApplicationTabBar (config: any) : TabBar {
+  const tabBar = config.tabBar;
   const list = tabBar.list;
 
   return {
@@ -93,14 +93,14 @@ export function getApplicationTabBar (config: Config) : TabBar {
   }
 }
 
-export function getApplicationLaunchOptions (config: Config) {
-  const { appLaunchInfo } = config.proj;
+export function getApplicationLaunchOptions (config: any) {
+  const { appLaunchInfo } = config;
   
   return { ...appLaunchInfo }
 }
 
-export function getApplicationPages (config: Config, subPages: SubPages) {
-  const pages = config.proj.pages || [];
+export function getApplicationPages (config: any, subPages: SubPages) {
+  const pages = config.pages || [];
   const pageConfig = getApplicationPageConfig(config);
 
   return pages.map((route: string) => {
@@ -115,10 +115,10 @@ export function getApplicationPages (config: Config, subPages: SubPages) {
 
 export type PageConfig = Map<string, any>;
 
-export function getApplicationPageConfig (config: Config) {
-  const global = config.proj.global;
-  const pages: string[] = config.proj.pages;
-  const page = config.proj.page;
+export function getApplicationPageConfig (config: any) {
+  const global = config.global;
+  const pages: string[] = config.pages;
+  const page = config.page;
 
   const pageConfig: PageConfig = new Map();
 
@@ -143,7 +143,7 @@ export function getApplicationPageConfig (config: Config) {
 }
 
 
-export function useConfig (config: Config) {
+export function useConfig (config: any) {
   return useMemo(() => {
     return getApplicationConfig(config)
   }, [])

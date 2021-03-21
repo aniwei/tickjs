@@ -111,7 +111,7 @@ export class TickMini extends EventEmitter {
   prepare (prepareHandler: Function) {
     const { cache, root } = this.config;
 
-    this.intercept(/\/@tickjs\/service/g, async () => {
+    this.intercept(/@tickjs\/service/g, async () => {
       try {
         await fs.access(cache);
       } catch (error) {
@@ -128,6 +128,10 @@ export class TickMini extends EventEmitter {
       });
 
       return await fs.readFile(join(cache, `service.js`));
+    });
+
+    this.intercept(/@tickjs\/client/g, async () => {
+      return await fs.readFile(join(__dirname, `@tickjs/client.ts`));
     });
 
     this.intercept(/\/@weixin\/wxservice/g, async () => {
@@ -179,17 +183,17 @@ export class TickMini extends EventEmitter {
     return this;
   }
 
-  service = (code: string, id: string) => {
+  service = (id: string) => {
     for (const intercept of this.intercepts) {
       const { path, handle } = intercept;
 
       if (typeof path === 'string') {
         if (id === path) {
-          return handle(code, id);
+          return handle(id);
         }
       } else if (typeof path === 'object' && path instanceof RegExp) {
         if (path.test(id)) {
-          return handle(code, id);
+          return handle(id);
         }
       }
     }
