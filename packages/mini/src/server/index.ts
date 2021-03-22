@@ -40,7 +40,7 @@ export default async function App (config: Config, callback?: Function) {
       res.json(mini.config.proj);
     });
     
-    router.post('/@tickjs/api/[\d]+', async (context) => {
+    router.post('/@tickjs\/api\/[\d]+', async (context) => {
       debugger;
     })
 
