@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { 
   Route,
   BrowserRouter as Router 
@@ -7,6 +8,7 @@ import {
 
 import TickApp from './component/TickApp';
 import AppView from './component/AppView';
+
 
 function App() {
   return (
@@ -17,4 +19,7 @@ function App() {
   )
 }
 
-export default App
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)

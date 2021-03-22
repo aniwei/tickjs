@@ -1,0 +1,79 @@
+$gwx24_XC_11=function(_,_v,_n,_p,_s,_wp,_wl,$gwn,$gwl,$gwh,wh,$gstack,$gwrt,gra,grb,TestTest,wfor,_ca,_da,_r,_rz,_o,_oz,_1,_1z,_2,_2z,_m,_mz,nv_getDate,nv_getRegExp,nv_console,nv_parseInt,nv_parseFloat,nv_isNaN,nv_isFinite,nv_decodeURI,nv_decodeURIComponent,nv_encodeURI,nv_encodeURIComponent,$gdc,nv_JSON,_af,_gv,_ai,_grp,_gd,_gapi,$ixc,_ic,_w,_ev,_tsd){return function(path,global){
+if(typeof global==='undefined'){if (typeof __GWX_GLOBAL__==='undefined')global={};else global=__GWX_GLOBAL__;}if(typeof __WXML_GLOBAL__ === 'undefined') {__WXML_GLOBAL__={};
+}__WXML_GLOBAL__.modules = __WXML_GLOBAL__.modules || {};
+var e_={}
+if(typeof(global.entrys)==='undefined')global.entrys={};e_=global.entrys;
+var d_={}
+if(typeof(global.defines)==='undefined')global.defines={};d_=global.defines;
+var f_={}
+if(typeof(global.modules)==='undefined')global.modules={};f_=global.modules || {};
+var p_={}
+__WXML_GLOBAL__.ops_cached = __WXML_GLOBAL__.ops_cached || {}
+__WXML_GLOBAL__.ops_set = __WXML_GLOBAL__.ops_set || {};
+__WXML_GLOBAL__.ops_init = __WXML_GLOBAL__.ops_init || {};
+var z=__WXML_GLOBAL__.ops_set.$gwx24_XC_11 || [];
+function gz$gwx24_XC_11_1(){
+if( __WXML_GLOBAL__.ops_cached.$gwx24_XC_11_1)return __WXML_GLOBAL__.ops_cached.$gwx24_XC_11_1
+__WXML_GLOBAL__.ops_cached.$gwx24_XC_11_1=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([[7],[3,'$taroCompReady']])
+Z([3,'my-member-qrcode-container'])
+Z([[7],[3,'isGiftCardTip']])
+Z([[7],[3,'showPassword']])
+Z([[7],[3,'$compid__1160']])
+Z([[7],[3,'$compid__1161']])
+})(__WXML_GLOBAL__.ops_cached.$gwx24_XC_11_1);return __WXML_GLOBAL__.ops_cached.$gwx24_XC_11_1
+}
+__WXML_GLOBAL__.ops_set.$gwx24_XC_11=z;
+__WXML_GLOBAL__.ops_init.$gwx24_XC_11=true;
+var x=['./pages/member/member_code/index.wxml'];d_[x[0]]={}
+var m0=function(e,s,r,gg){
+var z=gz$gwx24_XC_11_1()
+var c9C=_v()
+_(r,c9C)
+if(_oz(z,0,e,s,gg)){c9C.wxVkey=1
+var o0C=_n('view')
+_rz(z,o0C,'class',1,e,s,gg)
+var lAD=_v()
+_(o0C,lAD)
+if(_oz(z,2,e,s,gg)){lAD.wxVkey=1
+}
+var aBD=_v()
+_(o0C,aBD)
+if(_oz(z,3,e,s,gg)){aBD.wxVkey=1
+var tCD=_n('pass-word-input')
+_rz(z,tCD,'compid',4,e,s,gg)
+_(aBD,tCD)
+}
+var eDD=_n('wallet-reset-pop')
+_rz(z,eDD,'compid',5,e,s,gg)
+_(o0C,eDD)
+lAD.wxXCkey=1
+aBD.wxXCkey=1
+aBD.wxXCkey=3
+_(c9C,o0C)
+}
+c9C.wxXCkey=1
+c9C.wxXCkey=3
+return r
+}
+e_[x[0]]={f:m0,j:[],i:[],ti:[],ic:[]}
+if(path&&e_[path]){
+return function(env,dd,global){$gwxc=0;var root={"tag":"wx-page"};root.children=[]
+;g="$gwx24_XC_11";var main=e_[path].f
+if (typeof global==="undefined")global={};global.f=$gdc(f_[path],"",1);
+try{
+main(env,{},root,global);
+_tsd(root)
+}catch(err){
+console.log(err)
+}
+;g="";
+return root;
+}
+}
+}
+}(__g.a,__g.b,__g.c,__g.d,__g.e,__g.f,__g.g,__g.h,__g.i,__g.j,__g.k,__g.l,__g.m,__g.n,__g.o,__g.p,__g.q,__g.r,__g.s,__g.t,__g.u,__g.v,__g.w,__g.x,__g.y,__g.z,__g.A,__g.B,__g.C,__g.D,__g.E,__g.F,__g.G,__g.H,__g.I,__g.J,__g.K,__g.L,__g.M,__g.N,__g.O,__g.P,__g.Q,__g.R,__g.S,__g.T,__g.U,__g.V,__g.W,__g.X,__g.Y,__g.Z,__g.aa);if(__vd_version_info__.delayedGwx||false)$gwx24_XC_11();	if (__vd_version_info__.delayedGwx) __wxAppCode__['pages/member/member_code/index.wxml'] = [$gwx24_XC_11, './pages/member/member_code/index.wxml'];else __wxAppCode__['pages/member/member_code/index.wxml'] = $gwx24_XC_11( './pages/member/member_code/index.wxml' );
+	;__wxRoute = "pages/member/member_code/index";__wxRouteBegin = true;__wxAppCurrentFile__="pages/member/member_code/index.js";define("pages/member/member_code/index.js",function(require,module,exports,window,document,frames,self,location,navigator,localStorage,history,Caches,screen,alert,confirm,prompt,XMLHttpRequest,WebSocket,Reporter,webkit,WeixinJSCore){
+(wx.webpackJsonp=wx.webpackJsonp||[]).push([[544],{1495:function(e,t,n){e.exports=n.p+"pages/member/member_code/index.wxml"},157:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a=T(n(3)),o=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n,a=arguments[t];for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n])}return e},r=function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],a=!0,o=!1,r=void 0;try{for(var i,c=e[Symbol.iterator]();!(a=(i=c.next()).done)&&(n.push(i.value),!t||n.length!==t);a=!0);}catch(e){o=!0,r=e}finally{try{!a&&c.return&&c.return()}finally{if(o)throw r}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")},i=function(e,t,n){return t&&c(e.prototype,t),n&&c(e,n),e};function c(e,t){for(var n=0;n<t.length;n++){var a=t[n];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}var u=n(0),s=T(u),l=n(20),p=n(19),f=T(n(5)),d=T(n(1)),m=T(n(11)),_=T(n(7)),y=n(8),b=T(n(2)),g=n(38);function T(e){return e&&e.__esModule?e:{default:e}}function h(e){return function(){var t=e.apply(this,arguments);return new Promise((function(e,n){return function a(o,r){try{var i=t[o](r),c=i.value}catch(o){return void n(o)}if(!i.done)return Promise.resolve(c).then((function(e){a("next",e)}),(function(e){a("throw",e)}));e(c)}("next")}))}}function v(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function C(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}n(2327),(0,g.isIphoneX)();var w=d.default.routes,S=(0,y.getSrc)("/img/common/round_black_ok.png",-1),P=(0,y.getSrc)("/img/common/gouxuankuang.png",-1),L=["","me_payment_img_baiyin.png","me_payment_img_huangjin.png","me_payment_img_bojin.png","me_payment_img_zuanshi.png","me_payment_img_heijin.png","me_payment_img_henzuan.png"],x={NOTHING:"NOTHING",COMBINATION:"COMBINATION",WALLET:"WALLET",GIFT_CARD:"GIFT_CARD"},I=x.NOTHING,O=x.COMBINATION,E=x.WALLET,N=(g=x.GIFT_CARD,C(d={},I,{type:I,payTitle:"使用喜茶钱包支付",balanceLabelFunc:function(e){return"(您还未开通喜茶钱包)"},balanceLabel:"",isGiftCardTip:!1,giftCardTipText:"",isCanPay:!1}),C(d,O,{type:O,payTitle:"余额支付(喜茶钱包+阿喜有礼)",balanceLabelFunc:function(e){return"(可用总额￥"+e.balance+")"},balanceLabel:"",isGiftCardTip:!0,giftCardTipText:"优先选择最早激活的阿喜有礼卡支付，若需更换优先扣款的卡账户可联系客服",isCanPay:!0}),C(d,E,{type:E,payTitle:"使用喜茶钱包支付",balanceLabelFunc:function(e){return"(可用余额￥"+e.cashStorage.balance+")"},balanceLabel:"",isGiftCardTip:!1,giftCardTipText:"",isCanPay:!0}),C(d,g,{type:g,payTitle:"阿喜有礼可用总金额",balanceLabelFunc:function(e){return"(可用余额￥"+e.giftCard.balance+")"},balanceLabel:"",isGiftCardTip:!0,giftCardTipText:"优先选择最早激活的阿喜有礼卡支付，若需更换优先扣款的卡账户可联系客服",isCanPay:!0}),d);function A(){var e,t;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,A);for(var n=arguments.length,a=Array(n),o=0;o<n;o++)a[o]=arguments[o];return(e=t=v(this,(e=A.__proto__||Object.getPrototypeOf(A)).call.apply(e,[this].concat(a)))).config={navigationBarTitleText:"",navigationStyle:"custom",navigationBarTextStyle:"white",transparentTitle:"always",titlePenetrate:"YES",defaultTitle:""},t.$usedState=["anonymousState__temp","anonymousState__temp2","anonymousState__temp3","anonymousState__temp4","anonymousState__temp5","anonymousState__temp6","$compid__1160","$compid__1161","bgIcon","userInfo","switchWalletPay","selectedImg","unSelected","isGiftCardTip","qrCode","showPassword","payTitle","balanceLabel","giftCardTipText","member_code_points_pay","member_code_points","member_code_refresh_every30_seconds"],t.customComponents=["PassWordInput","WalletResetPop"],v(t,e)}(function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(A,s.default.Component),i(A,[{key:"_constructor",value:function(e){(function e(t,n,a){null===t&&(t=Function.prototype);var o=Object.getOwnPropertyDescriptor(t,n);return void 0!==o?"value"in o?o.value:void 0!==(o=o.get)?o.call(a):void 0:null!==(t=Object.getPrototypeOf(t))?e(t,n,a):void 0})(A.prototype.__proto__||Object.getPrototypeOf(A.prototype),"_constructor",this).call(this,e),this.$$refs=new s.default.RefsArray}},{key:"_createData",value:function(){var e=this;function t(){pe(!le)}function n(){Ee()}function i(){ae.clearPassword=!0,ae.price=0,oe(o({},ae)),V(!1)}function c(){Oe.current=setTimeout((function(){f.default.showModal({title:ye,content:be,onConfirmPress:function(){Ae({isWallet:1})},onCancelPress:function(){}})}),3e5)}function d(){Oe.current&&clearTimeout(Oe.current)}function g(){Ae({isWallet:0}),xe.current=setInterval((function(){Ae()}),3e4)}function T(){xe.current&&clearInterval(xe.current),xe.current=null}function v(){Ie.current&&clearInterval(Ie.current),Ie.current=null}this.__state=arguments[0]||this.state||{},this.__props=arguments[1]||this.props||{};var C,I,O,E,A,F,k=this.$prefix,G=(0,u.genCompid)(k+"$compid__1160"),W=(re=r(G,2))[0],j=re[1],M=(0,u.genCompid)(k+"$compid__1161"),$=(A=r(M,2))[0],B=A[1],R=_.default.userInfo,Y=R.star_level,H=R.id,D=(0,u.useState)(""),q=(F=r(D,2))[0],z=F[1],J=(0,u.useState)(!1),Q=(de=r(J,2))[0],U=de[1],X=(0,u.useState)(!1),K=(me=r(X,2))[0],V=me[1],Z=(0,u.useState)(""),ee=(Ne=r(Z,2))[0],te=Ne[1],ne=(0,u.useState)({price:0,clearPassword:!0}),ae=(G=r(ne,2))[0],oe=G[1],re=(0,u.useState)({type:x.NOTHING,payTitle:"",balanceLabelFunc:function(e){return""},balanceLabel:"",isGiftCardTip:!1,giftCardTipText:"22",isCanPay:!1}),ie=(k=r(re,2))[0],ce=k[1],ue=(M=(0,u.useState)(0),(A=r(M,2))[0]),se=A[1],le=(D=(0,u.useState)(!1),(F=r(D,2))[0]),pe=F[1],fe=(J=b.default.getLang(_.default.lang,"member_code")).common_loading,de=J.member_code_refresh_every30_seconds,me=(X=J.member_code_points_pay,J.member_code_points),_e=J.member_code_fail_toast,ye=J.common_tips,be=J.member_code_expired,ge=J.member_code_notopen_gift_card,Te=J.common_pay_fail,he=J.member_code_fail_reason,ve=J.member_code_load_balance_error_toast,Ce=J.common_confirm,we=(J.member_code_use_gift_card,J.member_code_not_gift_card,J.member_code_notsetting_pwd),Se=J.member_code_account_freeze,Pe=J.member_code_not_qr_pay,Le=ae.price,xe=(ae.clearPassword,(0,u.useRef)(null)),Ie=(0,u.useRef)(null),Oe=(0,u.useRef)(null),Ee=(Z=function(){s.default.navigateBack()},C=h(a.default.mark((function t(){var n,r,i,c;return a.default.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,(0,l.getUserGiftCardAndWalletInfo)();case 2:c=e.sent,console.log("~~~~~checkBalance~~~~~~~~~",c),n=N.NOTHING,c&&0===c.code&&c.data?(r=c.data,i=r.cashStorage,c=r.giftCard,-1===i.accountState&&-1===c.accountState?n=N.NOTHING:0===i.accountState&&1===i.passwordState&&0===c.accountState?n=N.COMBINATION:0===i.accountState?(0===i.passwordState&&(N.WALLET.balanceLabelFunc=function(){return we},N.WALLET.isCanPay=!1),n=N.WALLET):0===c.accountState?n=N.GIFT_CARD:1===i.accountState&&0!==c.accountState&&(N.WALLET.balanceLabelFunc=function(){return Se},N.WALLET.isCanPay=!1,n=N.WALLET),ce(o({},n,{balanceLabel:n.balanceLabelFunc(r)})),se(Number(i.balance))):(ce(o({},n,{balanceLabel:n.balanceLabelFunc("")})),f.default.showToast({title:ve,icon:"none"}));case 6:case"end":return e.stop()}}),t,e)}))),function(){return C.apply(this,arguments)}),Ne=function(){var e=ie.type,n=ie.isCanPay;console.log(x,"PAYMENT_TYPEPAYMENT_TYPEPAYMENT_TYPEPAYMENT_TYPE"),e!==x.NOTHING?n?(Ee(),!Q&&ue&&t(),U(!Q)):s.default.showToast({title:Pe,icon:"none"}):s.default.showToast({title:ge,icon:"none"})},Ae=(I=h(a.default.mark((function t(){var n,o,r=0<arguments.length&&void 0!==arguments[0]?arguments[0]:{isWallet:0},i=arguments[1];return a.default.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return o={type:"json",is_pay:r.isWallet},f.default.showLoading({title:fe}),e.next=4,(0,l.getMemeberQrcode)(o);case 4:n=e.sent,console.log("~~~~~fetchMemeberQrcode~~~~~~~~~",n),f.default.hideLoading(),"string"==typeof(o=(o=n.data)&&o.code||"")&&0<o.length&&n.data?(z(n.data.img),te(n.data.code),r.isWallet&&ke(n.data.code),i&&i()):f.default.showToast({title:_e,image:"../../../assets/img/common/icon-warning.png"});case 10:case"end":return e.stop()}}),t,e)}))),function(){return I.apply(this,arguments)}),Fe=(O=h(a.default.mark((function t(n){var r,i;return a.default.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return r={payAuthCode:n},e.next=3,(0,p.postCheckTradeStatus)(r);case 3:i=e.sent,r=i.code,i=i.data,0===r&&(i=void 0===(i=(r=i||{}).amount)?0:i,"SUCCESS"===(r=void 0===(r=r.heyteaStatus)?"":r)?(Ee(),s.default.navigateTo({url:w.paySuccess+"?price="+i})):"PROCESSING"===r&&(oe(o({},ae,{price:i})),V(!0)));case 6:case"end":return e.stop()}}),t,e)}))),function(e){return O.apply(this,arguments)}),ke=(E=h(a.default.mark((function t(n){var o,r,c;return a.default.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,(0,p.postTradeConfirm)({password:n,payAuthCode:ee,paymentChannel:"HEYTEA_OFFLINE",userId:H,tradeNo:""});case 2:if(r=e.sent,o=r.code,r.data,r=r.msg,0===o)return Ee(),i(),c=void 0,s.default.redirectTo({url:w.paySuccess+"?price="+Le,success:function(){clearTimeout(c.stopCheckPayLoop()),clearTimeout(c.stopMemberCodeLoop()),clearTimeout(c.cancelCheckPayCodeExpired())}}),e.abrupt("return");e.next=12;break;case 12:f.default.showModal({title:Te,content:""+he+r,confirmText:Ce,onConfirmPress:function(){return null}});case 13:case"end":return e.stop()}}),t,e)}))),ne=function(e){return E.apply(this,arguments)},function(e){Ie.current=setInterval((function(){Fe(e)}),2e3)});return(0,u.useEffect)((function(){Q?(Ae({isWallet:1}),c(),T()):(v(),g(),d())}),[Q]),(0,u.useEffect)((function(){return n(),function(){T(),v(),d()}}),[]),G=Y?L[Y]:"",re=ie.payTitle,k=ie.balanceLabel,M=ie.isGiftCardTip,A=ie.giftCardTipText,console.log("~~~~~~~~~~~~~~walletConf",ie),F={height:"42px",paddingTop:(void 0===(D=(m.default.getSysInfo()||{}||{}).statusBarHeight)?80:D)+"px"},J=G?(0,y.getSrc)("/img/my/member_code/"+G,-1):null,Y=G?(0,u.internal_inline_style)(F):null,this.anonymousFunc0=Z,D=G?(0,y.getSrc)("/img/common/icon_white_back.png",-1):null,F=(0,u.internal_inline_style)(F),this.anonymousFunc1=Z,Z=(0,y.getSrc)("/img/common/icon_white_back.png",-1),this.anonymousFunc2=Ne,Ne=K?function(){i()}:null,K&&u.propsManager.set({price:Le,pay:ne,closePassword:Ne},j,W),u.propsManager.set({resetPopProps:le,closeCallBack:t},B,$),Object.assign(this.__state,{anonymousState__temp:J,anonymousState__temp2:Y,anonymousState__temp3:D,anonymousState__temp4:F,anonymousState__temp5:Z,anonymousState__temp6:Ne,$compid__1160:j,$compid__1161:B,bgIcon:G,userInfo:R,switchWalletPay:Q,selectedImg:S,unSelected:P,isGiftCardTip:M,qrCode:q,showPassword:K,payTitle:re,balanceLabel:k,giftCardTipText:A,member_code_points_pay:X,member_code_points:me,member_code_refresh_every30_seconds:de}),this.__state}},{key:"anonymousFunc0",value:function(e){}},{key:"anonymousFunc1",value:function(e){}},{key:"anonymousFunc2",value:function(e){}}]),i=d=A,d.$$events=["anonymousFunc0","anonymousFunc1","anonymousFunc2"],d.$$componentPath="pages/member/member_code/index",i=i).config={navigationBarTitleText:"",navigationStyle:"custom",navigationBarTextStyle:"white",transparentTitle:"always",titlePenetrate:"YES",defaultTitle:""},t.default=i,Component(n(0).default.createComponent(i,!0))},2325:function(e,t,n){"use strict";n.r(t),n(2326);var a,o=n(826);for(a in o)"default"!==a&&function(e){n.d(t,e,(function(){return o[e]}))}(a)},2326:function(e,t,n){"use strict";n(1495)},2327:function(e,t,n){},826:function(e,t,n){"use strict";n.r(t);var a,o=n(157),r=n.n(o);for(a in o)"default"!==a&&function(e){n.d(t,e,(function(){return o[e]}))}(a);t.default=r.a}},[[2325,0,1,2,3]]]);
+},{isPage:true,isComponent:true,currentFile:'pages/member/member_code/index.js'});require("pages/member/member_code/index.js");

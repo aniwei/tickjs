@@ -60,5 +60,9 @@ export const TickMiniProjDefaultConfig = {
 
   set platform (platform) {
     TickMiniDefaultSystemConfig.platform = platform;
-  }
+  },
+
+  get system () {
+    return TickMiniDefaultSystemConfig
+  },
 }

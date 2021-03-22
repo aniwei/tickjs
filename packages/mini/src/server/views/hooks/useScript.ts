@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function scriptLoader (src) {
+function scriptLoader (src: string) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
 
@@ -20,19 +20,21 @@ function scriptLoader (src) {
   })
 }
 
-export function useScript (scripts: string[], callback: Function) {  
+export function useScript (scripts: string[], callback: Function, autoLoad: boolean = true) {  
   useEffect(() => {
-    const run = async () => {
-      let script = scripts.shift(); 
-
-      for ( ;script; ) {
-        await scriptLoader(script);
-        script = scripts.shift(); 
+    if (autoLoad) {
+      const run = async () => {
+        let script = scripts.shift(); 
+  
+        for ( ;script; ) {
+          await scriptLoader(script);
+          script = scripts.shift(); 
+        }
+  
+        callback();
       }
-
-      callback();
+  
+      run();
     }
-
-    run();
-  }, []);
+  }, [autoLoad]);
 }

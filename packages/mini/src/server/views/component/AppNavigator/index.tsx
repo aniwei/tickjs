@@ -6,6 +6,7 @@ import { Image } from 'react-native-web';
 
 import { AppContext } from '../TickApp/AppContext'
 import { UINavigationController } from '../UINavigationController';
+import { TabBarItem } from '@hooks/useConfig';
 
 const BottomNavigator = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
@@ -15,19 +16,19 @@ export function AppTabBar () {
   const { config } = useContext(AppContext);
   const {
     bottomTabBar, 
-    launchConfig
+    launchOptions
   } = config;
   
   return (
     <BottomNavigator.Navigator
-      initialRouteName={launchConfig.path + '.html'}
+      initialRouteName={launchOptions.path + '.html'}
       tabBarOptions={bottomTabBar}
     >
       {
-        bottomTabBar.tabItems.map((tabItem) => {
+        bottomTabBar.tabItems.map((tabItem: TabBarItem) => {
           return <BottomNavigator.Screen 
-            key={tabItem.route}
-            name={tabItem.route}
+            key={tabItem.path}
+            name={tabItem.path}
             component={UINavigationController}
             
             options={{
@@ -49,16 +50,15 @@ export function AppTabBar () {
   )
 }
 
-export function AppNavigator (props: IAppProps) {
-  const { 
-    config: {
-      pages,
-      bottomTabBar,
-      launchConfig 
-    }
-  } = useContext(AppContext);
+export function AppNavigator () {
+  const { config } = useContext(AppContext);
+  const {
+    pages,
+    bottomTabBar,
+    launchOptions
+  } = config;
 
-  const tabItems = bottomTabBar.tabItems.map((tabItem: BottomTabBarItem) => tabItem.route);
+  const tabItems = bottomTabBar.tabItems.map((tabItem: TabBarItem) => tabItem.path);
   const screens = pages.filter((page: any) => {
     return !tabItems.includes(page.route);
   });
@@ -67,7 +67,7 @@ export function AppNavigator (props: IAppProps) {
     <NavigationContainer>
       <StackNavigator.Navigator>
         <StackNavigator.Screen 
-          name={launchConfig.path + '.html'}
+          name={launchOptions.path + '.html'}
           component={AppTabBar}
           options={{
             headerShown: false

@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 const defaultContextValue = {
-  navigator: null,
+  manager: null,
   runtime: null,
   config: null,
 }

@@ -7,7 +7,16 @@ export enum MessageTypes {
   CALLBACK = 'invokeCallbackHandler'
 }
 
-export class Runtime extends TinyEmitter implements IRuntime {
+export type DefaultMessage = {
+  options: any,
+  name: string,
+  data?: any,
+  type?: MessageTypes,
+  callbackId?: number | string,
+  [key: string]: any
+}
+
+export class Runtime extends TinyEmitter {
   public sender: any = null;
   public receiver: any = null;
 
@@ -22,8 +31,7 @@ export class Runtime extends TinyEmitter implements IRuntime {
     });
   }
 
-  onMessage = (
-    message: DefaultMessage): void => {
+  onMessage = (message: DefaultMessage): void => {
     switch (message.type) {
       case MessageTypes.CALLBACK: {
         const { callbackId } = message;
@@ -32,32 +40,26 @@ export class Runtime extends TinyEmitter implements IRuntime {
         break;
       }
 
+      case MessageTypes.SUBSCRIBE:
+      case MessageTypes.PUBLISH:
       case MessageTypes.INVOKE: {
         this.emit(message.name, message);
         break;
       }
-
-      case MessageTypes.PUBLISH: {
-        this.emit(message.name, message);
-        break;
-      }
-
-      case MessageTypes.SUBSCRIBE: {
-        this.emit(message.name, message);
-        break;
-      }
     }
+
+    this.emit('message', message);
   }
 
   subscribe (message: DefaultMessage) {
-    this.sender({ 
+    this.sender.postMessage({ 
       ...message,
       type: MessageTypes.SUBSCRIBE,
     });
   }
 
   callback (message: DefaultMessage) {
-    this.sender({ 
+    this.sender.postMessage({ 
       ...message, 
       type: MessageTypes.CALLBACK 
     });

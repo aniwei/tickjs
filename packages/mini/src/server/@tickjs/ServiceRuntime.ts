@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { Config } from '../TickMini';
 import { Runtime } from './Runtime';
 import { WeixinJSCore } from './WeixinJSCore';
 
-export class ServiceRuntime extends Runtime implements IRuntime {
+export class ServiceRuntime extends Runtime {
   static runtime: ServiceRuntime | null = null;
   static sharedRuntime () {
     return this.runtime = new ServiceRuntime(globalThis, globalThis);
@@ -11,7 +12,7 @@ export class ServiceRuntime extends Runtime implements IRuntime {
   static evalute = eval;
 
   public WeixinJSCore: WeixinJSCore | null = null;
-  public context: TickAppConfig | null = null;
+  public context: Config | null = null;
   
   constructor (sender: any, receiver: any) {
     super(sender, receiver);
@@ -40,11 +41,11 @@ export class ServiceRuntime extends Runtime implements IRuntime {
         this.context = context;
 
         this
-          .define('__wxConfig', context.config)
+          .define('__wxConfig', context)
           .define('WeixinJSCore', this.WeixinJSCore)
         
         this.script(`/@weixin/wxservice`);
-        this.script(`/@tickjs/app/service`);
+        this.script(`/@app/service`);
 
         callback(context);
       });

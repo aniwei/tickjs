@@ -1,15 +1,13 @@
-import randomcolor from 'randomcolor';
-
 const console = globalThis.console;
 
-export function debug (namespace: string, type: string = 'info') {
-  const prefix = ['%c%s%c%s', `color:` + randomcolor(), `【${namespace}】`];
-  const rest = randomcolor();
+export function debug (namespace: string, color: string = '#1c73e7', type: string = 'info') {
+  const prefix = ['%c%s%c%s', `color: #fcfdfe;background-color: ${color}` , ` ${namespace} `];
+  const rest = '#212225';
 
   return function (...argv: any[]) {
     const output: Function = (console as any)[type];
 
-    output(...prefix, 'color:' + rest, argv.map(value => {
+    output(...prefix, 'color:' + rest, ...argv.map(value => {
       const t = typeof value;
 
       if (t === 'string' || t === 'number') {
@@ -19,6 +17,12 @@ export function debug (namespace: string, type: string = 'info') {
       } else if (t === 'object') {
         return JSON.stringify(value);
       }
-    }).join(', '))
+    }))
   }
+}
+
+export function nextTick (callback: Function) {
+  return new Promise((resolve) => {
+    resolve(callback())
+  })
 }

@@ -5,7 +5,7 @@ import {
   useContext 
 } from 'react';
 
-import AppRuntime from '@tickjs/AppRuntime';
+import AppRuntime from '/@tickjs/AppRuntime';
 
 import { AppContext } from '../component/TickApp/AppContext';
 import { TickJSBridgeOwner } from '../../TickJSBridgeOwner';
@@ -13,19 +13,20 @@ import { AppConfig } from './useConfig';
 
 export type InitOptions = {
   navigation: any,
-  ref: any,
+  ref?: any,
   route: any,
-  type: any
+  type: any,
+  bridge?: TickJSBridgeOwner
 }
 
-class Navigator {
+export class Navigator {
   public id: number | null = null;
   public navigation: any | null = null;
   public route: string | null = null;
   public bridge: any | null = null;
   public manager: NavigatorManager | null = null;
 
-  constructor (id: number, manager: NavigatorManager, config: NavigatorConfig) {
+  constructor (id: number, manager: NavigatorManager, config: InitOptions) {
     const { navigation, route, bridge } = config;
     this.id = id;
     this.navigation = navigation;
@@ -61,7 +62,7 @@ class Navigator {
   }
 }
 
-class NavigatorManager extends Map {
+export class NavigatorManager extends Map {
   public id: number = 0;
   public isLaunch: boolean = true;
   public runtime: AppRuntime | null = null;
@@ -76,8 +77,8 @@ class NavigatorManager extends Map {
     this.config = config;
   }
 
-  init = (nav: NavigatorConfig): Navigator => {
-    return new Navigator(this.id++, this, nav);
+  init = (initOptions: InitOptions): Navigator => {
+    return new Navigator(this.id++, this, initOptions);
   }
 
   has = (nav: Navigator): boolean => {
@@ -128,10 +129,12 @@ export function useNavigator (runtime: AppRuntime, config: AppConfig) {
 
 export function useInit (initOptions: InitOptions) {
   const { navigation, route, ref, type } = initOptions;
-  const { manager } = useContext(AppContext);
+  const context = useContext(AppContext);
+
+  const manager = context.manager as any;
 
   return useMemo(() => {
-    
+    context;
     const nav = manager.init({
       navigation,
       route,

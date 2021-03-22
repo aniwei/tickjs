@@ -14,12 +14,14 @@ export default function App (props: any) {
     setRuntime
   ] = useState(false);
 
-  const runtime = useRuntime(() => setRuntime(true));
   const config = useConfig(props.config);
-  const navigator = useNavigator(runtime, config);
+  const runtime = useRuntime(() => setRuntime(true), config);
+  const manager = useNavigator(runtime, config);
 
   const context = {
-    config, navigator, runtime
+    config: config as any, 
+    manager: manager as any, 
+    runtime: runtime  as any
   }
 
   return (

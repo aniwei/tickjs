@@ -1,6 +1,7 @@
 
 import fs from 'fs-extra';
 import express from 'express';
+import regexp from 'regexp-clone';
 import debug from 'debug';
 import * as esbuild from 'esbuild';
 import { join } from 'path';
@@ -28,11 +29,14 @@ type DefineConfigObject = {
 }
 
 type TickInterceptor = {
-  path: RegExp | string,
+  path: RegExp,
   handle: Function,
+  middle: Function,
   hash?: string | null,
   cache?: string | Buffer | null
 }
+
+function defaultMiddle () {}
 
 function defineConfig (
   target: DefineConfigObject,
@@ -99,55 +103,76 @@ export class TickMini extends EventEmitter {
     this.proj = new TickMiniProjLoader(config.root);
   }
 
-  intercept (path: RegExp | string, handle: Function) {
+  intercept (path: RegExp, middle: Function, handle?: Function) {
+    if (handle === undefined) {
+      handle = middle as Function;
+      middle = defaultMiddle;
+    }
+
     this.intercepts.push({
       path,
       handle,
+      middle
      });
 
     return this;
   }
 
   prepare (prepareHandler: Function) {
-    const { cache, root } = this.config;
+    const { root } = this.config;
 
-    this.intercept(/@tickjs\/service/g, async () => {
-      try {
-        await fs.access(cache);
-      } catch (error) {
-        await fs.mkdir(cache);
+    this.intercept(/^\/(([^\/]+)\/([^?]+))(\?[^?]+|.*)/g, (matched: RegExpExecArray) => {
+      const [prefix, filename] = matched;
+      if (prefix === '@tickjs') {
+        if (filename === 'service.ts') {
+          matched[1] = `service.js`;
+          
+          return esbuild.build({
+            bundle: true,
+            write: false,
+            watch: {
+              onRebuild(error, result) {
+                if (error) {
+                  console.error('watch build failed:', error)
+                } else {
+                  console.error('watch build succeeded:', result)
+                }
+              },
+            },
+            entryPoints: [
+              join(__dirname,'@tickjs', 'service.ts')
+            ],
+            outfile: join(__dirname, prefix, `service.js`)
+          }).then(res => {
+            const { outputFiles } = res;
+            const file = outputFiles[0];
+
+            return file.text;
+          })
+        }
       }
+    }, (matched: RegExpExecArray, content?: string) => {
+      const [prefix, filename] = matched; 
+      switch (prefix) {
+        case '@weixin':
+        case '@tickjs': {
+          if (content) {
+            return content;
+          }
 
-      await esbuild.build({
-        bundle: true,
-        sourcemap: true,
-        entryPoints: [
-          join('@tickjs', 'service.ts')
-        ],
-        outfile: join(cache, `service.js`)
-      });
+          const file = join(__dirname, `${prefix}/${filename}`)
+          return fs.readFile(file).then(res => res.toString());
+        }
 
-      return await fs.readFile(join(cache, `service.js`));
-    });
-
-    this.intercept(/@tickjs\/client/g, async () => {
-      return await fs.readFile(join(__dirname, `@tickjs/client.ts`));
-    });
-
-    this.intercept(/\/@weixin\/wxservice/g, async () => {
-      return await this.proj.wx(`wxservice.js`)
-    });
-
-    this.intercept(/\/@weixin\/wxview/g, async () => {
-      return await this.proj.wx(`wxview.js`)
-    });
-
-    this.intercept(/\/@app\/service/g, async () => {
-      return await this.proj.code()
-    });
-
-    this.intercept(/\/@app\/wxss/g, async () => {
-      return await this.proj.view();
+        case '@app': {
+          switch (filename) {
+            case 'service':
+              return this.proj.code();
+            case 'view':
+              return this.proj.view();
+          }
+        }
+      }
     });
 
     process.nextTick(async () => {
@@ -160,6 +185,9 @@ export class TickMini extends EventEmitter {
         port,
         plugins: [{
           name: 'tick-service-runtime-plugin',
+          resolveId: (id: string) => {
+            return id;
+          },
           load: this.service
         }]
       }
@@ -184,18 +212,38 @@ export class TickMini extends EventEmitter {
   }
 
   service = (id: string) => {
-    for (const intercept of this.intercepts) {
-      const { path, handle } = intercept;
+    const index = id.indexOf(__dirname)
+    const newId = index === 0 ? id.slice(__dirname.length) : id;
+    return new Promise((resolve, reject) => {
 
-      if (typeof path === 'string') {
-        if (id === path) {
-          return handle(id);
-        }
-      } else if (typeof path === 'object' && path instanceof RegExp) {
-        if (path.test(id)) {
-          return handle(id);
+      const dispatch = (index: number) => {
+        const intercept = this.intercepts[index];
+
+        if (intercept === undefined) {
+          resolve(null);
+        } else {
+          const { path, middle, handle } = intercept;
+          
+          intercept.path = regexp(path);
+          const matched = path.exec(newId);
+
+          if (matched === null) {
+            dispatch(index + 1);
+          } else {
+            const newMatched = [matched[2], matched[3]];
+
+            Promise.resolve(middle(newMatched)).then((content) => handle(newMatched, content)).then(res => {
+              if (res === undefined) {
+                dispatch(index + 1);
+              } else {
+                resolve(res)
+              }
+            });
+          }
         }
       }
-    }
+
+      dispatch(0);
+    });
   }
 }

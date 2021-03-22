@@ -9,7 +9,7 @@ import {
 } from '../../hooks/useNavigator';
 
 
-export function UINavigationController (props) {
+export function UINavigationController (props: any) {
   const { navigation, route } = props;
   const { __TYPE } = route.params || {};
   const ref = useRef();
@@ -18,7 +18,7 @@ export function UINavigationController (props) {
     ref,
     route,
     navigation,
-    __TYPE
+    type: __TYPE
   });
 
   useReady(nav);
