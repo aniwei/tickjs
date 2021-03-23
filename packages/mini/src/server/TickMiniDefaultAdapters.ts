@@ -8,6 +8,18 @@ export function createRequestTask (
   res: ServerResponse
 ) {
   const body = req.body;
+  const options = {
+    method: body.method,
+    url: body.url,
+    responseType: body.responseType,
+    headers: body.header,
+    data: body.data
+  }
   
-  debugger;
+  axios(options).then(result => {
+    debugger;
+  }).catch(error => {
+
+  })
+
 }
