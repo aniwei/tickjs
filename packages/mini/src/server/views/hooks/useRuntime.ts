@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { DefaultMessage } from 'src/server/@tickjs/Runtime';
 
-import { getApplicationNativeRuntime, ClientTypes } from '/@tickjs/native';
+import { getApplicationNativeRuntime, ClientTypes } from '/@tickjs/transit';
 
 export enum RuntimeState {
   SERVICE = 0b1,

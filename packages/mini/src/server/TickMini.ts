@@ -3,7 +3,6 @@ import fs from 'fs-extra';
 import express from 'express';
 import { IncomingMessage, ServerResponse } from 'http';
 import regexp from 'regexp-clone';
-import debug from 'debug';
 import * as esbuild from 'esbuild';
 import { join } from 'path';
 import { EventEmitter } from 'events';
@@ -14,7 +13,7 @@ import vite from './vite';
 import { ViteServerOptions } from './vite';
 import { TickMiniProjLoader } from './TickMiniProjLoader';
 import { TickMiniProjDefaultConfig } from './TickMiniProjDefaultConfig'
-import * as TickMiniDefaultAdapters from './TickMiniDefaultAdapters';
+import { DefaultAdapters } from './TickMiniAdapters';
 
 
 
@@ -86,7 +85,7 @@ export class TickMini extends EventEmitter {
     root: process.cwd(),
     cache: join(homedir(), '.tickjs'),
     proj: TickMiniProjDefaultConfig,
-    adapters: TickMiniDefaultAdapters
+    adapters: new DefaultAdapters()
   };
 
   static sharedTickMini (config: Config): TickMini {
@@ -115,7 +114,7 @@ export class TickMini extends EventEmitter {
 
     if (adapters) {
       if (adapters[api]) {
-        return adapters[api](req, res);
+        return adapters[api](req, res, this);
       }
     }
 

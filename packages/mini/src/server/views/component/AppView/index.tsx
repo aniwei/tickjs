@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import qs from 'qs';
 
 import { getApplicationViewRuntime } from '/@tickjs/view';
-import { useScript } from '../../hooks/useScript';
-import { useConfig } from '../../hooks/useConfig';
 import { View } from 'react-native-web';
 import AppView from './View';
 

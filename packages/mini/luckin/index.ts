@@ -9,7 +9,7 @@ const config = defineUserConfig({
       nickname: 'luckincoffee瑞幸咖啡'
     },
     appLaunchInfo: {
-      path: 'pages/index/home',
+      path: 'pages/index/member/center',
       query: {},
       scene: 1001,
       shareTicket: null,

@@ -1,9 +1,9 @@
 import { ServiceRuntime } from './ServiceRuntime';
 
 import { DefaultMessage } from './Runtime';
-import { nextTick } from './shared';
+import { debug, nextTick } from './shared';
 
-
+const serviceDebug = debug(`API`);
 
 function getApplicationServiceRuntime () {
   const service = ServiceRuntime.sharedRuntime();
@@ -25,6 +25,10 @@ function getApplicationServiceRuntime () {
   });
 
   service.on('custom_event_vdSync', (event: DefaultMessage) => {
+    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
+  });
+
+  service.on('onRequestTaskStateChange', (event: DefaultMessage) => {
     WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
   });
 
@@ -57,64 +61,99 @@ function getApplicationServiceRuntime () {
     })
   });
 
+  WeixinJSCore?.on('login', (event: DefaultMessage) => {
+    const options = JSON.parse(event.options);
+
+    service.invoke({
+      ...event,
+      options,
+    }, (result: any) => {
+      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
+        errMsg: `${event.name}:ok`,
+        ...result
+      });
+    });
+
+  });
+
   WeixinJSCore?.on('createRequestTask', (event: DefaultMessage) => {
     const options = JSON.parse(event.options);
 
-    service.publish({
+    service.request({
       ...event,
       options,
-    })
+    }, (requestTaskId) => {
+      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
+        errMsg: `${event.name}:ok`,
+        requestTaskId
+      });
+    });
 
   });
 
   WeixinJSCore?.on('getStorage', (event: DefaultMessage) => {
     const options = JSON.parse(event.options);
-    const { key, storageId } = options;
 
-    nextTick(() => {
-      const data = localStorage.getItem(`${storageId}:${key}`);
-
-      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-        errMsg: `${event.name}:${data ? 'ok' : 'fail'}`,
-        data,
-      })
-    })
+    service.invoke({
+      ...event,
+      options
+    }, (result: any) => {
+      serviceDebug(result.data)  
+      if (result.data) {
+        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
+          errMsg: `${event.name}:${result.data ? 'ok' : 'fail'}`,
+          data: result.data
+        })
+      }
+    });
   });
 
   WeixinJSCore?.on('getStorageSync', (event: DefaultMessage) => {
     const options = JSON.parse(event.options);
-    const { key, storageId } = options;
-    const data = localStorage.getItem(`${storageId}:${key}`);
 
-    WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-      errMsg: `${event.name}:${data ? 'ok' : 'fail'}`,
-      data,
-    })
+    service.invoke({
+      ...event,
+      name: 'getStorage',
+      options
+    }, (result: any) => {
+      if (result.data) {
+        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
+          errMsg: `${event.name}:${result.data ? 'ok' : 'fail'}`,
+          data: result.data
+        })
+      }
+    }, false);
   });
 
   WeixinJSCore?.on('setStorage', (event: DefaultMessage) => {
     const options = JSON.parse(event.options);
-    const { key, storageId, data } = options;
 
-    nextTick(() => {
-      localStorage.setItem(`${storageId}:${key}`, data);
-
-      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-        errMsg: `${event.name}:ok`,
-        data,
-      })
-    })
+    service.invoke({
+      ...event,
+      options
+    }, (result: any) => {
+      if (result.data) {
+        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
+          errMsg: `${event.name}:ok`,
+        })
+      }
+    });
   });
 
   WeixinJSCore?.on('setStorageSync', (event: DefaultMessage) => {
     const options = JSON.parse(event.options);
-    const { key, storageId, data } = options;
-    
-    localStorage.setItem(`${storageId}:${key}`, data);
 
-    WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-      errMsg: `${event.name}:ok`,
-    })
+    service.invoke({
+      ...event,
+      name: 'setStorage',
+      options
+    }, (result: any) => {
+      if (result.data) {
+        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
+          errMsg: `${event.name}:ok`,
+        })
+      }
+    }, false);
   });
 
   WeixinJSCore?.on('getSystemInfo', (event: DefaultMessage) => {
@@ -128,15 +167,6 @@ function getApplicationServiceRuntime () {
     WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
       errMsg: `${event.name}:ok`,
       networkType: service.context.system.networkType
-    })
-  });
-
-  WeixinJSCore?.on('login', (event: DefaultMessage) => {
-    nextTick(() => {
-      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-        errMsg: `${event.name}:ok`,
-        code: `test`
-      })
     })
   });
 

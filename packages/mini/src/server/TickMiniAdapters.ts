@@ -1,21 +1,17 @@
 import axios from 'axios';
+import { LocalStorage } from 'node-localstorage'
 import { Request, Response } from 'express';
 
 export interface TickMiniAdaptersInterface {
   createRequestTask (req: Request, res: Response): void;
-  getSystemInfo (req: Request, res: Response): void;
-  getNetworkType (req: Request, res: Response): void;
+  getSystemInfo? (req: Request, res: Response): void;
+  getNetworkType? (req: Request, res: Response): void;
   getStorage (req: Request, res: Response): void;
   setStorage (req: Request, res: Response): void;
 }
 
 export class DefaultAdapters implements TickMiniAdaptersInterface {
-
-  getNetworkType () {}
-
-  getSystemInfo () {
-
-  }
+  public localStorage: LocalStorage = new LocalStorage('./storage')
 
   createRequestTask (
     req: Request, 
@@ -23,24 +19,43 @@ export class DefaultAdapters implements TickMiniAdaptersInterface {
   ) {
     const body = req.body as any;
     const options = {
-      method: body.method,
-      url: body.url,
-      responseType: body.responseType,
-      headers: body.header,
-      data: body.data
+      method: body.options.method,
+      url: body.options.url,
+      responseType: body.options.responseType,
+      headers: body.options.header,
+      data: body.options.data
     }
     
     axios(options).then(result => {
       res.statusCode = result.status;
       res.json(result);
     }).catch(error => {
-      debugger;
+      res.statusCode = 400;
+      res.end();
     })
   }
 
-  getStorage () {
+  getStorage (req: Request, res: Response) {
+    const { options } = req.body;
+    const { key, storageId } = options;
 
+    const data = this.localStorage.getItem(`${storageId}:${key}`);
+    res.statusCode = 200;
+    
+    res.json({ data }).end();
   }
 
-  setStorage () {}
+  setStorage (req: Request, res: Response) {
+    const { options } = req.body;
+    const { key, storageId, data } = options;
+
+    this.localStorage.setItem(`${storageId}:${key}`, data);
+    res.statusCode = 200;
+    res.end();
+  }
+
+  login (req: Request, res: Response) {
+    res.statusCode = 200;
+    res.json({ code: Date.now() }).end();
+  }
 }

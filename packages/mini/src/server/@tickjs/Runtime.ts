@@ -65,13 +65,6 @@ export class Runtime extends TinyEmitter {
     });
   }
 
-  invoke (message: DefaultMessage) {
-    this.sender.postMessage({
-      ...message,
-      type: MessageTypes.INVOKE,
-    });
-  }
-
   publish (message: DefaultMessage) {
     this.sender.postMessage({
       ...message,

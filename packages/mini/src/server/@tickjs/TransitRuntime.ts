@@ -1,4 +1,3 @@
-import URL from 'url-parse';
 import { TinyEmitter } from 'tiny-emitter';
 import { Config } from '../TickMini';
 import { DefaultMessage, Runtime } from './Runtime';
@@ -10,12 +9,10 @@ export enum ClientTypes {
   VIEW = 'view'
 }
 
-const nativeDebug = debug(`Native`, `#690`);
-
-export class NativeRuntime extends TinyEmitter {
-  static runtime: NativeRuntime | null = null;
+export class TransitRuntime extends TinyEmitter {
+  static runtime: TransitRuntime | null = null;
   static sharedRuntime (config: Config) {
-    return new NativeRuntime(config);
+    return new TransitRuntime(config);
   }
   public clients: Map<string | number, any> = new Map();
   public state: number = 0;
@@ -43,41 +40,6 @@ export class NativeRuntime extends TinyEmitter {
 
   onMessage = (event: DefaultMessage) => {
     this.emit(event.name, event);
-  }
-
-  request (event: DefaultMessage) {
-    const client = this.clients.get('service');
-
-    if (client) {
-      const { runtime } = client;
-      const id = this.id++;
-
-      const { options } = event;
-      const url = new URL(options.url);
-
-      const pathname = url.pathname;
-      const query = url.query ? `${url.query}` : ``;
-
-      nativeDebug(`网络请求`, options.url)
-
-      fetch(`/@tickjs/api${pathname}${query}`, {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          'x-api': 'createRequestTask'
-        },
-        body: JSON.stringify(options)
-      }).then(res => {
-        debugger;
-      }).catch(error => {
-        debugger;
-      })
-
-      runtime.callback({
-        callbackId: event.callbackId,
-        requestTaskId: id
-      })
-    }
   }
 
   launch (id?: string | number) {

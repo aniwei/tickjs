@@ -1,8 +1,8 @@
-import { NativeRuntime } from './NativeRuntime'
+import { TransitRuntime } from './TransitRuntime'
 import { DefaultMessage } from './Runtime';
 
 export function getApplicationNativeRuntime (config: any) {
-  const native = new NativeRuntime(config)
+  const native = new TransitRuntime(config)
 
   native.on('custom_event_onAppRoute', (event: DefaultMessage) => {
     const { name } = event;
@@ -71,11 +71,7 @@ export function getApplicationNativeRuntime (config: any) {
     }
   });
 
-  native.on('createRequestTask', (event: DefaultMessage) => {
-    native.request(event);
-  });
-
   return native;
 }
 
-export { ClientTypes } from './NativeRuntime';
+export { ClientTypes } from './TransitRuntime';

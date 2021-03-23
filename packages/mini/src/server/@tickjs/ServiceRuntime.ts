@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Config } from '../TickMini';
-import { Runtime } from './Runtime';
+import { DefaultMessage, Runtime } from './Runtime';
 import { WeixinJSCore } from './WeixinJSCore';
 
 export class ServiceRuntime extends Runtime {
@@ -13,6 +13,7 @@ export class ServiceRuntime extends Runtime {
 
   public WeixinJSCore: WeixinJSCore | null = null;
   public context: Config | null = null;
+  public id: number = 0;
   
   constructor (sender: any, receiver: any) {
     super(sender, receiver);
@@ -32,6 +33,38 @@ export class ServiceRuntime extends Runtime {
 
   script (uri: string) {
     importScripts(uri)
+  }
+
+  request (event: DefaultMessage, callback: Function) {
+    this.invoke(event, (error: any, result: any) => {
+      this.emit('onRequestTaskStateChange', {
+        name: `onRequestTaskStateChange`,
+        data: result.data
+      });
+    });
+
+    callback(this.id++);
+  }
+
+  invoke (message: DefaultMessage, callback: Function, async?: boolean) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', (res: any) => {
+      try {
+        const data = JSON.parse(res.target.responseText);
+        callback(data);
+      } catch (error) {
+        callback(error);
+      }
+    });
+
+    xhr.addEventListener('error', () => {});
+
+    xhr.open(`POST`, `/@tickjs/api/${message.name}`, !!async);
+    xhr.setRequestHeader('content-type', 'application/json');
+    xhr.setRequestHeader('x-api', message.name);
+
+    xhr.send(JSON.stringify(message));
   }
 
   run (callback: Function) {
