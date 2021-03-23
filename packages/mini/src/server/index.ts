@@ -44,7 +44,7 @@ export default async function App (config: Config, callback?: Function) {
     router.post('/@tickjs/api/:api(*)', [
       bodyParser.json(), 
       bodyParser.urlencoded()
-    ] ,async (req: IncomingMessage, res: ServerResponse) => {
+    ], async (req: IncomingMessage, res: ServerResponse) => {
       const { headers } = req;
       const api = headers['x-api'];
 
