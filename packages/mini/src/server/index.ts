@@ -1,8 +1,10 @@
 import express from 'express';
 import debug from 'debug';
+import bodyParser from 'body-parser';
+
+import { IncomingMessage, ServerResponse } from 'http';
 
 import { TickMini, Config } from './TickMini';
-
 export { defineUserConfig } from './TickMini'; 
 
 
@@ -28,21 +30,26 @@ function isMiniConfigIllegal (config: Config) {
 
 export default async function App (config: Config, callback?: Function) {  
   isMiniConfigIllegal(config);
-  debug('app')(`正在检测配置是否正确`)
+  debug('app')(`正在检测配置是否正确`);
   const mini: TickMini = TickMini.sharedTickMini(config);
   
-  debug('app')(`准备启动服务`)
   return mini.prepare((app: express.Express) => {
-    debug('app')(`已经启动服务，并注册主要中间件`)
+    debug('app')(`已经启动服务，并注册主要中间件`);
     const router: express.Router = express.Router();
 
     router.use('/@tickjs/context', async (req, res) => {
       res.json(mini.config.proj);
     });
     
-    router.post('/@tickjs\/api\/[\d]+', async (context) => {
-      debugger;
-    })
+    router.post('/@tickjs/api/:api(*)', [
+      bodyParser.json(), 
+      bodyParser.urlencoded()
+    ] ,async (req: IncomingMessage, res: ServerResponse) => {
+      const { headers } = req;
+      const api = headers['x-api'];
+
+      mini.adapte(api as string, req, res);
+    });
 
     app.use(router);
   }).start((app: express.Express) => {

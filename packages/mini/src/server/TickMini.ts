@@ -1,6 +1,7 @@
 
 import fs from 'fs-extra';
 import express from 'express';
+import { IncomingMessage, ServerResponse } from 'http';
 import regexp from 'regexp-clone';
 import debug from 'debug';
 import * as esbuild from 'esbuild';
@@ -13,6 +14,8 @@ import vite from './vite';
 import { ViteServerOptions } from './vite';
 import { TickMiniProjLoader } from './TickMiniProjLoader';
 import { TickMiniProjDefaultConfig } from './TickMiniProjDefaultConfig'
+import * as TickMiniDefaultAdapters from './TickMiniDefaultAdapters';
+
 
 
 export type Config = {
@@ -20,6 +23,9 @@ export type Config = {
   port: number,
   cache: string,
   proj: {
+    [key: string]: any
+  },
+  adapters?: {
     [key: string]: any
   }
 }
@@ -79,7 +85,8 @@ export class TickMini extends EventEmitter {
     port: 3000,
     root: process.cwd(),
     cache: join(homedir(), '.tickjs'),
-    proj: TickMiniProjDefaultConfig
+    proj: TickMiniProjDefaultConfig,
+    adapters: TickMiniDefaultAdapters
   };
 
   static sharedTickMini (config: Config): TickMini {
@@ -101,6 +108,19 @@ export class TickMini extends EventEmitter {
 
     this.config = config;
     this.proj = new TickMiniProjLoader(config.root);
+  }
+
+  adapte (api: string, req: IncomingMessage, res: ServerResponse) {
+    const { adapters } = this.config;
+
+    if (adapters) {
+      if (adapters[api]) {
+        return adapters[api](req, res);
+      }
+    }
+
+    res.statusCode = 404;
+    res.end();
   }
 
   intercept (path: RegExp, middle: Function, handle?: Function) {

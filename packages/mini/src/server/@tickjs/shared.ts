@@ -1,7 +1,7 @@
 const console = globalThis.console;
 
 export function debug (namespace: string, color: string = '#1c73e7', type: string = 'info') {
-  const prefix = ['%c%s%c%s', `color: #fcfdfe;background-color: ${color}` , ` ${namespace} `];
+  const prefix = ['%c%s%c%s', `color: #fcfdfe;background-color: ${color || '#1c73e7'}` , ` ${namespace} `];
   const rest = '#212225';
 
   return function (...argv: any[]) {
@@ -23,6 +23,6 @@ export function debug (namespace: string, color: string = '#1c73e7', type: strin
 
 export function nextTick (callback: Function) {
   return new Promise((resolve) => {
-    resolve(callback())
-  })
+    resolve(callback());
+  });
 }

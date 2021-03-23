@@ -56,25 +56,22 @@ export class NativeRuntime extends TinyEmitter {
       const url = new URL(options.url);
 
       const pathname = url.pathname;
-      const query = url.query ? `?${url.query}` : ``;
+      const query = url.query ? `${url.query}` : ``;
 
       nativeDebug(`网络请求`, options.url)
 
       fetch(`/@tickjs/api${pathname}${query}`, {
         method: 'POST',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'x-api': 'createRequestTask'
         },
-        body: JSON.stringify({
-          data: event.name,
-          options,
-        })
+        body: JSON.stringify(options)
       }).then(res => {
         debugger;
       }).catch(error => {
         debugger;
       })
-
 
       runtime.callback({
         callbackId: event.callbackId,
