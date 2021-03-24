@@ -1,7 +1,7 @@
 import { ServiceRuntime } from './ServiceRuntime';
 
 import { DefaultMessage } from './Runtime';
-import { debug, nextTick } from './shared';
+import { debug } from './shared';
 
 const serviceDebug = debug(`API`);
 
@@ -21,12 +21,10 @@ function getApplicationServiceRuntime () {
   });
 
   service.on('custom_event_tapAnyWhere', (event: any) => {
-    debugger;
     WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
   });
 
   service.on('custom_event_vdSync', (event: DefaultMessage) => {
-    debugger;
     WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
   });
 
@@ -43,6 +41,25 @@ function getApplicationServiceRuntime () {
       ...event,
       data,
     })
+  });
+
+  WeixinJSCore?.on('custom_event_vdSync', (event: DefaultMessage) => {
+    const data = JSON.parse(event.data);
+    
+    service.publish({
+      ...event,
+      name: `service.custom_event_vdSync`,
+      data,
+    });
+  })
+
+  WeixinJSCore?.on('custom_event_checkWebviewAlive', (event: DefaultMessage) => {
+    const data = JSON.parse(event.data);
+    
+    service.publish({
+      ...event,
+      data,
+    });
   });
 
   WeixinJSCore?.on('custom_event_vdSyncBatch', (event: DefaultMessage) => {

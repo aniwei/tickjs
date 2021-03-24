@@ -62,12 +62,29 @@ export function getApplicationTransitRuntime (config: any) {
     }
   });
 
-  native.on('custom_event_vdSync', (event: DefaultMessage) => {
+  native.on('view.custom_event_vdSync', (event: DefaultMessage) => {
     const client = native.clients.get('service');
 
     if (client) {
       const { runtime } = client;
       runtime.subscribe(event);
+    }
+  });
+
+  native.on('service.custom_event_vdSync', (event: DefaultMessage) => {
+    const { webviewId } = event;
+    const ids = JSON.parse(webviewId);
+
+    for (const id of ids) {
+      const client = native.clients.get(id);
+
+      if (client) {
+        const { runtime } = client;
+        runtime.subscribe({
+          ...event,
+          webviewId: id 
+        })
+      }
     }
   });
 

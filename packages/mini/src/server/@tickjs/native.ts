@@ -32,7 +32,40 @@ export function getApplicationTransitRuntime (config: any) {
         })
       }
     }
+  });
 
+  native.on('custom_event_checkWebviewAlive', (event: DefaultMessage) => {
+    const { webviewId } = event;
+    const ids = JSON.parse(webviewId);
+
+    for (const id of ids) {
+      const client = native.clients.get(id);
+
+      if (client) {
+        const { runtime } = client;
+        runtime.subscribe({
+          ...event,
+          webviewId: id 
+        })
+      }
+    }
+  });
+
+  native.on('custom_event_vdSync', (event: DefaultMessage) => {
+    const { webviewId } = event;
+    const ids = JSON.parse(webviewId);
+
+    for (const id of ids) {
+      const client = native.clients.get(id);
+
+      if (client) {
+        const { runtime } = client;
+        runtime.subscribe({
+          ...event,
+          webviewId: id 
+        })
+      }
+    }
   });
 
   native.on('custom_event_invokeWebviewMethod', (event: DefaultMessage) => {

@@ -19,7 +19,7 @@ export class ServiceRuntime extends Runtime {
   constructor (sender: any, receiver: any) {
     super(sender, receiver);
 
-    this.WeixinJSCore = new WeixinJSCore;
+    this.WeixinJSCore = new WeixinJSCore(`Service`);
   }
 
   define (propName: string, value: any) {
