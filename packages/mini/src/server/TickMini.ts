@@ -1,13 +1,12 @@
 
 import fs from 'fs-extra';
 import express from 'express';
-import { IncomingMessage, ServerResponse } from 'http';
 import regexp from 'regexp-clone';
-import debug from 'debug';
+import homedir from 'home-dir';
 import * as esbuild from 'esbuild';
+import { IncomingMessage, ServerResponse } from 'http';
 import { join } from 'path';
 import { EventEmitter } from 'events';
-import homedir from 'home-dir';
 
 import vite from './vite';
 
@@ -15,7 +14,6 @@ import { ViteServerOptions } from './vite';
 import { TickMiniProjLoader } from './TickMiniProjLoader';
 import { TickMiniProjDefaultConfig } from './TickMiniProjDefaultConfig'
 import { DefaultAdapters } from './TickMiniAdapters';
-
 
 
 export type Config = {
@@ -82,7 +80,7 @@ export function defineUserConfig (
 export class TickMini extends EventEmitter {
   static mini: TickMini | null = null;
   static config: Config = {
-    port: 3000,
+    port: 7001,
     root: process.cwd(),
     cache: join(homedir(), '.tickjs'),
     proj: TickMiniProjDefaultConfig,

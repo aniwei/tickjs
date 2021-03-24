@@ -20,6 +20,7 @@
     "escodegen": "^2.0.0",
     "estree-walker": "^2.0.2",
     "express": "^4.17.1",
+    "fs-extra": "^9.1.0",
     "home-dir": "^1.0.0",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",

@@ -4,6 +4,16 @@ import { DefaultMessage, Runtime } from './Runtime';
 import { nextTick } from './shared';
 import { WeixinJSCore } from './WeixinJSCore';
 
+export enum ServiceInvokeResultStatus {
+  OK = 'ok',
+  FAIL = 'fail'
+}
+
+export type ServiceInvokeResult = {
+  status: ServiceInvokeResultStatus,
+  data: any,
+}
+
 export class ServiceRuntime extends Runtime {
   static runtime: ServiceRuntime | null = null;
   static sharedRuntime () {

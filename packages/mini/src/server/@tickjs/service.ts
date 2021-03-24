@@ -1,4 +1,4 @@
-import { ServiceRuntime } from './ServiceRuntime';
+import { ServiceRuntime, ServiceInvokeResult } from './ServiceRuntime';
 
 import { DefaultMessage } from './Runtime';
 import { debug } from './shared';
@@ -16,176 +16,75 @@ function getApplicationServiceRuntime () {
     })
   });
 
-  service.on('onAppRoute', (event: any) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
-  });
+  const WeixinJSBridge = globalThis.WeixinJSBridge;
 
-  service.on('custom_event_tapAnyWhere', (event: any) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
-  });
+  const onDefaultSubscribeHandler = (event: DefaultMessage) => {
+    const { name, data, options, id } = event;
+    WeixinJSBridge.subscribeHandler(name, data || options, id);
+  }
 
-  service.on('custom_event_vdSync', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
-  });
-
-  service.on('onRequestTaskStateChange', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
-  });
+  service.on('onAppRoute', onDefaultSubscribeHandler);
+  service.on('custom_event_tapAnyWhere', onDefaultSubscribeHandler);
+  service.on('custom_event_vdSync', onDefaultSubscribeHandler);
+  service.on('onRequestTaskStateChange', onDefaultSubscribeHandler);
 
   const { WeixinJSCore } = service;
-
-  WeixinJSCore?.on('custom_event_onAppRoute', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
+  
+  const onDefaultPublishDataHandler = (event: DefaultMessage, name?: string) => {
+    service.publish({ 
+      ...event, 
+      name: name || event.name,
+      data: JSON.parse(event.data) 
     })
-  });
+  }
 
-  WeixinJSCore?.on('custom_event_vdSync', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      name: `service.custom_event_vdSync`,
-      data,
-    });
-  })
+  WeixinJSCore?.on('custom_event_onAppRoute', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('custom_event_vdSync', onDefaultPublishDataHandler.bind(null, 'service.custom_event_vdSync'));
+  WeixinJSCore?.on('custom_event_checkWebviewAlive', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('custom_event_vdSyncBatch', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('custom_event_invokeWebviewMethod', onDefaultPublishDataHandler);
+  
+  WeixinJSCore?.on('navigateTo', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('navigateBack', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('redirectTo', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('switchTab', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('reLaunch', onDefaultPublishDataHandler);
 
-  WeixinJSCore?.on('custom_event_checkWebviewAlive', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
-    });
-  });
-
-  WeixinJSCore?.on('custom_event_vdSyncBatch', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
-    })
-  });
-
-  WeixinJSCore?.on('custom_event_invokeWebviewMethod', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
-    })
-  });
-
-  WeixinJSCore?.on('login', (event: DefaultMessage) => {
+  const onDefaultInvokeHandler = (event: DefaultMessage, method: string = 'invoke', async: boolean = true) => {
     const options = JSON.parse(event.options);
 
-    service.invoke({
+    method = method || 'invoke';
+
+    service[method]({
       ...event,
       options,
-    }, (result: any) => {
-      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-        errMsg: `${event.name}:ok`,
-        ...result
-      });
-    });
+    }, (res: ServiceInvokeResult) => {
+      const { callbackId, name } = event;
+      WeixinJSBridge.invokeCallbackHandler(callbackId, {
+        errMsg: `${name}:${res.status}`,
+        ...res.data
+      })
+    }, async);
+  }
 
-  });
-
-  WeixinJSCore?.on('createRequestTask', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.request({
-      ...event,
-      options,
-    }, (requestTaskId) => {
-      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-        errMsg: `${event.name}:ok`,
-        requestTaskId
-      });
-    });
-
-  });
-
-  WeixinJSCore?.on('getStorage', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      options
-    }, (result: any) => {
-      serviceDebug(result.data)  
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:${result.data ? 'ok' : 'fail'}`,
-          data: result.data
-        })
-      }
-    });
-  });
-
-  WeixinJSCore?.on('getStorageSync', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      name: 'getStorage',
-      options
-    }, (result: any) => {
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:${result.data ? 'ok' : 'fail'}`,
-          data: result.data
-        })
-      }
-    }, false);
-  });
-
-  WeixinJSCore?.on('setStorage', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      options
-    }, (result: any) => {
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:ok`,
-        })
-      }
-    });
-  });
-
-  WeixinJSCore?.on('setStorageSync', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      name: 'setStorage',
-      options
-    }, (result: any) => {
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:ok`,
-        })
-      }
-    }, false);
-  });
+  WeixinJSCore?.on('login', onDefaultInvokeHandler);
+  WeixinJSCore?.on('createRequestTask', onDefaultInvokeHandler.bind(null, 'request'));
+  WeixinJSCore?.on('getStorage', onDefaultInvokeHandler);
+  WeixinJSCore?.on('getStorageSync', onDefaultInvokeHandler.bind(null, 'invoke', false));
+  WeixinJSCore?.on('setStorage', onDefaultInvokeHandler);
+  WeixinJSCore?.on('setStorageSync', onDefaultInvokeHandler.bind(null, 'invoke', false));
 
   WeixinJSCore?.on('getSystemInfo', (event: DefaultMessage) => {
     WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
       errMsg: `${event.name}:ok`,
-      ...service.context.system
+      ...(service.context as any).system
     })
   });
 
   WeixinJSCore?.on('getNetworkType', (event: DefaultMessage) => {
     WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
       errMsg: `${event.name}:ok`,
-      networkType: service.context.system.networkType
+      networkType: (service.context as any).system.networkType
     })
   });
 
