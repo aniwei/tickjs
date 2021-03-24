@@ -28,7 +28,11 @@ export class DefaultAdapters implements TickMiniAdaptersInterface {
     
     axios(options).then(result => {
       res.statusCode = result.status;
-      res.json(result);
+      res.json({
+        data: result.data,
+        header: result.headers,
+        statusCode: result.status
+      }).end();
     }).catch(error => {
       res.statusCode = 400;
       res.end();

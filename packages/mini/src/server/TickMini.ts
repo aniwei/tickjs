@@ -3,6 +3,7 @@ import fs from 'fs-extra';
 import express from 'express';
 import { IncomingMessage, ServerResponse } from 'http';
 import regexp from 'regexp-clone';
+import debug from 'debug';
 import * as esbuild from 'esbuild';
 import { join } from 'path';
 import { EventEmitter } from 'events';
@@ -114,7 +115,7 @@ export class TickMini extends EventEmitter {
 
     if (adapters) {
       if (adapters[api]) {
-        return adapters[api](req, res, this);
+        return adapters[api](req, res);
       }
     }
 

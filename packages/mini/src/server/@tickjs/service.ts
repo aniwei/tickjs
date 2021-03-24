@@ -100,7 +100,6 @@ function getApplicationServiceRuntime () {
     }, (result: any) => {
       serviceDebug(result.data)  
       if (result.data) {
-        
         WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
           errMsg: `${event.name}:${result.data ? 'ok' : 'fail'}`,
           data: result.data

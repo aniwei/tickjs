@@ -38,10 +38,14 @@ export default function AppContext (props: any) {
       }
     }));
 
+    const { i, r ,t ,...rest } = query;
     
     (runtime as any).publish({
       name: 'clientready',
-      id: query.i
+      id: i,
+      route: r,
+      openType: t,
+      query: rest
     })
   }
   

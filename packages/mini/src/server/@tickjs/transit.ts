@@ -1,7 +1,7 @@
 import { TransitRuntime } from './TransitRuntime'
 import { DefaultMessage } from './Runtime';
 
-export function getApplicationNativeRuntime (config: any) {
+export function getApplicationTransitRuntime (config: any) {
   const native = new TransitRuntime(config)
 
   native.on('custom_event_onAppRoute', (event: DefaultMessage) => {
