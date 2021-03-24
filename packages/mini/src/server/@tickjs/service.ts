@@ -24,8 +24,8 @@ function getApplicationServiceRuntime () {
     WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
   });
 
-  service.on('custom_event_vdSync', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
+  service.on('view.custom_event_vdSync', (event: DefaultMessage) => {
+    WeixinJSBridge.subscribeHandler('custom_event_vdSync', event.data, event.id);
   });
 
   service.on('onRequestTaskStateChange', (event: DefaultMessage) => {

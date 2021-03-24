@@ -18,8 +18,8 @@ export function getApplicationViewRuntime (id: number) {
     WeixinJSBridge.subscribeHandler(event.name, event.data, 0, event.options)
   });
 
-  runtime.on('custom_event_vdSync', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, 0, event.options)
+  runtime.on('service.custom_event_vdSync', (event: DefaultMessage) => {
+    WeixinJSBridge.subscribeHandler('custom_event_vdSync', event.data, 0, event.options)
   });
 
   runtime.on('custom_event_vdSyncBatch', (event: DefaultMessage) => {
