@@ -21,10 +21,12 @@ function getApplicationServiceRuntime () {
   });
 
   service.on('custom_event_tapAnyWhere', (event: any) => {
+    debugger;
     WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
   });
 
   service.on('custom_event_vdSync', (event: DefaultMessage) => {
+    debugger;
     WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
   });
 

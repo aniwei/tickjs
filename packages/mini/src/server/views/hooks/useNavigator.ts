@@ -63,7 +63,7 @@ export class Navigator {
 }
 
 export class NavigatorManager extends Map {
-  public id: number = 0;
+  public id: number = 1;
   public isLaunch: boolean = true;
   public runtime: AppRuntime | null = null;
   public config: any | null = null;
