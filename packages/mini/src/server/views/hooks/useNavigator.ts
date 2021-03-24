@@ -10,6 +10,7 @@ import AppRuntime from '/@tickjs/AppRuntime';
 import { AppContext } from '../component/TickApp/AppContext';
 import { TickJSBridgeOwner } from '../../TickJSBridgeOwner';
 import { AppConfig } from './useConfig';
+import { DefaultMessage } from 'src/server/@tickjs/Runtime';
 
 export type InitOptions = {
   navigation: any,
@@ -35,14 +36,18 @@ export class Navigator {
     this.manager = manager;
   }
 
-  push (uri: URL): void {
+  push (uri: URL, query?: any): void {
     const pathname = uri.pathname[0] === '/' ? 
       uri.pathname.slice(1) : uri.pathname;
+
+    this.navigation.push(pathname, { ...query });
   }
 
   navigate (uri: URL, query: object) {
     const pathname = uri.pathname[0] === '/' ? 
       uri.pathname.slice(1) : uri.pathname;
+
+    this.navigation.navigate(pathname, { ...query });
   }
 
   pop (delta: number = 1) {
@@ -122,6 +127,13 @@ export class NavigatorManager extends Map {
 export function useNavigator (runtime: AppRuntime, config: AppConfig) {
   return useMemo(() => {
     const manager = new NavigatorManager(runtime, config);
+
+
+    runtime.on('navigateTo', (event: DefaultMessage) => {
+      const { options } = event;
+
+      manager.current?.push(new URL(options.url), options.query);
+    });
 
     return manager;
   }, [runtime]);

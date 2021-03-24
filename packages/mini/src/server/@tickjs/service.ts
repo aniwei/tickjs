@@ -189,6 +189,15 @@ function getApplicationServiceRuntime () {
     })
   });
 
+  WeixinJSCore?.on('navigateTo', (event: DefaultMessage) => {
+    const options = JSON.parse(event.options);
+    
+    service.publish({
+      ...event,
+      options,
+    })
+  });
+
   return service;
 }
 
