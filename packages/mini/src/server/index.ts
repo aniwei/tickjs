@@ -8,7 +8,8 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { TickMini, Config } from './TickMini';
 export { defineUserConfig } from './TickMini'; 
 
-
+export * from './TickMiniTransformer';
+export * from './TickMiniService';
 
 class TickMiniConfigError extends Error {}
 
@@ -38,9 +39,10 @@ export default async function App (config: Config, callback?: Function) {
     const router: express.Router = express.Router();
 
     router.use(express.static(path.resolve(__dirname, '../../node_modules')));
-    router.use('/@tickjs/context', async (req, res) => {
-      res.json(mini.config.proj);
-    });
+    
+    // router.use('/@tickjs/context', async (req, res) => {
+    //   res.json(mini.config.proj);
+    // });
     
     router.post('/@tickjs/api/:api(*)', [
       bodyParser.json(), 

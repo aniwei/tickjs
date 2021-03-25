@@ -113,6 +113,7 @@ export class ServiceRuntime extends Runtime {
         this
           .define('__wxConfig', context)
           .define('WeixinJSCore', this.WeixinJSCore)
+          .define('window', {});
         
         this.script(`/@weixin/wxservice`);
         this.script(`/@app/service`);
