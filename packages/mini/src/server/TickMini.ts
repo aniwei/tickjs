@@ -2,6 +2,7 @@
 import fs from 'fs-extra';
 import express from 'express';
 import crypto from 'crypto';
+import path from 'path';
 import regexp from 'regexp-clone';
 import homedir from 'home-dir';
 import escodegen from 'escodegen';
@@ -208,18 +209,19 @@ export class TickMini extends EventEmitter {
         if (node.type === 'CallExpression') {
           const callee = node.callee;
           const args = node.arguments;
-          if (callee.type === 'Identifier' &&callee.name === 'require') {
+          if (
+            callee.type === 'Identifier' && 
+            callee.name === 'require'
+          ) {
             const firstNode = args[0];
 
             node.type = firstNode.type;
-            node.value = firstNode.value;
+            node.value = firstNode.value.replace(path.resolve(__dirname, '../../node_modules'), '');
           }
         }
       });
 
       file.code = escodegen.generate(ast)
-
-      debugger;
 
       return { 
         code: file.code,

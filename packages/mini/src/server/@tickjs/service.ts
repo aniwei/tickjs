@@ -76,6 +76,10 @@ function getApplicationServiceRuntime () {
   WeixinJSCore?.on('switchTab', onDefaultPublishOptionsHandler);
   WeixinJSCore?.on('reLaunch', onDefaultPublishOptionsHandler);
 
+  WeixinJSCore?.on('showToast', onDefaultPublishOptionsHandler);
+  WeixinJSCore?.on('hideToast', onDefaultPublishOptionsHandler);
+  
+
   const onDefaultInvokeHandler = (
     event: DefaultMessage,
     method?: keyof ServiceRuntime, 

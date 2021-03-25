@@ -54,22 +54,19 @@ export class ServiceRuntime extends Runtime {
     callback({
       status: ServiceInvokeResultStatus.OK,
       data: {
-        requestTask: id
+        requestTaskId: id
       }
     });
 
-    nextTick(() => {
-      this.invoke(event, (result: any) => {
-        this.emit('onRequestTaskStateChange', {
-          name: `onRequestTaskStateChange`,
-          data: {
-            requestTaskId: id,
-            state: 'success',
-            header: result.header,
-            statusCode: result.statusCode,
-            data: result.data
-          }
-        });
+    this.invoke(event, (result: any) => {
+      this.emit('onRequestTaskStateChange', {
+        name: `onRequestTaskStateChange`,
+        data: {
+
+          requestTaskId: id,
+          state: 'success',
+          ...result.data,
+        }
       });
     });
   }

@@ -19,7 +19,7 @@
       "name": "test-program",
       "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
       "sourceMaps": true,
-      "cwd": "${workspaceFolder}/packages/mini/luckin",
+      "cwd": "${workspaceFolder}/packages/mini/nayuki",
       "env": {
         "DEBUG": "*"
       },
