@@ -1,7 +1,20 @@
 import axios from 'axios';
+import mime from 'mime';
 import { Config } from '../TickMini';
 import { DefaultMessage, Runtime } from './Runtime';
+import { nextTick } from './shared';
 import { WeixinJSCore } from './WeixinJSCore';
+
+export enum ServiceInvokeResultStatus {
+  OK = 'ok',
+  FAIL = 'fail'
+}
+
+export type ServiceInvokeResult = {
+  status: ServiceInvokeResultStatus,
+  data?: any,
+  error?: any
+}
 
 export class ServiceRuntime extends Runtime {
   static runtime: ServiceRuntime | null = null;
@@ -13,12 +26,12 @@ export class ServiceRuntime extends Runtime {
 
   public WeixinJSCore: WeixinJSCore | null = null;
   public context: Config | null = null;
-  public id: number = 0;
+  public id: number = 1;
   
   constructor (sender: any, receiver: any) {
     super(sender, receiver);
 
-    this.WeixinJSCore = new WeixinJSCore;
+    this.WeixinJSCore = new WeixinJSCore(`Service`);
   }
 
   define (propName: string, value: any) {
@@ -32,35 +45,59 @@ export class ServiceRuntime extends Runtime {
   }
 
   script (uri: string) {
-    importScripts(uri)
+    (globalThis as any).importScripts(uri)
   }
 
   request (event: DefaultMessage, callback: Function) {
-    this.invoke(event, (error: any, result: any) => {
-      this.emit('onRequestTaskStateChange', {
-        name: `onRequestTaskStateChange`,
-        data: result.data
-      });
+    const id = this.id++;
+
+    callback({
+      status: ServiceInvokeResultStatus.OK,
+      data: {
+        requestTaskId: id
+      }
     });
 
-    callback(this.id++);
+    this.invoke(event, (result: any) => {
+      this.emit('onRequestTaskStateChange', {
+        name: `onRequestTaskStateChange`,
+        data: {
+
+          requestTaskId: id,
+          state: 'success',
+          ...result.data,
+        }
+      });
+    });
   }
 
   invoke (message: DefaultMessage, callback: Function, async?: boolean) {
     const xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', (res: any) => {
-      try {
-        const data = JSON.parse(res.target.responseText);
-        callback(data);
-      } catch (error) {
-        callback(error);
+      const contentType = res.target.getResponseHeader('content-type');
+      const ext = mime.getExtension(contentType);
+      
+      if (ext === 'json' && res.target.responseText) {
+        try {
+          const data = JSON.parse(res.target.responseText);
+          callback({
+            status: ServiceInvokeResultStatus.OK,
+            data,
+          });
+        } catch (error) {
+          callback({
+            status: ServiceInvokeResultStatus.FAIL,
+            error,
+          });
+      }
+
       }
     });
 
     xhr.addEventListener('error', () => {});
 
-    xhr.open(`POST`, `/@tickjs/api/${message.name}`, !!async);
+    xhr.open(`POST`, `/@tickjs/api/${message.name}`, !async);
     xhr.setRequestHeader('content-type', 'application/json');
     xhr.setRequestHeader('x-api', message.name);
 

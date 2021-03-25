@@ -1,7 +1,7 @@
 import { TransitRuntime } from './TransitRuntime'
 import { DefaultMessage } from './Runtime';
 
-export function getApplicationNativeRuntime (config: any) {
+export function getApplicationTransitRuntime (config: any) {
   const native = new TransitRuntime(config)
 
   native.on('custom_event_onAppRoute', (event: DefaultMessage) => {
@@ -62,12 +62,26 @@ export function getApplicationNativeRuntime (config: any) {
     }
   });
 
-  native.on('custom_event_vdSync', (event: DefaultMessage) => {
+  native.on('view.custom_event_vdSync', (event: DefaultMessage) => {
     const client = native.clients.get('service');
 
     if (client) {
       const { runtime } = client;
-      runtime.subscribe(event);
+      runtime.subscribe({ ...event, name: 'custom_event_vdSync' });
+    }
+  });
+
+  native.on('service.custom_event_vdSync', (event: DefaultMessage) => {
+    const { webviewId } = event;
+    const ids = JSON.parse(webviewId);
+
+    for (const id of ids) {
+      const client = native.clients.get(id);
+
+      if (client) {
+        const { runtime } = client;
+        runtime.subscribe({ ...event, name: 'custom_event_vdSync', webviewId: id })
+      }
     }
   });
 

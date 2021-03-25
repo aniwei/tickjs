@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import { useMemo, useContext } from 'react';
 import { DefaultMessage } from 'src/server/@tickjs/Runtime';
+import { AppContext } from '../component/TickApp/AppContext';
 
-import { getApplicationNativeRuntime, ClientTypes } from '/@tickjs/transit';
+import { getApplicationTransitRuntime, ClientTypes } from '/@tickjs/transit';
 
 export enum RuntimeState {
   SERVICE = 0b1,
@@ -10,8 +11,9 @@ export enum RuntimeState {
 }
 
 export function useRuntime (onReady: Function, config: any) {
+  const context = useContext(AppContext);
   const runtime = useMemo(() => {
-    const runtime = new getApplicationNativeRuntime(config);
+    const runtime = new getApplicationTransitRuntime(config);
     const worker: Worker = new Worker('@tickjs/service');
 
     worker.addEventListener('message', function onMessage(event) {
@@ -42,7 +44,14 @@ export function useRuntime (onReady: Function, config: any) {
           ClientTypes.VIEW
         );
 
-        runtime.launch(event.data.id);
+        const data = event.data
+
+        runtime.navigate(
+          data.id, 
+          data.route,
+          data.openType || 'switchTab',
+          data.query
+        );
       }
     });
     

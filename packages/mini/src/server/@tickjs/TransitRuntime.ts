@@ -42,26 +42,28 @@ export class TransitRuntime extends TinyEmitter {
     this.emit(event.name, event);
   }
 
-  launch (id?: string | number) {
-    if (!this.isLaunched) {
+  navigate (id: string | number, route: string, type: string, query: any) {
+    const client = this.clients.get('service');
+
+    if (client) {
+      const { runtime } = client;
+      const launchOptions = (this.config as any).launchOptions;
+      const data = this.isLaunched ? {
+        path: route,
+        openType: type,
+        query
+      } : {
+        ...launchOptions,
+        openType: type
+      };
+
       this.isLaunched = true;
 
-      const client = this.clients.get('service');
-
-      if (client) {
-        const { runtime } = client;
-        const launchOptions = (this.config as any).launchOptions;
-
-        runtime.subscribe({
-          name: 'onAppRoute', 
-          data: {
-            ...launchOptions,
-            openType: 'switchTab'
-          },
-          id
-        });
-      }
-
+      runtime.subscribe({
+        name: 'onAppRoute', 
+        data,
+        id
+      });
     }
   }
 }

@@ -1,5 +1,6 @@
 import express from 'express';
 import debug from 'debug';
+import path from 'path';
 import bodyParser from 'body-parser';
 
 import { IncomingMessage, ServerResponse } from 'http';
@@ -27,7 +28,6 @@ function isMiniConfigIllegal (config: Config) {
   }
 }
 
-
 export default async function App (config: Config, callback?: Function) {  
   isMiniConfigIllegal(config);
   debug('app')(`正在检测配置是否正确`);
@@ -37,6 +37,7 @@ export default async function App (config: Config, callback?: Function) {
     debug('app')(`已经启动服务，并注册主要中间件`);
     const router: express.Router = express.Router();
 
+    router.use(express.static(path.resolve(__dirname, '../../node_modules')));
     router.use('/@tickjs/context', async (req, res) => {
       res.json(mini.config.proj);
     });
