@@ -2,7 +2,7 @@ import App, { defineUserConfig } from '../src/server';
 
 
 const config = defineUserConfig({
-  port: 6001,
+  port: 7001,
   proj: {
     accountInfo: {
       appId: 'wx21c7506e98a2fe75',

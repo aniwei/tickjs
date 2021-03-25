@@ -125,18 +125,38 @@ export class NavigatorManager extends Map {
 }
 
 export function useNavigator (runtime: AppRuntime, config: AppConfig) {
-  return useMemo(() => {
+  const manager = useMemo(() => {
     const manager = new NavigatorManager(runtime, config);
 
+    return manager;
+  }, [runtime]);
 
+  useEffect(() => {
     runtime.on('navigateTo', (event: DefaultMessage) => {
       const { options } = event;
 
       manager.current?.push(new URL(options.url), options.query);
     });
 
-    return manager;
-  }, [runtime]);
+    runtime.on('switchTab', (event: DefaultMessage) => {
+      const { options } = event;
+
+      manager.current?.navigate(new URL(options.url), options.query);
+    });
+
+    runtime.on('redirectTo', (event: DefaultMessage) => {
+      const { options } = event;
+
+      //manager.current?.redirectTo(new URL(options.url), options.query);
+    });
+
+    return () => {
+      return runtime.off('navigateTo');
+    }
+  }, [])
+
+
+  return manager;
 }
 
 export function useInit (initOptions: InitOptions) {
