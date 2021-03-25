@@ -67,7 +67,7 @@ export function getApplicationTransitRuntime (config: any) {
 
     if (client) {
       const { runtime } = client;
-      runtime.subscribe(event);
+      runtime.subscribe({ ...event, name: 'custom_event_vdSync' });
     }
   });
 
@@ -80,10 +80,7 @@ export function getApplicationTransitRuntime (config: any) {
 
       if (client) {
         const { runtime } = client;
-        runtime.subscribe({
-          ...event,
-          webviewId: id 
-        })
+        runtime.subscribe({ ...event, name: 'custom_event_vdSync', webviewId: id })
       }
     }
   });

@@ -1,8 +1,20 @@
 import axios from 'axios';
+import mime from 'mime';
 import { Config } from '../TickMini';
 import { DefaultMessage, Runtime } from './Runtime';
 import { nextTick } from './shared';
 import { WeixinJSCore } from './WeixinJSCore';
+
+export enum ServiceInvokeResultStatus {
+  OK = 'ok',
+  FAIL = 'fail'
+}
+
+export type ServiceInvokeResult = {
+  status: ServiceInvokeResultStatus,
+  data?: any,
+  error?: any
+}
 
 export class ServiceRuntime extends Runtime {
   static runtime: ServiceRuntime | null = null;
@@ -33,13 +45,18 @@ export class ServiceRuntime extends Runtime {
   }
 
   script (uri: string) {
-    importScripts(uri)
+    (globalThis as any).importScripts(uri)
   }
 
   request (event: DefaultMessage, callback: Function) {
     const id = this.id++;
 
-    callback(id);
+    callback({
+      status: ServiceInvokeResultStatus.OK,
+      data: {
+        requestTask: id
+      }
+    });
 
     nextTick(() => {
       this.invoke(event, (result: any) => {
@@ -61,11 +78,23 @@ export class ServiceRuntime extends Runtime {
     const xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', (res: any) => {
-      try {
-        const data = JSON.parse(res.target.responseText);
-        callback(data);
-      } catch (error) {
-        callback(error);
+      const contentType = res.target.getResponseHeader('content-type');
+      const ext = mime.getExtension(contentType);
+      
+      if (ext === 'json' && res.target.responseText) {
+        try {
+          const data = JSON.parse(res.target.responseText);
+          callback({
+            status: ServiceInvokeResultStatus.OK,
+            data,
+          });
+        } catch (error) {
+          callback({
+            status: ServiceInvokeResultStatus.FAIL,
+            error,
+          });
+      }
+
       }
     });
 

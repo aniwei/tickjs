@@ -6,43 +6,33 @@ export function getApplicationViewRuntime (id: number) {
 
   const { WeixinJSCore } = runtime;
 
-  runtime.on('custom_event_invokeWebviewMethod', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, 0, event.options)
-  })
+  const onDefaultSubscribeHandler = (event: DefaultMessage, name?: string) => {
+    const { data, options } = event;
+    (window as any).WeixinJSBridge.subscribeHandler(name || event.name, data, 0, options);
+  }
 
-  runtime.on('custom_event_onAppRoute', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, 0, event.options)
-  });
+  runtime.on('custom_event_invokeWebviewMethod', onDefaultSubscribeHandler)
+  runtime.on('custom_event_onAppRoute', onDefaultSubscribeHandler);
+  runtime.on('custom_event_checkWebviewAlive', onDefaultSubscribeHandler);
+  runtime.on('custom_event_vdSyncBatch', onDefaultSubscribeHandler);
+  runtime.on('custom_event_vdSync', onDefaultSubscribeHandler);
 
-  runtime.on('custom_event_checkWebviewAlive', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, 0, event.options)
-  });
+  const onDefulatPublishHandler = (event: DefaultMessage, name?: string) => {
+    const data = JSON.parse(event.data);
+    runtime.publish({
+      ...event,
+      name: name || event.name,
+      data,
+      id
+    });
+  }
 
-  runtime.on('service.custom_event_vdSync', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler('custom_event_vdSync', event.data, 0, event.options)
-  });
-
-  runtime.on('custom_event_vdSyncBatch', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, 0, event.options)
-  })
-
+  WeixinJSCore?.on('custom_event_tapAnyWhere', onDefulatPublishHandler);
+  WeixinJSCore?.on('custom_event_webviewCreated', onDefulatPublishHandler);
+  WeixinJSCore?.on('custom_event_GenerateFunc', onDefulatPublishHandler);
+  WeixinJSCore?.on('custom_event_DOMReady', onDefulatPublishHandler);
   WeixinJSCore?.on('custom_event_vdSync', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    runtime.publish({
-      ...event,
-      name: `view.custom_event_vdSync`,
-      data,
-      id
-    });
-  });
-
-  WeixinJSCore.on('custom_event_tapAnyWhere', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    runtime.publish({
-      ...event,
-      data,
-      id
-    });
+    onDefulatPublishHandler(event, 'view.custom_event_vdSync');
   });
 
   return runtime;

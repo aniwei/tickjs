@@ -1,13 +1,16 @@
 
 import fs from 'fs-extra';
 import express from 'express';
-import { IncomingMessage, ServerResponse } from 'http';
+import crypto from 'crypto';
 import regexp from 'regexp-clone';
-import debug from 'debug';
+import homedir from 'home-dir';
+import escodegen from 'escodegen';
+import * as acorn from 'acorn';
 import * as esbuild from 'esbuild';
+import * as walk from 'acorn-walk';
+import { IncomingMessage, ServerResponse } from 'http';
 import { join } from 'path';
 import { EventEmitter } from 'events';
-import homedir from 'home-dir';
 
 import vite from './vite';
 
@@ -15,7 +18,6 @@ import { ViteServerOptions } from './vite';
 import { TickMiniProjLoader } from './TickMiniProjLoader';
 import { TickMiniProjDefaultConfig } from './TickMiniProjDefaultConfig'
 import { DefaultAdapters } from './TickMiniAdapters';
-
 
 
 export type Config = {
@@ -79,10 +81,60 @@ export function defineUserConfig (
   return TickMini.config;
 }
 
+export type FileTransform = {
+  path: RegExp,
+  handle: Function,
+  hash: string | null,
+  code: string | null,
+}
+
+export class FileTransformer {
+  public files: FileTransform[] = [];
+
+  intercept (path: RegExp, handle: Function) {
+    this.files.push({
+      path,
+      handle,
+      hash: null,
+      code: null
+    });
+
+    return this;
+  }
+
+  transform = (code: string, id: string) => {
+    for (const file of this.files) {
+
+      if (file.path.test(id)) {
+        if (file.hash) {
+          const hash = crypto
+            .createHash('md5')
+            .update(code)
+            .digest('hex');
+
+          if (file.hash === hash) {
+            return {
+              code: file.code,
+              id
+            }
+          }
+        } 
+
+        return file.handle(code, id, file);
+      }
+    }
+
+    return {
+      code,
+      id
+    }
+  }
+}
+
 export class TickMini extends EventEmitter {
   static mini: TickMini | null = null;
   static config: Config = {
-    port: 3000,
+    port: 7001,
     root: process.cwd(),
     cache: join(homedir(), '.tickjs'),
     proj: TickMiniProjDefaultConfig,
@@ -100,6 +152,7 @@ export class TickMini extends EventEmitter {
   public config: Config;
   public proj: TickMiniProjLoader
   public intercepts: TickInterceptor[] = [];
+  public transformer = new FileTransformer();
   
   public app: express.Express | null = null;
     
@@ -140,6 +193,39 @@ export class TickMini extends EventEmitter {
 
   prepare (prepareHandler: Function) {
     const { root } = this.config;
+
+    this.transformer.intercept(/@react\-navigation_stack\.js/g, (code: string, id: string, file: FileTransform) => {
+      const hash = crypto
+        .createHash('md5')
+        .update(code)
+        .digest('hex');
+
+      file.hash = hash;
+      
+      const ast = acorn.parse(code, { ecmaVersion: 'latest', sourceType: 'module' });
+      
+      walk.full(ast, (node: any) => {
+        if (node.type === 'CallExpression') {
+          const callee = node.callee;
+          const args = node.arguments;
+          if (callee.type === 'Identifier' &&callee.name === 'require') {
+            const firstNode = args[0];
+
+            node.type = firstNode.type;
+            node.value = firstNode.value;
+          }
+        }
+      });
+
+      file.code = escodegen.generate(ast)
+
+      debugger;
+
+      return { 
+        code: file.code,
+        id
+      }
+    })
 
     this.intercept(/^\/(([^\/]+)\/([^?]+))(\?[^?]+|.*)/g, (matched: RegExpExecArray) => {
       const [prefix, filename] = matched;
@@ -208,7 +294,8 @@ export class TickMini extends EventEmitter {
           resolveId: (id: string) => {
             return id;
           },
-          load: this.service
+          load: this.service,
+          transform: this.transformer.transform
         }]
       }
 

@@ -1,14 +1,20 @@
-import { ServiceRuntime } from './ServiceRuntime';
+import { 
+  ServiceRuntime, 
+  ServiceInvokeResult, 
+  ServiceInvokeResultStatus 
+} from './ServiceRuntime';
 
 import { DefaultMessage } from './Runtime';
-import { debug } from './shared';
+import * as shared from './shared';
 
-const serviceDebug = debug(`API`);
+const debug = shared.debug(`Service`);
 
 function getApplicationServiceRuntime () {
   const service = ServiceRuntime.sharedRuntime();
 
   service.run(() => {
+    debug(`服务准备就绪`);
+
     service.publish({
       name: 'clientready',
       id: 'service',
@@ -16,186 +22,109 @@ function getApplicationServiceRuntime () {
     })
   });
 
-  service.on('onAppRoute', (event: any) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
-  });
 
-  service.on('custom_event_tapAnyWhere', (event: any) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
-  });
+  const onDefaultSubscribeHandler = (event: DefaultMessage) => {
+    const { name, data, options, id } = event;
+    (globalThis as any).WeixinJSBridge.subscribeHandler(name, data || options, id);
+  }
 
-  service.on('view.custom_event_vdSync', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler('custom_event_vdSync', event.data, event.id);
-  });
+  const onDefaultInvokeCallbackHandler = (
+    event: DefaultMessage,
+    result: ServiceInvokeResult
+  ) => {
+    const { callbackId, name } = event;
+    (globalThis as any).WeixinJSBridge.invokeCallbackHandler(callbackId, {
+      errMsg: `${name}:${result.status}`,
+      ...result.data
+    })
+  }
 
-  service.on('onRequestTaskStateChange', (event: DefaultMessage) => {
-    WeixinJSBridge.subscribeHandler(event.name, event.data, event.id);
-  });
+  service.on('onAppRoute', onDefaultSubscribeHandler);
+  service.on('custom_event_tapAnyWhere', onDefaultSubscribeHandler);
+  service.on('custom_event_vdSync', onDefaultSubscribeHandler);
+  service.on('onRequestTaskStateChange', onDefaultSubscribeHandler);
 
   const { WeixinJSCore } = service;
-
-  WeixinJSCore?.on('custom_event_onAppRoute', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
+  
+  const onDefaultPublishDataHandler = (event: DefaultMessage, name?: string) => {
+    service.publish({ 
+      ...event, 
+      name: name || event.name,
+      data: JSON.parse(event.data) 
     })
-  });
+  }
 
+  const onDefaultPublishOptionsHandler = (event: DefaultMessage, name?: string) => {
+    service.publish({ 
+      ...event, 
+      name: name || event.name,
+      options: JSON.parse(event.options) 
+    })
+  }
+
+  WeixinJSCore?.on('custom_event_onAppRoute', onDefaultPublishDataHandler);
   WeixinJSCore?.on('custom_event_vdSync', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      name: `service.custom_event_vdSync`,
-      data,
-    });
-  })
-
-  WeixinJSCore?.on('custom_event_checkWebviewAlive', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
-    });
+    onDefaultPublishDataHandler(event, 'service.custom_event_vdSync');
   });
+  WeixinJSCore?.on('custom_event_checkWebviewAlive', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('custom_event_vdSyncBatch', onDefaultPublishDataHandler);
+  WeixinJSCore?.on('custom_event_invokeWebviewMethod', onDefaultPublishDataHandler);
+  
+  WeixinJSCore?.on('navigateTo', onDefaultPublishOptionsHandler);
+  WeixinJSCore?.on('navigateBack', onDefaultPublishOptionsHandler);
+  WeixinJSCore?.on('redirectTo', onDefaultPublishOptionsHandler);
+  WeixinJSCore?.on('switchTab', onDefaultPublishOptionsHandler);
+  WeixinJSCore?.on('reLaunch', onDefaultPublishOptionsHandler);
 
-  WeixinJSCore?.on('custom_event_vdSyncBatch', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
-    })
-  });
-
-  WeixinJSCore?.on('custom_event_invokeWebviewMethod', (event: DefaultMessage) => {
-    const data = JSON.parse(event.data);
-    
-    service.publish({
-      ...event,
-      data,
-    })
-  });
-
-  WeixinJSCore?.on('login', (event: DefaultMessage) => {
+  const onDefaultInvokeHandler = (
+    event: DefaultMessage,
+    method?: keyof ServiceRuntime, 
+    async?: boolean,
+    name?: string,
+  ) => {
     const options = JSON.parse(event.options);
+    
+    name = name || event.name;
+    method = method || 'invoke';
+    async = typeof async === 'boolean' ? async : true;
 
-    service.invoke({
+    service[method]({
       ...event,
       options,
-    }, (result: any) => {
-      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-        errMsg: `${event.name}:ok`,
-        ...result
-      });
-    });
+      name,
+    }, (res: ServiceInvokeResult) => {
+      onDefaultInvokeCallbackHandler(event, res);
+    }, async);
+  }
 
-  });
-
+  WeixinJSCore?.on('login', onDefaultInvokeHandler);
   WeixinJSCore?.on('createRequestTask', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.request({
-      ...event,
-      options,
-    }, (requestTaskId) => {
-      WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-        errMsg: `${event.name}:ok`,
-        requestTaskId
-      });
-    });
-
+    onDefaultInvokeHandler(event, 'request', true);
   });
-
-  WeixinJSCore?.on('getStorage', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      options
-    }, (result: any) => {
-      serviceDebug(result.data)  
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:${result.data ? 'ok' : 'fail'}`,
-          data: result.data
-        })
-      }
-    });
-  });
-
+  WeixinJSCore?.on('getStorage', onDefaultInvokeHandler);
   WeixinJSCore?.on('getStorageSync', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      name: 'getStorage',
-      options
-    }, (result: any) => {
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:${result.data ? 'ok' : 'fail'}`,
-          data: result.data
-        })
-      }
-    }, false);
+    event.name = 'getStorage';
+    onDefaultInvokeHandler(event, 'invoke', false, 'getStorage');
   });
-
-  WeixinJSCore?.on('setStorage', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      options
-    }, (result: any) => {
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:ok`,
-        })
-      }
-    });
-  });
-
+  WeixinJSCore?.on('setStorage', onDefaultInvokeHandler);
   WeixinJSCore?.on('setStorageSync', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-
-    service.invoke({
-      ...event,
-      name: 'setStorage',
-      options
-    }, (result: any) => {
-      if (result.data) {
-        WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-          errMsg: `${event.name}:ok`,
-        })
-      }
-    }, false);
+    onDefaultInvokeHandler(event, 'invoke', false, `setStorage`);
   });
 
   WeixinJSCore?.on('getSystemInfo', (event: DefaultMessage) => {
-    WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-      errMsg: `${event.name}:ok`,
-      ...service.context.system
-    })
+    onDefaultInvokeCallbackHandler(event, {
+      status: ServiceInvokeResultStatus.OK,
+      data: (service.context as any).system
+    });
   });
 
   WeixinJSCore?.on('getNetworkType', (event: DefaultMessage) => {
-    WeixinJSBridge.invokeCallbackHandler(event.callbackId, {
-      errMsg: `${event.name}:ok`,
-      networkType: service.context.system.networkType
-    })
-  });
-
-  WeixinJSCore?.on('navigateTo', (event: DefaultMessage) => {
-    const options = JSON.parse(event.options);
-    
-    service.publish({
-      ...event,
-      options,
-    })
+    onDefaultInvokeCallbackHandler(event, {
+      status: ServiceInvokeResultStatus.OK,
+      data: {
+        networkType: (service.context as any).system.networkType
+      }
+    });
   });
 
   return service;

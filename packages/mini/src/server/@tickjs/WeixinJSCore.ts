@@ -1,7 +1,7 @@
 import { TinyEmitter } from 'tiny-emitter';
 import * as shared from './shared';
 
-const JSCoreDebug = shared.debug('WeixinJSCore', 'info');
+const debug = shared.debug('WeixinJSCore', 'info');
 
 export class WeixinJSCore extends TinyEmitter {
   public type: string;
@@ -12,7 +12,7 @@ export class WeixinJSCore extends TinyEmitter {
   }
 
   invokeHandler (name: string, options: any, callbackId: number) {
-    JSCoreDebug(
+    debug(
       this.type,
       `invokeHandler`,
       `接口:`, name,
@@ -28,7 +28,7 @@ export class WeixinJSCore extends TinyEmitter {
   }
 
   publishHandler (name: string, data: any, webviewId: string) {
-    JSCoreDebug(
+    debug(
       this.type,
       `publishHandler`,
       `事件:`, name,
