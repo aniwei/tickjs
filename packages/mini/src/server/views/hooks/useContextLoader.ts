@@ -6,7 +6,7 @@ export function useContextLoader () {
 
   useEffect(() => {
     axios
-      .get('/@tickjs/context')
+      .get('/@proj/context')
       .then(res => setContext({
         context: res.data,
         isContextLoaded: true

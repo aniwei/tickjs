@@ -48,6 +48,12 @@ export class ServiceRuntime extends Runtime {
     (globalThis as any).importScripts(uri)
   }
 
+  scripts (scripts) {
+    for (const script of scripts) {
+      this.script(script);
+    }
+  }
+
   request (event: DefaultMessage, callback: Function) {
     const id = this.id++;
 
@@ -105,7 +111,7 @@ export class ServiceRuntime extends Runtime {
   }
 
   run (callback: Function) {
-    axios.get('/@tickjs/context')
+    axios.get('/@proj/context')
       .then(async res => {
         const context = res.data;
         this.context = context;
@@ -113,9 +119,28 @@ export class ServiceRuntime extends Runtime {
         this
           .define('__wxConfig', context)
           .define('WeixinJSCore', this.WeixinJSCore)
+          .define('window', globalThis)
+          .define('__wxBegin', null)
+          .define('__wxRouteBegin', null)
+          .define('__wxAppCurrentFile__', null)
+
+        if (context.env.PKG) {
+          this.scripts([
+            '/@weixin/wxservice',
+            '/@app/service'
+          ]);
+        } else {
+          const scripts = [
+            '/@weixin/wxservice',
+            '/@app/service',
+            '/@app/import?r=app'
+          ];
+
+          this.scripts(scripts.concat(context.pages.map(page => {
+            return `/@app/import?r=${page}`;
+          })))
+        }
         
-        this.script(`/@weixin/wxservice`);
-        this.script(`/@app/service`);
 
         callback(context);
       });

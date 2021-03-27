@@ -35,7 +35,7 @@ export class ViewRuntime extends Runtime {
   }
 
   run (callback: Function) {
-    axios.get('/@tickjs/context')
+    axios.get('/@proj/context')
       .then(async res => {
         const context = res.data;
         this.context = context;

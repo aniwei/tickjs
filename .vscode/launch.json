@@ -19,14 +19,14 @@
       "name": "test-program",
       "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
       "sourceMaps": true,
-      "cwd": "${workspaceFolder}/packages/mini/nayuki",
+      "cwd": "${workspaceFolder}/packages/mini/test-mini",
       "env": {
         "DEBUG": "*"
       },
       "args": [
         "-r",
         "ts-node/register",
-        "index.ts"
+        "../src/cli/index.ts"
       ]
     },
 
