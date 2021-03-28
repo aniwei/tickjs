@@ -2,6 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 import { TinyEmitter } from 'tiny-emitter';
+import { TickMiniProjLoader } from './TickMiniProjLoader';
 
 export enum TickWXResultState {
   WAITING = 'waiting',
@@ -19,7 +20,7 @@ export type TickWXResult = {
 }
 
 export class TickWX extends TinyEmitter {
-  static prefix = {
+  static hostname = {
     dev: 'https://servicewechat.com/wxa-dev-logic',
     open: `https://open.weixin.qq.com/connect/qrconnect`,
     long: `https://long.open.weixin.qq.com/connect/l/qrconnect`,
@@ -29,42 +30,74 @@ export class TickWX extends TinyEmitter {
   static timeout = 60000;
   static results: Map<string, any> = new Map();
 
-  static signIn (id: string) {
-    const wx = new TickWX(id);
-
-    return wx.signIn().polling();
-  }
-  public id: string;
   public appid: string = 'wxde40e023744664cb';
+  public proj: TickMiniProjLoader;
 
-  constructor (id: string) {
+  constructor (proj) {
     super();
 
-    this.id = id;
+    this.proj = proj;
   }
 
-  signIn () {
+  request (name, query?, data?) {
+    const authorizion = this.proj.storage?.getItem('@weixin:authorizion') as any;
+
+    if (data === undefined) {
+      data = query;
+      query = {};
+    }
+
+    if (authorizion) {
+      const { data } = JSON.parse(authorizion);
+      query.newticket = data.newticket;
+      query.appId = this.proj.account.appId;
+    }
+
+    query.platform = 0;
+    query.os = 'darwin';
+    query.clientversion = '1052102010';
+
+    return axios.post(`${TickWX.hostname.dev}/${name}?${qs.stringify(query)}`, {
+      headers: {
+        'Content-Type': 'text/plain'
+      },
+      responseType: 'text',
+      data
+    });
+  }
+
+  signIn (id: string) {
     const query = qs.stringify({
       appid: this.appid,
-      redirect_uri: TickWX.prefix.ticket,
+      redirect_uri: TickWX.hostname.ticket,
       scope: `snsapi_login`,
       state: `login`
     });
 
-    axios.get(`${TickWX.prefix.open}?${query}`).then(res => {
+    axios.get(`${TickWX.hostname.open}?${query}`).then(res => {
       const matched = /"\/connect\/qrcode\/([a-zA-Z0-9]+)"/g.exec(res.data)
 
       if (matched && matched[1]) {
-        this.emit('polling', matched[1]);
+        this.emit('polling', matched[1], id);
       }
     });
 
-    return this;
+    return this.polling();
+  }
+
+  getLoginCode () {
+    return this.request('jslogin', {
+      scope: ['snsapi_base']
+    });
+  }
+  
+  operateWXData (data) {
+    return this.request('jsoperatewxdata', data)
   }
 
   getTicket (code) {
     const state = Date.now();
-    return axios.get(`${TickWX.prefix.ticket}?code=${code}&state=${state}`).then(res => {
+    return axios.get(`${TickWX.hostname.ticket}?code=${code}&state=${state}`).then(res => {
       const { baseresponse, ...rest } = res.data;
       const headers = res.headers;
 
@@ -81,22 +114,22 @@ export class TickWX extends TinyEmitter {
 
   polling () {
     return new Promise((resolve, reject) => {
-      this.once('polling', (code) => {
+      this.once('polling', (code, id) => {
         const result: TickWXResult = {
+          id,
           code,
-          id: this.id,
           data: {},
           state: TickWXResultState.WAITING,
           expireIn: Date.now() + TickWX.timeout
         }
 
-        TickWX.results.set(this.id, result);
+        TickWX.results.set(id, result);
 
         const fetching = () => {
           if (Date.now() > result.expireIn) {
             result.state = TickWXResultState.FAIL;
           } else {
-            axios.get(`${TickWX.prefix.long}?uuid=${code}`).then(res => {
+            axios.get(`${TickWX.hostname.long}?uuid=${code}`).then(res => {
               const callback = new Function(`window`, res.data + 'return window;');
               const { wx_errcode, wx_code } = callback({});
 

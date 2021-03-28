@@ -2,8 +2,10 @@ import fs from 'fs-extra';
 import path from 'path';
 import { LocalStorage } from 'node-localstorage';
 import { Config } from './TickMini';
+import { TickWX } from './TickWX';
 
 export class TickMiniProjLoader {
+  public weixin: TickWX;
   public root: string;
   public storage: LocalStorage | null = null;
   public account: any;
@@ -11,6 +13,8 @@ export class TickMiniProjLoader {
 
   constructor (root: string = process.cwd(), config: Config) {
     const { proj } = config;
+
+    this.weixin = new TickWX(this);
 
     this.root = root;
     this.storage = new LocalStorage(path.join(config.cache, proj.accountInfo.appId));

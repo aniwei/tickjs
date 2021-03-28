@@ -135,7 +135,10 @@ export class TickMini extends EventEmitter {
             return id;
           },
           load: (id: string) => service.handle(id, this),
-          transform: transformer.handle
+          transform: transformer.handle,
+          handleHotUpdate (data) {
+            console.log(`handleHotUpdate`, data);
+          } 
         }]
       }
 

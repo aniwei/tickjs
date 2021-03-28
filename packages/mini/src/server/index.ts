@@ -3,8 +3,6 @@ import debug from 'debug';
 import path from 'path';
 import bodyParser from 'body-parser';
 import axios from 'axios';
-import * as qrcode from 'qrcode';
-import { PassThrough } from 'stream';
 import { IncomingMessage, ServerResponse } from 'http';
 
 import { TickMini, Config } from './TickMini';
@@ -101,7 +99,7 @@ export default async function App (config: Config, callback?: Function) {
     router.get('/@weixin/signIn/qrcode/:id', (req, res) => {
       const id = req.params.id;
 
-      TickWX.signIn(id).then(text => {
+      mini.proj.weixin.signIn(id).then(text => {
         axios.get(text as string, {
           responseType: 'arraybuffer'
         }).then(result => {

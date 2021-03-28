@@ -1,3 +1,4 @@
+import mime from 'mime'
 import { TinyEmitter } from 'tiny-emitter';
 
 export enum MessageTypes {
@@ -16,6 +17,17 @@ export type DefaultMessage = {
   [key: string]: any
 }
 
+export enum RuntimeInvokeResultStatus {
+  OK = 'ok',
+  FAIL = 'fail'
+}
+
+export type RuntimeInvokeResult = {
+  status: RuntimeInvokeResultStatus,
+  data?: any,
+  error?: any
+}
+
 export class Runtime extends TinyEmitter {
   public sender: any = null;
   public receiver: any = null;
@@ -29,6 +41,39 @@ export class Runtime extends TinyEmitter {
     this.receiver.addEventListener('message', (event: any) => {
       this.onMessage(event.data as DefaultMessage);
     });
+  }
+
+  invoke (message: DefaultMessage, callback: Function, async?: boolean) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', (res: any) => {
+      const contentType = res.target.getResponseHeader('content-type');
+      const ext = mime.getExtension(contentType);
+      
+      if (ext === 'json' && res.target.responseText) {
+        try {
+          const data = JSON.parse(res.target.responseText);
+          callback({
+            status: RuntimeInvokeResultStatus.OK,
+            data,
+          });
+        } catch (error) {
+          callback({
+            status: RuntimeInvokeResultStatus.FAIL,
+            error,
+          });
+      }
+
+      }
+    });
+
+    xhr.addEventListener('error', () => {});
+
+    xhr.open(`POST`, `/@weixin/api/${message.name}`, !async);
+    xhr.setRequestHeader('content-type', 'application/json');
+    xhr.setRequestHeader('x-api', message.name);
+
+    xhr.send(JSON.stringify(message));
   }
 
   onMessage = (message: DefaultMessage): void => {

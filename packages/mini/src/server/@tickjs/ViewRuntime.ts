@@ -1,7 +1,10 @@
 import axios from 'axios';
+import mime from 'mime';
 import { Config } from '../TickMini';
 import { Runtime } from './Runtime';
 import { WeixinJSCore } from './WeixinJSCore';
+
+
 
 export class ViewRuntime extends Runtime {
   static runtime: ViewRuntime | null = null;

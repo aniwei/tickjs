@@ -1,4 +1,4 @@
-import { DefaultMessage } from './Runtime';
+import { DefaultMessage, RuntimeInvokeResult } from './Runtime';
 import { ViewRuntime } from './ViewRuntime'
 
 export function getApplicationViewRuntime (id: number) {
@@ -36,6 +36,42 @@ export function getApplicationViewRuntime (id: number) {
   WeixinJSCore?.on('custom_event_PAGE_EVENT', onDefulatPublishHandler);
   WeixinJSCore?.on('custom_event_vdSync', (event: DefaultMessage) => {
     onDefulatPublishHandler(event, 'view.custom_event_vdSync');
+  });
+
+  const onDefaultInvokeCallbackHandler = (
+    event: DefaultMessage,
+    result: RuntimeInvokeResult
+  ) => {
+    const { callbackId, name } = event;
+    (window as any).WeixinJSBridge.invokeCallbackHandler(callbackId, {
+      errMsg: `${name}:${result.status}`,
+      ...result.data
+    })
+  }
+
+  const onDefaultInvokeHandler = (
+    event: DefaultMessage,
+    method?: keyof ViewRuntime, 
+    async?: boolean,
+    name?: string,
+  ) => {
+    const options = JSON.parse(event.options);
+    
+    name = name || event.name;
+    method = method || 'invoke';
+    async = typeof async === 'boolean' ? async : true;
+
+    runtime[method]({
+      ...event,
+      options,
+      name,
+    }, (res: RuntimeInvokeResult) => {
+      onDefaultInvokeCallbackHandler(event, res);
+    }, async);
+  }
+
+  WeixinJSCore?.on('operateWXData', (event: DefaultMessage) => {
+    onDefaultInvokeHandler(event, 'invoke', false, `operateWXData`);
   });
 
   return runtime;

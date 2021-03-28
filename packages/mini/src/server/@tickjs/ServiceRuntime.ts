@@ -1,21 +1,10 @@
 import axios from 'axios';
 import mime from 'mime';
 import { Config } from '../TickMini';
-import { DefaultMessage, Runtime } from './Runtime';
+import { DefaultMessage, RuntimeInvokeResultStatus, Runtime } from './Runtime';
 import { WeixinJSCore } from './WeixinJSCore';
 
 const defineProperty = Object.defineProperty;
-
-export enum ServiceInvokeResultStatus {
-  OK = 'ok',
-  FAIL = 'fail'
-}
-
-export type ServiceInvokeResult = {
-  status: ServiceInvokeResultStatus,
-  data?: any,
-  error?: any
-}
 
 export class ServiceRuntime extends Runtime {
   static runtime: ServiceRuntime | null = null;
@@ -63,7 +52,7 @@ export class ServiceRuntime extends Runtime {
     const id = this.id++;
 
     callback({
-      status: ServiceInvokeResultStatus.OK,
+      status: RuntimeInvokeResultStatus.OK,
       data: {
         requestTaskId: id
       }
@@ -79,39 +68,6 @@ export class ServiceRuntime extends Runtime {
         }
       });
     });
-  }
-
-  invoke (message: DefaultMessage, callback: Function, async?: boolean) {
-    const xhr = new XMLHttpRequest();
-
-    xhr.addEventListener('load', (res: any) => {
-      const contentType = res.target.getResponseHeader('content-type');
-      const ext = mime.getExtension(contentType);
-      
-      if (ext === 'json' && res.target.responseText) {
-        try {
-          const data = JSON.parse(res.target.responseText);
-          callback({
-            status: ServiceInvokeResultStatus.OK,
-            data,
-          });
-        } catch (error) {
-          callback({
-            status: ServiceInvokeResultStatus.FAIL,
-            error,
-          });
-      }
-
-      }
-    });
-
-    xhr.addEventListener('error', () => {});
-
-    xhr.open(`POST`, `/@weixin/api/${message.name}`, !async);
-    xhr.setRequestHeader('content-type', 'application/json');
-    xhr.setRequestHeader('x-api', message.name);
-
-    xhr.send(JSON.stringify(message));
   }
 
   run (callback: Function) {

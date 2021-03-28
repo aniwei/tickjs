@@ -1,10 +1,6 @@
-import { 
-  ServiceRuntime, 
-  ServiceInvokeResult, 
-  ServiceInvokeResultStatus 
-} from './ServiceRuntime';
+import { ServiceRuntime } from './ServiceRuntime';
 
-import { DefaultMessage } from './Runtime';
+import { DefaultMessage, RuntimeInvokeResult, RuntimeInvokeResultStatus } from './Runtime';
 import * as shared from './shared';
 
 const debug = shared.debug(`Service`);
@@ -30,7 +26,7 @@ function getApplicationServiceRuntime () {
 
   const onDefaultInvokeCallbackHandler = (
     event: DefaultMessage,
-    result: ServiceInvokeResult
+    result: RuntimeInvokeResult
   ) => {
     const { callbackId, name } = event;
     (globalThis as any).WeixinJSBridge.invokeCallbackHandler(callbackId, {
@@ -96,7 +92,7 @@ function getApplicationServiceRuntime () {
       ...event,
       options,
       name,
-    }, (res: ServiceInvokeResult) => {
+    }, (res: RuntimeInvokeResult) => {
       onDefaultInvokeCallbackHandler(event, res);
     }, async);
   }
@@ -114,13 +110,10 @@ function getApplicationServiceRuntime () {
   WeixinJSCore?.on('setStorageSync', (event: DefaultMessage) => {
     onDefaultInvokeHandler(event, 'invoke', false, `setStorage`);
   });
-  WeixinJSCore?.on('operateWXData', (event: DefaultMessage) => {
-    onDefaultInvokeHandler(event, 'invoke', false, `operateWXData`);
-  })
 
   WeixinJSCore?.on('getSystemInfo', (event: DefaultMessage) => {
     onDefaultInvokeCallbackHandler(event, {
-      status: ServiceInvokeResultStatus.OK,
+      status: RuntimeInvokeResultStatus.OK,
       data: (service.context as any).system
     });
   });
@@ -129,7 +122,7 @@ function getApplicationServiceRuntime () {
 
   WeixinJSCore?.on('getNetworkType', (event: DefaultMessage) => {
     onDefaultInvokeCallbackHandler(event, {
-      status: ServiceInvokeResultStatus.OK,
+      status: RuntimeInvokeResultStatus.OK,
       data: {
         networkType: (service.context as any).system.networkType
       }

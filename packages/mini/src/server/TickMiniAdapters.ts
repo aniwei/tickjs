@@ -35,6 +35,9 @@ axios.interceptors.response.use((res) => {
 })
 
 export class DefaultAdapters implements TickMiniAdaptersInterface {
+  static hostname = {
+    dev: 'https://servicewechat.com/wxa-dev-logic'
+  }
   createRequestTask (
     req: Request, 
     res: Response
@@ -79,24 +82,23 @@ export class DefaultAdapters implements TickMiniAdaptersInterface {
   }
 
   login (req: Request, res: Response, proj: TickMiniProjLoader) {
-    const authorizion = proj.storage?.getItem('@weixin:authorizion');
-
-    if (authorizion) {
-      const { data } = JSON.parse(authorizion); 
-      const query = qs.stringify({
-        newticket: data.newticket,
-        appid: proj.account.appId,
-      })
-      
-      return axios.post(`https://servicewechat.com/wxa-dev-logic/jslogin?${query}`, {
-        data: {
-          scope: ['snsapi_base']
-        }
-      }).then(result => {
-        res.status(200).json({
-          code: result.data.code
-        }).end();
-      })
-    }
+    proj.weixin.getLoginCode().then(result => {
+      res
+        .status(200)
+        .send({ code: result.data.code })
+        .end();
+    })
   }
+
+  operateWXData (req: Request, res: Response, proj: TickMiniProjLoader) {
+    const { data } = req.body.options;
+    proj.weixin.operateWXData(data).then(result => {
+      res
+        .status(200)
+        .send({ ...result.data })
+        .end();
+    })
+  }
+
+
 }
