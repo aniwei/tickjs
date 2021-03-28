@@ -114,6 +114,9 @@ function getApplicationServiceRuntime () {
   WeixinJSCore?.on('setStorageSync', (event: DefaultMessage) => {
     onDefaultInvokeHandler(event, 'invoke', false, `setStorage`);
   });
+  WeixinJSCore?.on('operateWXData', (event: DefaultMessage) => {
+    onDefaultInvokeHandler(event, 'invoke', false, `operateWXData`);
+  })
 
   WeixinJSCore?.on('getSystemInfo', (event: DefaultMessage) => {
     onDefaultInvokeCallbackHandler(event, {
@@ -121,6 +124,8 @@ function getApplicationServiceRuntime () {
       data: (service.context as any).system
     });
   });
+
+  
 
   WeixinJSCore?.on('getNetworkType', (event: DefaultMessage) => {
     onDefaultInvokeCallbackHandler(event, {

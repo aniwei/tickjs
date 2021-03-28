@@ -53,6 +53,9 @@ class DevelopApplication {
       return wcc({
         files: files.map(files => `./${files}`),
         cwd: this.root,
+        debugWXS: false,
+        debug: false,
+        
       }).then(res => res.toString())
     })
   }
