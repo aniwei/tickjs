@@ -13,6 +13,7 @@ import { TickMiniProjDefaultConfig } from './TickMiniProjDefaultConfig'
 import { DefaultAdapters } from './TickMiniAdapters';
 import { defaultTransformer, TickMiniTransformer  } from './TickMiniTransformer';
 import { defaultService, TickMiniService } from './TickMiniService';
+import { LocalStorage } from 'node-localstorage';
 
 
 export type Config = {
@@ -62,6 +63,19 @@ function defineConfig (
   return target;
 }
 
+const TickMiniDefaultConfig: Config = {
+  env: {
+    PORT: 3000,
+    CLI: false,
+    PKG: true,
+  },
+  root: process.cwd(),
+  cache: join(homedir(), '.tickjs'),
+  proj: TickMiniProjDefaultConfig,
+  adapters: new DefaultAdapters(),
+  transformer: defaultTransformer,
+  service: defaultService
+}
 
 export function defineUserConfig (
   source: DefineConfigObject
@@ -73,19 +87,7 @@ export function defineUserConfig (
 
 export class TickMini extends EventEmitter {
   static mini: TickMini | null = null;
-  static config: Config = {
-    env: {
-      PORT: 3000,
-      CLI: false,
-      PKG: true,
-    },
-    root: process.cwd(),
-    cache: join(homedir(), '.tickjs'),
-    proj: TickMiniProjDefaultConfig,
-    adapters: new DefaultAdapters(),
-    transformer: defaultTransformer,
-    service: defaultService
-  };
+  static config: Config = TickMiniDefaultConfig
 
   static sharedTickMini (config: Config): TickMini {
     if (this.mini) {
@@ -104,7 +106,7 @@ export class TickMini extends EventEmitter {
     super();
 
     this.config = config;
-    this.proj = new TickMiniProjLoader(config.root);
+    this.proj = new TickMiniProjLoader(config.root, config);
   }
 
   adapte (api: string, req: IncomingMessage, res: ServerResponse) {
@@ -112,7 +114,7 @@ export class TickMini extends EventEmitter {
 
     if (adapters) {
       if (adapters[api]) {
-        return adapters[api](req, res);
+        return adapters[api](req, res, this.proj);
       }
     }
 

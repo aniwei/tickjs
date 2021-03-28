@@ -32,9 +32,11 @@ export default function AppContext (props: any) {
 		__wxAppCode__[`${route}.wxss`]();
 		const __setCssEndTime__ = Date.now();
 
-    document.dispatchEvent(new CustomEvent("generateFuncReady", {
+    document.dispatchEvent(new CustomEvent('generateFuncReady', {
       detail: {
-        generateFunc: $gwx(`./${route}.wxml`)
+        get generateFunc () {
+          return $gwx(`./${route}.wxml`)
+        }
       }
     }));
 

@@ -1,14 +1,15 @@
 import axios from 'axios';
 import URL from 'url-parse';
-import { LocalStorage } from 'node-localstorage'
-import { Request, response, Response } from 'express';
+import qs from 'qs';
+import { Request, Response } from 'express';
+import { TickMiniProjLoader } from './TickMiniProjLoader';
 
 export interface TickMiniAdaptersInterface {
-  createRequestTask (req: Request, res: Response): void;
-  getSystemInfo? (req: Request, res: Response): void;
-  getNetworkType? (req: Request, res: Response): void;
-  getStorage (req: Request, res: Response): void;
-  setStorage (req: Request, res: Response): void;
+  createRequestTask (req: Request, res: Response, proj: TickMiniProjLoader): void;
+  getSystemInfo? (req: Request, res: Response, proj: TickMiniProjLoader): void;
+  getNetworkType? (req: Request, res: Response, proj: TickMiniProjLoader): void;
+  getStorage (req: Request, res: Response, proj: TickMiniProjLoader): void;
+  setStorage (req: Request, res: Response, proj: TickMiniProjLoader): void;
 }
 
 axios.interceptors.response.use((res) => {
@@ -34,8 +35,6 @@ axios.interceptors.response.use((res) => {
 })
 
 export class DefaultAdapters implements TickMiniAdaptersInterface {
-  public localStorage: LocalStorage = new LocalStorage('./storage')
-
   createRequestTask (
     req: Request, 
     res: Response
@@ -50,39 +49,54 @@ export class DefaultAdapters implements TickMiniAdaptersInterface {
     }
     
     axios(options).then(result => {
-      res.statusCode = result.status;
-      res.json({
-        data: result.data,
-        header: result.headers,
-        statusCode: result.status
-      }).end();
+      res.status(result.status)
+        .json({
+          data: result.data,
+          header: result.headers,
+          statusCode: result.status
+        }).end();
     }).catch(error => {
-      res.statusCode = 400;
-      res.end();
+      res.status(400).end();
     })
   }
 
-  getStorage (req: Request, res: Response) {
+  getStorage (req: Request, res: Response, proj: TickMiniProjLoader) {
     const { options } = req.body;
     const { key, storageId } = options;
 
-    const data = this.localStorage.getItem(`${storageId}:${key}`);
-    res.statusCode = 200;
+    const data = proj.storage?.getItem(`user:${storageId}:${key}`);
     
-    res.json({ data }).end();
+    res.status(200).json({ data }).end();
   }
 
-  setStorage (req: Request, res: Response) {
+  setStorage (req: Request, res: Response, proj: TickMiniProjLoader) {
     const { options } = req.body;
     const { key, storageId, data } = options;
 
-    this.localStorage.setItem(`${storageId}:${key}`, data);
+    proj.storage?.setItem(`user:${storageId}:${key}`, data);
     res.statusCode = 200;
     res.end();
   }
 
-  login (req: Request, res: Response) {
-    res.statusCode = 200;
-    res.json({ code: Date.now() }).end();
+  login (req: Request, res: Response, proj: TickMiniProjLoader) {
+    const authorizion = proj.storage?.getItem('@weixin:authorizion');
+
+    if (authorizion) {
+      const { data } = JSON.parse(authorizion); 
+      const query = qs.stringify({
+        newticket: data.newticket,
+        appid: proj.account.appId,
+      })
+      
+      return axios.post(`https://servicewechat.com/wxa-dev-logic/jslogin?${query}`, {
+        data: {
+          scope: ['snsapi_base']
+        }
+      }).then(result => {
+        res.status(200).json({
+          code: result.data.code
+        }).end();
+      })
+    }
   }
 }

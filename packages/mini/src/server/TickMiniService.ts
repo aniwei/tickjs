@@ -114,14 +114,19 @@ defaultService.use(
         })
       }
     }
-  }, (matched: RegExpExecArray, context: TickMini,content?: string) => {
+  }, (matched: any[], context: TickMini,content?: string) => {
     const [prefix, filename, query] = matched; 
     switch (prefix) {
       case '@proj': {
         switch (filename) {
           case 'context': {
             return context.proj.config().then(config => {
-              return Promise.resolve(defineUserConfig({ proj: config }));
+                defineUserConfig({ proj: config })
+
+              return Promise.resolve(JSON.stringify({
+                ...context.config.proj,
+                env: context.config.env
+              }));
             })
           }
         }
@@ -134,12 +139,6 @@ defaultService.use(
         }
 
         switch (filename) {
-          case 'context': {
-            return context.proj.config().then(config => {
-              return Promise.resolve(defineUserConfig({ proj: config }));
-            })
-          }
-
           default: {
             const file = join(__dirname, `${prefix}/${filename}`)
             return fs.readFile(file).then(res => res.toString());
@@ -147,7 +146,7 @@ defaultService.use(
         }
       }
 
-      case '@pkg': {
+      case '@app': {
         switch (filename) {
           case 'service':
             return context.proj.code();

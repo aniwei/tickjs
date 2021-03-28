@@ -1,0 +1,23 @@
+{
+  "name": "miniprogram-wcsc",
+  "version": "0.0.1",
+  "description": "WXSS node C++ addon",
+  "main": "index.js",
+  "scripts": {
+    "install": "node-gyp-build",
+    "rebuild": "node-gyp rebuild",
+    "build:dist": "node scripts/build",
+    "build": "node-gyp build",
+    "test": "node ./test/index",
+    "format": "prettier *.js test/*.js scripts/*.js --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.code.oa.com:redhoodsu/wxss.git"
+  },
+  "author": "redhoodsu",
+  "license": "MIT",
+  "devDependencies": {
+    "node-gyp": "^7.0.0"
+  }
+}

@@ -1,11 +1,22 @@
 import fs from 'fs-extra';
 import path from 'path';
+import { LocalStorage } from 'node-localstorage';
+import { Config } from './TickMini';
 
 export class TickMiniProjLoader {
   public root: string;
+  public storage: LocalStorage | null = null;
+  public account: any;
+  public _config: any;
 
-  constructor (root: string = process.cwd()) {
+  constructor (root: string = process.cwd(), config: Config) {
+    const { proj } = config;
+
     this.root = root;
+    this.storage = new LocalStorage(path.join(config.cache, proj.accountInfo.appId));
+    this.account = proj.accountInfo;
+    
+    this._config = config;
   }
   
   async import (src: string) {   

@@ -2,6 +2,7 @@ import { useMemo, useContext } from 'react';
 import { DefaultMessage } from 'src/server/@tickjs/Runtime';
 import { AppContext } from '../component/TickApp/AppContext';
 
+//@ts-ignore
 import { getApplicationTransitRuntime, ClientTypes } from '/@tickjs/transit';
 
 export enum RuntimeState {
@@ -11,7 +12,6 @@ export enum RuntimeState {
 }
 
 export function useRuntime (onReady: Function, config: any) {
-  const context = useContext(AppContext);
   const runtime = useMemo(() => {
     const runtime = new getApplicationTransitRuntime(config);
     const worker: Worker = new Worker('@tickjs/service');

@@ -34,6 +34,7 @@
     "memory-fs": "^0.5.0",
     "mime": "^2.5.2",
     "node-localstorage": "^2.1.6",
+    "qrcode": "^1.4.4",
     "qs": "^6.9.6",
     "randomcolor": "^0.6.2",
     "react": "^17.0.0",

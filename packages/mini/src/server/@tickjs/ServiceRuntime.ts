@@ -2,8 +2,9 @@ import axios from 'axios';
 import mime from 'mime';
 import { Config } from '../TickMini';
 import { DefaultMessage, Runtime } from './Runtime';
-import { nextTick } from './shared';
 import { WeixinJSCore } from './WeixinJSCore';
+
+const defineProperty = Object.defineProperty;
 
 export enum ServiceInvokeResultStatus {
   OK = 'ok',
@@ -35,9 +36,13 @@ export class ServiceRuntime extends Runtime {
   }
 
   define (propName: string, value: any) {
-    Object.defineProperty(globalThis, propName, {
+    defineProperty(globalThis, propName, {
       get () {
-        return value
+        return value;
+      },
+
+      set (v) {
+        value = v
       }
     });
 
@@ -68,7 +73,6 @@ export class ServiceRuntime extends Runtime {
       this.emit('onRequestTaskStateChange', {
         name: `onRequestTaskStateChange`,
         data: {
-
           requestTaskId: id,
           state: 'success',
           ...result.data,
@@ -103,7 +107,7 @@ export class ServiceRuntime extends Runtime {
 
     xhr.addEventListener('error', () => {});
 
-    xhr.open(`POST`, `/@tickjs/api/${message.name}`, !async);
+    xhr.open(`POST`, `/@weixin/api/${message.name}`, !async);
     xhr.setRequestHeader('content-type', 'application/json');
     xhr.setRequestHeader('x-api', message.name);
 
@@ -124,7 +128,7 @@ export class ServiceRuntime extends Runtime {
           .define('__wxRouteBegin', null)
           .define('__wxAppCurrentFile__', null)
 
-        if (context.env.PKG) {
+        if (context.env.type !== 'develop') {
           this.scripts([
             '/@weixin/wxservice',
             '/@app/service'

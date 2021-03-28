@@ -31,7 +31,8 @@ function poll (uuid) {
 
 unirest.get(`${host}${pathname}?${qs.stringify(query)}` )
   .then(res => {
-    // console.log(res.body);
+    
+    console.log(res.body);
     const result = /"\/connect\/qrcode\/([a-zA-Z0-9]+)"/g.exec(res.body);
     // const match = res.body.match(/"\/connect\/qrcode\/([a-zA-Z-_$]+)"/g);;
     console.log(result && result[1])

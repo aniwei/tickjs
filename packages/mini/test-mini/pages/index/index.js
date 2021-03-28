@@ -22,6 +22,7 @@ Page({
       this.setData({
         canIUseGetUserProfile: true
       })
+
     }
   },
   getUserProfile(e) {

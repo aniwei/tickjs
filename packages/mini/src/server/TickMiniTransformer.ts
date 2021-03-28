@@ -30,11 +30,12 @@ export class TickMiniTransformer {
   handle = (code: string, id: string) => {
     return new Promise ((resolve, reject) => {
       const dispatch = (index: number) => {
-        if (this.middlewares[index]) {
+        if (!this.middlewares[index]) {
           return resolve(null);
         }
-
+        
         const middle = this.middlewares[index];
+
        
         if (middle.path.test(id)) {
           const hash = crypto
@@ -62,6 +63,8 @@ export class TickMiniTransformer {
               }
             });
           }
+        } else {
+          dispatch(index  + 1);
         }
       }
 

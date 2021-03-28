@@ -29,8 +29,11 @@ export function getApplicationViewRuntime (id: number) {
 
   WeixinJSCore?.on('custom_event_tapAnyWhere', onDefulatPublishHandler);
   WeixinJSCore?.on('custom_event_webviewCreated', onDefulatPublishHandler);
-  WeixinJSCore?.on('custom_event_GenerateFunc', onDefulatPublishHandler);
+  WeixinJSCore?.on('custom_event_GenerateFuncReady', onDefulatPublishHandler);
+  WeixinJSCore?.on('custom_event_initReady_getPerformance', onDefulatPublishHandler);
+  WeixinJSCore?.on('custom_event_batchGetPluginPermissionBytes', onDefulatPublishHandler);
   WeixinJSCore?.on('custom_event_DOMReady', onDefulatPublishHandler);
+  WeixinJSCore?.on('custom_event_PAGE_EVENT', onDefulatPublishHandler);
   WeixinJSCore?.on('custom_event_vdSync', (event: DefaultMessage) => {
     onDefulatPublishHandler(event, 'view.custom_event_vdSync');
   });
