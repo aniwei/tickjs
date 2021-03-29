@@ -1,5 +1,6 @@
 import qs from 'qs';
 import fs from 'fs-extra';
+// @ts-ignore
 import regexp from 'regexp-clone';
 import * as esbuild from 'esbuild';
 import { join } from 'path';

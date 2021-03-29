@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
-function scriptLoader (src: string) {
+function scriptLoader (src: string, type?: string) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
 
-    script.type = 'application/javascript';
+    script.type = type ?? 'application/javascript';
     script.src = src;
 
     script.onload = () => {

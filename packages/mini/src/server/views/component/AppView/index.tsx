@@ -25,9 +25,9 @@ export default function AppContext (props: any) {
     })
   }, []);
 
-  const onReady = () => {    
-    const route = query.r.replace(/\.html$/g, '');
+  const route = query.r.replace(/\.html$/g, '');
 
+  const onReady = () => {    
     const __setCssStartTime__ = Date.now();
 		__wxAppCode__[`${route}.wxss`]();
 		const __setCssEndTime__ = Date.now();
@@ -53,7 +53,11 @@ export default function AppContext (props: any) {
   
   return <View>
     { 
-      isContextLoaded ? <AppView config={context} onReady={onReady} /> : null
+      isContextLoaded ? <AppView 
+        route={route}
+        config={context} 
+        onReady={onReady} 
+      /> : null
     }
   </View>
 }

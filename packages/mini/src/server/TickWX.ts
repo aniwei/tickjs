@@ -40,7 +40,7 @@ export class TickWX extends TinyEmitter {
   }
 
   request (name, query?, data?) {
-    const authorizion = this.proj.storage?.getItem('@weixin:authorizion') as any;
+    const authorizion = this.proj.storage.getItem('@weixin:authorizion') as any;
 
     if (data === undefined) {
       data = query;

@@ -1,7 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+// @ts-ignore
+import * as Animatable from 'react-native-animatable';
 import { View, Image, Text } from 'react-native-web';
 
 import { useAuthorize } from '../../hooks/useAuthorize';
+
+function Dot () {
+  return (
+    <Animatable.View 
+      animation="rotate"
+      iterationCount="infinite"
+      duration={2000}
+      easing="linear"
+      style={{
+        position: 'absolute',
+        height: '78px', 
+        width: '78px',
+        left: '0',
+        top: '0',
+        borderRadius: '80px',
+        display: 'flex',
+        justifyContent: 'center'
+      }}
+    >
+      <View
+        style={{
+          height: '5px',
+          width: '5px',
+          borderRadius: '5px',
+          background: 'green',
+          marginLeft: '-2.5px'
+        }}
+      >
+
+      </View>
+    </Animatable.View>
+  )
+}
 
 function Logo () {
   return <View 
@@ -15,6 +50,7 @@ function Logo () {
   >
     <View 
       style={{ 
+        position: 'relative',
         height: '80px', 
         width: '80px',
         display: 'flex', 
@@ -24,8 +60,9 @@ function Logo () {
         border: '1px solid #eee'
       }}
     >
+      <Dot />
       <Image 
-        style={{ height: '60px', width: '60px' }} 
+        style={{ height: '60px', width: '60px', position: 'relative' }} 
         source={{ uri: `@weixin/icon` }} 
       />
     </View>

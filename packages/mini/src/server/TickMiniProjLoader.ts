@@ -7,7 +7,7 @@ import { TickWX } from './TickWX';
 export class TickMiniProjLoader {
   public weixin: TickWX;
   public root: string;
-  public storage: LocalStorage | null = null;
+  public storage: LocalStorage;
   public account: any;
   public _config: any;
 

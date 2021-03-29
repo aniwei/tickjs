@@ -10,6 +10,7 @@ import {
 
 export type ViteServerOptions = {
   port: number,
+  cwd?: string,
   plugins?: any[],
   alias?: {
     [key: string]: string
@@ -37,13 +38,22 @@ export default async function vite (
     }
   })
 
+  options.cwd = options.cwd || process.cwd();
+
   const app: express.Express | any = express(); 
   
   app.listen = async (port: number) => {
     const vite: ViteDevServer | any = await createServer({ 
       ...config, 
-      server: { port: options.port }
+      server: { 
+        port: options.port,
+        watch: {
+          cwd: options.cwd
+        }
+      }
     });
+
+    debugger;
 
     app.vite = vite;
 

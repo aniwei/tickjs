@@ -1,5 +1,6 @@
 
 import express from 'express';
+// @ts-ignore
 import homedir from 'home-dir';
 import { IncomingMessage, ServerResponse } from 'http';
 import { join } from 'path';
@@ -136,7 +137,7 @@ export class TickMini extends EventEmitter {
           },
           load: (id: string) => service.handle(id, this),
           transform: transformer.handle,
-          handleHotUpdate (data) {
+          handleHotUpdate (data: any) {
             console.log(`handleHotUpdate`, data);
           } 
         }]

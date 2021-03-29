@@ -1,9 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  View,
-  Image
-} from 'react-native-web'
 import { 
   Route,
   BrowserRouter as Router 

@@ -72,7 +72,7 @@ export default async function App (config: Config, callback?: Function) {
     });
 
     router.get('/@weixin/signIn/polling/:id', (req, res) => {
-      const authorizion = mini.proj.storage?.getItem(`@weixin:authorizion`);
+      const authorizion = mini.proj.storage.getItem(`@weixin:authorizion`);
 
       if (authorizion) {
         res.status(200)
@@ -83,7 +83,7 @@ export default async function App (config: Config, callback?: Function) {
 
         if (result) {
           if (result.state === TickWXResultState.SUCCESS) {
-            mini.proj.storage?.setItem(`@weixin:authorizion`, JSON.stringify(result));
+            mini.proj.storage.setItem(`@weixin:authorizion`, JSON.stringify(result));
           }
   
           return res.status(200).json(result).end();

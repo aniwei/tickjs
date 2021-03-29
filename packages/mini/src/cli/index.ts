@@ -24,10 +24,10 @@ class DevelopApplication {
     this.root = cwd;
   }
 
-  wcsc () {
-    return globby(['**/*.wxss'], {
+  wcsc (files?: string[]) {
+    return (files ? Promise.resolve(files) : globby(['**/*.wxss'], {
       cwd: this.root
-    }).then(files => {
+    })).then(files => {
       return wcsc({
         files,
         cwd: this.root,
@@ -46,10 +46,10 @@ class DevelopApplication {
     })
   }
 
-  wcc () {
-    return globby(['**/*.wxml'], {
+  wcc (files?: string[]) {
+    return (files ? Promise.resolve(files) : globby(['**/*.wxml'], {
       cwd: this.root
-    }).then(files => {
+    })).then(files => {
       return wcc({
         files: files.map(files => `./${files}`),
         cwd: this.root,
@@ -176,33 +176,40 @@ class DevelopApplication {
             }
           }
 
-          case 'view': {
+          case 'wxml': {
             return new Promise((resolve, reject) => {
-              return globby(['**/*.wxml']).then(files => {
-                const prefix = [
-                  'var __pageFrameStartTime__ = __pageFrameStartTime__ || Date.now();var __webviewId__ = __webviewId__;var __wxAppCode__ = __wxAppCode__ || {};var __mainPageFrameReady__ = window.__mainPageFrameReady__ || function(){};var __WXML_GLOBAL__ = __WXML_GLOBAL__ || {entrys:{},defines:{},modules:{},ops:[],wxs_nf_init:undefined,total_ops:0};var __vd_version_info__=__vd_version_info__||{};'
-                ];
+              const files = [query.r];
+              const code: string[] = [];
+              
+              code.push(`if (__vd_version_info__.delayedGwx) __wxAppCode__['${files[0]}'] = [ $gwx, './${files[0]}' ];else __wxAppCode__['${files[0]}'] = $gwx( './${files[0]}' );`)
 
-                const code: any[] = [];
-
-                for (const file of files) {
-                  code.push(`if (__vd_version_info__.delayedGwx) __wxAppCode__['${file}'] = [ $gwx, './${file}' ];
-                  else __wxAppCode__['${file}'] = $gwx( './${file}' );`);
-                }
-
-                return Promise.all([
-                  this.wcc(),
-                  this.wcsc()
-                ]).then(([wcc, wcsc]) => {
-                  resolve([
-                    prefix,
-                    wcc,
-                    wcsc,
-                    ...code
-                  ].join('\n'))
-                })
+              return this.wcc().then(wcc => {
+                resolve([
+                  `
+                    if (import.meta.hot) {
+                      import.meta.hot.on('special-update', (data) => {
+                        // perform custom update
+                      })
+                    }
+                  `,
+                  `var __pageFrameStartTime__ = __pageFrameStartTime__ || Date.now();var __webviewId__ = __webviewId__;var __wxAppCode__ = __wxAppCode__ || {};var __mainPageFrameReady__ = window.__mainPageFrameReady__ || function(){};var __WXML_GLOBAL__ = __WXML_GLOBAL__ || {entrys:{},defines:{},modules:{},ops:[],wxs_nf_init:undefined,total_ops:0};var __vd_version_info__=__vd_version_info__||{};`,
+                  wcc,
+                  ...code
+                ].join('\n'));
               })
+            })
+          }
 
+          case 'wxss': {
+            return new Promise((resolve, reject) => {
+              const files = [
+                query.r,
+                'app.wxss'
+              ];
+              
+              return this.wcsc(files).then(wcsc => {
+                resolve(wcsc);
+              })
             })
           }
         }

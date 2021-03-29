@@ -67,7 +67,7 @@ export class DefaultAdapters implements TickMiniAdaptersInterface {
     const { options } = req.body;
     const { key, storageId } = options;
 
-    const data = proj.storage?.getItem(`user:${storageId}:${key}`);
+    const data = proj.storage.getItem(`user:${storageId}:${key}`);
     
     res.status(200).json({ data }).end();
   }
@@ -76,7 +76,7 @@ export class DefaultAdapters implements TickMiniAdaptersInterface {
     const { options } = req.body;
     const { key, storageId, data } = options;
 
-    proj.storage?.setItem(`user:${storageId}:${key}`, data);
+    proj.storage.setItem(`user:${storageId}:${key}`, data);
     res.statusCode = 200;
     res.end();
   }

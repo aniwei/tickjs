@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import path from 'path';
+// @ts-ignore
 import escodegen from 'escodegen';
 import * as acorn from 'acorn';
 import * as walk from 'acorn-walk';

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import mime from 'mime';
 import { Config } from '../TickMini';
 import { DefaultMessage, RuntimeInvokeResultStatus, Runtime } from './Runtime';
 import { WeixinJSCore } from './WeixinJSCore';
@@ -42,7 +41,7 @@ export class ServiceRuntime extends Runtime {
     (globalThis as any).importScripts(uri)
   }
 
-  scripts (scripts) {
+  scripts (scripts: string[]) {
     for (const script of scripts) {
       this.script(script);
     }
@@ -96,7 +95,7 @@ export class ServiceRuntime extends Runtime {
             '/@app/import?r=app'
           ];
 
-          this.scripts(scripts.concat(context.pages.map(page => {
+          this.scripts(scripts.concat(context.pages.map((page: string) => {
             return `/@app/import?r=${page}`;
           })))
         }
