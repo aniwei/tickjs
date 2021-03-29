@@ -57,13 +57,9 @@ export class TickWX extends TinyEmitter {
     query.os = 'darwin';
     query.clientversion = '1052102010';
 
-    return axios.post(`${TickWX.hostname.dev}/${name}?${qs.stringify(query)}`, {
-      headers: {
-        'Content-Type': 'text/plain'
-      },
-      responseType: 'text',
-      data
-    });
+    const uri = `${TickWX.hostname.dev}/${name}?${qs.stringify(query)}`;
+
+    return axios.post(uri, { data });
   }
 
   signIn (id: string) {

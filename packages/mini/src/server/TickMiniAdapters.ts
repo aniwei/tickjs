@@ -91,11 +91,13 @@ export class DefaultAdapters implements TickMiniAdaptersInterface {
   }
 
   operateWXData (req: Request, res: Response, proj: TickMiniProjLoader) {
-    const { data } = req.body.options;
+    const data = JSON.stringify(req.body.options.data);
     proj.weixin.operateWXData(data).then(result => {
+      const data = JSON.parse(result.data.data);
+
       res
         .status(200)
-        .send({ ...result.data })
+        .send({ data })
         .end();
     })
   }
