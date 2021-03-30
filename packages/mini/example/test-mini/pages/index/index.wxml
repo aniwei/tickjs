@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<open-data type="userAvatarUrl"></open-data>
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+<text>hello</text>
