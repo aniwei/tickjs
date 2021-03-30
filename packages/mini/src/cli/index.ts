@@ -215,9 +215,7 @@ class DevelopApplication {
     hmr.use(/\.wxml$/g, async (matched: any[]) => {
       const [filename, hmr] = matched;
 
-      debugger;
-
-      this.wcc([`./${filename}`]).then(wcc => {
+      this.wcc([`${filename}`]).then(wcc => {
         hmr.server.ws.send({
           type: 'custom',
           event: 'wcc',

@@ -137,11 +137,13 @@ export class TickMini extends EventEmitter {
         plugins: [{
           name: 'tick-service-runtime-plugin',
           resolveId: (id: string) => {
-            return id;
+            return id + (id.indexOf('?') > -1 ? '&' : '?') + 't=' + Date.now()
           },
-          load: (id: string) => service.handle(id, this),
+          load: (id: string) => {
+            return service.handle(id, this)
+          },
           transform: transformer.handle,
-          handleHotUpdate: hmr ? hmr.handle : () => {}
+          handleHotUpdate: hmr ? (h) => hmr.handle(h, this) : () => {}
         }]
       }
 

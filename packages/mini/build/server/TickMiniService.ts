@@ -34,20 +34,35 @@ export class TickMiniService {
     return this;
   }
 
+  match (id: string, context: TickMini) {
+    const index = id.indexOf(context.config.client)
+    const newId = index === 0 ? id.slice(context.config.client.length) : id;
+
+    for (const middle of this.middlewares) {
+      const { path } = middle;
+
+      if (regexp(path).test(newId)) {
+        return id;
+      }
+    }
+
+    return null;
+  }
+
   handle = (id: string, context: TickMini) => {
     const index = id.indexOf(context.config.client)
     const newId = index === 0 ? id.slice(context.config.client.length) : id;
 
     return new Promise ((resolve, reject) => {
       const dispatch = (index: number) => {
-        const intercept = this.middlewares[index];
+        const mid = this.middlewares[index];
 
-        if (intercept === undefined) {
+        if (mid === undefined) {
           resolve(null);
         } else {
-          const { path, middle, handle } = intercept;
+          const { path, middle, handle } = mid;
           
-          intercept.path = regexp(path);
+          mid.path = regexp(path);
           const matched = path.exec(newId);
 
           if (matched === null) {

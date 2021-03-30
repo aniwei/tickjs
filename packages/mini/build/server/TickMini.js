@@ -95,8 +95,12 @@ class TickMini extends events_1.EventEmitter {
                         name: 'tick-service-runtime-plugin',
                         resolveId: (id) => {
                             return id;
+                            //return service.match(id, this);
                         },
-                        load: (id) => service.handle(id, this),
+                        load: (id) => {
+                            console.log(id);
+                            return service.handle(id, this);
+                        },
                         transform: transformer.handle,
                         handleHotUpdate: hmr ? (h) => hmr.handle(h, this) : () => { }
                     }]

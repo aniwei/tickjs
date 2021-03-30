@@ -31,13 +31,16 @@ export function getApplicationViewRuntime (id: number) {
   WeixinJSCore.on('hotModuleReplacement', (event: DefaultMessage) => {
     const { data } = event.options;
 
-    location.reload();
+    try {
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+      (iframe.contentWindow as any).eval(`${data.code} //# sourceURL=./HMR/${data.filename}`);
 
-    // try {
-    //   Function(`return function (window, $gwx, $gwl, $gwn, wh, gra, grb, css) {${data.code}}; //# sourceURL=./HMR/${data.filename}`)()({});
-    // } catch (error) {}
-
-    // runtime.generate(data.filename);
+      runtime.refresh(iframe.contentWindow.$gwx(`./${data.filename}.wxml`))
+    } catch (error) {
+      debugger;
+    }
   });
 
   WeixinJSCore?.on('custom_event_tapAnyWhere', onDefulatPublishHandler);

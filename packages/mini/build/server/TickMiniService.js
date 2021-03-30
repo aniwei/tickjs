@@ -39,13 +39,13 @@ class TickMiniService {
             const newId = index === 0 ? id.slice(context.config.client.length) : id;
             return new Promise((resolve, reject) => {
                 const dispatch = (index) => {
-                    const intercept = this.middlewares[index];
-                    if (intercept === undefined) {
+                    const mid = this.middlewares[index];
+                    if (mid === undefined) {
                         resolve(null);
                     }
                     else {
-                        const { path, middle, handle } = intercept;
-                        intercept.path = regexp_clone_1.default(path);
+                        const { path, middle, handle } = mid;
+                        mid.path = regexp_clone_1.default(path);
                         const matched = path.exec(newId);
                         if (matched === null) {
                             dispatch(index + 1);
@@ -82,6 +82,17 @@ class TickMiniService {
             middle
         });
         return this;
+    }
+    match(id, context) {
+        const index = id.indexOf(context.config.client);
+        const newId = index === 0 ? id.slice(context.config.client.length) : id;
+        for (const middle of this.middlewares) {
+            const { path } = middle;
+            if (regexp_clone_1.default(path).test(newId)) {
+                return id;
+            }
+        }
+        return null;
     }
 }
 exports.TickMiniService = TickMiniService;

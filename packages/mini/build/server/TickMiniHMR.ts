@@ -31,10 +31,9 @@ export class TickMiniHMR {
     return this;
   }
 
-  handle = (id: string, context: TickMini) => {
-    debugger;
-    const index = id.indexOf(context.config.client)
-    const newId = index === 0 ? id.slice(context.config.client.length) : id;
+  handle = (hmr: any, context: TickMini) => {
+    const index = hmr.file.indexOf(context.config.client)
+    const newId = index === 0 ? hmr.file.slice(context.config.client.length) : hmr.file;
 
     return new Promise ((resolve, reject) => {
       const dispatch = (index: number) => {
@@ -51,10 +50,7 @@ export class TickMiniHMR {
           if (matched === null) {
             dispatch(index + 1);
           } else {
-            const query = /^\?/.test(matched[4]) ? 
-              qs.parse(matched[4].slice(1)) : {}
-
-            const newMatched = [matched[2], matched[3], query];
+            const newMatched = [newId, hmr];
 
             Promise.resolve(middle(newMatched, context))
               .then((content) => handle(newMatched, context, content))
