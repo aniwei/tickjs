@@ -3,18 +3,18 @@ import express from 'express';
 // @ts-ignore
 import homedir from 'home-dir';
 import { IncomingMessage, ServerResponse } from 'http';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { EventEmitter } from 'events';
 
-import vite from './vite';
+import TickVite from './TickVite';
 
-import { ViteServerOptions } from './vite';
+import { ViteServerOptions } from './TickVite';
 import { TickMiniProjLoader } from './TickMiniProjLoader';
 import { TickMiniProjDefaultConfig } from './TickMiniProjDefaultConfig'
 import { DefaultAdapters } from './TickMiniAdapters';
 import { defaultTransformer, TickMiniTransformer  } from './TickMiniTransformer';
 import { defaultService, TickMiniService } from './TickMiniService';
-import { LocalStorage } from 'node-localstorage';
+import { TickMiniHMR } from './TickMiniHMR';
 
 
 export type Config = {
@@ -30,8 +30,10 @@ export type Config = {
   adapters?: {
     [key: string]: any
   },
+  client: string,
   transformer: TickMiniTransformer,
-  service: TickMiniService
+  service: TickMiniService,
+  hmr?: TickMiniHMR
 }
 
 type DefineConfigObject = {
@@ -72,6 +74,7 @@ const TickMiniDefaultConfig: Config = {
   },
   root: process.cwd(),
   cache: join(homedir(), '.tickjs'),
+  client: resolve(__dirname, '../../client'),
   proj: TickMiniProjDefaultConfig,
   adapters: new DefaultAdapters(),
   transformer: defaultTransformer,
@@ -124,11 +127,12 @@ export class TickMini extends EventEmitter {
   }
 
   prepare (prepareHandler: Function) {
-    const { root, transformer, service } = this.config;
+    const { hmr, transformer, service } = this.config;
 
     process.nextTick(async () => {
-      const { port, env } = this.config;
+      const { port, env, client } = this.config;
       const viteOptions: ViteServerOptions = {
+        client: client,
         port: env.PORT || port,
         plugins: [{
           name: 'tick-service-runtime-plugin',
@@ -137,14 +141,11 @@ export class TickMini extends EventEmitter {
           },
           load: (id: string) => service.handle(id, this),
           transform: transformer.handle,
-          handleHotUpdate (data: any) {
-            console.log(`handleHotUpdate`, data);
-          } 
+          handleHotUpdate: hmr ? (h) => hmr.handle(h, this) : () => {}
         }]
       }
 
-      const app = await vite(viteOptions);
-
+      const app = await TickVite(viteOptions);
       prepareHandler(app);
 
       this.emit(`projprepared`, app);
@@ -156,7 +157,7 @@ export class TickMini extends EventEmitter {
 
   start (callback: Function) {
     this.once(`projprepared`, async (app) => {
-      app.listen(this.config.port, callback);
+      app.listen(this.config.env.port, callback);
     });
 
     return this;

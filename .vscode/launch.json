@@ -19,16 +19,13 @@
       "name": "test-program",
       "outFiles": ["${workspaceFolder}/packages/**/dist/*.js"],
       "sourceMaps": true,
-      "cwd": "${workspaceFolder}/packages/mini/test-mini",
+      "preLaunchTask": "build mini",
+      "cwd": "${workspaceFolder}/packages/mini/example/test-mini",
       "env": {
         "DEBUG": "*"
       },
       "args": [
-        "-r",
-        "ts-node/register",
-        "-r",
-        "tsconfig-paths/register",
-        "../src/cli/index.ts"
+        "../../build/cli/index.js"
       ]
     },
 

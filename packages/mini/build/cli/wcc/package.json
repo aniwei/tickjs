@@ -1,0 +1,19 @@
+{
+  "name": "miniprogram-wcc",
+  "version": "0.0.1",
+  "description": "WCC node C++ addon",
+  "main": "index.js",
+  "scripts": {
+    "install": "node-gyp-build",
+    "rebuild": "node-gyp rebuild",
+    "build:dist": "node scripts/build",
+    "build": "node-gyp build",
+    "test": "node ./test/index",
+    "format": "prettier *.js test/*.js scripts/*.js --write"
+  },
+  "author": "coverguo",
+  "license": "MIT",
+  "devDependencies": {
+    "node-gyp": "^7.0.0"
+  }
+}

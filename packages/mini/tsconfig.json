@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "ES2016",
+    "lib": ["dom", "dom.iterable", "ES2016"],
     "types": ["vite/client", "node"],
     "typeRoots": [".", "./node_modules/@types"],
     "allowJs": false,
@@ -11,19 +11,28 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noImplicitAny": false,
     "noEmit": false,
+    "build": true,
     "jsx": "react",
-    "baseUrl": "./",
-    "rootDir": "./",
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "outDir": "build",
     "paths": {
-      "@hooks/*": ["src/server/views/hooks/*"],
-      "@component/*": ["src/server/views/component/*"],
-      "*": ["*", "./src/types/*"]
+      "@vite": ["server/@vite/index.js"],
+      "@hooks/*": ["server/views/hooks/*"],
+      "@third/*": ["server/@third/*"],
+      "@component/*": ["server/views/component/*"]
     }
   },
-  "include": ["./src/**/*", "index.d.ts"]
+  "include": [
+    "src/server/**/*.ts", 
+    "src/server/**/*.js",
+    "src/cli/**/*.ts",
+    "src/cli/**/*.ts",
+  ],
+  "exclude": ["node_modules", "./client", "./example"]
 }

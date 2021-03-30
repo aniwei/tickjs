@@ -6,13 +6,14 @@ import { build } from 'esbuild';
 
 import wcc from './wcc';
 import wcsc from './wcsc';
-import App from '../server';
+import App, { TickMiniHMR } from '../server';
 import { defineUserConfig } from '../server';
 import { TickMini } from '../server/TickMini';
 import { compose, defaultService, TickMiniService } from '../server/TickMiniService';
 
 const argv = minimist(process.argv.slice(2));
 const service = new TickMiniService();
+const hmr = new TickMiniHMR();
 const cwd = process.cwd();
 
 class DevelopApplication {
@@ -184,14 +185,7 @@ class DevelopApplication {
               code.push(`if (__vd_version_info__.delayedGwx) __wxAppCode__['${files[0]}'] = [ $gwx, './${files[0]}' ];else __wxAppCode__['${files[0]}'] = $gwx( './${files[0]}' );`)
 
               return this.wcc().then(wcc => {
-                resolve([
-                  `
-                    if (import.meta.hot) {
-                      import.meta.hot.on('special-update', (data) => {
-                        // perform custom update
-                      })
-                    }
-                  `,
+                resolve([`if (import.meta.hot) { import.meta.hot.on('wcc', (data) => { WeixinJSCore.invokeHandler('hotModuleReplacement', { type: 'wcc', data }, 0) })}`,
                   `var __pageFrameStartTime__ = __pageFrameStartTime__ || Date.now();var __webviewId__ = __webviewId__;var __wxAppCode__ = __wxAppCode__ || {};var __mainPageFrameReady__ = window.__mainPageFrameReady__ || function(){};var __WXML_GLOBAL__ = __WXML_GLOBAL__ || {entrys:{},defines:{},modules:{},ops:[],wxs_nf_init:undefined,total_ops:0};var __vd_version_info__=__vd_version_info__||{};`,
                   wcc,
                   ...code
@@ -218,6 +212,25 @@ class DevelopApplication {
   }
 
   start (proj) {
+    hmr.use(/\.wxml$/g, async (matched: any[]) => {
+      const [filename, hmr] = matched;
+
+      debugger;
+
+      this.wcc([`./${filename}`]).then(wcc => {
+        hmr.server.ws.send({
+          type: 'custom',
+          event: 'wcc',
+          data: {
+            filename: filename.replace(/\.wxml$/, ''),
+            code: wcc
+          }
+        })
+      });
+
+      return [];
+    })
+
     service.use(/^\/(([^\/]+)\/([^?]+))(\?[^?]+|.*)/g, this.onRequest);
 
     App(defineUserConfig({
@@ -226,7 +239,8 @@ class DevelopApplication {
         type: 'develop'
       },
       proj,
-      service: compose([service, defaultService])
+      hmr,
+      service: compose([service, defaultService]),
     }))
   }
 }

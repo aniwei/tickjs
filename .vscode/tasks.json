@@ -2,6 +2,28 @@
 	"version": "2.0.0",
 	"tasks": [
     {
+      "label": "build mini",
+      "dependsOn": [
+        "mini:build",
+        "mini:build:rsync",
+      ]
+    },
+    {
+      "type": "typescript",
+      "tsconfig": "packages/mini/tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "mini",
+      "label": "mini:build",
+    },
+    {
+      "type": "npm",
+      "script": "rsync",
+      "group": "mini",
+      "label": "mini:rsync",
+    },
+    {
       "type": "typescript",
       "tsconfig": "packages/struct/tsconfig.json",
       "problemMatcher": [
