@@ -36,8 +36,8 @@ export class ViewRuntime extends Runtime {
     return this;
   }
 
-  request = (...args) => {
-    return this.responser(...args)
+  request = (data, unknown, global) => {
+    return this.responser(data, null, {})
   }
 
   refresh (responser) {

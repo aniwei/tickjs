@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <open-data type="userAvatarUrl"></open-data>
-<button wx:if="{{canIUse}}" bindtap="getUserInfo"> 获取头像昵称 </button>
-<text>hello world  tttt2</text>
-<button>321123</button>
+<button wx:if="{{canIUse}}" bindtap="getUserInfo"> 获取头像昵称 kkkooo</button>
+<text>{{canIUse}}</text>
+<button>{{userInfo.t}}</button>
+<button>{{userInfo.t}}</button>

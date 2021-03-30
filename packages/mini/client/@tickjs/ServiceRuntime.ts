@@ -85,7 +85,7 @@ export class ServiceRuntime extends Runtime {
         if (context.env.type !== 'develop') {
           this.scripts([
             '/@weixin/wxservice',
-            '/@app/service'
+            // '/@app/service'
           ]);
         } else {
           const scripts = [
