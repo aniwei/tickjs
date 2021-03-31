@@ -19,8 +19,8 @@ export class ViewRuntime extends Runtime {
   constructor (sender: any, receiver: any, id: number) {
     super(sender, receiver);
 
-    this.WeixinJSCore = new WeixinJSCore(`View`);
     this.id = id;
+    this.WeixinJSCore = new WeixinJSCore(`View`);
   }
 
   define (propName: string, value: any) {
