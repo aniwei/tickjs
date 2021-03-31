@@ -201,8 +201,7 @@ class DevelopApplication {
     start(proj) {
         hmr.use(/\.wxml$/g, (matched) => __awaiter(this, void 0, void 0, function* () {
             const [filename, hmr] = matched;
-            debugger;
-            this.wcc([`./${filename}`]).then(wcc => {
+            this.wcc([`${filename}`]).then(wcc => {
                 hmr.server.ws.send({
                     type: 'custom',
                     event: 'wcc',

@@ -15,6 +15,7 @@ export class ViewRuntime extends Runtime {
   public WeixinJSCore: WeixinJSCore | null = null;
   public context: any | null = null;
   public id: number;
+  public responser: Function | null = null;
   
   constructor (sender: any, receiver: any, id: number) {
     super(sender, receiver);
@@ -35,16 +36,24 @@ export class ViewRuntime extends Runtime {
     return this;
   }
 
+  request = (data, unknown, global) => {
+    return this.responser(data, null, {})
+  }
+
+  refresh (responser) {
+    this.responser = responser;
+  }
+
   generate (route: string) {
     const __setCssStartTime__ = Date.now();
 		__wxAppCode__[`${route}.wxss`]();
 		const __setCssEndTime__ = Date.now();
 
+    this.responser = $gwx(`./${route}.wxml`)
+
     document.dispatchEvent(new CustomEvent('generateFuncReady', {
       detail: {
-        get generateFunc () {
-          return $gwx(`./${route}.wxml`)
-        }
+        generateFunc: this.request
       }
     }));
   }

@@ -121,6 +121,8 @@ class DevelopApplication {
     context: TickMini
   ) => {
     const [prefix, filename, query] = matched; 
+
+    console.log(matched)
     
     switch (prefix) {
       case '@proj': {
@@ -185,14 +187,7 @@ class DevelopApplication {
               code.push(`if (__vd_version_info__.delayedGwx) __wxAppCode__['${files[0]}'] = [ $gwx, './${files[0]}' ];else __wxAppCode__['${files[0]}'] = $gwx( './${files[0]}' );`)
 
               return this.wcc().then(wcc => {
-                resolve([
-                  `
-                  if (import.meta.hot) {
-                    import.meta.hot.on('wcc-update', () => {
-
-                    });
-                  }
-                  `,
+                resolve([`if (import.meta.hot) { import.meta.hot.on('wcc', (data) => { WeixinJSCore.invokeHandler('hotModuleReplacement', { type: 'wcc', data }, 0) })}`,
                   `var __pageFrameStartTime__ = __pageFrameStartTime__ || Date.now();var __webviewId__ = __webviewId__;var __wxAppCode__ = __wxAppCode__ || {};var __mainPageFrameReady__ = window.__mainPageFrameReady__ || function(){};var __WXML_GLOBAL__ = __WXML_GLOBAL__ || {entrys:{},defines:{},modules:{},ops:[],wxs_nf_init:undefined,total_ops:0};var __vd_version_info__=__vd_version_info__||{};`,
                   wcc,
                   ...code
@@ -219,8 +214,21 @@ class DevelopApplication {
   }
 
   start (proj) {
-    hmr.use(/\wxml/g, () => {
-      
+    hmr.use(/\.wxml$/g, async (matched: any[]) => {
+      const [filename, hmr] = matched;
+
+      this.wcc([`./${filename}`]).then(wcc => {
+        hmr.server.ws.send({
+          type: 'custom',
+          event: 'wcc',
+          data: {
+            filename: filename.replace(/\.wxml$/, ''),
+            code: wcc
+          }
+        })
+      });
+
+      return [];
     })
 
     service.use(/^\/(([^\/]+)\/([^?]+))(\?[^?]+|.*)/g, this.onRequest);
