@@ -11203,6 +11203,7 @@ var NativeBuffer = function (e) {
         if (r.behavior.externalClasses)
           for (var d = r.behavior.externalClasses, l = 0; l < d.length; l++) c[d[l]] = null;
         s.classList = E.create(s, c), n && (n = n.__wxHost, s.classList._setOwnerOptions(n.classList, n.__componentOptions.classPrefix, n.__componentOptions.addGlobalClass), k.writeExtraInfoToAttr && t && t.setAttribute("exparser:info-class-prefix", n.__componentOptions.classPrefix && n.__componentOptions.classPrefix + "--")), k.writeExtraInfoToAttr && t && (s.__componentInstanceId = j++, t.setAttribute("exparser:info-component-id", s.__componentInstanceId));
+        debugger;
         o = s.__templateInstance = r.template.createInstance(s, o);
         s.__propData = o.data;
         var u = a.separateInnerData;
@@ -77984,7 +77985,6 @@ var __virtualDOMDataThread__ = !1,
       },
       at = !0,
       st = function (e) {
-        debugger;
         Object(U.addFlowCount)();
         var t = Date.now(),
           n = e.operationFlow.iterator,

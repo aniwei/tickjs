@@ -53,7 +53,7 @@ export class TransitRuntime extends TinyEmitter {
         query
       } : {
         ...launchOptions,
-        openType: type
+        openType: 'appLaunch'
       };
 
       this.isLaunched = true;
