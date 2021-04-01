@@ -1,0 +1,1 @@
+import QuickJS from 'quickjs-emscripten';

@@ -1,0 +1,23 @@
+var x=['./pages/index/index.wxml'];d_[x[0]]={}
+var m0=function(e,s,r,gg){
+var z=gz$gwx_1()
+var oB=_n('open-data')
+_rz(z,oB,'type',0,e,s,gg)
+_(r,oB)
+var xC=_n('button')
+_rz(z,xC,'bindtap',1,e,s,gg)
+var oD=_oz(z,2,e,s,gg)
+_(xC,oD)
+_(r,xC)
+var fE=_v()
+_(r,fE)
+var cF=function(oH,hG,cI,gg){
+var lK=_n('button')
+var aL=_oz(z,6,oH,hG,gg)
+_(lK,aL)
+_(cI,lK)
+return cI
+}
+fE.wxXCkey=2
+_2z(z,5,cF,e,s,gg,fE,'itemName','idx','')
+return r

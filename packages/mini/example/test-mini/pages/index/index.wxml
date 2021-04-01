@@ -1,6 +1,3 @@
-<!--index.wxml-->
-<open-data type="userAvatarUrl"></open-data>
-<button wx:if="{{canIUse}}" bindtap="getUserInfo"> 获取头像昵称 kkkooo</button>
-<text>{{canIUse}}</text>
-<button>{{userInfo.t}}</button>
-<button>{{userInfo.t}}</button>
+<button bindtap="onCreate"> 增加 + </button>
+<button bindtap="onCreate"> 增加 1 </button>
+
